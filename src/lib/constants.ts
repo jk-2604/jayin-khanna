@@ -1,9 +1,6 @@
+
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Me' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/skills', label: 'Skills' },
-  { href: '/projects', label: 'Projects' },
   { href: '/articles', label: 'Learning Vault' },
   { href: '/thoughts', label: 'Philosophy Blog' },
   { href: '/contact', label: 'Contact Me' },

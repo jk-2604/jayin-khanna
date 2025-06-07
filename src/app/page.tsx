@@ -3,6 +3,8 @@ import HeroSection from '@/components/home/HeroSection';
 import QuoteCarousel from '@/components/home/QuoteCarousel';
 import { curateQuotes } from '@/ai/flows/curate-quotes';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const revalidate = 3600; // Revalidate quotes every hour
 
@@ -24,6 +26,13 @@ async function getQuotes() {
   }
 }
 
+const internalPageLinks = [
+  { href: '/about', label: 'About Me' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/projects', label: 'Projects' },
+];
+
 export default async function HomePage() {
   const quotes = await getQuotes();
 
@@ -32,11 +41,19 @@ export default async function HomePage() {
       <HeroSection />
       <Separator className="my-8 md:my-12 bg-border/40" />
       <QuoteCarousel initialQuotes={quotes} />
-      {/* Add more sections here as needed */}
+      <Separator className="my-8 md:my-12 bg-border/40" />
       <section className="py-16 md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl font-headline mb-4 text-primary">More to Explore</h2>
-          <p className="text-lg text-muted-foreground">Discover my work, skills, and thoughts.</p>
+          <h2 className="text-3xl font-headline mb-8 text-primary">More to Explore</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {internalPageLinks.map((link) => (
+              <Button key={link.href} asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 hover:text-primary-foreground">
+                <Link href={link.href}>
+                  {link.label}
+                </Link>
+              </Button>
+            ))}
+          </div>
         </div>
       </section>
     </div>
