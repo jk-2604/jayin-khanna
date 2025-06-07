@@ -1,3 +1,4 @@
+
 import HeroSection from '@/components/home/HeroSection';
 import QuoteCarousel from '@/components/home/QuoteCarousel';
 import { curateQuotes } from '@/ai/flows/curate-quotes';
@@ -13,7 +14,7 @@ async function getQuotes() {
     });
     return curated.quotes;
   } catch (error) {
-    console.error("Failed to fetch quotes:", error);
+    console.error(`Failed to fetch quotes. Details: ${error instanceof Error ? `${error.message}${error.stack ? `\nStack: ${error.stack}` : ''}` : String(error)}`);
     return [
       "The only true wisdom is in knowing you know nothing. - Socrates",
       "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",

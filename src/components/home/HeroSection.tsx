@@ -1,3 +1,4 @@
+"use client";
 import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
