@@ -1,37 +1,127 @@
+
 export const metadata = {
   title: 'Experience | Jayin Khanna',
   description: 'Details of Jayin Khanna\'s internships and research experience.',
 };
 
-// Placeholder data for experience items
+// Updated experience data based on user input
 const experienceData = [
   {
-    id: 'exp1',
-    role: 'AI Research Intern',
-    institution: 'FutureTech Labs',
-    supervisor: 'Dr. Evelyn Reed',
-    period: 'Summer 2023',
+    id: 'exp_jk_1',
+    role: 'Machine Learning Research Intern',
+    institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
+    supervisor: 'Dr. Shilpi Modi, Sc.’E’',
+    period: '2024',
     description: [
-      'Developed novel algorithms for anomaly detection in financial markets.',
-      'Contributed to a paper on reinforcement learning applications.',
-      'Utilized Python, PyTorch, and Kafka for model development and deployment.'
+      'Developed a Convolutional Neural Network (CNN) ResNet model for classifying sEMG stress measurements, focusing on improving accuracy and generalization.',
+      'Preprocessed sEMG data using PyEMGPipeline, determining that raw data provided better performance for CNN classification.',
+      'Improved model accuracy from 91% to 97.98% with ResNet architecture, achieving 98% overall accuracy and near-perfect precision, recall, and F1 scores.',
+      'Implemented AlexNet architecture into the model to further enhance accuracy.',
+      'Incorporated and optimized sequence models such as RNNs and LSTMs to improve classification performance and generalizability with expanded and reacquired datasets.',
+      'Research work selected for a presentation in the SUMMIT 2.0 Conference.'
     ],
-    links: [{ label: 'Project Report', url: '#' }],
-    badges: ['Deep Learning', 'Finance']
+    links: [
+      { label: 'Certificate', url: '#' },
+      { label: 'Project Report', url: '#' },
+      { label: 'Conference Certificate', url: '#' }
+    ],
+    badges: ['Machine Learning', 'CNN', 'sEMG Classification', 'ResNet']
   },
   {
-    id: 'exp2',
-    role: 'Neuroscience Research Assistant',
-    institution: 'Cognitive Science Institute',
-    supervisor: 'Prof. Alan Grant',
-    period: '2022 - 2023',
+    id: 'exp_jk_2',
+    role: 'Machine Learning Research Intern',
+    institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
+    supervisor: 'Dr. Shilpi Modi, Sc.’E’',
+    period: 'Present',
     description: [
-      'Assisted in fMRI data analysis for studies on memory formation.',
-      'Implemented data preprocessing pipelines using MATLAB and Python.',
-      'Co-authored a poster presentation for an international conference.'
+      'Working on the application of network control theory to understand cognitive state transitions in the brain.',
+      'Developing deep learning models to extract insights from diffusion spectrum imaging (DSI) and diffusion tensor imaging (DTI) data.',
+      'Implementing graph neural networks (GNNs) to study the role of hubs and weakly connected regions in cognitive function.'
+    ],
+    links: [],
+    badges: ['Cognitive Neuroscience', 'Deep Learning', 'GNNs', 'DSI/DTI Analysis']
+  },
+  {
+    id: 'exp_jk_3',
+    role: 'Statistics Research Intern',
+    institution: 'University of California Santa Cruz, CA (ISRP)',
+    supervisor: 'Prof. Bruno Sansó',
+    period: '2024',
+    description: [
+      'Conducted advanced research in Analysis of Time-Varying Quantiles for Environmental Variables, under the mentorship of Professor Dr. Bruno Sansó.',
+      'Focused on developing and applying statistical methodologies to environmental data, specifically in the context of Atmospheric Rivers along the California coast.',
+      'Gained expertise in data analysis, statistical modelling, and interpretation of time-varying quantiles.',
+      'Performed data pre-processing and statistical analysis of time series data of NetCDF files using Python libraries: statsmodels, NumPy, Pandas, Matplotlib.'
+    ],
+    links: [],
+    badges: ['Statistics', 'Environmental Data', 'Time Series', 'Python']
+  },
+  {
+    id: 'exp_jk_4',
+    role: 'Machine Learning Intern',
+    institution: 'RightProfile by Syntellect',
+    supervisor: undefined, // Supervisor not specified
+    period: 'Dec 2024 – Present',
+    description: [
+      'Part of the Research and Development team to develop Computer Vision and Deep Learning models to automate the annotation of 10,000+ raw images.',
+      'Conducting R&D on object detection models such as YOLOv8, YOLOv5, Detectron2, and Faster R-CNN to retrain and enhance performance of the existing model.'
+    ],
+    links: [],
+    badges: ['Computer Vision', 'Object Detection', 'Deep Learning', 'YOLO']
+  },
+  {
+    id: 'exp_jk_5',
+    role: 'Machine Learning Intern',
+    institution: 'The Habitats Trust',
+    supervisor: undefined, // Supervisor not specified
+    period: 'Dec 2024 – Present',
+    description: [
+      'Conducting research and development on modern Computer Vision and object detection models such as MegaDetector, Zamba, and Timelapse to classify and analyze wildlife in camera trap images.',
+      'Part of the Tech4Conservation Project.'
     ],
     links: [{ label: 'Certificate', url: '#' }],
-    badges: ['Neuroscience', 'Data Analysis']
+    badges: ['Wildlife AI', 'Computer Vision', 'Conservation Tech', 'Object Detection']
+  },
+  {
+    id: 'exp_jk_6',
+    role: 'Summer Research Intern',
+    institution: 'Polymath Jr.',
+    supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)', // Collaborators listed as supervisors
+    period: 'June 2024 – Aug 2024',
+    description: [
+      'Engaged in research on Non-Local Models.',
+      'Collaborated with Professors Petronela Radu and Mikil Foss from the University of Nebraska Lincoln.',
+      'Focused on developing and analyzing mathematical models that incorporate non-local interactions.'
+    ],
+    links: [],
+    badges: ['Mathematical Modeling', 'Non-Local Models', 'Research']
+  },
+  {
+    id: 'exp_jk_7',
+    role: 'Selected Participant',
+    institution: 'Mathematics Training and Talent Search Program (MTTS 24)',
+    supervisor: 'Mentors: Prof. Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), Dr. Ajit Kumar (ICT Mumbai)',
+    period: '2024',
+    description: [
+      'Selected from over 3,000 applicants all over India for one of 180 seats.',
+      'Mentored by Professor Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), and Dr. Ajit Kumar (ICT Mumbai).',
+      'Completed rigorous coursework and led discussions in Linear Algebra, Real Analysis, Proof writing and Number Theory.'
+    ],
+    links: [{ label: 'Certificate', url: '#' }],
+    badges: ['Mathematics', 'Proof Writing', 'Linear Algebra', 'Real Analysis']
+  },
+  {
+    id: 'exp_jk_8',
+    role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
+    institution: 'Academic Institution (Assumed)', // Institution for TA role not explicitly stated
+    supervisor: undefined,
+    period: '2025',
+    description: [
+      'Provide video solutions to undergraduate students for important problems and quizzes, breaking down concepts intuitively.',
+      'Help students understand not just the solutions but also how to approach problems and develop mathematical intuition.'
+    ],
+    links: [],
+    badges: ['Teaching Assistant', 'Linear Algebra', 'Mathematics Education']
   }
 ];
 
@@ -60,11 +150,21 @@ const ExperiencePage = () => {
           <div key={exp.id} className="p-6 rounded-lg border border-border bg-card shadow-lg">
             <h2 className="text-2xl font-headline text-primary mb-1">{exp.role}</h2>
             <p className="text-lg text-foreground/80 mb-1">{exp.institution}</p>
-            <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor} | {exp.period}</p>
+            {exp.supervisor && <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor}</p>}
+            <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
             <ul className="list-disc list-inside space-y-1 my-3 text-foreground/90">
               {exp.description.map((point, i) => <li key={i}>{point}</li>)}
             </ul>
-            <div className="flex space-x-2 mt-3">
+            {exp.links && exp.links.length > 0 && (
+              <div className="my-3">
+                {exp.links.map((link, i) => (
+                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline mr-4 text-sm">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+            <div className="flex flex-wrap gap-2 mt-3">
               {exp.badges.map(badge => (
                 <span key={badge} className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{badge}</span>
               ))}
