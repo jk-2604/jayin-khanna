@@ -1,4 +1,6 @@
 
+import Image from 'next/image';
+
 export const metadata = {
   title: 'Experience | Jayin Khanna',
   description: 'Details of Jayin Khanna\'s internships and research experience.',
@@ -10,6 +12,9 @@ const experienceData = [
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
+    logoSrc: 'https://placehold.co/80x40.png?text=DRDO',
+    logoAlt: 'DRDO Logo',
+    dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: '2024',
     description: [
@@ -31,6 +36,9 @@ const experienceData = [
     id: 'exp_jk_2',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
+    logoSrc: 'https://placehold.co/80x40.png?text=DRDO',
+    logoAlt: 'DRDO Logo',
+    dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: 'Present',
     description: [
@@ -45,6 +53,9 @@ const experienceData = [
     id: 'exp_jk_3',
     role: 'Statistics Research Intern',
     institution: 'University of California Santa Cruz, CA (ISRP)',
+    logoSrc: 'https://placehold.co/80x40.png?text=UCSC',
+    logoAlt: 'UCSC Logo',
+    dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
     period: '2024',
     description: [
@@ -60,6 +71,9 @@ const experienceData = [
     id: 'exp_jk_4',
     role: 'Machine Learning Intern',
     institution: 'RightProfile by Syntellect',
+    logoSrc: 'https://placehold.co/80x40.png?text=RightProfile',
+    logoAlt: 'RightProfile Logo',
+    dataAiHint: 'tech company',
     supervisor: undefined, // Supervisor not specified
     period: 'Dec 2024 – Present',
     description: [
@@ -73,6 +87,9 @@ const experienceData = [
     id: 'exp_jk_5',
     role: 'Machine Learning Intern',
     institution: 'The Habitats Trust',
+    logoSrc: 'https://placehold.co/80x40.png?text=HabitatsTrust',
+    logoAlt: 'The Habitats Trust Logo',
+    dataAiHint: 'conservation organization',
     supervisor: undefined, // Supervisor not specified
     period: 'Dec 2024 – Present',
     description: [
@@ -86,6 +103,9 @@ const experienceData = [
     id: 'exp_jk_6',
     role: 'Summer Research Intern',
     institution: 'Polymath Jr.',
+    logoSrc: 'https://placehold.co/80x40.png?text=PolymathJr',
+    logoAlt: 'Polymath Jr. Logo',
+    dataAiHint: 'education program',
     supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)', // Collaborators listed as supervisors
     period: 'June 2024 – Aug 2024',
     description: [
@@ -100,6 +120,9 @@ const experienceData = [
     id: 'exp_jk_7',
     role: 'Selected Participant',
     institution: 'Mathematics Training and Talent Search Program (MTTS 24)',
+    logoSrc: 'https://placehold.co/80x40.png?text=MTTS',
+    logoAlt: 'MTTS Program Logo',
+    dataAiHint: 'math program',
     supervisor: 'Mentors: Prof. Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), Dr. Ajit Kumar (ICT Mumbai)',
     period: '2024',
     description: [
@@ -114,6 +137,9 @@ const experienceData = [
     id: 'exp_jk_8',
     role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
     institution: 'Academic Institution (Assumed)', // Institution for TA role not explicitly stated
+    logoSrc: 'https://placehold.co/80x40.png?text=University', // Generic placeholder
+    logoAlt: 'Academic Institution Logo',
+    dataAiHint: 'university building',
     supervisor: undefined,
     period: '2025',
     description: [
@@ -132,24 +158,28 @@ const ExperiencePage = () => {
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
         <p className="text-xl text-muted-foreground">A Journey Through Research and Internships</p>
       </header>
-      <div className="text-center text-muted-foreground">
-        <p className="text-lg">
-          The experience page will feature a vertical animated timeline.
-          Each item will expand on click to show details like role, institution, description, and links.
-        </p>
-        <p className="mt-4">This section is currently under development. Please check back soon!</p>
-      </div>
-      {/* 
-        Implementation detail:
-        - A VerticalTimeline component will be created.
-        - Each item will be an expandable card.
-        - Icons/badges for domains (Deep Learning, Finance, Neuroscience) will be included.
-      */}
+      
       <div className="mt-12 space-y-12 max-w-3xl mx-auto">
         {experienceData.map(exp => (
           <div key={exp.id} className="p-6 rounded-lg border border-border bg-card shadow-lg">
-            <h2 className="text-2xl font-headline text-primary mb-1">{exp.role}</h2>
-            <p className="text-lg text-foreground/80 mb-1">{exp.institution}</p>
+            <div className="flex items-start space-x-4 mb-2">
+              {exp.logoSrc && (
+                <div className="flex-shrink-0">
+                  <Image 
+                    src={exp.logoSrc} 
+                    alt={exp.logoAlt || `${exp.institution} logo`} 
+                    width={80} 
+                    height={40} 
+                    className="rounded object-contain"
+                    data-ai-hint={exp.dataAiHint}
+                  />
+                </div>
+              )}
+              <div className="flex-grow">
+                <h2 className="text-2xl font-headline text-primary mb-1">{exp.role}</h2>
+                <p className="text-lg text-foreground/80 mb-1">{exp.institution}</p>
+              </div>
+            </div>
             {exp.supervisor && <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor}</p>}
             <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
             <ul className="list-disc list-inside space-y-1 my-3 text-foreground/90">
