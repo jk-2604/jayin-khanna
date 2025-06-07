@@ -11,25 +11,61 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projectsData: Project[] = [
   {
-    slug: 'project-alpha',
-    title: 'Project Alpha: Advanced GNNs for Financial Forecasting',
-    year: 2023,
-    tags: ['#GNN', '#Finance', '#DeepLearning'],
-    shortAbstract: 'An innovative approach using Graph Neural Networks to predict stock market trends with higher accuracy. Leveraged temporal graph embeddings and attention mechanisms.'
+    slug: 'domain-adaptation-medical-imaging',
+    title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
+    year: '2024-2025',
+    tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
+    shortAbstract: `Research Supervisor: Dr. Saurabh Janardan Shigwan
+
+• Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.
+• Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant features, enabling effective cross-modality image analysis.
+• Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric transformations to reduce domain shift.
+• Previously worked on deep learning models to correct MRI motion artifacts in real-time using k-space data.`
   },
   {
-    slug: 'project-beta',
-    title: 'Project Beta: MRI Brain Scans Analysis with Non-local Models',
-    year: 2022,
-    tags: ['#MRI', '#Neuroscience', '#NonLocalModels'],
-    shortAbstract: 'Utilized non-local deep learning models to identify early indicators of neurodegenerative diseases from MRI scans. Showcased improved sensitivity over traditional methods.'
+    slug: 'investor-behavior-analysis-dl',
+    title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
+    year: '2024-2025',
+    tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
+    shortAbstract: `Research Supervisor: Dr. Ashish Vazirani
+
+• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance, and decision-making patterns in Shark Tank videos.
+• Utilized EmotioNet for facial expression recognition and NLP models for the analysis of sentiment and intent from textual transcripts.
+• Integrated multimodal data (visual and textual) to predict key factors influencing investment decisions.`
   },
   {
-    slug: 'project-gamma',
-    title: 'Project Gamma: Domain Adaptation for Cross-Lingual NLP',
-    year: 2023,
-    tags: ['#NLP', '#DomainAdaptation', '#AI'],
-    shortAbstract: 'Developed techniques for adapting NLP models to new languages with limited labeled data, enhancing performance in low-resource scenarios.'
+    slug: 'financial-markets-time-series-sentiment',
+    title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
+    year: '2024-2025',
+    tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
+    shortAbstract: `Research Supervisor: Dr. Charu Sharma (Mathematics Dept, SNU)
+
+• Analyzing Time series Patterns and sentiment in US financial markets.
+• Implemented Sequential Deep learning and ML models to understand market sentiment and its impact on financial trends.
+• Working with the past 5-7 years of daily data of 31 potential financial indicators to predict financial trends. Applying Dimensionality Reduction Techniques, Statistical Time-Series Analysis, and DL Sequential Models.`
+  },
+  {
+    slug: 'filtering-recommendation-model',
+    title: 'Filtering-Based Recommendation ML Model',
+    year: '2024',
+    tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
+    shortAbstract: `• Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital Connect, a matchmaking platform for investors and startups.
+• Developed an algorithm that analyzes investor criteria and recommends startups, assigning a similarity score to each match. This project secured a Top 16 position in the SNU Ideathon competition.`
+  },
+  {
+    slug: 'self-directed-learning-advanced-ai',
+    title: 'Self-Directed Learning: Advanced AI Implementations',
+    year: 'Ongoing',
+    tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
+    shortAbstract: `Reading Projects:
+• LLMs from Scratch
+• Neural Temporal Point Processes
+• Image and Video Dehazing models
+
+Other Projects:
+• AI Othello game from scratch
+• Computer Vision Dehazing models implementation
+• LLMs hard-coded from scratch`
   }
 ];
 
@@ -67,7 +103,12 @@ const ProjectsPage = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-foreground/80 line-clamp-4">{project.shortAbstract}</CardDescription>
+              {/* Displaying first few lines of abstract, or a specific part */}
+              <CardDescription className="text-foreground/80 line-clamp-4">
+                {project.shortAbstract.split('\n')[0]} 
+                {project.shortAbstract.split('\n')[1] && ` ${project.shortAbstract.split('\n')[1]}`}
+                {project.shortAbstract.split('\n')[2] && ` ${project.shortAbstract.split('\n')[2]}`}
+              </CardDescription>
             </CardContent>
             <CardFooter>
               <span className="text-sm text-primary">Click to learn more</span>
@@ -92,6 +133,7 @@ const ProjectsPage = () => {
             </DialogHeader>
             
             <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
+              {/* Using whitespace-pre-line to respect newlines in the shortAbstract */}
               <p className="text-foreground/90 leading-relaxed whitespace-pre-line">{currentProject.shortAbstract}</p>
             </ScrollArea>
             
@@ -109,5 +151,3 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
-
-    

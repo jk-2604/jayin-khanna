@@ -24,7 +24,7 @@ export interface Skill {
 export interface Project {
   slug: string;
   title: string;
-  year: number;
+  year: string; // Changed from number to string to accommodate ranges like "2024-2025"
   tags: string[];
   shortAbstract: string;
   // Add more fields for full project details
