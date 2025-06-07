@@ -12,8 +12,8 @@ const experienceData = [
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: 'https://placehold.co/80x40.png?text=DRDO',
-    logoAlt: 'DRDO Logo',
+    logoSrc: '/images/drdo-inmas-logo.png', // Updated path
+    logoAlt: 'DRDO INMAS Logo', // Updated alt text
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: '2024',
@@ -36,8 +36,8 @@ const experienceData = [
     id: 'exp_jk_2',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: 'https://placehold.co/80x40.png?text=DRDO',
-    logoAlt: 'DRDO Logo',
+    logoSrc: '/images/drdo-inmas-logo.png', // Updated path
+    logoAlt: 'DRDO INMAS Logo', // Updated alt text
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: 'Present',
