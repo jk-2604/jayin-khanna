@@ -39,18 +39,18 @@ export const educationTimelineData: TimelineItem[] = [
 export const achievementTimelineData: TimelineItem[] = [
   {
     id: 'ach_rank_1',
-    date: '2022 - 2026',
+    date: '2026 (Expected)',
     title: 'Rank 1 - BSc (Research) in Mathematics',
     subtitle: 'Shiv Nadar University',
-    description: 'Rank 1 out of all 19 students pursuing BSc (Research) in Mathematics (Expected 2026). (Certificate Link to be added)',
+    description: 'Rank 1 out of all 19 students pursuing BSc (Research) in Mathematics.',
     iconIdentifier: 'Lightbulb',
   },
   {
     id: 'ach_summit_2_0',
-    date: '2024', // Assuming a recent year for the conference
+    date: '2024',
     title: 'Research Presentation at SUMMIT 2.0',
     subtitle: 'Shiv Nadar University',
-    description: 'Research work on Preprocessing Pipeline and Application of CNNs for Surface Electromyography (sEMG) Signal Classification selected for a presentation. (Certificate: Link to be added)',
+    description: 'Research work on Preprocessing Pipeline and Application of CNNs for Surface Electromyography (sEMG) Signal Classification selected for a presentation. (Certificate: Link to be provided)',
     iconIdentifier: 'Lightbulb',
   },
   {
@@ -71,7 +71,7 @@ export const achievementTimelineData: TimelineItem[] = [
   },
   {
     id: 'ach_snu_ideathon',
-    date: '2023', // Assuming a year during university
+    date: '2023',
     title: '11th Position in SNU Ideathon',
     subtitle: 'Startup Idea Competition, Shiv Nadar University',
     description: 'Secured 11th Position for Startup Idea among 350+ teams in SNU’s Ideathon competition.',
@@ -81,15 +81,21 @@ export const achievementTimelineData: TimelineItem[] = [
 
 
 export const skillsData: Skill[] = [
-  { id: 's1', name: 'Python', level: 95, category: 'Programming Languages' },
-  { id: 's2', name: 'TypeScript', level: 85, category: 'Programming Languages' },
-  { id: 's3', name: 'PyTorch', level: 90, category: 'Tools & Libraries' },
-  { id: 's4', name: 'TensorFlow', level: 80, category: 'Tools & Libraries' },
-  { id: 's5', name: 'Scikit-learn', level: 88, category: 'Tools & Libraries' },
-  { id: 's6', name: 'Linear Algebra', level: 92, category: 'Mathematical Domains' },
-  { id: 's7', name: 'Calculus', level: 90, category: 'Mathematical Domains' },
-  { id: 's8', name: 'Probability & Statistics', level: 85, category: 'Mathematical Domains' },
-  { id: 's9', name: 'Graph Neural Networks', level: 90, category: 'Research Areas' },
-  { id: 's10', name: 'Domain Adaptation', level: 85, category: 'Research Areas' },
-];
+  // Programming Languages
+  { id: 's_python', name: 'Python', level: 95, category: 'Programming Languages' },
+  { id: 's_c', name: 'C', level: 80, category: 'Programming Languages' },
+  { id: 's_r', name: 'R', level: 80, category: 'Programming Languages' },
 
+  // Tools & Libraries
+  { id: 's_pytorch', name: 'PyTorch', level: 90, category: 'Tools & Libraries' },
+  { id: 's_tensorflow', name: 'TensorFlow', level: 90, category: 'Tools & Libraries' },
+  { id: 's_keras', name: 'Keras', level: 85, category: 'Tools & Libraries' },
+  { id: 's_opencv', name: 'OpenCV', level: 88, category: 'Tools & Libraries' },
+  { id: 's_sklearn', name: 'scikit-learn', level: 92, category: 'Tools & Libraries' },
+  { id: 's_numpy', name: 'NumPy', level: 95, category: 'Tools & Libraries' },
+  { id: 's_pandas', name: 'Pandas', level: 95, category: 'Tools & Libraries' },
+  { id: 's_matplotlib', name: 'Matplotlib', level: 90, category: 'Tools & Libraries' },
+  { id: 's_seaborn', name: 'Seaborn', level: 88, category: 'Tools & Libraries' },
+  { id: 's_scipy', name: 'SciPy', level: 85, category: 'Tools & Libraries' },
+  { id: 's_eviews', name: 'EViews', level: 85, category: 'Tools & Libraries' },
+];

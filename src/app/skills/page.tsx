@@ -1,3 +1,4 @@
+
 import SkillBar from '@/components/skills/SkillBar';
 import { skillsData } from '@/lib/data';
 import type { Skill } from '@/lib/types';
@@ -21,8 +22,9 @@ const SkillsPage = () => {
   const categoryIcons: Record<string, React.ReactNode> = {
     'Programming Languages': <Cpu className="h-6 w-6 text-accent" />,
     'Tools & Libraries': <Wrench className="h-6 w-6 text-accent" />,
-    'Mathematical Domains': <Sigma className="h-6 w-6 text-accent" />,
-    'Research Areas': <BarChart3 className="h-6 w-6 text-accent" />,
+    // Removed 'Mathematical Domains' and 'Research Areas' as they are not in the new skillsData
+    // 'Mathematical Domains': <Sigma className="h-6 w-6 text-accent" />,
+    // 'Research Areas': <BarChart3 className="h-6 w-6 text-accent" />,
   };
 
   return (
@@ -37,7 +39,7 @@ const SkillsPage = () => {
           <Card key={category} className="shadow-xl border-border hover:border-primary transition-colors duration-300">
             <CardHeader>
               <div className="flex items-center space-x-3">
-                {categoryIcons[category] || <BarChart3 className="h-6 w-6 text-accent" />}
+                {categoryIcons[category] || <BarChart3 className="h-6 w-6 text-accent" /> /* Fallback icon */}
                 <CardTitle className="text-2xl text-primary">{category}</CardTitle>
               </div>
             </CardHeader>
