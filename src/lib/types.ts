@@ -5,13 +5,19 @@ export interface Quote {
   author?: string;
 }
 
+export interface EducationDetail {
+  text: string;
+  iconName?: string; // Lucide icon name for the bullet point
+}
+
 export interface TimelineItem {
   id: string;
   date: string;
   title: string;
   subtitle?: string;
-  description: string;
-  iconIdentifier?: string; // Changed from icon: React.ReactNode
+  description: string; // Used for achievements or general text
+  iconIdentifier?: string; // Main icon for the card
+  details?: EducationDetail[]; // Specific bullet-point details, primarily for education
 }
 
 export interface Skill {
@@ -25,7 +31,7 @@ export interface Skill {
 export interface Project {
   slug: string;
   title: string;
-  year: string; 
+  year: string;
   tags: string[];
   shortAbstract: string;
 }

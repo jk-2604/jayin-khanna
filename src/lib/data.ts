@@ -1,5 +1,6 @@
 
-import type { TimelineItem, Skill } from './types';
+import type { TimelineItem, Skill, EducationDetail } from './types';
+import { Award, BookOpen, Cpu, ChevronRight, TrendingUp, Users, FileText, Percent } from 'lucide-react'; // Added new icons
 
 export const educationTimelineData: TimelineItem[] = [
   {
@@ -7,32 +8,51 @@ export const educationTimelineData: TimelineItem[] = [
     date: '2022 - 2026 (Expected)',
     title: 'B.Sc. (Research) in Mathematics & Computing',
     subtitle: 'Shiv Nadar University, Delhi-NCR',
-    description: 'Pursuing Bachelor of Science in Mathematics. Minor in Computer Science and Engineering. Specialisation in AI & ML, and Mathematical Finance. (Rank 1 Certificate: Link to be added)',
+    description: '', // Description can be a summary if needed, details are primary
     iconIdentifier: 'GraduationCap',
+    details: [
+      { text: 'Pursuing Bachelor of Science in Mathematics.', iconName: 'BookOpen' },
+      { text: 'Minor in Computer Science and Engineering.', iconName: 'Cpu' },
+      { text: 'Specialisation in AI & ML, and Mathematical Finance.', iconName: 'TrendingUp' },
+      { text: 'Rank 1 (Rank Certificate Link to be added).', iconName: 'Award' },
+    ],
   },
   {
     id: 'edu_iitm',
     date: '2023 - 2027 (Expected)',
     title: 'B.S. in Data Science and Applications',
     subtitle: 'IIT-Madras (Online Degree Program)',
-    description: 'Pursuing BS in Data Science and Applications. CGPA: 9.13. (Foundation Level Certificate: Link to be added)',
+    description: '',
     iconIdentifier: 'GraduationCap',
+    details: [
+      { text: 'Pursuing BS in Data Science and Applications.', iconName: 'BookOpen' },
+      { text: 'CGPA: 9.13.', iconName: 'ChevronRight' },
+      { text: '(Foundation Level Certificate to be added).', iconName: 'FileText' },
+    ],
   },
   {
     id: 'edu_suncity_xii',
     date: 'Completed 2022',
     title: 'Senior Secondary (Class XII - CBSE)',
     subtitle: 'Suncity School, Gurugram',
-    description: 'Subjects: Physics, Mathematics, Chemistry, Economics, and English. Overall percentage: 94.3%. Received Certificate of Merit for scoring 100% in Mathematics CBSE Class XII Board exams.',
+    description: '',
     iconIdentifier: 'GraduationCap',
+    details: [
+      { text: 'Subjects: Physics, Mathematics, Chemistry, Economics, and English.', iconName: 'ChevronRight' },
+      { text: 'Overall percentage: 94.3%.', iconName: 'Percent' },
+      { text: 'Received Certificate of Merit for scoring 100% in Mathematics CBSE Class XII Board exams.', iconName: 'Award' },
+    ],
   },
   {
     id: 'edu_suncity_x',
     date: 'Completed 2020',
     title: 'Secondary (Class X - CBSE)',
     subtitle: 'Suncity School, Gurugram',
-    description: 'Overall percentage: 96.4%.',
+    description: '',
     iconIdentifier: 'GraduationCap',
+    details: [
+      { text: 'Overall percentage: 96.4%.', iconName: 'Percent' },
+    ],
   },
 ];
 
@@ -71,7 +91,7 @@ export const achievementTimelineData: TimelineItem[] = [
   },
   {
     id: 'ach_snu_ideathon',
-    date: '2023',
+    date: '2023', // Assuming 2023, adjust if different
     title: '11th Position in SNU Ideathon',
     subtitle: 'Startup Idea Competition, Shiv Nadar University',
     description: 'Secured 11th Position for Startup Idea among 350+ teams in SNU’s Ideathon competition.',
@@ -89,13 +109,14 @@ export const skillsData: Skill[] = [
   // Tools & Libraries
   { id: 's_pytorch', name: 'PyTorch', category: 'Tools & Libraries', description: 'Extensive use of PyTorch for building and training deep neural networks, including CNNs, RNNs, and GNNs.', iconName: 'BrainCircuit' },
   { id: 's_tensorflow', name: 'TensorFlow', category: 'Tools & Libraries', description: 'Experience with TensorFlow and Keras API for developing and deploying machine learning models across various platforms.', iconName: 'Layers' },
-  { id: 's_keras', name: 'Keras', category: 'Tools & Libraries', description: 'Leveraged Keras for rapid prototyping and building user-friendly deep learning models.', iconName: 'Layers' },
+  { id: 's_keras', name: 'Keras', category: 'Tools & Libraries', description: 'Leveraged Keras for rapid prototyping and building user-friendly deep learning models.', iconName: 'Layers' }, // Reusing Layers icon
   { id: 's_opencv', name: 'OpenCV', category: 'Tools & Libraries', description: 'Applied OpenCV for computer vision tasks such as image processing, object detection, and video analysis.', iconName: 'Camera' },
-  { id: 's_sklearn', name: 'scikit-learn', category: 'Tools & Libraries', description: 'Proficient with scikit-learn for classical machine learning algorithms, model evaluation, and data preprocessing.', iconName: 'Shapes' }, // Shapes is a generic icon
+  { id: 's_sklearn', name: 'scikit-learn', category: 'Tools & Libraries', description: 'Proficient with scikit-learn for classical machine learning algorithms, model evaluation, and data preprocessing.', iconName: 'Shapes' },
   { id: 's_numpy', name: 'NumPy', category: 'Tools & Libraries', description: 'Fundamental tool for numerical computations, array manipulations, and mathematical operations in Python projects.', iconName: 'Sigma' },
   { id: 's_pandas', name: 'Pandas', category: 'Tools & Libraries', description: 'Used Pandas extensively for data manipulation, cleaning, analysis, and working with structured datasets.', iconName: 'Table' },
   { id: 's_matplotlib', name: 'Matplotlib', category: 'Tools & Libraries', description: 'Created a wide range of static, animated, and interactive visualizations in Python using Matplotlib.', iconName: 'LineChart' },
   { id: 's_seaborn', name: 'Seaborn', category: 'Tools & Libraries', description: 'Utilized Seaborn for creating informative and attractive statistical graphics and visualizations.', iconName: 'BarChartHorizontalBig' },
   { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Leveraged SciPy for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
-  { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: 'Experience with EViews for econometric analysis, time series modeling, and forecasting.', iconName: 'TrendingUp' },
+  { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: 'Experience with EViews for econometric analysis, time series modeling, and forecasting.', iconName: 'TrendingUp' }, // Using TrendingUp from existing icons
 ];
+
