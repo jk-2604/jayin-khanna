@@ -1,8 +1,9 @@
+
 import Timeline from '@/components/about/Timeline';
 import { educationTimelineData, achievementTimelineData } from '@/lib/data';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Zap, BookOpen } from 'lucide-react';
+import { CheckCircle, Zap, BookOpen, GraduationCap } from 'lucide-react';
 
 export const metadata = {
   title: 'About Me | Jayin Khanna',

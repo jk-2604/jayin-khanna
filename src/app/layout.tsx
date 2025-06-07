@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -5,6 +6,21 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { SearchModalProvider } from '@/contexts/SearchModalContext';
 import GlobalSearchModalListener from '@/components/search/GlobalSearchModalListener';
+import { Inter, Playfair_Display } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700'],
+  variable: '--font-inter',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '700'],
+  variable: '--font-playfair-display',
+});
 
 export const metadata: Metadata = {
   title: 'Verity Vista | Jayin Khanna',
@@ -17,13 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable} dark`}>
+      {/* The <head> tag is automatically managed by Next.js using the metadata export */}
       <body className="font-body antialiased bg-background text-foreground min-h-screen flex flex-col">
         <SearchModalProvider>
           <GlobalSearchModalListener />
