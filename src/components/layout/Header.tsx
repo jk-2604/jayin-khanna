@@ -1,3 +1,4 @@
+
 "use client";
 import Link from 'next/link';
 import { NAV_LINKS } from '@/lib/constants';
@@ -17,27 +18,32 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="font-headline text-2xl font-bold text-primary">
-          Jayin Khanna
-        </Link>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="relative text-foreground/80 hover:text-primary transition-colors"
-            >
-              {link.label}
-              {pathname === link.href && (
-                <motion.div
-                  className="absolute bottom-[-4px] left-0 right-0 h-[2px] bg-primary"
-                  layoutId="underline"
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
+        {/* Group for Name and Navigation Links */}
+        <div className="flex items-center space-x-6"> {/* This space-x will be between Name and Nav block */}
+          <Link href="/" className="font-headline text-2xl font-bold text-primary">
+            Jayin Khanna
+          </Link>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium"> {/* This space-x is between nav links */}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="relative text-foreground/80 hover:text-primary transition-colors"
+              >
+                {link.label}
+                {pathname === link.href && (
+                  <motion.div
+                    className="absolute bottom-[-4px] left-0 right-0 h-[2px] bg-primary"
+                    layoutId="underline"
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Group for Icons (Search and Mobile Menu) */}
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="icon" onClick={openModal} aria-label="Open search">
             <Search className="h-5 w-5" />
