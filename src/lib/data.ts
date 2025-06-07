@@ -3,19 +3,35 @@ import type { TimelineItem, Skill } from './types';
 
 export const educationTimelineData: TimelineItem[] = [
   {
-    id: 'edu1',
-    date: '2018 - 2022',
-    title: 'B.Tech in Computer Science',
-    subtitle: 'XYZ University',
-    description: 'Focused on AI and Machine Learning. Graduated with honors.',
+    id: 'edu_snu',
+    date: '2022 - 2026 (Expected)',
+    title: 'B.Sc. (Research) in Mathematics & Computing',
+    subtitle: 'Shiv Nadar University, Delhi-NCR',
+    description: 'Minor in Computer Science and Engineering. Specializations in AI & ML, and Mathematical Finance. Dean\'s List. (Rank 1 - Certificate Link to be added)',
     iconIdentifier: 'GraduationCap',
   },
   {
-    id: 'edu2',
-    date: '2022 - Present',
-    title: 'M.S. in Artificial Intelligence',
-    subtitle: 'ABC Institute',
-    description: 'Researching advanced topics in deep learning and cognitive science.',
+    id: 'edu_iitm',
+    date: '2023 - 2027 (Expected)',
+    title: 'B.S. in Data Science and Applications',
+    subtitle: 'IIT-Madras (Online Degree Program)',
+    description: 'Currently pursuing. CGPA: 9.13. (Foundation Level Certificate to be added)',
+    iconIdentifier: 'GraduationCap',
+  },
+  {
+    id: 'edu_suncity_xii',
+    date: 'Completed 2022', // Assuming completion based on university start
+    title: 'Senior Secondary (Class XII - CBSE)',
+    subtitle: 'Suncity School, Gurugram',
+    description: 'Subjects: Physics, Mathematics, Chemistry, Economics, and English. Overall percentage: 94.3%. Received Certificate of Merit for scoring 100% in Mathematics.',
+    iconIdentifier: 'GraduationCap',
+  },
+  {
+    id: 'edu_suncity_x',
+    date: 'Completed 2020', // Assuming 2 years before Class XII
+    title: 'Secondary (Class X - CBSE)',
+    subtitle: 'Suncity School, Gurugram',
+    description: 'Overall percentage: 96.4%.',
     iconIdentifier: 'GraduationCap',
   },
 ];
