@@ -3,8 +3,12 @@ import HeroSection from '@/components/home/HeroSection';
 import QuoteCarousel from '@/components/home/QuoteCarousel';
 import { curateQuotes } from '@/ai/flows/curate-quotes';
 import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+
+// Import page components to be used as sections
+import AboutPageContent from '@/app/about/page';
+import ExperiencePageContent from '@/app/experience/page';
+import SkillsPageContent from '@/app/skills/page';
+import ProjectsPageContent from '@/app/projects/page';
 
 export const revalidate = 3600; // Revalidate quotes every hour
 
@@ -26,35 +30,33 @@ async function getQuotes() {
   }
 }
 
-const internalPageLinks = [
-  { href: '/about', label: 'About Me' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/skills', label: 'Skills' },
-  { href: '/projects', label: 'Projects' },
-];
-
 export default async function HomePage() {
   const quotes = await getQuotes();
 
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <Separator className="my-8 md:my-12 bg-border/40" />
+      <Separator className="my-12 md:my-16 bg-border/40" />
       <QuoteCarousel initialQuotes={quotes} />
-      <Separator className="my-8 md:my-12 bg-border/40" />
-      <section className="py-16 md:py-24">
-        <div className="container text-center">
-          <h2 className="text-3xl font-headline mb-8 text-primary">More to Explore</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {internalPageLinks.map((link) => (
-              <Button key={link.href} asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 hover:text-primary-foreground">
-                <Link href={link.href}>
-                  {link.label}
-                </Link>
-              </Button>
-            ))}
-          </div>
-        </div>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      <section id="about-section" className="py-12 md:py-16">
+        <AboutPageContent />
+      </section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      <section id="experience-section" className="py-12 md:py-16">
+        <ExperiencePageContent />
+      </section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      <section id="skills-section" className="py-12 md:py-16">
+        <SkillsPageContent />
+      </section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      <section id="projects-section" className="py-12 md:py-16">
+        <ProjectsPageContent />
       </section>
     </div>
   );
