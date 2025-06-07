@@ -17,22 +17,17 @@ export interface TimelineItem {
 export interface Skill {
   id: string;
   name: string;
-  level: number; // Percentage 0-100
   category: string;
+  description: string; // To describe experience with the skill
+  iconName: string; // To specify a Lucide icon name
 }
 
 export interface Project {
   slug: string;
   title: string;
-  year: string; // Changed from number to string to accommodate ranges like "2024-2025"
+  year: string; 
   tags: string[];
   shortAbstract: string;
-  // Add more fields for full project details
-  // fullWriteUp: string;
-  // diagrams: string[]; // URLs or paths
-  // paperLink?: string;
-  // githubLink?: string;
-  // datasetLink?: string;
 }
 
 export interface Article {
@@ -41,7 +36,4 @@ export interface Article {
   category: string;
   readingTime: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  // Add more fields for article content
-  // content: string; // MDX content
-  // tableOfContents: any[];
 }
