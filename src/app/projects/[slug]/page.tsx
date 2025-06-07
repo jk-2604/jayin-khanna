@@ -6,11 +6,87 @@ import Link from "next/link";
 // Placeholder for fetching project data by slug
 async function getProjectData(slug: string) {
   // In a real app, fetch this from a database or MDX files
-  if (slug === 'project-alpha') {
-    return {
-      slug: 'project-alpha',
+  // This is a simplified example. You'll need to expand this or fetch from your actual data source.
+  const projectsList = [
+    {
+      slug: 'domain-adaptation-medical-imaging',
+      title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
+      year: "2024-2025",
+      tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
+      fullWriteUp: `
+        <p>Research Supervisor: Dr. Saurabh Janardan Shigwan</p>
+        <ul class="list-disc pl-6">
+          <li>Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.</li>
+          <li>Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant features, enabling effective cross-modality image analysis.</li>
+          <li>Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric transformations to reduce domain shift.</li>
+          <li>Previously worked on deep learning models to correct MRI motion artifacts in real-time using k-space data.</li>
+        </ul>`,
+      paperLink: null, githubLink: null, datasetLink: null,
+    },
+    {
+      slug: 'investor-behavior-analysis-dl',
+      title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
+      year: "2024-2025",
+      tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
+      fullWriteUp: `
+        <p>Research Supervisor: Dr. Ashish Vazirani</p>
+        <ul class="list-disc pl-6">
+          <li>Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance, and decision-making patterns in Shark Tank videos.</li>
+          <li>Utilized EmotioNet for facial expression recognition and NLP models for the analysis of sentiment and intent from textual transcripts.</li>
+          <li>Integrated multimodal data (visual and textual) to predict key factors influencing investment decisions.</li>
+        </ul>`,
+      paperLink: null, githubLink: null, datasetLink: null,
+    },
+    {
+      slug: 'financial-markets-time-series-sentiment',
+      title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
+      year: "2024-2025",
+      tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
+      fullWriteUp: `
+        <p>Research Supervisor: Dr. Charu Sharma (Mathematics Dept, SNU)</p>
+        <ul class="list-disc pl-6">
+          <li>Analyzing Time series Patterns and sentiment in US financial markets.</li>
+          <li>Implemented Sequential Deep learning and ML models to understand market sentiment and its impact on financial trends.</li>
+          <li>Working with the past 5-7 years of daily data of 31 potential financial indicators to predict financial trends. Applying Dimensionality Reduction Techniques, Statistical Time-Series Analysis, and DL Sequential Models.</li>
+        </ul>`,
+      paperLink: null, githubLink: null, datasetLink: null,
+    },
+    {
+      slug: 'filtering-recommendation-model',
+      title: 'Filtering-Based Recommendation ML Model',
+      year: "2024",
+      tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
+      fullWriteUp: `
+        <ul class="list-disc pl-6">
+          <li>Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital Connect, a matchmaking platform for investors and startups.</li>
+          <li>Developed an algorithm that analyzes investor criteria and recommends startups, assigning a similarity score to each match. This project secured a Top 16 position in the SNU Ideathon competition.</li>
+        </ul>`,
+      paperLink: null, githubLink: null, datasetLink: null,
+    },
+    {
+      slug: 'self-directed-learning-advanced-ai',
+      title: 'Self-Directed Learning: Advanced AI Implementations',
+      year: "Ongoing",
+      tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
+      fullWriteUp: `
+        <h4 class="font-semibold mt-3">Reading Projects:</h4>
+        <ul class="list-disc pl-6">
+          <li>LLMs from Scratch</li>
+          <li>Neural Temporal Point Processes</li>
+          <li>Image and Video Dehazing models</li>
+        </ul>
+        <h4 class="font-semibold mt-3">Other Projects:</h4>
+        <ul class="list-disc pl-6">
+          <li>AI Othello game from scratch</li>
+          <li>Computer Vision Dehazing models implementation</li>
+          <li>LLMs hard-coded from scratch</li>
+        </ul>`,
+      paperLink: null, githubLink: null, datasetLink: null,
+    },
+     {
+      slug: 'project-alpha', // Keep example for testing if not overwritten
       title: 'Project Alpha: Advanced GNNs for Financial Forecasting',
-      year: 2023,
+      year: "2023",
       tags: ['#GNN', '#Finance', '#DeepLearning'],
       fullWriteUp: `
         <p>Project Alpha aimed to revolutionize financial forecasting by leveraging the power of Graph Neural Networks (GNNs). Traditional time-series models often fail to capture the complex interdependencies between financial instruments and market entities. This project proposed a novel GNN architecture that models the stock market as a dynamic graph, where nodes represent assets and edges represent their relationships (e.g., correlations, sector-based connections, supply chain links).</p>
@@ -29,9 +105,9 @@ async function getProjectData(slug: string) {
       paperLink: '#',
       githubLink: '#',
       datasetLink: '#',
-    };
-  }
-  return null;
+    }
+  ];
+  return projectsList.find(p => p.slug === slug) || null;
 }
 
 
@@ -56,10 +132,10 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
   return (
     <div className="container py-12 md:py-20 max-w-4xl mx-auto">
-      <header className="mb-10">
+      <header className="mb-10 text-center">
         <h1 className="text-4xl md:text-5xl font-headline mb-3 text-primary">{project.title}</h1>
-        <p className="text-lg text-muted-foreground">Published: {project.year}</p>
-        <div className="flex flex-wrap gap-2 mt-3">
+        <p className="text-lg text-muted-foreground">Year: {project.year}</p>
+        <div className="flex flex-wrap gap-2 mt-3 justify-center">
           {project.tags.map(tag => (
             <span key={tag} className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded-full">{tag}</span>
           ))}
@@ -71,14 +147,12 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
                         prose-blockquote:border-primary prose-blockquote:text-muted-foreground
                         prose-code:bg-muted prose-code:p-1 prose-code:rounded-md prose-code:text-sm prose-code:font-code
                         prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:text-sm prose-pre:font-code">
-        {/* Content will be rendered from MDX or HTML string */}
-        {/* For now, using dangerouslySetInnerHTML for the placeholder HTML string */}
         <div dangerouslySetInnerHTML={{ __html: project.fullWriteUp }} />
       </article>
 
       <Separator className="my-12 bg-border/40" />
 
-      <section className="mb-12">
+      <section className="mb-12 text-center">
         <h2 className="text-2xl font-headline mb-6 text-primary">Resources & Links</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {project.paperLink && (
@@ -103,22 +177,33 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
             </Button>
           )}
         </div>
+         {(!project.paperLink && !project.githubLink && !project.datasetLink) && (
+          <p className="text-muted-foreground">No external resources linked for this project yet.</p>
+        )}
       </section>
       
-      {/* Placeholder for "Learn More" widget */}
-      <section>
+      <section className="text-center">
         <h3 className="text-xl font-headline mb-4 text-primary">Continue Exploring</h3>
         <p className="text-muted-foreground">
-          Discover other related projects or articles. (Widget to be implemented)
+          Discover other related projects or articles.
         </p>
+        <Button asChild variant="link" className="mt-4 text-accent">
+          <Link href="/projects">Back to All Projects</Link>
+        </Button>
       </section>
     </div>
   );
 }
 
-// This is needed for dynamic routes in Next.js App Router to pre-render paths at build time
-// In a real app, you'd fetch all project slugs.
 export async function generateStaticParams() {
-  const projectSlugs = ['project-alpha', 'project-beta', 'project-gamma']; // Example slugs
+  // Updated to use the same project slugs as in getProjectData for consistency
+  const projectSlugs = [
+    'domain-adaptation-medical-imaging',
+    'investor-behavior-analysis-dl',
+    'financial-markets-time-series-sentiment',
+    'filtering-recommendation-model',
+    'self-directed-learning-advanced-ai',
+    'project-alpha' // Keep example slug if it's distinct and used
+  ];
   return projectSlugs.map(slug => ({ slug }));
 }
