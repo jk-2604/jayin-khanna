@@ -1,10 +1,11 @@
 
-import Image from 'next/image';
+"use client";
 
-export const metadata = {
-  title: 'Experience | Jayin Khanna',
-  description: 'Details of Jayin Khanna\'s internships and research experience.',
-};
+import Image from 'next/image';
+import { useState } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 // Updated experience data based on user input
 const experienceData = [
@@ -12,8 +13,8 @@ const experienceData = [
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', // Updated path
-    logoAlt: 'DRDO INMAS Logo', // Updated alt text
+    logoSrc: '/images/drdo-inmas-logo.png',
+    logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: '2024',
@@ -22,7 +23,7 @@ const experienceData = [
       'Preprocessed sEMG data using PyEMGPipeline, determining that raw data provided better performance for CNN classification.',
       'Improved model accuracy from 91% to 97.98% with ResNet architecture, achieving 98% overall accuracy and near-perfect precision, recall, and F1 scores.',
       'Implemented AlexNet architecture into the model to further enhance accuracy.',
-      'Incorporated and optimized sequence models such as RNNs and LSTMs to improve classification performance and generalizability with expanded and reacquired datasets.',
+      'Currently incorporating and optimizing sequence models such as RNNs and LSTMs to improve classification performance and generalizability with expanded and reacquired datasets.',
       'Research work selected for a presentation in the SUMMIT 2.0 Conference.'
     ],
     links: [
@@ -30,14 +31,14 @@ const experienceData = [
       { label: 'Project Report', url: '#' },
       { label: 'Conference Certificate', url: '#' }
     ],
-    badges: ['Machine Learning', 'CNN', 'sEMG Classification', 'ResNet']
+    badges: ['Machine Learning', 'CNN', 'sEMG Classification', 'ResNet', 'RNNs', 'LSTMs']
   },
   {
     id: 'exp_jk_2',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', // Updated path
-    logoAlt: 'DRDO INMAS Logo', // Updated alt text
+    logoSrc: '/images/drdo-inmas-logo.png',
+    logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi, Sc.’E’',
     period: 'Present',
@@ -47,7 +48,7 @@ const experienceData = [
       'Implementing graph neural networks (GNNs) to study the role of hubs and weakly connected regions in cognitive function.'
     ],
     links: [],
-    badges: ['Cognitive Neuroscience', 'Deep Learning', 'GNNs', 'DSI/DTI Analysis']
+    badges: ['Cognitive Neuroscience', 'Deep Learning', 'GNNs', 'DSI/DTI Analysis', 'Network Control Theory']
   },
   {
     id: 'exp_jk_3',
@@ -65,7 +66,7 @@ const experienceData = [
       'Performed data pre-processing and statistical analysis of time series data of NetCDF files using Python libraries: statsmodels, NumPy, Pandas, Matplotlib.'
     ],
     links: [],
-    badges: ['Statistics', 'Environmental Data', 'Time Series', 'Python']
+    badges: ['Statistics', 'Environmental Data', 'Time Series Analysis', 'Python', 'NetCDF']
   },
   {
     id: 'exp_jk_4',
@@ -74,14 +75,14 @@ const experienceData = [
     logoSrc: 'https://placehold.co/80x40.png?text=RightProfile',
     logoAlt: 'RightProfile Logo',
     dataAiHint: 'tech company',
-    supervisor: undefined, // Supervisor not specified
+    supervisor: undefined,
     period: 'Dec 2024 – Present',
     description: [
       'Part of the Research and Development team to develop Computer Vision and Deep Learning models to automate the annotation of 10,000+ raw images.',
       'Conducting R&D on object detection models such as YOLOv8, YOLOv5, Detectron2, and Faster R-CNN to retrain and enhance performance of the existing model.'
     ],
     links: [],
-    badges: ['Computer Vision', 'Object Detection', 'Deep Learning', 'YOLO']
+    badges: ['Computer Vision', 'Object Detection', 'Deep Learning', 'YOLO', 'Detectron2']
   },
   {
     id: 'exp_jk_5',
@@ -90,14 +91,14 @@ const experienceData = [
     logoSrc: 'https://placehold.co/80x40.png?text=HabitatsTrust',
     logoAlt: 'The Habitats Trust Logo',
     dataAiHint: 'conservation organization',
-    supervisor: undefined, // Supervisor not specified
+    supervisor: undefined,
     period: 'Dec 2024 – Present',
     description: [
       'Conducting research and development on modern Computer Vision and object detection models such as MegaDetector, Zamba, and Timelapse to classify and analyze wildlife in camera trap images.',
       'Part of the Tech4Conservation Project.'
     ],
     links: [{ label: 'Certificate', url: '#' }],
-    badges: ['Wildlife AI', 'Computer Vision', 'Conservation Tech', 'Object Detection']
+    badges: ['Wildlife AI', 'Computer Vision', 'Conservation Tech', 'Object Detection', 'MegaDetector']
   },
   {
     id: 'exp_jk_6',
@@ -106,7 +107,7 @@ const experienceData = [
     logoSrc: 'https://placehold.co/80x40.png?text=PolymathJr',
     logoAlt: 'Polymath Jr. Logo',
     dataAiHint: 'education program',
-    supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)', // Collaborators listed as supervisors
+    supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)',
     period: 'June 2024 – Aug 2024',
     description: [
       'Engaged in research on Non-Local Models.',
@@ -114,7 +115,7 @@ const experienceData = [
       'Focused on developing and analyzing mathematical models that incorporate non-local interactions.'
     ],
     links: [],
-    badges: ['Mathematical Modeling', 'Non-Local Models', 'Research']
+    badges: ['Mathematical Modeling', 'Non-Local Models', 'Research Collaboration']
   },
   {
     id: 'exp_jk_7',
@@ -131,27 +132,37 @@ const experienceData = [
       'Completed rigorous coursework and led discussions in Linear Algebra, Real Analysis, Proof writing and Number Theory.'
     ],
     links: [{ label: 'Certificate', url: '#' }],
-    badges: ['Mathematics', 'Proof Writing', 'Linear Algebra', 'Real Analysis']
+    badges: ['Mathematics', 'Proof Writing', 'Linear Algebra', 'Real Analysis', 'Number Theory']
   },
   {
     id: 'exp_jk_8',
     role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
-    institution: 'Academic Institution (Assumed)', // Institution for TA role not explicitly stated
-    logoSrc: 'https://placehold.co/80x40.png?text=University', // Generic placeholder
+    institution: 'Academic Institution (Assumed)',
+    logoSrc: 'https://placehold.co/80x40.png?text=University',
     logoAlt: 'Academic Institution Logo',
     dataAiHint: 'university building',
     supervisor: undefined,
     period: '2025',
     description: [
-      'Provide video solutions to undergraduate students for important problems and quizzes, breaking down concepts intuitively.',
-      'Help students understand not just the solutions but also how to approach problems and develop mathematical intuition.'
+      'I provide video solutions to undergraduate students for important problems and quizzes, breaking down concepts intuitively.',
+      'I help students understand not just the solutions but also how to approach problems and develop mathematical intuition.'
     ],
     links: [],
-    badges: ['Teaching Assistant', 'Linear Algebra', 'Mathematics Education']
+    badges: ['Teaching Assistant', 'Linear Algebra', 'Mathematics Education', 'Intuitive Learning']
   }
 ];
 
-const ExperiencePage = () => {
+type ExperienceItem = typeof experienceData[0];
+
+const ExperiencePageContent = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [currentExperience, setCurrentExperience] = useState<ExperienceItem | null>(null);
+
+  const handleOpenDialog = (exp: ExperienceItem) => {
+    setCurrentExperience(exp);
+    setDialogOpen(true);
+  };
+
   return (
     <div className="container py-12 md:py-20">
       <header className="text-center mb-16">
@@ -161,7 +172,11 @@ const ExperiencePage = () => {
       
       <div className="mt-12 space-y-12 max-w-3xl mx-auto">
         {experienceData.map(exp => (
-          <div key={exp.id} className="p-6 rounded-lg border border-border bg-card shadow-lg">
+          <div 
+            key={exp.id} 
+            className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer"
+            onClick={() => handleOpenDialog(exp)}
+          >
             <div className="flex items-start space-x-4 mb-2">
               {exp.logoSrc && (
                 <div className="flex-shrink-0">
@@ -182,28 +197,80 @@ const ExperiencePage = () => {
             </div>
             {exp.supervisor && <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor}</p>}
             <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
-            <ul className="list-disc list-inside space-y-1 my-3 text-foreground/90">
-              {exp.description.map((point, i) => <li key={i}>{point}</li>)}
-            </ul>
-            {exp.links && exp.links.length > 0 && (
-              <div className="my-3">
-                {exp.links.map((link, i) => (
-                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline mr-4 text-sm">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            )}
+            <p className="text-sm text-foreground/90 line-clamp-2 mt-2">
+              {exp.description[0]} 
+            </p>
             <div className="flex flex-wrap gap-2 mt-3">
-              {exp.badges.map(badge => (
+              {exp.badges.slice(0, 3).map(badge => (
                 <span key={badge} className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{badge}</span>
               ))}
+              {exp.badges.length > 3 && <span className="px-2 py-1 text-xs bg-secondary/70 text-secondary-foreground rounded-full">...</span>}
             </div>
           </div>
         ))}
       </div>
+
+      {currentExperience && (
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogContent className="sm:max-w-2xl">
+            <DialogHeader>
+              <div className="flex items-start space-x-4 mb-2">
+                {currentExperience.logoSrc && (
+                  <div className="flex-shrink-0 pt-1">
+                    <Image 
+                      src={currentExperience.logoSrc} 
+                      alt={currentExperience.logoAlt || `${currentExperience.institution} logo`} 
+                      width={100} 
+                      height={50} 
+                      className="rounded object-contain"
+                      data-ai-hint={currentExperience.dataAiHint}
+                    />
+                  </div>
+                )}
+                <div className="flex-grow">
+                  <DialogTitle className="text-2xl font-headline text-primary mb-1">{currentExperience.role}</DialogTitle>
+                  <DialogDescription className="text-lg text-foreground/80">
+                    {currentExperience.institution}
+                  </DialogDescription>
+                </div>
+              </div>
+              {currentExperience.supervisor && <p className="text-sm text-muted-foreground mt-1">Supervisor: {currentExperience.supervisor}</p>}
+              <p className="text-sm text-muted-foreground">Period: {currentExperience.period}</p>
+            </DialogHeader>
+            
+            <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
+              <ul className="list-disc list-outside pl-5 space-y-1.5 text-foreground/90">
+                {currentExperience.description.map((point, i) => <li key={i}>{point}</li>)}
+              </ul>
+              {currentExperience.links && currentExperience.links.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-border/50">
+                  <h4 className="font-semibold mb-2 text-foreground">Links:</h4>
+                  {currentExperience.links.map((link, i) => (
+                    <Button key={i} asChild variant="link" className="text-accent p-0 h-auto mr-4 mb-1">
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.label} &rarr;
+                        </a>
+                    </Button>
+                  ))}
+                </div>
+              )}
+              <div className="mt-4 pt-3 border-t border-border/50">
+                 <h4 className="font-semibold mb-2 text-foreground">Key Areas:</h4>
+                <div className="flex flex-wrap gap-2">
+                    {currentExperience.badges.map(badge => (
+                    <span key={badge} className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{badge}</span>
+                    ))}
+                </div>
+              </div>
+            </ScrollArea>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setDialogOpen(false)}>Close</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 };
 
-export default ExperiencePage;
+export default ExperiencePageContent;

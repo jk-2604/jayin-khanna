@@ -1,14 +1,14 @@
+
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 import type { Project } from "@/lib/types";
+import { useState } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
-export const metadata = {
-  title: 'Projects | Jayin Khanna',
-  description: 'A collection of Jayin Khanna\'s research projects and personal endeavors.',
-};
-
-// Placeholder project data
 const projectsData: Project[] = [
   {
     slug: 'project-alpha',
@@ -35,6 +35,14 @@ const projectsData: Project[] = [
 
 
 const ProjectsPage = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState<Project | null>(null);
+
+  const handleOpenDialog = (proj: Project) => {
+    setCurrentProject(proj);
+    setDialogOpen(true);
+  };
+
   return (
     <div className="container py-12 md:py-20">
       <header className="text-center mb-16">
@@ -44,7 +52,11 @@ const ProjectsPage = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectsData.map((project) => (
-          <Card key={project.slug} className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20">
+          <Card 
+            key={project.slug} 
+            onClick={() => handleOpenDialog(project)}
+            className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 cursor-pointer"
+          >
             <CardHeader>
               <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
               <p className="text-sm text-muted-foreground">{project.year}</p>
@@ -55,24 +67,47 @@ const ProjectsPage = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-foreground/80">{project.shortAbstract}</CardDescription>
+              <CardDescription className="text-foreground/80 line-clamp-4">{project.shortAbstract}</CardDescription>
             </CardContent>
             <CardFooter>
-              <Button asChild variant="link" className="text-primary p-0 hover:underline">
-                <Link href={`/projects/${project.slug}`}>Read More &rarr;</Link>
-              </Button>
+              <span className="text-sm text-primary">Click to learn more</span>
             </CardFooter>
           </Card>
         ))}
       </div>
 
-      {/* 
-        Implementation details:
-        - Grid of cards with staggered fade-in animation on scroll.
-        - Each card links to /projects/[slug].
-      */}
+      {currentProject && (
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogContent className="sm:max-w-xl">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-headline text-primary mb-1">{currentProject.title}</DialogTitle>
+              <DialogDescription className="text-sm text-muted-foreground">
+                {currentProject.year}
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {currentProject.tags.map(tag => (
+                    <span key={tag} className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </DialogDescription>
+            </DialogHeader>
+            
+            <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
+              <p className="text-foreground/90 leading-relaxed whitespace-pre-line">{currentProject.shortAbstract}</p>
+            </ScrollArea>
+            
+            <DialogFooter className="sm:justify-between items-center">
+               <Button asChild variant="link" className="text-accent p-0 hover:underline mt-2 sm:mt-0">
+                <Link href={`/projects/${currentProject.slug}`}>View Full Project Page &rarr;</Link>
+              </Button>
+              <Button variant="outline" onClick={() => setDialogOpen(false)} className="mt-4 sm:mt-0">Close</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 };
 
 export default ProjectsPage;
+
+    
