@@ -188,7 +188,7 @@ const ExperiencePageContent = () => {
         <p className="text-xl text-muted-foreground">A Journey Through Research and Internships</p>
       </motion.header>
       
-      <div className="mt-12 space-y-12 max-w-3xl mx-auto">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {experienceData.map((exp, index) => (
           <motion.div
             key={exp.id}
@@ -197,9 +197,10 @@ const ExperiencePageContent = () => {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
+            className="h-full flex flex-col" // Added for consistent card height if needed
           >
             <div 
-              className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer"
+              className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col" // Added flex-grow and flex-col
               onClick={() => handleOpenDialog(exp)}
             >
               <div className="flex items-start space-x-4 mb-2">
@@ -222,7 +223,7 @@ const ExperiencePageContent = () => {
               </div>
               {exp.supervisor && <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor}</p>}
               <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
-              <p className="text-sm text-foreground/90 line-clamp-2 mt-2">
+              <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
                 {exp.description[0]} 
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
@@ -300,3 +301,5 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
+
+    
