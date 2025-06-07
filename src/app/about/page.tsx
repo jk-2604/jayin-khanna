@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
@@ -78,15 +78,15 @@ const AboutPage = () => {
       <motion.section {...sectionAnimationProps} className="mb-16 py-12 bg-card/30 rounded-lg">
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">By The Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center container">
-          <motion.div custom={0} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">3.9</p>
             <p className="text-muted-foreground">GPA (Illustrative)</p>
           </motion.div>
-          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">10+</p>
             <p className="text-muted-foreground">Research Projects</p>
           </motion.div>
-          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">3</p>
             <p className="text-muted-foreground">Institutes Collaborated With</p>
           </motion.div>
@@ -109,7 +109,7 @@ const AboutPage = () => {
               custom={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={cardVariants}
             >
               <Card className="text-center p-6 shadow-lg border-border hover:border-primary transition-colors duration-300 h-full">
@@ -133,7 +133,7 @@ const AboutPage = () => {
               custom={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={cardVariants}
               className="grayscale hover:grayscale-0 transition-all duration-300">
               <Image src={logo.src} alt={logo.alt} width={120} height={60} objectFit="contain" data-ai-hint={logo.dataAiHint} />

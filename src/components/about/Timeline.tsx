@@ -46,7 +46,7 @@ const Timeline = ({ items, title }: TimelineProps) => {
               className={`mb-8 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="hidden md:flex w-1/2"></div> {/* Spacer for desktop layout */}
