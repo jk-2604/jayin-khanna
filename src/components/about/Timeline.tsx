@@ -37,18 +37,18 @@ const Timeline = ({ items, title }: TimelineProps) => {
             >
               <div className="hidden md:flex w-1/2"></div> {/* Spacer for desktop layout */}
               <div className="w-full md:w-1/2 md:px-4">
-                <Card className="shadow-lg border-border hover:border-primary transition-colors duration-300">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-1">
-                      <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
+                <Card className="shadow-lg border-border hover:border-primary transition-colors duration-300 text-center">
+                  <CardHeader className="items-center"> {/* Ensure header items align center */}
+                    <div className="flex flex-col items-center mb-2"> {/* Stack icon and title, centered */}
                       {IconComponent && (
-                        <span className="text-accent">
-                          <IconComponent size={20} />
+                        <span className="text-accent mb-2">
+                          <IconComponent size={24} />
                         </span>
                       )}
+                      <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
                     </div>
                     <p className="text-sm text-muted-foreground">{item.date}</p>
-                    {item.subtitle && <CardDescription>{item.subtitle}</CardDescription>}
+                    {item.subtitle && <CardDescription className="mt-1">{item.subtitle}</CardDescription>}
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground/90">{item.description}</p>
