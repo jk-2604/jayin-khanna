@@ -1,13 +1,29 @@
 
+"use client";
+import type { TimelineItem as TimelineItemType } from '@/lib/types'; // Keep this if used by Timeline
 import Timeline from '@/components/about/Timeline';
 import { educationTimelineData, achievementTimelineData } from '@/lib/data';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Zap, BookOpen, GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-export const metadata = {
-  title: 'About Me | Jayin Khanna',
-  description: 'Learn more about Jayin Khanna, his background, education, and interests.',
+// Metadata removed as this is now a client component
+
+const sectionAnimationProps = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
+  }),
 };
 
 const AboutPage = () => {
@@ -25,12 +41,12 @@ const AboutPage = () => {
 
   return (
     <div className="container py-12 md:py-20">
-      <header className="text-center mb-16">
+      <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
         <p className="text-xl text-muted-foreground">A Glimpse into My Journey</p>
-      </header>
+      </motion.header>
 
-      <section className="mb-16">
+      <motion.section {...sectionAnimationProps} className="mb-16">
         <Card className="overflow-hidden shadow-xl">
           <div className="md:flex">
             <div className="md:w-1/3 relative min-h-[300px] md:min-h-0">
@@ -57,55 +73,74 @@ const AboutPage = () => {
             </div>
           </div>
         </Card>
-      </section>
+      </motion.section>
       
-      {/* Placeholder for Animated Counters */}
-      <section className="mb-16 py-12 bg-card/30 rounded-lg">
+      <motion.section {...sectionAnimationProps} className="mb-16 py-12 bg-card/30 rounded-lg">
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">By The Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center container">
-          <div>
+          <motion.div custom={0} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">3.9</p>
             <p className="text-muted-foreground">GPA (Illustrative)</p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">10+</p>
             <p className="text-muted-foreground">Research Projects</p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
             <p className="text-5xl font-bold text-secondary">3</p>
             <p className="text-muted-foreground">Institutes Collaborated With</p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <Timeline items={educationTimelineData} title="Education" />
-      <Timeline items={achievementTimelineData} title="Achievements" />
+      <motion.div {...sectionAnimationProps}>
+        <Timeline items={educationTimelineData} title="Education" />
+      </motion.div>
+      <motion.div {...sectionAnimationProps}>
+        <Timeline items={achievementTimelineData} title="Achievements" />
+      </motion.div>
 
-      <section className="py-12 mb-16">
+      <motion.section {...sectionAnimationProps} className="py-12 mb-16">
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">Hobbies & Interests</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container">
-          {hobbies.map(hobby => (
-            <Card key={hobby.name} className="text-center p-6 shadow-lg border-border hover:border-primary transition-colors duration-300">
-              <div className="text-accent mx-auto mb-4 w-fit p-3 bg-primary/10 rounded-full">{hobby.icon}</div>
-              <CardTitle className="text-xl mb-2">{hobby.name}</CardTitle>
-              <CardContent>
-                <p className="text-muted-foreground">{hobby.description}</p>
-              </CardContent>
-            </Card>
+          {hobbies.map((hobby, index) => (
+            <motion.div
+              key={hobby.name}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+            >
+              <Card className="text-center p-6 shadow-lg border-border hover:border-primary transition-colors duration-300 h-full">
+                <div className="text-accent mx-auto mb-4 w-fit p-3 bg-primary/10 rounded-full">{hobby.icon}</div>
+                <CardTitle className="text-xl mb-2">{hobby.name}</CardTitle>
+                <CardContent>
+                  <p className="text-muted-foreground">{hobby.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-12">
+      <motion.section {...sectionAnimationProps} className="py-12">
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">Collaborations & Affiliations</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 container">
-          {institutionLogos.map(logo => (
-            <div key={logo.name} className="grayscale hover:grayscale-0 transition-all duration-300">
+          {institutionLogos.map((logo, index) => (
+             <motion.div 
+              key={logo.name} 
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+              className="grayscale hover:grayscale-0 transition-all duration-300">
               <Image src={logo.src} alt={logo.alt} width={120} height={60} objectFit="contain" data-ai-hint={logo.dataAiHint} />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

@@ -3,11 +3,10 @@
 import type { Skill } from '@/lib/types';
 import { skillsData } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Cpu, Wrench, Code, Terminal, BarChartBig, BrainCircuit, Layers, Camera, Shapes, Sigma, Table, LineChart, BarChartHorizontalBig, FunctionSquare, TrendingUp, GanttChartSquare } from 'lucide-react'; // Added GanttChartSquare as a fallback
+import { Cpu, Wrench, Code, Terminal, BarChartBig, BrainCircuit, Layers, Camera, Shapes, Sigma, Table, LineChart, BarChartHorizontalBig, FunctionSquare, TrendingUp, GanttChartSquare } from 'lucide-react';
 import type { ElementType } from 'react';
 import { motion } from 'framer-motion';
 
-// Define a mapping from iconName in data to actual Lucide components
 const iconComponents: Record<string, ElementType> = {
   Code,
   Terminal,
@@ -22,11 +21,30 @@ const iconComponents: Record<string, ElementType> = {
   BarChartHorizontalBig,
   FunctionSquare,
   TrendingUp,
-  Cpu, // For categories if needed, or as a fallback
-  Wrench, // For categories if needed, or as a fallback
-  Default: GanttChartSquare, // A generic fallback icon
+  Cpu, 
+  Wrench, 
+  Default: GanttChartSquare, 
 };
 
+const sectionAnimationProps = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  }),
+};
 
 const SkillsPage = () => {
   const groupedSkills: Record<string, Skill[]> = skillsData.reduce((acc, skill) => {
@@ -37,34 +55,31 @@ const SkillsPage = () => {
     return acc;
   }, {} as Record<string, Skill[]>);
 
-  // Icons for categories (can be different from skill icons)
   const categoryPageIcons: Record<string, React.ReactNode> = {
     'Programming Languages': <Cpu className="h-8 w-8 text-primary" />,
     'Tools & Libraries': <Wrench className="h-8 w-8 text-primary" />,
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        ease: "easeInOut",
-      },
-    }),
-  };
-
   return (
     <div className="container py-12 md:py-20">
-      <header className="text-center mb-16">
+      <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Skills & Expertise</h1>
         <p className="text-xl text-muted-foreground">A Detailed Look at My Technical Capabilities</p>
-      </header>
+      </motion.header>
 
-      {Object.entries(groupedSkills).map(([category, skillsInCategory]) => (
-        <section key={category} className="mb-12">
+      {Object.entries(groupedSkills).map(([category, skillsInCategory], categoryIndex) => (
+        <motion.section 
+          key={category} 
+          className="mb-12"
+          custom={categoryIndex} // Use categoryIndex for staggered section appearance if desired, or remove for simultaneous
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }} // Adjust amount if sections are tall
+          variants={{ // Simple fade-in for the whole section block
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: categoryIndex * 0.2 } }
+          }}
+        >
           <div className="flex items-center space-x-4 mb-8">
             {categoryPageIcons[category] || <GanttChartSquare className="h-8 w-8 text-primary" />}
             <h2 className="text-3xl font-headline text-primary">{category}</h2>
@@ -75,12 +90,12 @@ const SkillsPage = () => {
               return (
                 <motion.div
                   key={skill.id}
-                  custom={index}
-                  variants={cardVariants}
+                  custom={index} // Stagger based on skill index within category
+                  variants={cardVariants} // Use existing cardVariants for individual cards
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
-                  className="h-full" // Ensure motion.div takes full height for proper card display
+                  className="h-full" 
                 >
                   <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 flex flex-col h-full">
                     <CardHeader className="flex-row items-start space-x-4 pb-3">
@@ -97,7 +112,7 @@ const SkillsPage = () => {
               );
             })}
           </div>
-        </section>
+        </motion.section>
       ))}
     </div>
   );

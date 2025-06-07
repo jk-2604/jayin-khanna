@@ -1,27 +1,34 @@
+
+"use client";
 import ContactForm from '@/components/contact/ContactForm';
 import { SOCIAL_LINKS } from '@/lib/constants';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-export const metadata = {
-  title: 'Contact Me | Jayin Khanna',
-  description: 'Get in touch with Jayin Khanna for collaborations, questions, or discussions.',
+// Metadata removed as this is now a client component
+
+const sectionAnimationProps = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const ContactPage = () => {
   return (
     <div className="container py-12 md:py-20">
-      <header className="text-center mb-12 md:mb-16">
+      <motion.header {...sectionAnimationProps} className="text-center mb-12 md:mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Contact Me</h1>
         <p className="text-xl text-muted-foreground">Let's Connect and Create Something Amazing</p>
-      </header>
+      </motion.header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div className="md:col-span-2">
+        <motion.div {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} className="md:col-span-2">
           <ContactForm />
-        </div>
-        <aside className="space-y-8">
+        </motion.div>
+        <motion.aside {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} className="space-y-8">
           <div>
             <h2 className="text-2xl font-headline mb-4 text-primary">Connect with Me</h2>
             <p className="text-muted-foreground mb-6">
@@ -51,7 +58,7 @@ const ContactPage = () => {
               I'm generally available for interesting projects and collaborations. Feel free to reach out if you think we could work together or if you have a compelling idea to discuss.
             </p>
           </div>
-        </aside>
+        </motion.aside>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import type { Project } from "@/lib/types";
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion } from 'framer-motion';
 
 const projectsData: Project[] = [
   {
@@ -69,6 +70,21 @@ Other Projects:
   }
 ];
 
+const sectionAnimationProps = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
+  }),
+};
 
 const ProjectsPage = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -81,41 +97,51 @@ const ProjectsPage = () => {
 
   return (
     <div className="container py-12 md:py-20">
-      <header className="text-center mb-16">
+      <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Research & Projects</h1>
         <p className="text-xl text-muted-foreground">Exploring Innovations at the Forefront of AI and Science</p>
-      </header>
+      </motion.header>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.map((project) => (
-          <Card 
-            key={project.slug} 
-            onClick={() => handleOpenDialog(project)}
-            className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 cursor-pointer"
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        // No direct animation here, staggering will be on cards
+      >
+        {projectsData.map((project, index) => (
+          <motion.div
+            key={project.slug}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={cardVariants}
           >
-            <CardHeader>
-              <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
-              <p className="text-sm text-muted-foreground">{project.year}</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="px-2 py-0.5 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>
-                ))}
-              </div>
-            </CardHeader>
-            <CardContent>
-              {/* Displaying first few lines of abstract, or a specific part */}
-              <CardDescription className="text-foreground/80 line-clamp-4">
-                {project.shortAbstract.split('\n')[0]} 
-                {project.shortAbstract.split('\n')[1] && ` ${project.shortAbstract.split('\n')[1]}`}
-                {project.shortAbstract.split('\n')[2] && ` ${project.shortAbstract.split('\n')[2]}`}
-              </CardDescription>
-            </CardContent>
-            <CardFooter>
-              <span className="text-sm text-primary">Click to learn more</span>
-            </CardFooter>
-          </Card>
+            <Card 
+              onClick={() => handleOpenDialog(project)}
+              className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 cursor-pointer h-full"
+            >
+              <CardHeader>
+                <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
+                <p className="text-sm text-muted-foreground">{project.year}</p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="px-2 py-0.5 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <CardDescription className="text-foreground/80 line-clamp-4">
+                  {project.shortAbstract.split('\n')[0]} 
+                  {project.shortAbstract.split('\n')[1] && ` ${project.shortAbstract.split('\n')[1]}`}
+                  {project.shortAbstract.split('\n')[2] && ` ${project.shortAbstract.split('\n')[2]}`}
+                </CardDescription>
+              </CardContent>
+              <CardFooter>
+                <span className="text-sm text-primary">Click to learn more</span>
+              </CardFooter>
+            </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {currentProject && (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -133,7 +159,6 @@ const ProjectsPage = () => {
             </DialogHeader>
             
             <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
-              {/* Using whitespace-pre-line to respect newlines in the shortAbstract */}
               <p className="text-foreground/90 leading-relaxed whitespace-pre-line">{currentProject.shortAbstract}</p>
             </ScrollArea>
             
