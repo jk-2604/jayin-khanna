@@ -44,9 +44,9 @@ const Timeline = ({ items, title }: TimelineProps) => {
             <motion.div
               key={item.id}
               className={`mb-8 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: false, amount: 0.3 }}
+              initial={{ opacity: 0, y: 50 }} // Added y-offset
+              whileInView={{ opacity: 1, y: 0 }} // Animate to y: 0
+              viewport={{ once: true, amount: 0.3 }} // Key change: once: true
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="hidden md:flex w-1/2"></div> {/* Spacer for desktop layout */}

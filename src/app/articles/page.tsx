@@ -9,16 +9,17 @@ import type { Article } from "@/lib/types";
 import { motion } from 'framer-motion';
 
 const sectionAnimationProps = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: false, amount: 0.2 },
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
+    y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };
@@ -88,7 +89,7 @@ const ArticlesPage = () => {
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={cardVariants}
               >
                 <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">

@@ -156,16 +156,17 @@ const experienceData = [
 type ExperienceItem = typeof experienceData[0];
 
 const sectionAnimationProps = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: false, amount: 0.2 },
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
+    y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };
@@ -194,7 +195,7 @@ const ExperiencePageContent = () => {
             custom={index}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
             className="h-full flex flex-col" 
           >

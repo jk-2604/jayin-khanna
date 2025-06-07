@@ -27,16 +27,17 @@ const iconComponents: Record<string, ElementType> = {
 };
 
 const sectionAnimationProps = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: false, amount: 0.2 },
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
+    y: 0,
     transition: {
       delay: i * 0.1,
       duration: 0.5,
@@ -73,10 +74,10 @@ const SkillsPage = () => {
           custom={categoryIndex} 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }} 
+          viewport={{ once: true, amount: 0.1 }} 
           variants={{ 
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { duration: 0.5, delay: categoryIndex * 0.2 } }
+            hidden: { opacity: 0, y: 20 }, // Added y: 20 for slide-in
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: categoryIndex * 0.2 } } // Added y: 0
           }}
         >
           <div className="flex items-center space-x-4 mb-8">
@@ -93,7 +94,7 @@ const SkillsPage = () => {
                   variants={cardVariants} 
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   className="h-full" 
                 >
                   <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 flex flex-col h-full">
