@@ -19,9 +19,12 @@ const projectsData: Project[] = [
     shortAbstract: `Research Supervisor: Dr. Saurabh Janardan Shigwan
 
 • Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.
-• Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant features, enabling effective cross-modality image analysis.
-• Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric transformations to reduce domain shift.
-• Previously worked on deep learning models to correct MRI motion artifacts in real-time using k-space data.`
+• Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant fea
+tures, enabling effective cross-modality image analysis.
+• Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric
+ transformations to reduce domain shift.
+• Previously worked on deep learning models to correct MRI motion artifacts in real-time using
+ k-space data.`
   },
   {
     slug: 'investor-behavior-analysis-dl',
@@ -30,9 +33,12 @@ const projectsData: Project[] = [
     tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
     shortAbstract: `Research Supervisor: Dr. Ashish Vazirani
 
-• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance, and decision-making patterns in Shark Tank videos.
-• Utilized EmotioNet for facial expression recognition and NLP models for the analysis of sentiment and intent from textual transcripts.
-• Integrated multimodal data (visual and textual) to predict key factors influencing investment decisions.`
+• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance,
+ and decision-making patterns in Shark Tank videos.
+• Utilized EmotioNet for facial expression recognition and NLP models for the analysis of sentiment
+ and intent from textual transcripts.
+• Integrated multimodal data (visual and textual) to predict key factors influencing investment de
+cisions.`
   },
   {
     slug: 'financial-markets-time-series-sentiment',
@@ -42,16 +48,21 @@ const projectsData: Project[] = [
     shortAbstract: `Research Supervisor: Dr. Charu Sharma (Mathematics Dept, SNU)
 
 • Analyzing Time series Patterns and sentiment in US financial markets.
-• Implemented Sequential Deep learning and ML models to understand market sentiment and its impact on financial trends.
-• Working with the past 5-7 years of daily data of 31 potential financial indicators to predict financial trends. Applying Dimensionality Reduction Techniques, Statistical Time-Series Analysis, and DL Sequential Models.`
+• Implemented Sequential Deep learning and ML models to understand market sentiment and its
+ impact on financial trends.
+• Working with the past 5-7 years of daily data of 31 potential financial indicators to predict financial
+ trends. Applying Dimensionality Reduction Techniques, Statistical Time-Series Analysis, and DL
+ Sequential Models`
   },
   {
     slug: 'filtering-recommendation-model',
     title: 'Filtering-Based Recommendation ML Model',
     year: '2024',
     tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
-    shortAbstract: `• Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital Connect, a matchmaking platform for investors and startups.
-• Developed an algorithm that analyzes investor criteria and recommends startups, assigning a similarity score to each match. This project secured a Top 16 position in the SNU Ideathon competition.`
+    shortAbstract: `• Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital
+ Connect, a matchmaking platform for investors and startups.
+• Developed an algorithm that analyzes investor criteria and recommends startups, assigning a simi
+larity score to each match. This project secured a Top 16 position in the SNU Ideathon competition.`
   },
   {
     slug: 'self-directed-learning-advanced-ai',
@@ -71,17 +82,16 @@ Other Projects:
 ];
 
 const sectionAnimationProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };
@@ -104,7 +114,6 @@ const ProjectsPage = () => {
       
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        // No direct animation here, staggering will be on cards
       >
         {projectsData.map((project, index) => (
           <motion.div

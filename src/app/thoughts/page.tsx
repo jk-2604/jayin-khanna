@@ -6,20 +6,17 @@ import Link from "next/link";
 import { MessageCircle, Heart, Lightbulb } from "lucide-react";
 import { motion } from 'framer-motion';
 
-// Metadata removed as this is now a client component
-
 const sectionAnimationProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };

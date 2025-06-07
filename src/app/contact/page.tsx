@@ -7,11 +7,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-// Metadata removed as this is now a client component
-
 const sectionAnimationProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };

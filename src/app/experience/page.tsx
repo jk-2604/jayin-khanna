@@ -156,17 +156,16 @@ const experienceData = [
 type ExperienceItem = typeof experienceData[0];
 
 const sectionAnimationProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
   }),
 };
@@ -197,10 +196,10 @@ const ExperiencePageContent = () => {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
-            className="h-full flex flex-col" // Added for consistent card height if needed
+            className="h-full flex flex-col" 
           >
             <div 
-              className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col" // Added flex-grow and flex-col
+              className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col"
               onClick={() => handleOpenDialog(exp)}
             >
               <div className="flex items-start space-x-4 mb-2">
@@ -301,5 +300,3 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
-
-    

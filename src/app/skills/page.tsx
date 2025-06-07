@@ -27,17 +27,16 @@ const iconComponents: Record<string, ElementType> = {
 };
 
 const sectionAnimationProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
   viewport: { once: false, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
     transition: {
       delay: i * 0.1,
       duration: 0.5,
@@ -76,8 +75,8 @@ const SkillsPage = () => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.1 }} 
           variants={{ 
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: categoryIndex * 0.2 } }
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.5, delay: categoryIndex * 0.2 } }
           }}
         >
           <div className="flex items-center space-x-4 mb-8">
