@@ -22,7 +22,7 @@ const RotatingSubtitles = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="text-lg md:text-xl text-muted-foreground text-center md:text-left"
+          className="text-lg md:text-xl text-muted-foreground text-center"
         >
           {ROTATING_SUBTITLES[index]}
         </motion.p>
