@@ -1,3 +1,4 @@
+
 export interface Quote {
   id: string;
   text: string;
@@ -10,7 +11,7 @@ export interface TimelineItem {
   title: string;
   subtitle?: string;
   description: string;
-  icon?: React.ReactNode;
+  iconIdentifier?: string; // Changed from icon: React.ReactNode
 }
 
 export interface Skill {

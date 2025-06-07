@@ -1,5 +1,5 @@
+
 import type { TimelineItem, Skill } from './types';
-import { Briefcase, GraduationCap, Lightbulb } from 'lucide-react';
 
 export const educationTimelineData: TimelineItem[] = [
   {
@@ -8,7 +8,7 @@ export const educationTimelineData: TimelineItem[] = [
     title: 'B.Tech in Computer Science',
     subtitle: 'XYZ University',
     description: 'Focused on AI and Machine Learning. Graduated with honors.',
-    icon: <GraduationCap size={20} />,
+    iconIdentifier: 'GraduationCap',
   },
   {
     id: 'edu2',
@@ -16,7 +16,7 @@ export const educationTimelineData: TimelineItem[] = [
     title: 'M.S. in Artificial Intelligence',
     subtitle: 'ABC Institute',
     description: 'Researching advanced topics in deep learning and cognitive science.',
-    icon: <GraduationCap size={20} />,
+    iconIdentifier: 'GraduationCap',
   },
 ];
 
@@ -27,7 +27,7 @@ export const achievementTimelineData: TimelineItem[] = [
     title: 'Best Paper Award',
     subtitle: 'National AI Conference',
     description: 'Awarded for research on novel GNN architectures.',
-    icon: <Lightbulb size={20} />,
+    iconIdentifier: 'Lightbulb',
   },
   {
     id: 'ach2',
@@ -35,7 +35,7 @@ export const achievementTimelineData: TimelineItem[] = [
     title: 'Published in Top Journal',
     subtitle: 'Journal of Advanced AI',
     description: 'Co-authored a paper on domain adaptation in NLP.',
-    icon: <Briefcase size={20} />,
+    iconIdentifier: 'Briefcase',
   },
 ];
 
