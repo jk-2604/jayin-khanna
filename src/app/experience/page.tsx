@@ -55,7 +55,7 @@ const experienceData = [
     id: 'exp_jk_3',
     role: 'Statistics Research Intern',
     institution: 'University of California Santa Cruz, CA (ISRP)',
-    logoSrc: 'https://placehold.co/80x40.png?text=UCSC',
+    logoSrc: '/.png', // Updated UCSC logo path
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
@@ -301,3 +301,4 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
+
