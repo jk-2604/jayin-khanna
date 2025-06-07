@@ -1,4 +1,4 @@
-# **App Name**: Verity Vista
+# **App Name**: Portfolio
 
 ## Core Features:
 

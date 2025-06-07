@@ -23,7 +23,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Verity Vista | Jayin Khanna',
+  title: 'Portfolio | Jayin Khanna',
   description: 'Personal website of Jayin Khanna - Researcher in AI, Mathematics, and Mind.',
 };
 

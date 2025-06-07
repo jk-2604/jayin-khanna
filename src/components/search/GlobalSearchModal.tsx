@@ -38,7 +38,7 @@ const GlobalSearchModal = () => {
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeModal()}>
       <DialogContent className="sm:max-w-[600px] bg-popover border-border text-popover-foreground">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-headline text-primary">Search Verity Vista</DialogTitle>
+          <DialogTitle className="text-2xl font-headline text-primary">Search Portfolio</DialogTitle>
           <DialogDescription className="text-muted-foreground">
             Find articles, projects, and more across the site.
           </DialogDescription>
