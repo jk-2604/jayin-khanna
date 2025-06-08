@@ -52,7 +52,7 @@ const ContactPage = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
-                <Link href={SOCIAL_LINKS.email}>
+                <Link href={SOCIAL_LINKS.email}> {/* This uses the mailto: link from constants */}
                   <Mail className="mr-3 h-5 w-5" /> Email
                 </Link>
               </Button>
@@ -71,3 +71,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+    
