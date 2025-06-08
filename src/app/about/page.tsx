@@ -29,8 +29,8 @@ const cardVariants = {
 
 const AboutPage = () => {
   const institutionLogos = [
-    { name: "DRDO", src: "https://placehold.co/100x50.png?text=DRDO", alt: "DRDO Logo", dataAiHint: "organization logo" },
-    { name: "UCSC", src: "https://placehold.co/100x50.png?text=UCSC", alt: "UCSC Logo", dataAiHint: "university logo" },
+    { name: "DRDO", src: "/images/drdo-inmas-logo.png" },
+    { name: "UCSC", src: "/images/UCSC.png" },
   ];
 
   const hobbies = [

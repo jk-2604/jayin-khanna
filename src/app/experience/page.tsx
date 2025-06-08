@@ -55,7 +55,7 @@ const experienceData = [
     id: 'exp_jk_3',
     role: 'Statistics Research Intern',
     institution: 'University of California Santa Cruz, CA (ISRP)',
-    logoSrc: '/.png', // Updated UCSC logo path
+    logoSrc: '/images/UCSC.png', // Updated UCSC logo path to a placeholder
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
@@ -73,7 +73,7 @@ const experienceData = [
     id: 'exp_jk_4',
     role: 'Machine Learning Intern',
     institution: 'RightProfile by Syntellect',
-    logoSrc: 'https://placehold.co/80x40.png?text=RightProfile',
+    logoSrc: '/images/sytellect.jpg',
     logoAlt: 'RightProfile Logo',
     dataAiHint: 'tech company',
     supervisor: undefined, // Explicitly undefined as per original
@@ -89,7 +89,7 @@ const experienceData = [
     id: 'exp_jk_5',
     role: 'Machine Learning Intern',
     institution: 'The Habitats Trust',
-    logoSrc: 'https://placehold.co/80x40.png?text=HabitatsTrust',
+    logoSrc: '/images/THT.jpg',
     logoAlt: 'The Habitats Trust Logo',
     dataAiHint: 'conservation organization',
     supervisor: undefined, // Explicitly undefined
@@ -105,7 +105,7 @@ const experienceData = [
     id: 'exp_jk_6',
     role: 'Summer Research Intern',
     institution: 'Polymath Jr.',
-    logoSrc: 'https://placehold.co/80x40.png?text=PolymathJr',
+    logoSrc: '/images/Polymath jr.jpeg',
     logoAlt: 'Polymath Jr. Logo',
     dataAiHint: 'education program',
     supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)',
@@ -122,7 +122,7 @@ const experienceData = [
     id: 'exp_jk_7',
     role: 'Selected Participant',
     institution: 'Mathematics Training and Talent Search Program (MTTS 24)',
-    logoSrc: 'https://placehold.co/80x40.png?text=MTTS',
+    logoSrc: '/images/MTTS.png',
     logoAlt: 'MTTS Program Logo',
     dataAiHint: 'math program',
     supervisor: 'Mentors: Prof. Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), Dr. Ajit Kumar (ICT Mumbai)',
@@ -139,7 +139,7 @@ const experienceData = [
     id: 'exp_jk_8',
     role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
     institution: 'Academic Institution (Assumed)', // Kept as placeholder
-    logoSrc: 'https://placehold.co/80x40.png?text=University',
+    logoSrc: '/images/SNU.png',
     logoAlt: 'Academic Institution Logo',
     dataAiHint: 'university building',
     supervisor: undefined, // Explicitly undefined
@@ -158,16 +158,16 @@ type ExperienceItem = typeof experienceData[0];
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 }, // once: true for single animation
+  viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 }, // once: true for single animation for cards
+  viewport: { once: true, amount: 0.2 },
   transition: {
-    delay: 0.1, // Base delay, actual stagger handled by custom prop
+    delay: 0.1, 
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -194,9 +194,11 @@ const ExperiencePageContent = () => {
         {experienceData.map((exp, index) => (
           <motion.div
             key={exp.id}
-            custom={index} // For potential stagger if variants were more complex
-            variants={cardVariants} // Use the cardVariants which now has once: true
-            // Removed individual initial/whileInView/viewport
+            custom={index} 
+            variants={cardVariants}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, amount: 0.2 }}
             className="h-full flex flex-col" 
           >
             <div 
@@ -301,3 +303,5 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
+
+    
