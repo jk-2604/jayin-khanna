@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 export const ROTATING_SUBTITLES = [
   "Mathematics | Deep Learning | Philosophy | Quant Finance",
   "I love doing Research! Geometric DL, Time series, CV, NLP and more",
-  "Exploring applications in Neuroscience, Finance, Robotics, Vision, Biomedicine",
+  "I love applying it everywhere - Neuroscience, Finance, Robotics, Vision, Biomedicine",
 ];
 
 export const SOCIAL_LINKS = {
@@ -17,3 +17,4 @@ export const SOCIAL_LINKS = {
   linkedin: "https://linkedin.com/in/yourusername",
   email: "mailto:youremail@example.com",
 };
+
