@@ -4,7 +4,7 @@ import ContactForm from '@/components/contact/ContactForm';
 import { SOCIAL_LINKS } from '@/lib/constants';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+// Removed Link import as it's not used for mailto anymore here
 import { motion } from 'framer-motion';
 
 const sectionAnimationProps = {
@@ -42,19 +42,20 @@ const ContactPage = () => {
             </p>
             <div className="space-y-3">
               <Button asChild variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
-                <Link href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-3 h-5 w-5" /> GitHub
-                </Link>
+                </a>
               </Button>
               <Button asChild variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
-                <Link href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-3 h-5 w-5" /> LinkedIn
-                </Link>
+                </a>
               </Button>
               <Button asChild variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
-                <Link href={SOCIAL_LINKS.email}> {/* This uses the mailto: link from constants */}
+                {/* Using a direct <a> tag for mailto: */}
+                <a href={SOCIAL_LINKS.email}> 
                   <Mail className="mr-3 h-5 w-5" /> Email
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
