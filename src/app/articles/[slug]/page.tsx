@@ -279,7 +279,6 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
             <iframe
               src={article.pdfSrc}
               type="application/pdf"
-              sandbox="allow-same-origin" /* Simplified sandbox attribute */
               className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
               title={article.title + " - PDF Report"}
               aria-label={article.title + " - PDF Document"}
