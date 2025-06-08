@@ -220,7 +220,49 @@ const allArticlesContent: ArticleContent[] = [
       </ul>
     `
   },
-  // other articles can be added here
+  {
+    slug: 'principal-component-analysis',
+    title: 'Principal Component Analysis: A Deep Dive',
+    pageTitle: '📊 Principal Component Analysis: A Deep Dive',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/pca-report.pdf',
+    fullWriteUp: `
+      <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+      <p>Key topics typically covered in such a report would include:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li>Introduction to Dimensionality Reduction</li>
+        <li>Mathematical Foundations: Variance, Covariance, Eigenvectors, Eigenvalues</li>
+        <li>The PCA Algorithm: Step-by-Step</li>
+        <li>Interpreting Principal Components</li>
+        <li>Applications of PCA (e.g., image compression, feature extraction in ML)</li>
+        <li>Limitations and Considerations</li>
+        <li>Examples and Case Studies</li>
+      </ul>
+    `
+  },
+  {
+    slug: 'neural-networks-fundamentals',
+    title: 'Neural Networks: Foundations and Architectures',
+    pageTitle: '🧠 Neural Networks: Foundations and Architectures',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/neural-networks-report.pdf',
+    fullWriteUp: `
+      <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+      <p>Key topics typically covered in such a report would include:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li>Introduction to Neural Networks: Inspiration from the Brain</li>
+        <li>The Perceptron and Multi-Layer Perceptrons (MLPs)</li>
+        <li>Activation Functions (Sigmoid, Tanh, ReLU, etc.)</li>
+        <li>Loss Functions and Optimization (Gradient Descent, Backpropagation)</li>
+        <li>Common Neural Network Architectures (CNNs, RNNs, LSTMs, Transformers - overview)</li>
+        <li>Training, Validation, and Testing</li>
+        <li>Regularization Techniques (Dropout, L1/L2)</li>
+        <li>Applications across various domains</li>
+      </ul>
+    `
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {
@@ -249,38 +291,45 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
     <div className="container py-12 md:py-20 max-w-4xl mx-auto">
       <header className="mb-10">
         <h1 className="text-4xl md:text-5xl font-headline mb-3 text-primary">{article.pageTitle}</h1>
-        {/* The metadataLine is already part of fullWriteUp, so we don't need to render it separately here unless styled differently */}
+        {article.metadataLine && !article.fullWriteUp.includes(article.metadataLine) && (
+            <p className="text-muted-foreground italic mb-6">{article.metadataLine}</p>
+        )}
       </header>
 
-      <article className="prose prose-invert prose-lg max-w-none 
-                        text-foreground/90 
-                        prose-headings:text-primary prose-headings:font-headline
-                        prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
-                        prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
-                        prose-p:leading-relaxed 
-                        prose-a:text-accent hover:prose-a:underline
-                        prose-strong:text-foreground 
-                        prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-blockquote:italic
-                        prose-code:bg-muted prose-code:p-1 prose-code:rounded-md prose-code:text-sm prose-code:font-code
-                        prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:text-sm prose-pre:font-code
-                        prose-table:my-6 prose-table:text-sm prose-table:w-full prose-table:border-collapse
-                        prose-th:border prose-th:border-border prose-th:p-2 prose-th:font-medium prose-th:text-left prose-th:bg-muted/30
-                        prose-td:border prose-td:border-border prose-td:p-2
-                        prose-ul:list-disc prose-ul:pl-5 prose-ul:space-y-1 prose-ul:my-2
-                        prose-li:my-1
-                        ">
-        <div dangerouslySetInnerHTML={{ __html: article.fullWriteUp }} />
-      </article>
+      {article.fullWriteUp && (
+        <article className="prose prose-invert prose-lg max-w-none 
+                          text-foreground/90 
+                          prose-headings:text-primary prose-headings:font-headline
+                          prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
+                          prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
+                          prose-p:leading-relaxed 
+                          prose-a:text-accent hover:prose-a:underline
+                          prose-strong:text-foreground 
+                          prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-blockquote:italic
+                          prose-code:bg-muted prose-code:p-1 prose-code:rounded-md prose-code:text-sm prose-code:font-code
+                          prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:text-sm prose-pre:font-code
+                          prose-table:my-6 prose-table:text-sm prose-table:w-full prose-table:border-collapse
+                          prose-th:border prose-th:border-border prose-th:p-2 prose-th:font-medium prose-th:text-left prose-th:bg-muted/30
+                          prose-td:border prose-td:border-border prose-td:p-2
+                          prose-ul:list-disc prose-ul:pl-5 prose-ul:space-y-1 prose-ul:my-2
+                          prose-li:my-1
+                          ">
+          <div dangerouslySetInnerHTML={{ __html: article.fullWriteUp }} />
+        </article>
+      )}
+      
 
       {article.pdfSrc && (
-        <section className="my-12 pt-8 border-t border-border/40">
-          <h2 className="text-3xl font-headline mb-6 text-primary text-center">Full Report (PDF)</h2>
+        <section className={`my-12 ${article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
+          <h2 className="text-3xl font-headline mb-6 text-primary text-center">
+            {article.fullWriteUp.length > 200 ? "Full Report (PDF)" : "Document (PDF)"}
+          </h2>
           <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
             <iframe
               src={article.pdfSrc}
               type="application/pdf"
               className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
-              title={article.title + " - PDF Report"}
+              title={article.title + " - PDF Document"}
               aria-label={article.title + " - PDF Document"}
             >
               <p className="p-4 text-muted-foreground">Your browser does not support embedded PDFs. You might need to use a different browser, check your settings, or <a href={article.pdfSrc} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">download the PDF directly</a>.</p>
@@ -304,11 +353,8 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
 }
 
 export async function generateStaticParams() {
-  return allArticlesContent.map(article => ({
+  const slugs = allArticlesContent.map(article => ({
     slug: article.slug,
   }));
+  return slugs;
 }
-
-    
-
-    

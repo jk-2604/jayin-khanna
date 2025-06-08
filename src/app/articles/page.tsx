@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
-import { BookOpen, Filter, Brain, Atom, BarChartBig, Layers } from "lucide-react"; // Added Layers for Sequential Models
+import { BookOpen, Filter, Brain, Atom, BarChartBig, Layers, SigmaSquare, Network } from "lucide-react"; // Added Layers, SigmaSquare, Network
 import type { Article } from "@/lib/types";
 import { motion } from 'framer-motion';
 
@@ -34,6 +34,8 @@ const articlesData: Article[] = [
   { slug: 'market-efficiency-hypothesis', title: 'Exploring the Efficient Market Hypothesis', category: 'Markets', readingTime: '12 min', difficulty: 'Intermediate' },
   { slug: 'cognitive-biases-in-ai', title: 'Cognitive Biases and Their Impact on AI Systems', category: 'Neuroscience', readingTime: '18 min', difficulty: 'Advanced' },
   { slug: 'sequential-models', title: '🧠 Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
+  { slug: 'principal-component-analysis', title: '📊 Principal Component Analysis: A Deep Dive', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
+  { slug: 'neural-networks-fundamentals', title: '🧠 Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
 ];
 
 const categories = [
@@ -42,6 +44,21 @@ const categories = [
   { name: 'Markets', icon: <BarChartBig size={20}/>, count: articlesData.filter(a => a.category === 'Markets').length },
   { name: 'Neuroscience', icon: <BookOpen size={20}/>, count: articlesData.filter(a => a.category === 'Neuroscience').length },
 ];
+
+// Helper to get appropriate icon for article title
+const getArticleIcon = (slug: string) => {
+  if (slug.includes('sequential-models') || slug.includes('neural-networks')) {
+    return <Layers size={18} className="mr-2 text-accent" />;
+  }
+  if (slug.includes('principal-component-analysis')) {
+    return <SigmaSquare size={18} className="mr-2 text-accent" />;
+  }
+  if (slug.includes('gnns')) {
+    return <Network size={18} className="mr-2 text-accent" />;
+  }
+  return <BookOpen size={18} className="mr-2 text-accent" />;
+};
+
 
 const ArticlesPage = () => {
   return (
@@ -75,8 +92,9 @@ const ArticlesPage = () => {
                     <ul className="space-y-2 pl-4">
                       {articlesData.filter(a => a.category === category.name).map(article => (
                          <li key={article.slug}>
-                           <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors">
-                             {article.title}
+                           <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
+                             {getArticleIcon(article.slug)}
+                             <span className="truncate w-full">{article.title.replace(/🧠 |📊 /g, '')}</span>
                            </Link>
                          </li>
                        ))}
@@ -123,6 +141,10 @@ const ArticlesPage = () => {
                     <CardDescription className="text-foreground/80 line-clamp-3">
                       {article.slug === 'sequential-models' 
                         ? "A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges."
+                        : article.slug === 'principal-component-analysis'
+                        ? "Dive into Principal Component Analysis, understanding its mathematical foundations and applications. Full content in PDF."
+                        : article.slug === 'neural-networks-fundamentals'
+                        ? "Explore the core concepts and diverse architectures of Neural Networks. Full content in PDF."
                         : `This is a short placeholder description for the article "${article.title}". Full MDX content with auto-generated ToC and glossary highlights will be available on the article page.`
                       }
                     </CardDescription>
@@ -137,7 +159,7 @@ const ArticlesPage = () => {
             ))}
           </div>
            <p className="mt-12 text-center text-muted-foreground">
-            Individual article pages will feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms. (Currently using HTML for content)
+            Individual article pages will feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms. (Currently using HTML/PDF for content)
           </p>
         </motion.main>
       </div>
