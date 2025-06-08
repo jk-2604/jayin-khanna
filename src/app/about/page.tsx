@@ -16,13 +16,16 @@ const sectionAnimationProps = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
-  }),
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 }, // Changed once to true
+  transition: {
+    delay: 0.1, // Simplified delay, can be customized per card if needed via custom prop
+    duration: 0.5,
+    ease: "easeInOut",
+  },
 };
+
 
 const AboutPage = () => {
   const institutionLogos = [
@@ -38,7 +41,7 @@ const AboutPage = () => {
 
 
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
         <p className="text-xl text-muted-foreground">A Glimpse into My Journey</p>
@@ -76,15 +79,15 @@ const AboutPage = () => {
       <motion.section {...sectionAnimationProps} className="mb-16 py-12 bg-card/30 rounded-lg">
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">By The Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center container">
-          <motion.div custom={0} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div variants={cardVariants} custom={0}>
             <p className="text-5xl font-bold text-secondary">3.9</p>
             <p className="text-muted-foreground">GPA (Illustrative)</p>
           </motion.div>
-          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div variants={cardVariants} custom={1}>
             <p className="text-5xl font-bold text-secondary">10+</p>
             <p className="text-muted-foreground">Research Projects</p>
           </motion.div>
-          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants}>
+          <motion.div variants={cardVariants} custom={2}>
             <p className="text-5xl font-bold text-secondary">3</p>
             <p className="text-muted-foreground">Institutes Collaborated With</p>
           </motion.div>
@@ -104,10 +107,7 @@ const AboutPage = () => {
           {hobbies.map((hobby, index) => (
             <motion.div
               key={hobby.name}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              custom={index} // Use index for stagger
               variants={cardVariants}
             >
               <Card className="text-center p-6 shadow-lg border-border hover:border-primary transition-colors duration-300 h-full">
@@ -128,10 +128,7 @@ const AboutPage = () => {
           {institutionLogos.map((logo, index) => (
              <motion.div 
               key={logo.name} 
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              custom={index} // Use index for stagger
               variants={cardVariants}
               className="grayscale hover:grayscale-0 transition-all duration-300">
               <Image src={logo.src} alt={logo.alt} width={120} height={60} objectFit="contain" data-ai-hint={logo.dataAiHint} />

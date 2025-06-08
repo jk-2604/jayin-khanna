@@ -16,13 +16,16 @@ const sectionAnimationProps = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
-  }),
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 }, // Ensure this is also once: true
+  transition: {
+    delay: 0.1, // Simplified base delay
+    duration: 0.5,
+    ease: "easeInOut",
+  },
 };
+
 
 // Placeholder articles data
 const articlesData: Article[] = [
@@ -41,14 +44,18 @@ const categories = [
 
 const ArticlesPage = () => {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Learning Vault</h1>
         <p className="text-xl text-muted-foreground">A Curated Collection of Knowledge and Insights</p>
       </motion.header>
 
       <div className="flex flex-col md:flex-row gap-12">
-        <motion.aside {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} className="w-full md:w-1/4 lg:w-1/5">
+        <motion.aside 
+          {...sectionAnimationProps} 
+          transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} 
+          className="w-full md:w-1/4 lg:w-1/5"
+        >
           <div className="sticky top-20">
             <h2 className="text-2xl font-headline mb-4 text-primary">Categories</h2>
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
@@ -81,16 +88,18 @@ const ArticlesPage = () => {
           </div>
         </motion.aside>
 
-        <motion.main {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} className="w-full md:w-3/4 lg:w-4/5">
+        <motion.main 
+          {...sectionAnimationProps} 
+          transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} 
+          className="w-full md:w-3/4 lg:w-4/5"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {articlesData.map((article, index) => (
               <motion.div
                 key={article.slug}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                custom={index} // Use index for stagger
                 variants={cardVariants}
+                // Removed individual initial/whileInView/viewport to use variants
               >
                 <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
                   <CardHeader>

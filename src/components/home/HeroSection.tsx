@@ -13,7 +13,7 @@ const HeroSection = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      <div className="container max-w-4xl text-center"> {/* Changed from text-right to text-center */}
+      <div className="container mx-auto max-w-4xl text-center"> {/* Changed from text-right to text-center, added mx-auto */}
         <h1 className="font-headline text-5xl md:text-7xl font-bold mb-6">
           Jayin Khanna
         </h1>

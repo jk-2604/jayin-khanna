@@ -158,17 +158,19 @@ type ExperienceItem = typeof experienceData[0];
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, amount: 0.2 }, // once: true for single animation
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
-  }),
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 }, // once: true for single animation for cards
+  transition: {
+    delay: 0.1, // Base delay, actual stagger handled by custom prop
+    duration: 0.5,
+    ease: "easeInOut",
+  },
 };
 
 
@@ -182,7 +184,7 @@ const ExperiencePageContent = () => {
   };
 
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
         <p className="text-xl text-muted-foreground">A Journey Through Research and Internships</p>
@@ -192,11 +194,9 @@ const ExperiencePageContent = () => {
         {experienceData.map((exp, index) => (
           <motion.div
             key={exp.id}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
+            custom={index} // For potential stagger if variants were more complex
+            variants={cardVariants} // Use the cardVariants which now has once: true
+            // Removed individual initial/whileInView/viewport
             className="h-full flex flex-col" 
           >
             <div 
@@ -301,4 +301,3 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
-

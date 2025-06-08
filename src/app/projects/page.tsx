@@ -89,12 +89,14 @@ const sectionAnimationProps = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeInOut" },
-  }),
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: {
+    delay: 0.1, // Base delay
+    duration: 0.5,
+    ease: "easeInOut",
+  },
 };
 
 const ProjectsPage = () => {
@@ -107,7 +109,7 @@ const ProjectsPage = () => {
   };
 
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Research & Projects</h1>
         <p className="text-xl text-muted-foreground">Exploring Innovations at the Forefront of AI and Science</p>
@@ -119,11 +121,9 @@ const ProjectsPage = () => {
         {projectsData.map((project, index) => (
           <motion.div
             key={project.slug}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            custom={index} // For stagger
             variants={cardVariants}
+             // Removed individual animation props to use variants
           >
             <Card 
               onClick={() => handleOpenDialog(project)}

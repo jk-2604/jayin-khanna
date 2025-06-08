@@ -7,6 +7,7 @@ import { Cpu, Wrench, Code, Terminal, BarChartBig, BrainCircuit, Layers, Camera,
 import type { ElementType } from 'react';
 import { motion } from 'framer-motion';
 
+
 const iconComponents: Record<string, ElementType> = {
   Code,
   Terminal,
@@ -34,16 +35,14 @@ const sectionAnimationProps = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  }),
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 }, // Ensure this is also once: true
+  transition: {
+    delay: 0.1, // Simplified base delay, actual stagger from custom prop on motion.div
+    duration: 0.5,
+    ease: "easeInOut",
+  },
 };
 
 const SkillsPage = () => {
@@ -61,7 +60,7 @@ const SkillsPage = () => {
   };
 
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Skills & Expertise</h1>
         <p className="text-xl text-muted-foreground">A Detailed Look at My Technical Capabilities</p>
@@ -72,13 +71,10 @@ const SkillsPage = () => {
           key={category} 
           className="mb-12"
           custom={categoryIndex} 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }} 
-          variants={{ 
-            hidden: { opacity: 0, y: 20 }, // Added y: 20 for slide-in
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: categoryIndex * 0.2 } } // Added y: 0
-          }}
+          variants={sectionAnimationProps} // Use sectionAnimationProps here
+          initial="initial" // Use keys from variants
+          whileInView="whileInView" // Use keys from variants
+          viewport={sectionAnimationProps.viewport} // Explicitly pass viewport
         >
           <div className="flex items-center space-x-4 mb-8">
             {categoryPageIcons[category] || <GanttChartSquare className="h-8 w-8 text-primary" />}
@@ -92,9 +88,9 @@ const SkillsPage = () => {
                   key={skill.id}
                   custom={index} 
                   variants={cardVariants} 
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  initial="initial" // Use keys from variants
+                  whileInView="whileInView" // Use keys from variants
+                  viewport={cardVariants.viewport} // Explicitly pass viewport
                   className="h-full" 
                 >
                   <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 flex flex-col h-full">

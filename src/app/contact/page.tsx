@@ -16,17 +16,25 @@ const sectionAnimationProps = {
 
 const ContactPage = () => {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container mx-auto py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-12 md:mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Contact Me</h1>
         <p className="text-xl text-muted-foreground">Let's Connect and Create Something Amazing</p>
       </motion.header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <motion.div {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} className="md:col-span-2">
+        <motion.div 
+          {...sectionAnimationProps} 
+          transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} 
+          className="md:col-span-2"
+        >
           <ContactForm />
         </motion.div>
-        <motion.aside {...sectionAnimationProps} transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} className="space-y-8">
+        <motion.aside 
+          {...sectionAnimationProps} 
+          transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} 
+          className="space-y-8"
+        >
           <div>
             <h2 className="text-2xl font-headline mb-4 text-primary">Connect with Me</h2>
             <p className="text-muted-foreground mb-6">
