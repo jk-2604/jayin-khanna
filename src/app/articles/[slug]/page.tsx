@@ -20,7 +20,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Recurrent Neural Networks: A Mathematical Overview',
     pageTitle: '🧠 Recurrent Neural Networks: A Mathematical Overview',
     metadataLine: 'By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University',
-    pdfSrc: '/reports/sequential-models-report.pdf', // Path to your PDF in the public folder
+    pdfSrc: '/reports/Sequential_Models_new.pdf', // Path to your PDF in the public folder
     fullWriteUp: `
       <p><em>By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University</em></p>
       
@@ -278,11 +278,13 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
           <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
             <iframe
               src={article.pdfSrc}
+              type="application/pdf"
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
               className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
               title={article.title + " - PDF Report"}
               aria-label={article.title + " - PDF Document"}
             >
-              <p className="p-4 text-muted-foreground">Your browser does not support embedded PDFs. You might need to use a different browser or check your settings.</p>
+              <p className="p-4 text-muted-foreground">Your browser does not support embedded PDFs. You might need to use a different browser, check your settings, or <a href={article.pdfSrc} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">download the PDF directly</a>.</p>
             </iframe>
           </div>
         </section>
@@ -307,7 +309,5 @@ export async function generateStaticParams() {
     slug: article.slug,
   }));
 }
-
-    
 
     
