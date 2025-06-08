@@ -7,9 +7,9 @@ export const NAV_LINKS = [
 ];
 
 export const ROTATING_SUBTITLES = [
-  "Researcher in AI, Mathematics, and Mind",
-  "Exploring the edge of learning, cognition and systems",
-  "Philosophy | Deep Learning | Financial AI",
+  "Mathematics | Deep Learning | Philosophy | Quant Finance",
+  "I love doing Research! Geometric DL, Time series, CV, NLP and more",
+  "Exploring applications in Neuroscience, Finance, Robotics, Vision, Biomedicine",
 ];
 
 export const SOCIAL_LINKS = {
