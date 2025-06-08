@@ -27,12 +27,8 @@ const cardVariants = {
 };
 
 
-// Placeholder articles data
+// Updated articles data to include only the specified articles
 const articlesData: Article[] = [
-  { slug: 'intro-to-gnns', title: 'Understanding Graph Neural Networks', category: 'AI/ML', readingTime: '15 min', difficulty: 'Intermediate' },
-  { slug: 'philosophy-of-infinity', title: 'The Concept of Infinity in Mathematics', category: 'Philosophy of Math', readingTime: '20 min', difficulty: 'Advanced' },
-  { slug: 'market-efficiency-hypothesis', title: 'Exploring the Efficient Market Hypothesis', category: 'Markets', readingTime: '12 min', difficulty: 'Intermediate' },
-  { slug: 'cognitive-biases-in-ai', title: 'Cognitive Biases and Their Impact on AI Systems', category: 'Neuroscience', readingTime: '18 min', difficulty: 'Advanced' },
   { slug: 'sequential-models', title: '🧠 Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
   { slug: 'principal-component-analysis', title: '📊 Principal Component Analysis: A Deep Dive', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
   { slug: 'neural-networks-fundamentals', title: '🧠 Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
@@ -40,9 +36,7 @@ const articlesData: Article[] = [
 
 const categories = [
   { name: 'AI/ML', icon: <Brain size={20}/>, count: articlesData.filter(a => a.category === 'AI/ML').length },
-  { name: 'Philosophy of Math', icon: <Atom size={20}/>, count: articlesData.filter(a => a.category === 'Philosophy of Math').length },
-  { name: 'Markets', icon: <BarChartBig size={20}/>, count: articlesData.filter(a => a.category === 'Markets').length },
-  { name: 'Neuroscience', icon: <BookOpen size={20}/>, count: articlesData.filter(a => a.category === 'Neuroscience').length },
+  // Other categories removed as per request
 ];
 
 // Helper to get appropriate icon for article title
@@ -53,9 +47,7 @@ const getArticleIcon = (slug: string) => {
   if (slug.includes('principal-component-analysis')) {
     return <SigmaSquare size={18} className="mr-2 text-accent" />;
   }
-  if (slug.includes('gnns')) {
-    return <Network size={18} className="mr-2 text-accent" />;
-  }
+  // Fallback, though all current articles match above
   return <BookOpen size={18} className="mr-2 text-accent" />;
 };
 
@@ -140,7 +132,7 @@ const ArticlesPage = () => {
                   <CardContent className="flex-grow">
                     <CardDescription className="text-foreground/80 line-clamp-3">
                       {article.slug === 'sequential-models' 
-                        ? "A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges."
+                        ? "A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges. Full content in PDF."
                         : article.slug === 'principal-component-analysis'
                         ? "Dive into Principal Component Analysis, understanding its mathematical foundations and applications. Full content in PDF."
                         : article.slug === 'neural-networks-fundamentals'
@@ -159,7 +151,7 @@ const ArticlesPage = () => {
             ))}
           </div>
            <p className="mt-12 text-center text-muted-foreground">
-            Individual article pages will feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms. (Currently using HTML/PDF for content)
+            Individual article pages may feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms, or embedded PDFs.
           </p>
         </motion.main>
       </div>

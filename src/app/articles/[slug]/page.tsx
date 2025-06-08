@@ -14,6 +14,7 @@ interface ArticleContent {
 }
 
 // This is where the full content of articles will be stored.
+// Updated to include only the three specified articles
 const allArticlesContent: ArticleContent[] = [
   {
     slug: 'sequential-models',
@@ -284,11 +285,11 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   const article = await getArticleData(params.slug);
 
   if (!article) {
-    return <div className="container py-20 text-center text-muted-foreground">Article not found.</div>;
+    return <div className="container mx-auto py-20 text-center text-muted-foreground">Article not found.</div>;
   }
 
   return (
-    <div className="container py-12 md:py-20 max-w-4xl mx-auto">
+    <div className="container mx-auto py-12 md:py-20 max-w-4xl">
       <header className="mb-10">
         <h1 className="text-4xl md:text-5xl font-headline mb-3 text-primary">{article.pageTitle}</h1>
         {article.metadataLine && !article.fullWriteUp.includes(article.metadataLine) && (
