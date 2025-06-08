@@ -226,7 +226,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Principal Component Analysis: A Deep Dive',
     pageTitle: '📊 Principal Component Analysis: A Deep Dive',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/pca-report.pdf',
+    pdfSrc: '/reports/PCA (1).pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
@@ -247,7 +247,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Neural Networks: Foundations and Architectures',
     pageTitle: '🧠 Neural Networks: Foundations and Architectures',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/neural-networks-report.pdf',
+    pdfSrc: '/reports/Neural_Networks (4).pdf',
     fullWriteUp: `
       <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>

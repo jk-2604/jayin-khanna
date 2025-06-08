@@ -13,8 +13,8 @@ export const ROTATING_SUBTITLES = [
 ];
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  email: "mailto:youremail@example.com",
+  github: "https://github.com/jk-2604",
+  linkedin: "https://www.linkedin.com/in/jayin-khanna-95a027212",
+  email: "mailto:jayin.research@gmail.com",
 };
 
