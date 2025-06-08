@@ -10,6 +10,7 @@ interface ArticleContent {
   pageTitle: string; // The title to display on the page, possibly with emojis
   metadataLine?: string; // e.g., "By Author | Date | Source"
   fullWriteUp: string; // HTML content
+  pdfSrc?: string; // Optional path to an embeddable PDF
 }
 
 // This is where the full content of articles will be stored.
@@ -19,6 +20,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Recurrent Neural Networks: A Mathematical Overview',
     pageTitle: '🧠 Recurrent Neural Networks: A Mathematical Overview',
     metadataLine: 'By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University',
+    pdfSrc: '/reports/sequential-models-report.pdf', // Path to your PDF in the public folder
     fullWriteUp: `
       <p><em>By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University</em></p>
       
@@ -270,6 +272,22 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
         <div dangerouslySetInnerHTML={{ __html: article.fullWriteUp }} />
       </article>
 
+      {article.pdfSrc && (
+        <section className="my-12 pt-8 border-t border-border/40">
+          <h2 className="text-3xl font-headline mb-6 text-primary text-center">Full Report (PDF)</h2>
+          <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
+            <iframe
+              src={article.pdfSrc}
+              className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
+              title={article.title + " - PDF Report"}
+              aria-label={article.title + " - PDF Document"}
+            >
+              <p className="p-4 text-muted-foreground">Your browser does not support embedded PDFs. You might need to use a different browser or check your settings.</p>
+            </iframe>
+          </div>
+        </section>
+      )}
+
       <Separator className="my-12 bg-border/40" />
       
       <section className="text-center">
@@ -289,3 +307,5 @@ export async function generateStaticParams() {
     slug: article.slug,
   }));
 }
+
+    
