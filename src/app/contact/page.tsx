@@ -4,7 +4,7 @@ import ContactForm from '@/components/contact/ContactForm';
 import { SOCIAL_LINKS } from '@/lib/constants';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-// Removed Link import as it's not used for mailto anymore here
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { motion } from 'framer-motion';
 
 const sectionAnimationProps = {
@@ -51,12 +51,18 @@ const ContactPage = () => {
                   <Linkedin className="mr-3 h-5 w-5" /> LinkedIn
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
-                {/* Using a direct <a> tag for mailto: */}
-                <a href={SOCIAL_LINKS.email}> 
-                  <Mail className="mr-3 h-5 w-5" /> Email
-                </a>
-              </Button>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" className="w-full justify-start border-primary text-primary hover:bg-primary/10">
+                    <Mail className="mr-3 h-5 w-5" /> Email
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-2" side="bottom" align="start">
+                  <a href={SOCIAL_LINKS.email} className="text-sm text-accent hover:underline">
+                    {SOCIAL_LINKS.email.replace('mailto:', '')}
+                  </a>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
           <div>
