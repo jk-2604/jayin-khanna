@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
-import { BookOpen, Filter, Brain, Atom, BarChartBig } from "lucide-react";
+import { BookOpen, Filter, Brain, Atom, BarChartBig, Layers } from "lucide-react"; // Added Layers for Sequential Models
 import type { Article } from "@/lib/types";
 import { motion } from 'framer-motion';
 
@@ -18,9 +18,9 @@ const sectionAnimationProps = {
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 }, // Ensure this is also once: true
+  viewport: { once: true, amount: 0.2 }, 
   transition: {
-    delay: 0.1, // Simplified base delay
+    delay: 0.1, 
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -33,6 +33,7 @@ const articlesData: Article[] = [
   { slug: 'philosophy-of-infinity', title: 'The Concept of Infinity in Mathematics', category: 'Philosophy of Math', readingTime: '20 min', difficulty: 'Advanced' },
   { slug: 'market-efficiency-hypothesis', title: 'Exploring the Efficient Market Hypothesis', category: 'Markets', readingTime: '12 min', difficulty: 'Intermediate' },
   { slug: 'cognitive-biases-in-ai', title: 'Cognitive Biases and Their Impact on AI Systems', category: 'Neuroscience', readingTime: '18 min', difficulty: 'Advanced' },
+  { slug: 'sequential-models', title: '🧠 Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
 ];
 
 const categories = [
@@ -53,6 +54,9 @@ const ArticlesPage = () => {
       <div className="flex flex-col md:flex-row gap-12">
         <motion.aside 
           {...sectionAnimationProps} 
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ ...sectionAnimationProps.transition, delay: 0.2 }} 
           className="w-full md:w-1/4 lg:w-1/5"
         >
@@ -90,6 +94,9 @@ const ArticlesPage = () => {
 
         <motion.main 
           {...sectionAnimationProps} 
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ ...sectionAnimationProps.transition, delay: 0.4 }} 
           className="w-full md:w-3/4 lg:w-4/5"
         >
@@ -97,9 +104,11 @@ const ArticlesPage = () => {
             {articlesData.map((article, index) => (
               <motion.div
                 key={article.slug}
-                custom={index} // Use index for stagger
+                custom={index} 
                 variants={cardVariants}
-                // Removed individual initial/whileInView/viewport to use variants
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
                   <CardHeader>
@@ -112,7 +121,10 @@ const ArticlesPage = () => {
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <CardDescription className="text-foreground/80 line-clamp-3">
-                      This is a short placeholder description for the article "{article.title}". Full MDX content with auto-generated ToC and glossary highlights will be available on the article page.
+                      {article.slug === 'sequential-models' 
+                        ? "A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges."
+                        : `This is a short placeholder description for the article "${article.title}". Full MDX content with auto-generated ToC and glossary highlights will be available on the article page.`
+                      }
                     </CardDescription>
                   </CardContent>
                   <div className="p-6 pt-0 mt-auto">
@@ -125,7 +137,7 @@ const ArticlesPage = () => {
             ))}
           </div>
            <p className="mt-12 text-center text-muted-foreground">
-            Individual article pages will feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms.
+            Individual article pages will feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms. (Currently using HTML for content)
           </p>
         </motion.main>
       </div>
