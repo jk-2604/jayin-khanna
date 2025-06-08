@@ -21,9 +21,7 @@ const HeroSection = () => {
         <RotatingSubtitles />
         <div className="mt-10 space-x-0 space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center"> {/* Changed from justify-end to justify-center */}
           <Button asChild size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
-            {/* <Link href="/resume.pdf" target="_blank">View Resume</Link> */}
-            {/* Updated Link to span and text to "Coming Soon" */}
-            <span>Coming Soon</span>
+            <Link href="/resume">View Resume</Link>
           </Button>
           <Button asChild variant="secondary" size="lg" className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground">
             <Link href="/#projects-section">Explore Projects</Link>
