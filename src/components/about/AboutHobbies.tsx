@@ -51,7 +51,7 @@ const hobbiesData: Hobby[] = [
       ],
       dataAiHints: ["trail running", "football stadium", "marathon finish"]
     },
-    { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read. Thank you for this habit Ma!" },
+    { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read. Thank you for this habit, Ma (Reema Khanna)" },
     { name: "Mathematics", icon: <Sigma size={24} />, description: "I love doing Analysis, Measure theory and Linear/Matrix Algebra. Currently exploring Differential Geometry and Riemannian geometry." },
     { 
       name: "Education", 
@@ -64,7 +64,7 @@ const hobbiesData: Hobby[] = [
         { text: 'Anil Kumar Yadav (Physics Blog)', url: 'https://anilyadav1882.weebly.com/blog/physics', iconName: 'ChevronRight' },
       ]
     },
-    { name: "Coldplay", icon: <Music size={24} />, description: "I mean, what is the point of life if you can't even listen to the most beautiful band in 'My Universe' under a 'sky full of stars' with 'Charlie Brown'. Trust me, It's 'Paradise', because it 'feels like I am falling in love'." },
+    { name: "Coldplay", icon: <Music size={24} />, description: "I mean, what is the point of life if you can't even listen to the most beautiful band in 'My Universe' under a 'sky full of stars' with 'Charlie Brown'. Trust me, It's 'Paradise', because it 'feels like I am falling in love'.\nThank you for introducing it to me pa (Janesh Khanna) and Suhaan Khanna" },
 ];
 
 
@@ -168,7 +168,7 @@ const AboutHobbies = () => {
                     </CardTitle>
                   )}
                   <CardContent className="pt-0 flex-grow flex flex-col items-center justify-center w-full">
-                    <p className={`${hasImages ? 'text-white/90 text-center [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground text-center'} ${isExpanded && hasImages ? 'text-lg' : 'text-sm'}`}>
+                    <p className={`${hasImages ? 'text-white/90 text-center [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground text-center'} ${isExpanded && hasImages ? 'text-lg' : 'text-sm'} whitespace-pre-line`}>
                       {hobby.description}
                     </p>
                     {hobby.detailLinks && hobby.detailLinks.length > 0 && (
