@@ -164,12 +164,27 @@ const AboutPage = () => {
       <motion.div {...sectionAnimationProps} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
         <Timeline items={educationTimelineData} title="Education" />
       </motion.div>
-      <motion.div {...sectionAnimationProps} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
-        <Timeline items={achievementTimelineData} title="Achievements" />
-      </motion.div>
+
+      <motion.section {...sectionAnimationProps} className="py-12">
+        <h2 className="text-3xl font-headline text-center mb-10 text-primary">Collaborations &amp; Affiliations</h2>
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 container mx-auto">
+          {institutionLogos.map((logo, index) => (
+             <motion.div
+              key={logo.name}
+              custom={index}
+              variants={cardVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              initial="initial"
+              whileInView="whileInView"
+              className="grayscale hover:grayscale-0 transition-all duration-300">
+              <Image src={logo.src} alt={logo.alt} width={120} height={60} objectFit="contain" data-ai-hint={logo.dataAiHint} />
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       <motion.section {...sectionAnimationProps} className="py-12 mb-16">
-        <h2 className="text-3xl font-headline text-center mb-10 text-primary">Hobbies & Interests</h2>
+        <h2 className="text-3xl font-headline text-center mb-10 text-primary">Hobbies &amp; Interests</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto">
           {hobbies.map((hobby, index) => {
             const isExpanded = expandedHobbyName === hobby.name;
@@ -234,27 +249,16 @@ const AboutPage = () => {
         </div>
       </motion.section>
 
-      <motion.section {...sectionAnimationProps} className="py-12">
-        <h2 className="text-3xl font-headline text-center mb-10 text-primary">Collaborations & Affiliations</h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 container mx-auto">
-          {institutionLogos.map((logo, index) => (
-             <motion.div
-              key={logo.name}
-              custom={index}
-              variants={cardVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              initial="initial"
-              whileInView="whileInView"
-              className="grayscale hover:grayscale-0 transition-all duration-300">
-              <Image src={logo.src} alt={logo.alt} width={120} height={60} objectFit="contain" data-ai-hint={logo.dataAiHint} />
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+      <motion.div {...sectionAnimationProps} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
+        <Timeline items={achievementTimelineData} title="Achievements" />
+      </motion.div>
+
     </div>
   );
 };
 
 export default AboutPage;
+
+    
 
     
