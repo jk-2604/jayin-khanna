@@ -1,67 +1,86 @@
 
+"use client"; // <-- Add this directive
+
 import HeroSection from '@/components/home/HeroSection';
-// QuoteCarousel and curateQuotes are no longer needed here
 import { Separator } from '@/components/ui/separator';
+import { motion } from 'framer-motion';
 
-// Import page components to be used as sections
-import AboutPageContent from '@/app/about/page';
-import ExperiencePageContent from '@/app/experience/page';
-import SkillsPageContent from '@/app/skills/page';
-import ProjectsPageContent from '@/app/projects/page';
+// Import new "About" sub-components
+import AboutIntro from '@/components/about/AboutIntro';
+import AboutEducation from '@/components/about/AboutEducation';
+import AboutCollaborations from '@/components/about/AboutCollaborations';
+import AboutHobbies from '@/components/about/AboutHobbies';
+import AboutAchievements from '@/components/about/AboutAchievements';
 
-// Revalidate constant can remain if other parts of the page might benefit from it,
-// or removed if it was solely for quotes. Let's keep it for now.
-export const revalidate = 3600;
+// Import other page components that were previously rendering full pages
+import ExperiencePageContent from '@/app/experience/page'; 
+import SkillsPageContent from '@/app/skills/page'; 
+import ProjectsPageContent from '@/app/projects/page'; 
 
-// getQuotes function is no longer needed here
-// async function getQuotes() {
-//   try {
-//     const curated = await curateQuotes({
-//       topic: "philosophy, science, and learning",
-//       numberOfQuotes: 4,
-//     });
-//     return curated.quotes;
-//   } catch (error) {
-//     console.error(`Failed to fetch quotes. Details: ${error instanceof Error ? `${error.message}${error.stack ? `\nStack: ${error.stack}` : ''}` : String(error)}`);
-//     return [
-//       "The only true wisdom is in knowing you know nothing. - Socrates",
-//       "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",
-//       "Strive not to be a success, but rather to be of value. - Albert Einstein",
-//       "The mind is everything. What you think you become. - Buddha"
-//     ]; // Fallback quotes
-//   }
-// }
 
-export default async function HomePage() {
-  // const quotes = await getQuotes(); // No longer fetching quotes
+const sectionAnimationProps = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" },
+};
 
+export default function HomePage() { // <-- Remove async
   return (
     <div className="flex flex-col">
       <HeroSection />
       <Separator className="my-12 md:my-16 bg-border/40" />
-      {/* QuoteCarousel section removed */}
-      {/* <QuoteCarousel initialQuotes={quotes} /> */}
-      {/* Separator after QuoteCarousel removed */}
-      {/* <Separator className="my-12 md:my-16 bg-border/40" /> */}
 
-      <section id="about-section" className="py-12 md:py-16">
-        <AboutPageContent />
-      </section>
+      {/* 1. About me (Intro) */}
+      <motion.header {...sectionAnimationProps} className="text-center mb-8 container mx-auto">
+        <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
+        <p className="text-xl text-muted-foreground">A Glimpse into My Journey</p>
+      </motion.header>
+      <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto">
+        <AboutIntro />
+      </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <section id="experience-section" className="py-12 md:py-16">
+      {/* 2. Education */}
+      <motion.section {...sectionAnimationProps} id="education-section" className="container mx-auto">
+        <AboutEducation />
+      </motion.section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      {/* 3. My Experience */}
+      <motion.section {...sectionAnimationProps} id="experience-section">
         <ExperiencePageContent />
-      </section>
+      </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <section id="skills-section" className="py-12 md:py-16">
+      {/* 4. Collaborations & Affiliations */}
+      <motion.section {...sectionAnimationProps} id="collaborations-section" className="container mx-auto">
+        <AboutCollaborations />
+      </motion.section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      {/* 5. My Skills & Expertise */}
+      <motion.section {...sectionAnimationProps} id="skills-section">
         <SkillsPageContent />
-      </section>
+      </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <section id="projects-section" className="py-12 md:py-16">
+      {/* 6. Research & Projects */}
+      <motion.section {...sectionAnimationProps} id="projects-section">
         <ProjectsPageContent />
-      </section>
+      </motion.section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+      
+      {/* 7. Hobbies & Interests */}
+      <motion.section {...sectionAnimationProps} id="hobbies-section" className="container mx-auto">
+        <AboutHobbies />
+      </motion.section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      {/* 8. Achievements */}
+      <motion.section {...sectionAnimationProps} id="achievements-section" className="container mx-auto pb-12 md:pb-16">
+        <AboutAchievements />
+      </motion.section>
     </div>
   );
 }
