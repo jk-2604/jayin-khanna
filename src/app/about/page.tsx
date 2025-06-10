@@ -5,7 +5,9 @@ import Timeline from '@/components/about/Timeline';
 import { educationTimelineData, achievementTimelineData } from '@/lib/data';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, GraduationCap, Sigma, Brain, Lightbulb, Music, Footprints } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { BookOpen, GraduationCap, Sigma, Brain, Lightbulb, Music, Footprints, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
@@ -19,9 +21,9 @@ const sectionAnimationProps = {
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 }, 
+  viewport: { once: true, amount: 0.2 },
   transition: {
-    delay: 0.1, 
+    delay: 0.1,
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -38,9 +40,9 @@ const AboutPage = () => {
   ];
 
   const hobbies = [
-    { 
-      name: "Football & Running", 
-      icon: <Footprints size={24} />, 
+    {
+      name: "Football & Running",
+      icon: <Footprints size={24} />,
       description: "If you love running till you can't think anymore, let's run together!",
       imageUrls: [
         "https://placehold.co/400x300.png",
@@ -64,7 +66,7 @@ const AboutPage = () => {
       }
     });
     setCurrentImageIndices(initialIndices);
-  }, []); 
+  }, []);
 
   useEffect(() => {
     const activeIntervals: NodeJS.Timeout[] = [];
@@ -72,7 +74,7 @@ const AboutPage = () => {
     hobbies.forEach(hobby => {
       if (hobby.imageUrls && hobby.imageUrls.length > 0) {
         const isExpanded = expandedHobbyName === hobby.name;
-        const intervalTime = isExpanded ? 1500 : 3000; 
+        const intervalTime = isExpanded ? 1500 : 3000;
 
         const interval = setInterval(() => {
           setCurrentImageIndices(prevIndices => {
@@ -124,19 +126,41 @@ const AboutPage = () => {
             <div className="md:w-2/3 p-8 md:p-12">
               <h2 className="text-3xl font-headline mb-6 text-primary">Jayin Khanna</h2>
               <p className="text-lg mb-4 text-foreground/90">
-                Driven by an insatiable curiosity, I navigate the fascinating intersections of Artificial Intelligence, Mathematics, and the intricate workings of the Mind. My academic and research pursuits are dedicated to unraveling the complexities of learning, cognition, and systemic behaviors.
+                I'm currently in my fourth year of a B.Sc. (Research) in Mathematics, with a minor in Computer Science and Engineering at Shiv Nadar Institute of Eminence, Noida. I am specializing in Artificial Intelligence, Machine Learning, and Mathematical Finance. I am also pursuing an Online degree in BS in Data Science and Applications from IIT Madras.
               </p>
               <p className="text-lg mb-4 text-foreground/90">
-                With a strong foundation in deep learning and a philosophical lens, I am passionate about developing AI solutions that are not only technologically advanced but also ethically grounded and beneficial to society. My work spans across financial AI, neuroscience-inspired models, and fundamental AI research.
+                I previously worked as a Machine Learning Research Intern at the Institute of Nuclear Medicine and Allied Sciences (INMAS), DRDO, New Delhi, under Dr. Shilpi Modi (Scientist 'E'), and am currently continuing a new research project under her guidance. I was also selected for the ISRP program at University of California, Santa Cruz. I worked as a Statistics Research intern under Dr. Bruno Sanso in Time series analysis of Environmental variables.
               </p>
-              <p className="text-lg text-foreground/90">
-                Beyond research, I am an avid learner, a keen observer of markets, and someone who believes in the power of interdisciplinary dialogue to spark innovation.
+              <p className="text-lg mb-4 text-foreground/90">
+                To get a taste of what the industry is like, I interned at Syntellect by Right Profile as an R&D Intern in ML and Computer Vision, and also worked briefly with The Habitats Trust on CV-based projects as part of the Tech4Conservation initiative.
               </p>
+              <p className="text-lg mb-4 text-foreground/90">
+                I love doing research!
+              </p>
+              <h3 className="text-2xl font-headline mt-6 mb-3 text-primary/90">My Research Interests</h3>
+              <ul className="list-disc list-inside space-y-1 text-lg mb-4 text-foreground/90">
+                <li>Geometric Deep Learning</li>
+                <li>Graph Machine Learning</li>
+                <li>Domain Adaptation and Transfer Learning</li>
+                <li>Deep Learning Applications in Time Series</li>
+                <li>RL also seems interesting, but still exploring</li>
+              </ul>
+              <p className="text-lg mb-4 text-foreground/90">
+                Beyond academics, I love playing football and running. I also love reading- mainly psychology and philosophy but I explore other genres as well.
+              </p>
+              <p className="text-lg mb-6 text-foreground/90">
+                If you have cool project ideas, or want to discuss thought experiments or ideologies - regardless of the domain, and want to collaborate, ping me! I am always looking forward to interesting stuff!
+              </p>
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href="/contact">
+                  Let's Connect! <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </Card>
       </motion.section>
-      
+
       <motion.div {...sectionAnimationProps} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
         <Timeline items={educationTimelineData} title="Education" />
       </motion.div>
@@ -160,12 +184,12 @@ const AboutPage = () => {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={{ once: true, amount: 0.2 }}
-                layout 
+                layout
               >
                 <Card
                   className={`shadow-lg border-border hover:border-primary transition-all duration-300 h-full flex flex-col relative overflow-hidden ${hasImages ? 'cursor-pointer' : ''}`}
                   onClick={() => handleHobbyClick(hobby.name)}
-                  style={{ minHeight: '250px' }} 
+                  style={{ minHeight: '250px' }}
                 >
                   {hasImages && hobby.imageUrls && (
                     <div className={`absolute inset-0 z-0 ${isExpanded ? '' : 'opacity-60 group-hover:opacity-80 transition-opacity'}`}>
@@ -196,7 +220,7 @@ const AboutPage = () => {
                         {hobby.name}
                       </CardTitle>
                     )}
-                    
+
                     <CardContent className="pt-0 flex-grow flex items-center justify-center">
                       <p className={`${hasImages ? 'text-white/90 text-center [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground'} ${isExpanded && hasImages ? 'text-lg' : ''}`}>
                         {hobby.description}
@@ -214,9 +238,9 @@ const AboutPage = () => {
         <h2 className="text-3xl font-headline text-center mb-10 text-primary">Collaborations & Affiliations</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 container mx-auto">
           {institutionLogos.map((logo, index) => (
-             <motion.div 
-              key={logo.name} 
-              custom={index} 
+             <motion.div
+              key={logo.name}
+              custom={index}
               variants={cardVariants}
               viewport={{ once: true, amount: 0.2 }}
               initial="initial"
@@ -232,3 +256,5 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+    
