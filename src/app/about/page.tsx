@@ -64,7 +64,7 @@ const AboutPage = () => {
       }
     });
     setCurrentImageIndices(initialIndices);
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); 
 
   useEffect(() => {
     const activeIntervals: NodeJS.Timeout[] = [];
@@ -72,7 +72,7 @@ const AboutPage = () => {
     hobbies.forEach(hobby => {
       if (hobby.imageUrls && hobby.imageUrls.length > 0) {
         const isExpanded = expandedHobbyName === hobby.name;
-        const intervalTime = isExpanded ? 1500 : 3000; // Faster when expanded
+        const intervalTime = isExpanded ? 1500 : 3000; 
 
         const interval = setInterval(() => {
           setCurrentImageIndices(prevIndices => {
@@ -137,24 +137,6 @@ const AboutPage = () => {
         </Card>
       </motion.section>
       
-      <motion.section {...sectionAnimationProps} className="mb-16 py-12 bg-card/30 rounded-lg">
-        <h2 className="text-3xl font-headline text-center mb-10 text-primary">By The Numbers</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center container mx-auto">
-          <motion.div variants={cardVariants} custom={0} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
-            <p className="text-5xl font-bold text-secondary">3.9</p>
-            <p className="text-muted-foreground">GPA (Illustrative)</p>
-          </motion.div>
-          <motion.div variants={cardVariants} custom={1} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
-            <p className="text-5xl font-bold text-secondary">10+</p>
-            <p className="text-muted-foreground">Research Projects</p>
-          </motion.div>
-          <motion.div variants={cardVariants} custom={2} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
-            <p className="text-5xl font-bold text-secondary">3</p>
-            <p className="text-muted-foreground">Institutes Collaborated With</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
       <motion.div {...sectionAnimationProps} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.2 }}>
         <Timeline items={educationTimelineData} title="Education" />
       </motion.div>
@@ -178,12 +160,12 @@ const AboutPage = () => {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={{ once: true, amount: 0.2 }}
-                layout // Added for smoother transition if size changes
+                layout 
               >
                 <Card
                   className={`shadow-lg border-border hover:border-primary transition-all duration-300 h-full flex flex-col relative overflow-hidden ${hasImages ? 'cursor-pointer' : ''}`}
                   onClick={() => handleHobbyClick(hobby.name)}
-                  style={{ minHeight: '250px' }} // Ensure card has some height
+                  style={{ minHeight: '250px' }} 
                 >
                   {hasImages && hobby.imageUrls && (
                     <div className={`absolute inset-0 z-0 ${isExpanded ? '' : 'opacity-60 group-hover:opacity-80 transition-opacity'}`}>

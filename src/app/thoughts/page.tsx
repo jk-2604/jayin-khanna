@@ -16,13 +16,13 @@ const ThoughtsPage = () => {
       <motion.div {...sectionAnimationProps}>
         <Lightbulb className="h-24 w-24 text-primary mb-8" /> {/* Using Lightbulb icon */}
         <h1 className="text-4xl md:text-5xl font-headline mb-6 text-primary">
-          Philosophical Thoughts
+          Blog
         </h1>
         <p className="text-2xl md:text-3xl text-muted-foreground">
           Coming Soon!
         </p>
         <p className="text-lg text-muted-foreground mt-4">
-          This section will feature my musings on AI, mind, and the fabric of reality. Please check back later for blog posts.
+          Explore my thoughts and musings. Please check back later for blog posts.
         </p>
       </motion.div>
     </div>
