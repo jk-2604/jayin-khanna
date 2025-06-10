@@ -111,10 +111,8 @@ export const skillsData: Skill[] = [
   { id: 's_tensorflow', name: 'TensorFlow', category: 'Tools & Libraries', description: 'Experience with TensorFlow and Keras API for developing and deploying machine learning models across various platforms.', iconName: 'Layers' },
   { id: 's_opencv', name: 'OpenCV', category: 'Tools & Libraries', description: "Computer vision tasks such as image processing, object detection, and video analysis. Learnt it mainly through a course and you know it.", iconName: 'Camera' },
   { id: 's_sklearn', name: 'scikit-learn', category: 'Tools & Libraries', description: 'Proficient with scikit-learn for classical machine learning algorithms, model evaluation, and data preprocessing.', iconName: 'Shapes' },
-  { id: 's_numpy', name: 'NumPy', category: 'Tools & Libraries', description: "Fundamental for numerical computations and array manipulations, it's a lifesaver compared to manual data handling in spreadsheets.", iconName: 'Sigma' },
-  { id: 's_pandas', name: 'Pandas', category: 'Tools & Libraries', description: "Essential for data manipulation, cleaning, and analysis, saving me from the drudgery of spreadsheets.", iconName: 'Table' },
-  { id: 's_matplotlib', name: 'Matplotlib', category: 'Tools & Libraries', description: "Created a wide range of static, animated, and interactive visualizations in Python. While Seaborn is great for quick statistical plots, Matplotlib offers deep control.", iconName: 'LineChart' },
-  { id: 's_seaborn', name: 'Seaborn', category: 'Tools & Libraries', description: "Seaborn any day for attractive statistical graphics and visualizations.", iconName: 'BarChartHorizontalBig' },
-  { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Leveraged SciPy for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
+  { id: 's_pandas_numpy', name: 'Pandas & NumPy', category: 'Tools & Libraries', description: "Thank you for not letting me be at the mercy of the mind numbing excel sheets.", iconName: 'Table' },
+  { id: 's_seaborn_matplotlib', name: 'Seaborn & Matplotlib', category: 'Tools & Libraries', description: "Seaborn any day for attractive statistical graphics and visualizations.", iconName: 'BarChartHorizontalBig' },
+  { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Used for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
   { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: "Did a couple of research projects for econometric analysis, time series modeling, and forecasting. Convenience is crazy.", iconName: 'TrendingUp' },
 ];
