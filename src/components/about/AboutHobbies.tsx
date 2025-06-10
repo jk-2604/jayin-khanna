@@ -52,8 +52,7 @@ const hobbiesData: Hobby[] = [
       dataAiHints: ["trail running", "football stadium", "marathon finish"]
     },
     { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read." },
-    { name: "Mathematics", icon: <Sigma size={24} />, description: "Exploring the beauty, rigor, and diverse applications of mathematical concepts and theories." },
-    { name: "Philosophy & Psychology", icon: <Brain size={24} />, description: "Pondering philosophical questions and exploring the intricacies of the human mind and behavior." },
+    { name: "Mathematics", icon: <Sigma size={24} />, description: "I love doing Analysis, Measure theory and Linear/Matrix Algebra. Currently exploring Differential Geometry and Riemannian geometry." },
     { 
       name: "Education", 
       icon: <GraduationCap size={24} />, 
