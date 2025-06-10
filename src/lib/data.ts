@@ -102,21 +102,19 @@ export const achievementTimelineData: TimelineItem[] = [
 
 export const skillsData: Skill[] = [
   // Programming Languages
-  { id: 's_python', name: 'Python', category: 'Programming Languages', description: 'My experience with Python includes developing complex algorithms, data processing pipelines, and building machine learning models.', iconName: 'Code' },
-  { id: 's_c', name: 'C', category: 'Programming Languages', description: 'Utilized C for performance-critical applications and understanding fundamental programming concepts.', iconName: 'Terminal' },
-  { id: 's_r', name: 'R', category: 'Programming Languages', description: 'Applied R for statistical analysis, data visualization, and specific research projects requiring advanced statistical modeling.', iconName: 'BarChartBig' },
+  { id: 's_python', name: 'Python', category: 'Programming Languages', description: "By this time, It'd probably be a crime to not know it. Use it for most of my projects, research projects, personal tasks and automation of monotonous work.", iconName: 'Code' },
+  { id: 's_c', name: 'C', category: 'Programming Languages', description: "Did and still prefer doing all my DSA in C, Even though Python is much more convinient, love the control and freedom C provides.", iconName: 'Terminal' },
+  { id: 's_r', name: 'R', category: 'Programming Languages', description: "My Go-To for most of the statistical analysis, data visualization, and specific research projects requiring advanced statistical modeling. Learnt mainly through couple of Statistics courses but mostly from YouTube.", iconName: 'BarChartBig' },
 
   // Tools & Libraries
   { id: 's_pytorch', name: 'PyTorch', category: 'Tools & Libraries', description: 'Extensive use of PyTorch for building and training deep neural networks, including CNNs, RNNs, and GNNs.', iconName: 'BrainCircuit' },
   { id: 's_tensorflow', name: 'TensorFlow', category: 'Tools & Libraries', description: 'Experience with TensorFlow and Keras API for developing and deploying machine learning models across various platforms.', iconName: 'Layers' },
-  { id: 's_keras', name: 'Keras', category: 'Tools & Libraries', description: 'Leveraged Keras for rapid prototyping and building user-friendly deep learning models.', iconName: 'Layers' }, // Reusing Layers icon
-  { id: 's_opencv', name: 'OpenCV', category: 'Tools & Libraries', description: 'Applied OpenCV for computer vision tasks such as image processing, object detection, and video analysis.', iconName: 'Camera' },
+  { id: 's_opencv', name: 'OpenCV', category: 'Tools & Libraries', description: "Computer vision tasks such as image processing, object detection, and video analysis. Learnt it mainly through a course and you know it.", iconName: 'Camera' },
   { id: 's_sklearn', name: 'scikit-learn', category: 'Tools & Libraries', description: 'Proficient with scikit-learn for classical machine learning algorithms, model evaluation, and data preprocessing.', iconName: 'Shapes' },
-  { id: 's_numpy', name: 'NumPy', category: 'Tools & Libraries', description: 'Fundamental tool for numerical computations, array manipulations, and mathematical operations in Python projects.', iconName: 'Sigma' },
-  { id: 's_pandas', name: 'Pandas', category: 'Tools & Libraries', description: 'Used Pandas extensively for data manipulation, cleaning, analysis, and working with structured datasets.', iconName: 'Table' },
-  { id: 's_matplotlib', name: 'Matplotlib', category: 'Tools & Libraries', description: 'Created a wide range of static, animated, and interactive visualizations in Python using Matplotlib.', iconName: 'LineChart' },
-  { id: 's_seaborn', name: 'Seaborn', category: 'Tools & Libraries', description: 'Utilized Seaborn for creating informative and attractive statistical graphics and visualizations.', iconName: 'BarChartHorizontalBig' },
+  { id: 's_numpy', name: 'NumPy', category: 'Tools & Libraries', description: "Fundamental for numerical computations and array manipulations, it's a lifesaver compared to manual data handling in spreadsheets.", iconName: 'Sigma' },
+  { id: 's_pandas', name: 'Pandas', category: 'Tools & Libraries', description: "Essential for data manipulation, cleaning, and analysis, saving me from the drudgery of spreadsheets.", iconName: 'Table' },
+  { id: 's_matplotlib', name: 'Matplotlib', category: 'Tools & Libraries', description: "Created a wide range of static, animated, and interactive visualizations in Python. While Seaborn is great for quick statistical plots, Matplotlib offers deep control.", iconName: 'LineChart' },
+  { id: 's_seaborn', name: 'Seaborn', category: 'Tools & Libraries', description: "Seaborn any day for attractive statistical graphics and visualizations.", iconName: 'BarChartHorizontalBig' },
   { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Leveraged SciPy for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
-  { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: 'Experience with EViews for econometric analysis, time series modeling, and forecasting.', iconName: 'TrendingUp' }, // Using TrendingUp from existing icons
+  { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: "Did a couple of research projects for econometric analysis, time series modeling, and forecasting. Convenience is crazy.", iconName: 'TrendingUp' },
 ];
-
