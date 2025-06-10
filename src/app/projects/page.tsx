@@ -9,16 +9,17 @@ import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from 'framer-motion';
+import { GraduationCap } from "lucide-react";
 
 const projectsData: Project[] = [
   {
     slug: 'domain-adaptation-medical-imaging',
     title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
     year: '2024-2025',
+    supervisorName: 'Dr. Saurabh Janardan Shigwan',
+    supervisorLink: '#', // Replace with actual link
     tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
-    shortAbstract: `Research Supervisor: Dr. Saurabh Janardan Shigwan
-
-• Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.
+    shortAbstract: `• Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.
 • Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant fea
 tures, enabling effective cross-modality image analysis.
 • Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric
@@ -30,10 +31,10 @@ tures, enabling effective cross-modality image analysis.
     slug: 'investor-behavior-analysis-dl',
     title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
     year: '2024-2025',
+    supervisorName: 'Dr. Ashish Vazirani',
+    supervisorLink: '#', // Replace with actual link
     tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
-    shortAbstract: `Research Supervisor: Dr. Ashish Vazirani
-
-• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance,
+    shortAbstract: `• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance,
  and decision-making patterns in Shark Tank videos.
 • Utilized EmotioNet for facial expression recognition and NLP models for the analysis of sentiment
  and intent from textual transcripts.
@@ -44,10 +45,10 @@ cisions.`
     slug: 'financial-markets-time-series-sentiment',
     title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
     year: '2024-2025',
+    supervisorName: 'Dr. Charu Sharma (Mathematics Dept, SNU)',
+    supervisorLink: '#', // Replace with actual link
     tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
-    shortAbstract: `Research Supervisor: Dr. Charu Sharma (Mathematics Dept, SNU)
-
-• Analyzing Time series Patterns and sentiment in US financial markets.
+    shortAbstract: `• Analyzing Time series Patterns and sentiment in US financial markets.
 • Implemented Sequential Deep learning and ML models to understand market sentiment and its
  impact on financial trends.
 • Working with the past 5-7 years of daily data of 31 potential financial indicators to predict financial
@@ -58,6 +59,7 @@ cisions.`
     slug: 'filtering-recommendation-model',
     title: 'Filtering-Based Recommendation ML Model',
     year: '2024',
+    // No supervisor
     tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
     shortAbstract: `• Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital
  Connect, a matchmaking platform for investors and startups.
@@ -68,6 +70,7 @@ larity score to each match. This project secured a Top 16 position in the SNU Id
     slug: 'self-directed-learning-advanced-ai',
     title: 'Self-Directed Learning: Advanced AI Implementations',
     year: 'Ongoing',
+    // No supervisor
     tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
     shortAbstract: `Reading Projects:
 • LLMs from Scratch
@@ -93,7 +96,7 @@ const cardVariants = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: {
-    delay: 0.1, // Base delay
+    delay: 0.1, 
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -121,9 +124,11 @@ const ProjectsPage = () => {
         {projectsData.map((project, index) => (
           <motion.div
             key={project.slug}
-            custom={index} // For stagger
+            custom={index} 
             variants={cardVariants}
-             // Removed individual animation props to use variants
+            initial="initial" // Use keys from variants
+            whileInView="whileInView" // Use keys from variants
+            viewport={cardVariants.viewport} // Explicitly pass viewport
           >
             <Card 
               onClick={() => handleOpenDialog(project)}
@@ -132,6 +137,12 @@ const ProjectsPage = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{project.year}</p>
+                {project.supervisorName && (
+                  <div className="text-xs text-muted-foreground flex items-center mt-1">
+                    <GraduationCap className="mr-1.5 h-4 w-4 text-accent" />
+                    <span>Supervisor: {project.supervisorName.split('(')[0].trim()}</span> 
+                  </div>
+                )}
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="px-2 py-0.5 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>
@@ -160,6 +171,19 @@ const ProjectsPage = () => {
               <DialogTitle className="text-2xl font-headline text-primary mb-1">{currentProject.title}</DialogTitle>
               <DialogDescription className="text-sm text-muted-foreground">
                 {currentProject.year}
+                {currentProject.supervisorName && (
+                  <div className="mt-2 text-sm text-muted-foreground flex items-center">
+                    <GraduationCap className="mr-2 h-4 w-4 text-accent" />
+                    <span>Supervisor: </span>
+                    {currentProject.supervisorLink && currentProject.supervisorLink !== '#' ? (
+                      <Link href={currentProject.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                        {currentProject.supervisorName}
+                      </Link>
+                    ) : (
+                      <span className="ml-1">{currentProject.supervisorName}</span>
+                    )}
+                  </div>
+                )}
                 <div className="flex flex-wrap gap-2 mt-3">
                   {currentProject.tags.map(tag => (
                     <span key={tag} className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>

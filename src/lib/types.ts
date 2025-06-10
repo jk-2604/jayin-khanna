@@ -34,6 +34,13 @@ export interface Project {
   year: string;
   tags: string[];
   shortAbstract: string;
+  supervisorName?: string;
+  supervisorLink?: string;
+  // For detailed page, we might have more fields
+  fullWriteUp?: string;
+  paperLink?: string | null;
+  githubLink?: string | null;
+  datasetLink?: string | null;
 }
 
 export interface Article {
