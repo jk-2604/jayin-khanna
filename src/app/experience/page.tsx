@@ -2,13 +2,13 @@
 "use client";
 
 import Image from 'next/image';
-import Link from 'next/link'; // Added import
+import Link from 'next/link';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion } from 'framer-motion';
-import { GraduationCap } from 'lucide-react'; // Added import
+import { GraduationCap, CalendarDays } from 'lucide-react'; // Added CalendarDays
 
 // Updated experience data based on user input
 const experienceData = [
@@ -19,8 +19,8 @@ const experienceData = [
     logoSrc: '/images/drdo-inmas-logo.png', 
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
-    supervisor: 'Dr. Shilpi Modi', // Cleaned name
-    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi', // Added link
+    supervisor: 'Dr. Shilpi Modi',
+    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi',
     period: '2024',
     description: [
       'Developed a Convolutional Neural Network (CNN) ResNet model for classifying sEMG stress measurements, focusing on improving accuracy and generalization.',
@@ -44,8 +44,8 @@ const experienceData = [
     logoSrc: '/images/drdo-inmas-logo.png', 
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
-    supervisor: 'Dr. Shilpi Modi', // Cleaned name
-    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi', // Added link
+    supervisor: 'Dr. Shilpi Modi',
+    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi',
     period: 'Present',
     description: [
       'Working on the application of network control theory to understand cognitive state transitions in the brain.',
@@ -63,6 +63,7 @@ const experienceData = [
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
+    supervisorLink: undefined, // Assuming no public link was found or intended
     period: '2024',
     description: [
       'Conducted advanced research in Analysis of Time-Varying Quantiles for Environmental Variables, under the mentorship of Professor Dr. Bruno Sansó.',
@@ -113,6 +114,7 @@ const experienceData = [
     logoAlt: 'Polymath Jr. Logo',
     dataAiHint: 'education program',
     supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)',
+    supervisorLink: undefined,
     period: 'June 2024 – Aug 2024',
     description: [
       'Engaged in research on Non-Local Models.',
@@ -130,6 +132,7 @@ const experienceData = [
     logoAlt: 'MTTS Program Logo',
     dataAiHint: 'math program',
     supervisor: 'Mentors: Prof. Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), Dr. Ajit Kumar (ICT Mumbai)',
+    supervisorLink: undefined,
     period: '2024',
     description: [
       'Selected from over 3,000 applicants all over India for one of 180 seats.',
@@ -142,9 +145,9 @@ const experienceData = [
   {
     id: 'exp_jk_8',
     role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
-    institution: 'Academic Institution (Assumed)', 
+    institution: 'Shiv Nadar University', 
     logoSrc: '/images/SNU.png',
-    logoAlt: 'Academic Institution Logo',
+    logoAlt: 'Shiv Nadar University Logo',
     dataAiHint: 'university building',
     supervisor: undefined, 
     period: '2025',
@@ -209,9 +212,9 @@ const ExperiencePageContent = () => {
               className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col"
               onClick={() => handleOpenDialog(exp)}
             >
-              <div className="flex items-start space-x-4 mb-2">
+              <div className="flex items-start space-x-4 mb-3">
                 {exp.logoSrc && (
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 pt-1">
                     <Image 
                       src={exp.logoSrc} 
                       alt={exp.logoAlt || `${exp.institution} logo`} 
@@ -232,7 +235,7 @@ const ExperiencePageContent = () => {
                   <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0" />
                   Supervisor:{" "}
                   {exp.supervisorLink && exp.supervisorLink !== "#" ? (
-                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline" onClick={(e) => e.stopPropagation()}>
                       {exp.supervisor}
                     </Link>
                   ) : (
@@ -240,7 +243,10 @@ const ExperiencePageContent = () => {
                   )}
                 </p>
               )}
-              <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
+              <p className="text-sm text-muted-foreground mb-2 flex items-center">
+                <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
+                Period: {exp.period}
+              </p>
               <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
                 {exp.description[0]} 
               </p>
@@ -292,7 +298,10 @@ const ExperiencePageContent = () => {
                   )}
                 </p>
               )}
-              <p className="text-sm text-muted-foreground">Period: {currentExperience.period}</p>
+              <p className="text-sm text-muted-foreground flex items-center">
+                <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
+                 Period: {currentExperience.period}
+              </p>
             </DialogHeader>
             
             <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
