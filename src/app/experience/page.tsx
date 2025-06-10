@@ -63,7 +63,7 @@ const experienceData = [
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
-    supervisorLink: undefined, // Assuming no public link was found or intended
+    supervisorLink: 'https://users.soe.ucsc.edu/~bruno/',
     period: '2024',
     description: [
       'Conducted advanced research in Analysis of Time-Varying Quantiles for Environmental Variables, under the mentorship of Professor Dr. Bruno Sansó.',
@@ -340,3 +340,4 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
+
