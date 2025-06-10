@@ -57,7 +57,7 @@ const hobbiesData: Hobby[] = [
     { 
       name: "Education", 
       icon: <GraduationCap size={24} />, 
-      description: "Continuously expanding my knowledge through formal studies, self-directed exploration, and learning from these inspiring sources:",
+      description: "Learning from the Best",
       detailLinks: [
         { text: '3Blue1Brown', url: 'https://www.youtube.com/c/3blue1brown', iconName: 'ChevronRight' },
         { text: 'Dr. Amber Habib', url: 'https://snu.edu.in/faculty/amber-habib/', iconName: 'ChevronRight' },
