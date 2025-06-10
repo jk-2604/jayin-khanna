@@ -20,27 +20,24 @@ const AboutIntro = () => {
     // The motion.section wrapper will be applied in the parent page (src/app/page.tsx or src/app/about/page.tsx)
     // This component now returns the direct content of the intro card.
     <Card className="overflow-hidden shadow-xl">
-      <div className="md:flex">
-        <div className="md:w-1/3 relative min-h-[300px] md:min-h-0">
+      <div className="flex flex-col items-center"> {/* Changed to flex-col for vertical stacking */}
+        <div className="relative w-full max-w-xs aspect-[3/4] mx-auto mb-6 overflow-hidden rounded-lg shadow-lg"> {/* Adjusted container for image */}
           <Image
-            src="https://placehold.co/400x500.png"
-            alt="Jayin Khanna"
-            layout="fill"
-            objectFit="cover"
-            className="filter grayscale hover:grayscale-0 transition-all duration-500"
+            src="/images/photo latest latest (1).jpg"
+            alt="Your Photo" // Alt text is important for accessibility
+            layout="fill" // Use layout fill to cover the container
+            objectFit="cover" // Ensure aspect ratio is maintained and covers the area
             data-ai-hint="professional portrait"
           />
         </div>
-        <div className="md:w-2/3 p-8 md:p-12">
+        <div className="p-8 md:p-12"> {/* Padding for the text content */}
           <h2 className="text-3xl font-headline mb-6 text-primary">Jayin Khanna</h2>
           <p className="text-lg mb-4 text-foreground/90">
             I'm currently in my fourth year of a B.Sc. (Research) in Mathematics, with a minor in Computer Science and Engineering at Shiv Nadar Institute of Eminence, Noida. I am specializing in Artificial Intelligence, Machine Learning, and Mathematical Finance. I am also pursuing an Online degree in BS in Data Science and Applications from IIT Madras.
           </p>
           <p className="text-lg mb-4 text-foreground/90">
-            I previously worked as a Machine Learning Research Intern at the Institute of Nuclear Medicine and Allied Sciences (INMAS), DRDO, New Delhi, under Dr. Shilpi Modi (Scientist 'E'), and am currently continuing a new research project under her guidance. I was also selected for the ISRP program at University of California, Santa Cruz. I worked as a Statistics Research intern under Dr. Bruno Sanso in Time series analysis of Environmental variables.
-          </p>
-          <p className="text-lg mb-4 text-foreground/90">
-            To get a taste of what the industry is like, I interned at Syntellect by Right Profile as an R&D Intern in ML and Computer Vision, and also worked briefly with The Habitats Trust on CV-based projects as part of the Tech4Conservation initiative.
+ I previously worked as a Machine Learning Research Intern at the Institute of Nuclear Medicine and Allied Sciences (INMAS), DRDO, New Delhi, under Dr. Shilpi Modi (Scientist 'E'), and am currently continuing a new research project under her guidance. I was also selected for the ISRP program at University of California, Santa Cruz. I worked as a Statistics Research intern under Dr. Bruno Sanso in Time series analysis of Environmental variables. 
+To get a taste of what the industry is like, I interned at Syntellect by Right Profile as an R&D Intern in ML and Computer Vision, and also worked briefly with The Habitats Trust on CV-based projects as part of the Tech4Conservation initiative. 
           </p>
           <p className="text-lg mb-4 text-foreground/90">
             I love doing research!
