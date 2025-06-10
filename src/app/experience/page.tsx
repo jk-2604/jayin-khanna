@@ -2,11 +2,13 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link'; // Added import
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion } from 'framer-motion';
+import { GraduationCap } from 'lucide-react'; // Added import
 
 // Updated experience data based on user input
 const experienceData = [
@@ -14,10 +16,11 @@ const experienceData = [
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', // Assuming this path is correct in public/images
+    logoSrc: '/images/drdo-inmas-logo.png', 
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
-    supervisor: 'Dr. Shilpi Modi, Sc.’E’',
+    supervisor: 'Dr. Shilpi Modi', // Cleaned name
+    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi', // Added link
     period: '2024',
     description: [
       'Developed a Convolutional Neural Network (CNN) ResNet model for classifying sEMG stress measurements, focusing on improving accuracy and generalization.',
@@ -38,10 +41,11 @@ const experienceData = [
     id: 'exp_jk_2',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', // Assuming this path
+    logoSrc: '/images/drdo-inmas-logo.png', 
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
-    supervisor: 'Dr. Shilpi Modi, Sc.’E’',
+    supervisor: 'Dr. Shilpi Modi', // Cleaned name
+    supervisorLink: 'https://www.researchgate.net/profile/Shilpi-Modi', // Added link
     period: 'Present',
     description: [
       'Working on the application of network control theory to understand cognitive state transitions in the brain.',
@@ -55,7 +59,7 @@ const experienceData = [
     id: 'exp_jk_3',
     role: 'Statistics Research Intern',
     institution: 'University of California Santa Cruz, CA (ISRP)',
-    logoSrc: '/images/UCSC.png', // Updated UCSC logo path to a placeholder
+    logoSrc: '/images/UCSC.png', 
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
     supervisor: 'Prof. Bruno Sansó',
@@ -76,7 +80,7 @@ const experienceData = [
     logoSrc: '/images/sytellect.jpg',
     logoAlt: 'RightProfile Logo',
     dataAiHint: 'tech company',
-    supervisor: undefined, // Explicitly undefined as per original
+    supervisor: undefined, 
     period: 'Dec 2024 – Present',
     description: [
       'Part of the Research and Development team to develop Computer Vision and Deep Learning models to automate the annotation of 10,000+ raw images.',
@@ -92,7 +96,7 @@ const experienceData = [
     logoSrc: '/images/THT.jpg',
     logoAlt: 'The Habitats Trust Logo',
     dataAiHint: 'conservation organization',
-    supervisor: undefined, // Explicitly undefined
+    supervisor: undefined, 
     period: 'Dec 2024 – Present',
     description: [
       'Conducting research and development on modern Computer Vision and object detection models such as MegaDetector, Zamba, and Timelapse to classify and analyze wildlife in camera trap images.',
@@ -138,11 +142,11 @@ const experienceData = [
   {
     id: 'exp_jk_8',
     role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
-    institution: 'Academic Institution (Assumed)', // Kept as placeholder
+    institution: 'Academic Institution (Assumed)', 
     logoSrc: '/images/SNU.png',
     logoAlt: 'Academic Institution Logo',
     dataAiHint: 'university building',
-    supervisor: undefined, // Explicitly undefined
+    supervisor: undefined, 
     period: '2025',
     description: [
       'I provide video solutions to undergraduate students for important problems and quizzes, breaking down concepts intuitively.',
@@ -223,7 +227,19 @@ const ExperiencePageContent = () => {
                   <p className="text-lg text-foreground/80 mb-1">{exp.institution}</p>
                 </div>
               </div>
-              {exp.supervisor && <p className="text-sm text-muted-foreground mb-1">Supervisor: {exp.supervisor}</p>}
+              {exp.supervisor && (
+                <p className="text-sm text-muted-foreground mb-1 flex items-center">
+                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0" />
+                  Supervisor:{" "}
+                  {exp.supervisorLink && exp.supervisorLink !== "#" ? (
+                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                      {exp.supervisor}
+                    </Link>
+                  ) : (
+                    <span className="ml-1">{exp.supervisor}</span>
+                  )}
+                </p>
+              )}
               <p className="text-sm text-muted-foreground mb-1">Period: {exp.period}</p>
               <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
                 {exp.description[0]} 
@@ -263,7 +279,19 @@ const ExperiencePageContent = () => {
                   </DialogDescription>
                 </div>
               </div>
-              {currentExperience.supervisor && <p className="text-sm text-muted-foreground mt-1">Supervisor: {currentExperience.supervisor}</p>}
+              {currentExperience.supervisor && (
+                <p className="text-sm text-muted-foreground mt-1 flex items-center">
+                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0" />
+                  Supervisor:{" "}
+                  {currentExperience.supervisorLink && currentExperience.supervisorLink !== "#" ? (
+                    <Link href={currentExperience.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                      {currentExperience.supervisor}
+                    </Link>
+                  ) : (
+                    <span className="ml-1">{currentExperience.supervisor}</span>
+                  )}
+                </p>
+              )}
               <p className="text-sm text-muted-foreground">Period: {currentExperience.period}</p>
             </DialogHeader>
             
@@ -303,5 +331,3 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
-
-    

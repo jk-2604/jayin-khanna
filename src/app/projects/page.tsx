@@ -17,7 +17,7 @@ const projectsData: Project[] = [
     title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
     year: '2024-2025',
     supervisorName: 'Dr. Saurabh Janardan Shigwan',
-    supervisorLink: '#', // Replace with actual link
+    supervisorLink: '#', 
     tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
     shortAbstract: `• Conducting Research on Unsupervised Domain Adaptation (UDA) Techniques for Medical Imaging Applications in CT and MRI.
 • Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant fea
@@ -32,7 +32,7 @@ tures, enabling effective cross-modality image analysis.
     title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
     year: '2024-2025',
     supervisorName: 'Dr. Ashish Vazirani',
-    supervisorLink: '#', // Replace with actual link
+    supervisorLink: '#', 
     tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
     shortAbstract: `• Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance,
  and decision-making patterns in Shark Tank videos.
@@ -46,7 +46,7 @@ cisions.`
     title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
     year: '2024-2025',
     supervisorName: 'Dr. Charu Sharma (Mathematics Dept, SNU)',
-    supervisorLink: '#', // Replace with actual link
+    supervisorLink: 'https://snu.edu.in/faculty/charu-sharma/', 
     tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
     shortAbstract: `• Analyzing Time series Patterns and sentiment in US financial markets.
 • Implemented Sequential Deep learning and ML models to understand market sentiment and its
@@ -85,7 +85,7 @@ Other Projects:
   {
     slug: 'nidar-drone-challenge',
     title: 'NIDAR Drone Innovation Challenge: Perception and Autonomy',
-    year: 'Ongoing', // You might want to specify a more precise year range
+    year: 'Ongoing', 
     supervisorName: 'Prof Jyoti Sinha',
     supervisorLink: 'https://rocketreach.co/jyoti-sinha-email_38111920',
     tags: ['#DroneChallenge', '#ComputerVision', '#RL', '#Autonomy', '#DisasterManagement'],
@@ -135,9 +135,9 @@ const ProjectsPage = () => {
             key={project.slug}
             custom={index} 
             variants={cardVariants}
-            initial="initial" // Use keys from variants
-            whileInView="whileInView" // Use keys from variants
-            viewport={cardVariants.viewport} // Explicitly pass viewport
+            initial="initial" 
+            whileInView="whileInView" 
+            viewport={cardVariants.viewport} 
           >
             <Card 
               onClick={() => handleOpenDialog(project)}
@@ -149,7 +149,14 @@ const ProjectsPage = () => {
                 {project.supervisorName && (
                   <div className="text-xs text-muted-foreground flex items-center mt-1">
                     <GraduationCap className="mr-1.5 h-4 w-4 text-accent" />
-                    <span>Supervisor: {project.supervisorName.split('(')[0].trim()}</span> 
+                    <span>Supervisor: </span>
+                     {project.supervisorLink && project.supervisorLink !== '#' ? (
+                        <Link href={project.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                         {project.supervisorName.split('(')[0].trim()}
+                        </Link>
+                      ) : (
+                        <span className="ml-1">{project.supervisorName.split('(')[0].trim()}</span>
+                      )}
                   </div>
                 )}
                 <div className="flex flex-wrap gap-2 mt-2">
@@ -219,5 +226,3 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
-
-    

@@ -13,7 +13,7 @@ async function getProjectData(slug: string): Promise<Project | null> {
       title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
       year: "2024-2025",
       supervisorName: "Dr. Saurabh Janardan Shigwan",
-      supervisorLink: "#", // Replace with actual link
+      supervisorLink: "#", 
       tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
       fullWriteUp: `
         <ul class="list-disc pl-6">
@@ -23,14 +23,14 @@ async function getProjectData(slug: string): Promise<Project | null> {
           <li>Previously worked on deep learning models to correct MRI motion artifacts in real-time using k-space data.</li>
         </ul>`,
       paperLink: null, githubLink: null, datasetLink: null,
-      shortAbstract: "" // Not used on detail page, but part of type
+      shortAbstract: "" 
     },
     {
       slug: 'investor-behavior-analysis-dl',
       title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
       year: "2024-2025",
       supervisorName: "Dr. Ashish Vazirani",
-      supervisorLink: "#", // Replace with actual link
+      supervisorLink: "#", 
       tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
       fullWriteUp: `
         <ul class="list-disc pl-6">
@@ -46,7 +46,7 @@ async function getProjectData(slug: string): Promise<Project | null> {
       title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
       year: "2024-2025",
       supervisorName: "Dr. Charu Sharma (Mathematics Dept, SNU)",
-      supervisorLink: "#", // Replace with actual link
+      supervisorLink: "https://snu.edu.in/faculty/charu-sharma/", 
       tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
       fullWriteUp: `
         <ul class="list-disc pl-6">
@@ -61,7 +61,6 @@ async function getProjectData(slug: string): Promise<Project | null> {
       slug: 'filtering-recommendation-model',
       title: 'Filtering-Based Recommendation ML Model',
       year: "2024",
-      // No supervisor mentioned for this one in original data
       tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
       fullWriteUp: `
         <ul class="list-disc pl-6">
@@ -75,7 +74,6 @@ async function getProjectData(slug: string): Promise<Project | null> {
       slug: 'self-directed-learning-advanced-ai',
       title: 'Self-Directed Learning: Advanced AI Implementations',
       year: "Ongoing",
-      // No supervisor for self-directed learning
       tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
       fullWriteUp: `
         <h4 class="font-semibold mt-3">Reading Projects:</h4>
@@ -97,7 +95,6 @@ async function getProjectData(slug: string): Promise<Project | null> {
       slug: 'project-alpha', 
       title: 'Project Alpha: Advanced GNNs for Financial Forecasting',
       year: "2023",
-      // No supervisor mentioned in original example
       tags: ['#GNN', '#Finance', '#DeepLearning'],
       fullWriteUp: `
         <p>Project Alpha aimed to revolutionize financial forecasting by leveraging the power of Graph Neural Networks (GNNs). Traditional time-series models often fail to capture the complex interdependencies between financial instruments and market entities. This project proposed a novel GNN architecture that models the stock market as a dynamic graph, where nodes represent assets and edges represent their relationships (e.g., correlations, sector-based connections, supply chain links).</p>
@@ -244,7 +241,6 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 }
 
 export async function generateStaticParams() {
-  // Updated to use the same project slugs as in getProjectData for consistency
   const projectSlugs = [
     'domain-adaptation-medical-imaging',
     'investor-behavior-analysis-dl',
@@ -256,5 +252,3 @@ export async function generateStaticParams() {
   ];
   return projectSlugs.map(slug => ({ slug }));
 }
-
-    
