@@ -1,7 +1,7 @@
 
 "use client"; // <-- Add this directive
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { BookOpen, Brain, Lightbulb, Music, Footprints, Sigma } from 'lucide-react';
+import { BookOpen, Brain, Lightbulb, Music, Footprints, Sigma, GraduationCap } from 'lucide-react'; // Added GraduationCap
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
@@ -38,7 +38,7 @@ const hobbiesData = [
     { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read." },
     { name: "Mathematics", icon: <Sigma size={24} />, description: "Exploring the beauty, rigor, and diverse applications of mathematical concepts and theories." },
     { name: "Philosophy & Psychology", icon: <Brain size={24} />, description: "Pondering philosophical questions and exploring the intricacies of the human mind and behavior." },
-    { name: "Learning", icon: <Lightbulb size={24} />, description: "A lifelong passion for acquiring new knowledge and skills across a multitude of domains." },
+    { name: "Education", icon: <GraduationCap size={24} />, description: "Continuously expanding my knowledge through formal studies and self-directed exploration in various fields." },
     { name: "Coldplay", icon: <Music size={24} />, description: "I mean, what is the point of life if you can't even listen to the most beautiful band in 'My Universe' under a 'sky full of stars' with 'Charlie Brown'. Trust me, It's 'Paradise', because it 'feels like I am falling in love'." },
 ];
 
