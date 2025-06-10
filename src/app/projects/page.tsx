@@ -81,6 +81,15 @@ Other Projects:
 • AI Othello game from scratch
 • Computer Vision Dehazing models implementation
 • LLMs hard-coded from scratch`
+  },
+  {
+    slug: 'nidar-drone-challenge',
+    title: 'NIDAR Drone Innovation Challenge: Perception and Autonomy',
+    year: 'Ongoing', // You might want to specify a more precise year range
+    supervisorName: 'Prof Jyoti Sinha',
+    supervisorLink: 'https://rocketreach.co/jyoti-sinha-email_38111920',
+    tags: ['#DroneChallenge', '#ComputerVision', '#RL', '#Autonomy', '#DisasterManagement'],
+    shortAbstract: `Part of the Perception and Autonomy team of the SNU team for the NIDAR Drone Innovation challenge. Working to build Computer vision and RL models for the 'Disaster Management' challenge.`
   }
 ];
 
@@ -210,3 +219,5 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
+
+    

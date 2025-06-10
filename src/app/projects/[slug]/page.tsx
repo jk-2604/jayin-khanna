@@ -117,6 +117,26 @@ async function getProjectData(slug: string): Promise<Project | null> {
       githubLink: '#',
       datasetLink: '#',
       shortAbstract: ""
+    },
+    {
+      slug: 'nidar-drone-challenge',
+      title: 'NIDAR Drone Innovation Challenge: Perception and Autonomy',
+      year: 'Ongoing',
+      supervisorName: 'Prof Jyoti Sinha',
+      supervisorLink: 'https://rocketreach.co/jyoti-sinha-email_38111920',
+      tags: ['#DroneChallenge', '#ComputerVision', '#RL', '#Autonomy', '#DisasterManagement'],
+      shortAbstract: `Part of the Perception and Autonomy team of the SNU team for the NIDAR Drone Innovation challenge. Working to build Computer vision and RL models for the 'Disaster Management' challenge.`,
+      fullWriteUp: `
+        <p>Part of the Perception and Autonomy team of the Shiv Nadar University (SNU) team for the NIDAR Drone Innovation Challenge. This project focuses on developing robust computer vision and reinforcement learning models to address the complexities of the 'Disaster Management' challenge track.</p>
+        <h3 class="text-xl font-headline mt-4 mb-2 text-primary">Key Responsibilities & Focus Areas:</h3>
+        <ul class="list-disc pl-6">
+          <li>Developing and implementing computer vision algorithms for tasks such as object detection, segmentation, and tracking in challenging disaster environments.</li>
+          <li>Designing and training reinforcement learning agents for autonomous drone navigation, decision-making, and task execution under uncertain conditions.</li>
+          <li>Integrating perception modules with control systems to enable real-time autonomous operation.</li>
+          <li>Collaborating with a multidisciplinary team to ensure system coherence and successful demonstration of capabilities.</li>
+        </ul>
+      `,
+      paperLink: null, githubLink: null, datasetLink: null,
     }
   ];
   return allProjectsData.find(p => p.slug === slug) || null;
@@ -231,7 +251,10 @@ export async function generateStaticParams() {
     'financial-markets-time-series-sentiment',
     'filtering-recommendation-model',
     'self-directed-learning-advanced-ai',
-    'project-alpha' 
+    'project-alpha',
+    'nidar-drone-challenge'
   ];
   return projectSlugs.map(slug => ({ slug }));
 }
+
+    
