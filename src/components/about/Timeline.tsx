@@ -14,6 +14,7 @@ const mainIconComponents: Record<string, React.ElementType> = {
   GraduationCap: GraduationCap,
   Lightbulb: Lightbulb,
   Briefcase: Briefcase,
+  Users: Users, // Added Users icon
   Default: Briefcase, // Fallback main icon
 };
 
@@ -71,8 +72,17 @@ const Timeline = ({ items, title }: TimelineProps) => {
                           const DetailIcon = detail.iconName ? detailIconComponents[detail.iconName] || detailIconComponents.Default : detailIconComponents.Default;
                           return (
                             <li key={detailIndex} className="flex items-start space-x-2 text-foreground/90">
-                              <DetailIcon size={16} className="flex-shrink-0 mt-1 text-accent" />
-                              <span>{detail.text}</span>
+                              {detail.url ? (
+                                <a href={detail.url} target="_blank" rel="noopener noreferrer" className="hover:underline text-accent flex items-start space-x-2">
+                                  <DetailIcon size={16} className="flex-shrink-0 mt-1" /> {/* Icon color inherited from <a> */}
+                                  <span>{detail.text}</span>
+                                </a>
+                              ) : (
+                                <>
+                                  <DetailIcon size={16} className="flex-shrink-0 mt-1 text-accent" />
+                                  <span>{detail.text}</span>
+                                </>
+                              )}
                             </li>
                           );
                         })}

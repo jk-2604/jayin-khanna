@@ -54,6 +54,20 @@ export const educationTimelineData: TimelineItem[] = [
       { text: 'Overall percentage: 96.4%.', iconName: 'Percent' },
     ],
   },
+  {
+    id: 'edu_learning_sources',
+    date: 'Ongoing',
+    title: 'Learning from the Best',
+    subtitle: 'Key figures and resources shaping my understanding.',
+    description: '',
+    iconIdentifier: 'Users', 
+    details: [
+      { text: '3Blue1Brown', url: 'https://www.youtube.com/c/3blue1brown', iconName: 'ChevronRight' },
+      { text: 'Dr. Amber Habib', url: 'https://snu.edu.in/faculty/amber-habib/', iconName: 'ChevronRight' },
+      { text: 'Dr. Satyanarayana Reddy', url: 'https://snu.edu.in/faculty/satyanarayana-reddy/', iconName: 'ChevronRight' },
+      { text: 'Anil Kumar Yadav (Physics Blog)', url: 'https://anilyadav1882.weebly.com/blog/physics', iconName: 'ChevronRight' },
+    ],
+  },
 ];
 
 export const achievementTimelineData: TimelineItem[] = [

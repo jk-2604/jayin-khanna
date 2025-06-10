@@ -8,6 +8,7 @@ export interface Quote {
 export interface EducationDetail {
   text: string;
   iconName?: string; // Lucide icon name for the bullet point
+  url?: string; // Optional URL for the detail item
 }
 
 export interface TimelineItem {
