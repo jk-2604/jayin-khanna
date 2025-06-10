@@ -54,20 +54,7 @@ export const educationTimelineData: TimelineItem[] = [
       { text: 'Overall percentage: 96.4%.', iconName: 'Percent' },
     ],
   },
-  {
-    id: 'edu_learning_sources',
-    date: 'Ongoing',
-    title: 'Learning from the Best',
-    subtitle: 'Key figures and resources shaping my understanding.',
-    description: '',
-    iconIdentifier: 'Users', 
-    details: [
-      { text: '3Blue1Brown', url: 'https://www.youtube.com/c/3blue1brown', iconName: 'ChevronRight' },
-      { text: 'Dr. Amber Habib', url: 'https://snu.edu.in/faculty/amber-habib/', iconName: 'ChevronRight' },
-      { text: 'Dr. Satyanarayana Reddy', url: 'https://snu.edu.in/faculty/satyanarayana-reddy/', iconName: 'ChevronRight' },
-      { text: 'Anil Kumar Yadav (Physics Blog)', url: 'https://anilyadav1882.weebly.com/blog/physics', iconName: 'ChevronRight' },
-    ],
-  },
+  // Removed "Learning from the best" from here
 ];
 
 export const achievementTimelineData: TimelineItem[] = [
@@ -130,3 +117,4 @@ export const skillsData: Skill[] = [
   { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Used for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
   { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: "Did a couple of research projects for econometric analysis, time series modeling, and forecasting. Convenience is crazy.", iconName: 'TrendingUp' },
 ];
+

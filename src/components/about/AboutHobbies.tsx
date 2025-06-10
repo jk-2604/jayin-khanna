@@ -1,9 +1,10 @@
 
 "use client"; // <-- Add this directive
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { BookOpen, Brain, Lightbulb, Music, Footprints, Sigma, GraduationCap } from 'lucide-react'; // Added GraduationCap
+import { BookOpen, Brain, Lightbulb, Music, Footprints, Sigma, GraduationCap, ChevronRight } from 'lucide-react'; // Added GraduationCap and ChevronRight
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Link from 'next/link'; // Import Link for external links
 
 // const sectionAnimationProps = {
 //   initial: { opacity: 0, y: 20 },
@@ -23,7 +24,22 @@ const cardVariants = {
   },
 };
 
-const hobbiesData = [
+interface HobbyDetailLink {
+  text: string;
+  url: string;
+  iconName?: string; // e.g., 'ChevronRight'
+}
+
+interface Hobby {
+  name: string;
+  icon: React.ReactNode;
+  description: string;
+  imageUrls?: string[];
+  dataAiHints?: string[];
+  detailLinks?: HobbyDetailLink[];
+}
+
+const hobbiesData: Hobby[] = [
     {
       name: "Football & Running",
       icon: <Footprints size={24} />,
@@ -38,7 +54,17 @@ const hobbiesData = [
     { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read." },
     { name: "Mathematics", icon: <Sigma size={24} />, description: "Exploring the beauty, rigor, and diverse applications of mathematical concepts and theories." },
     { name: "Philosophy & Psychology", icon: <Brain size={24} />, description: "Pondering philosophical questions and exploring the intricacies of the human mind and behavior." },
-    { name: "Education", icon: <GraduationCap size={24} />, description: "Continuously expanding my knowledge through formal studies and self-directed exploration in various fields." },
+    { 
+      name: "Education", 
+      icon: <GraduationCap size={24} />, 
+      description: "Continuously expanding my knowledge through formal studies, self-directed exploration, and learning from these inspiring sources:",
+      detailLinks: [
+        { text: '3Blue1Brown', url: 'https://www.youtube.com/c/3blue1brown', iconName: 'ChevronRight' },
+        { text: 'Dr. Amber Habib', url: 'https://snu.edu.in/faculty/amber-habib/', iconName: 'ChevronRight' },
+        { text: 'Dr. Satyanarayana Reddy', url: 'https://snu.edu.in/faculty/satyanarayana-reddy/', iconName: 'ChevronRight' },
+        { text: 'Anil Kumar Yadav (Physics Blog)', url: 'https://anilyadav1882.weebly.com/blog/physics', iconName: 'ChevronRight' },
+      ]
+    },
     { name: "Coldplay", icon: <Music size={24} />, description: "I mean, what is the point of life if you can't even listen to the most beautiful band in 'My Universe' under a 'sky full of stars' with 'Charlie Brown'. Trust me, It's 'Paradise', because it 'feels like I am falling in love'." },
 ];
 
@@ -138,14 +164,26 @@ const AboutHobbies = () => {
                     </div>
                   )}
                   {(!isExpanded || !hasImages) && (
-                     <CardTitle className={`text-xl mb-2 ${hasImages ? 'text-white [text-shadow:_0_1px_3px_rgba(0,0,0,0.7)]' : 'text-primary'}`}>
+                     <CardTitle className={`text-xl mb-2 ${hasImages ? 'text-white [text-shadow:_0_1px_3px_rgba(0,0,0,0.7)]' : 'text-primary text-center'}`}>
                       {hobby.name}
                     </CardTitle>
                   )}
-                  <CardContent className="pt-0 flex-grow flex items-center justify-center">
-                    <p className={`${hasImages ? 'text-white/90 text-center [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground'} ${isExpanded && hasImages ? 'text-lg' : ''}`}>
+                  <CardContent className="pt-0 flex-grow flex flex-col items-center justify-center w-full">
+                    <p className={`${hasImages ? 'text-white/90 text-center [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground text-center'} ${isExpanded && hasImages ? 'text-lg' : 'text-sm'}`}>
                       {hobby.description}
                     </p>
+                    {hobby.detailLinks && hobby.detailLinks.length > 0 && (
+                      <ul className={`mt-3 space-y-1.5 text-sm w-full ${hasImages ? 'text-white/90 [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]' : 'text-muted-foreground'}`}>
+                        {hobby.detailLinks.map(link => (
+                          <li key={link.url} className="flex items-center justify-center">
+                            <Link href={link.url} target="_blank" rel="noopener noreferrer" className={`flex items-center space-x-1.5 ${hasImages ? 'hover:underline' : 'text-accent hover:underline'}`}>
+                              {link.iconName === 'ChevronRight' && <ChevronRight size={16} className="flex-shrink-0" />}
+                              <span>{link.text}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </CardContent>
                 </div>
               </Card>
@@ -157,3 +195,4 @@ const AboutHobbies = () => {
   );
 };
 export default AboutHobbies;
+
