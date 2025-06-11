@@ -20,7 +20,7 @@ const cardVariants = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: {
-    delay: 0.1, 
+    delay: 0.1,
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -28,10 +28,10 @@ const cardVariants = {
 
 export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects, onProjectClick }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true, 
+    {
+      loop: true,
       align: 'start',
-    }, 
+    },
     [Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })]
   );
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
@@ -73,14 +73,14 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects, onPr
           {projects.map((project, index) => (
             <div className="embla__slide" key={project.slug}>
               <motion.div
-                custom={index} 
+                custom={index}
                 variants={cardVariants}
-                initial="initial" 
-                whileInView="whileInView" 
+                initial="initial"
+                whileInView="whileInView"
                 viewport={cardVariants.viewport}
                 className="h-full"
               >
-                <Card 
+                <Card
                   onClick={() => onProjectClick(project)}
                   className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 cursor-pointer h-full"
                 >
@@ -108,7 +108,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects, onPr
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <CardDescription className="text-foreground/80 line-clamp-4">
-                      {project.shortAbstract.split('\n')[0]} 
+                      {project.shortAbstract.split('\n')[0]}
                       {project.shortAbstract.split('\n')[1] && ` ${project.shortAbstract.split('\n')[1]}`}
                       {project.shortAbstract.split('\n')[2] && ` ${project.shortAbstract.split('\n')[2]}`}
                     </CardDescription>
@@ -145,7 +145,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects, onPr
           </Button>
         </>
       )}
-      
+
       {projects.length > 1 && (
         <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
