@@ -12,19 +12,17 @@ const CalendlyButton = () => {
       initial={{ opacity: 0, scale: 0.5, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed bottom-6 right-20 z-50" // Positioned to the left of the ScrollToTopButton
-      // If ScrollToTopButton is at right-6, right-20 for this button places it to the left.
+      className="fixed bottom-6 right-20 z-50" 
     >
       <Button
         asChild
-        variant="default" // You can change variant (e.g., "secondary", "outline")
-        size="icon" // Standard icon button size
-        className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg w-14 h-14" // Custom size for FAB
+        variant="default" 
+        className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md shadow-lg" // Changed to rounded-md, default padding will apply
         aria-label="Schedule a meeting on Calendly"
-        title="Schedule a meeting"
       >
         <Link href="https://calendly.com/jayin-research/30min" target="_blank" rel="noopener noreferrer">
-          <CalendarPlus className="h-6 w-6" />
+          <CalendarPlus /> {/* Icon will be sized by Button's CSS (size-4) and spaced by gap-2 */}
+          Calendly - Let's meet!
         </Link>
       </Button>
     </motion.div>
