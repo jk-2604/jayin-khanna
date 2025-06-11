@@ -1,98 +1,54 @@
 
 "use client";
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
+import { useForm, ValidationError } from '@formspree/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Label } from '@/components/ui/label'; // Using ShadCN Label directly
 import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Send, Loader2, CheckCircle } from 'lucide-react';
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  reason: z.string().min(1, { message: "Please select a reason." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-});
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+const FORMSPREE_FORM_ID = "mldnjqqn";
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmittingState] = useState(false);
+  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const [reasonValue, setReasonValue] = useState('');
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      reason: '',
-      message: '',
-    },
-  });
-
-  async function onSubmit(data: ContactFormValues) {
-    setIsSubmittingState(true);
-    try {
-      const response = await fetch('https://formspree.io/f/mldnjqqn', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
+  useEffect(() => {
+    if (state.succeeded) {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you! I’ll get back to you soon.",
+        variant: "default",
       });
-
-      if (response.ok) {
-        await response.json().catch(() => ({})); // Consume JSON body if any, ignore errors
-        toast({
-          title: "Message Sent!",
-          description: "Thank you! I’ll get back to you soon.",
-          variant: "default",
-        });
-        setIsSubmitted(true);
-        form.reset();
-        setTimeout(() => setIsSubmitted(false), 5000);
-      } else {
-        let errorMessage = "Submission failed. Please try again.";
-        try {
-          const errorData = await response.json();
-          if (errorData && errorData.errors && Array.isArray(errorData.errors)) {
-            errorMessage = errorData.errors
-              .map((err: any) => err.message || (err.field ? `Error in '${err.field}' field` : 'Validation error'))
-              .join("; ");
-          } else if (errorData && typeof errorData.error === 'string') {
-            errorMessage = errorData.error;
-          } else {
-            errorMessage = `Submission failed with status: ${response.status}. Please try again.`;
-          }
-        } catch (e) {
-          // Failed to parse error JSON, use status text or default
-          errorMessage = `Submission failed with status: ${response.status} ${response.statusText || ''}. Please try again.`;
-        }
-        toast({
+      setReasonValue(''); // Reset select value
+      // The form itself will be replaced by the success message, so fields are effectively "reset"
+    } else if (state.errors && state.errors.length > 0 && !state.submitting) {
+      // Check for general form errors (not field-specific, as ValidationError handles those)
+      const generalError = state.errors.find(err => !err.field);
+      if (generalError) {
+         toast({
           title: "Submission Error",
-          description: errorMessage,
+          description: generalError.message || "An unexpected error occurred. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        // If only field errors, ValidationError components will display them.
+        // Optionally, show a generic hint if specific field errors are present.
+        toast({
+          title: "Validation Error",
+          description: "Please check the form for errors and try again.",
           variant: "destructive",
         });
       }
-    } catch (error) {
-      toast({
-        title: "Network Error",
-        description: "Could not send message. Please check your internet connection and try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmittingState(false);
     }
-  }
+  }, [state.succeeded, state.errors, state.submitting, toast]);
+
 
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-2xl border-border">
@@ -104,7 +60,7 @@ const ContactForm = () => {
       </CardHeader>
       <CardContent>
         <AnimatePresence mode="wait">
-          {isSubmitted ? (
+          {state.succeeded ? (
             <motion.div
               key="success"
               initial={{ opacity: 0, y: 20 }}
@@ -123,81 +79,57 @@ const ContactForm = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your Name" {...field} className="bg-input border-input-border focus:border-primary" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" {...field} className="bg-input border-input-border focus:border-primary" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="reason"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Reason for Contact</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-input border-input-border focus:border-primary">
-                              <SelectValue placeholder="Select a reason" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-popover text-popover-foreground border-border">
-                            <SelectItem value="collaboration">Collaboration/Project Inquiry</SelectItem>
-                            <SelectItem value="research">Research Discussion</SelectItem>
-                            <SelectItem value="mentorship">Mentorship/Guidance</SelectItem>
-                            <SelectItem value="general">General Question/Feedback</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="Your message..." {...field} rows={5} className="bg-input border-input-border focus:border-primary" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <Send className="mr-2 h-4 w-4" />
-                    )}
-                    Send Message
-                  </Button>
-                </form>
-              </Form>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input id="name" name="name" placeholder="Your Name" required className="bg-input border-input-border focus:border-primary" />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm font-medium text-destructive" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input id="email" type="email" name="email" placeholder="your.email@example.com" required className="bg-input border-input-border focus:border-primary" />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm font-medium text-destructive" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="reason-select">Reason for Contact</Label>
+                  <Select onValueChange={setReasonValue} value={reasonValue} name="reason_select_trigger">
+                    {/* The 'name' attribute on Select or SelectTrigger itself is not standard for form submission.
+                        We use a hidden input below to capture the 'reason'. */}
+                    <SelectTrigger id="reason-select" className="bg-input border-input-border focus:border-primary">
+                      <SelectValue placeholder="Select a reason" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-popover text-popover-foreground border-border">
+                      <SelectItem value="collaboration">Collaboration/Project Inquiry</SelectItem>
+                      <SelectItem value="research">Research Discussion</SelectItem>
+                      <SelectItem value="mentorship">Mentorship/Guidance</SelectItem>
+                      <SelectItem value="general">General Question/Feedback</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <input type="hidden" name="reason" value={reasonValue} />
+                  {/* Formspree requires a named field; if 'reason' is required, a ValidationError can be added.
+                      However, if the select must have a value, it's better to handle that validation client-side
+                      if not relying on Formspree's backend validation for it. For now, Formspree will get 'reason'. */}
+                  <ValidationError prefix="Reason" field="reason" errors={state.errors} className="text-sm font-medium text-destructive" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className="bg-input border-input-border focus:border-primary" />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm font-medium text-destructive" />
+                </div>
+
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={state.submitting}>
+                  {state.submitting ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2 h-4 w-4" />
+                  )}
+                  Send Message
+                </Button>
+              </form>
             </motion.div>
           )}
         </AnimatePresence>
