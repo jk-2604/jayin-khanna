@@ -21,7 +21,7 @@ const Header = () => {
       <div className="container relative flex h-16 max-w-screen-2xl items-center">
         {/* Name (Left side) */}
         <div className="flex-none">
-          <Link href="/" className="font-headline text-2xl font-bold text-primary">
+          <Link href="/" className="font-headline text-2xl md:text-3xl font-bold text-primary">
             Jayin Khanna
           </Link>
         </div>
