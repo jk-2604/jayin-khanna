@@ -57,7 +57,13 @@ const ArticlesPage = () => {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Learning Vault</h1>
-        <p className="text-xl text-muted-foreground">A Curated Collection of Knowledge and Insights</p>
+        <p className="text-xl text-muted-foreground">
+          Curated and documented all the material that has helped me over the years. Wanna add something?{' '}
+          <Link href="/contact" className="text-accent hover:underline">
+            let me know
+          </Link>
+          !
+        </p>
       </motion.header>
 
       <div className="flex flex-col md:flex-row gap-12">
