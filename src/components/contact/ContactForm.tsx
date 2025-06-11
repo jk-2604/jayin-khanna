@@ -1,3 +1,4 @@
+
 "use client";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Send } from 'lucide-react';
+import { Send, Loader2, CheckCircle } from 'lucide-react'; // Corrected CheckCircleIcon and Loader2Icon imports
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -25,6 +26,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmittingState] = useState(false); // Renamed to avoid conflict with form.formState.isSubmitting
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -37,21 +39,44 @@ const ContactForm = () => {
   });
 
   async function onSubmit(data: ContactFormValues) {
-    // Placeholder for actual submission logic (e.g., EmailJS, Firebase Function)
-    console.log(data);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsSubmittingState(true);
+    try {
+      const response = await fetch('https://formspree.io/f/mldnjqqn', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you! I’ll get back to you soon.",
-      variant: "default", 
-    });
-    setIsSubmitted(true);
-    form.reset();
-    // Keep the success message for a few seconds then allow new submissions
-    setTimeout(() => setIsSubmitted(false), 5000);
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you! I’ll get back to you soon.",
+          variant: "default",
+        });
+        setIsSubmitted(true);
+        form.reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const errorData = await response.json();
+        const errorMessage = errorData.errors?.map((e: any) => e.message).join(', ') || "Something went wrong. Please try again.";
+        toast({
+          title: "Submission Error",
+          description: errorMessage,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Error",
+        description: "An unexpected error occurred. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmittingState(false);
+    }
   }
 
   return (
@@ -72,7 +97,7 @@ const ContactForm = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center py-10"
             >
-              <CheckCircleIcon className="h-16 w-16 text-green-500 mx-auto mb-4" />
+              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" /> {/* Used imported CheckCircle */}
               <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
               <p className="text-muted-foreground">Your message has been sent successfully. I'll get back to you soon.</p>
             </motion.div>
@@ -148,9 +173,9 @@ const ContactForm = () => {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={form.formState.isSubmitting}>
-                    {form.formState.isSubmitting ? (
-                      <Loader2Icon className="mr-2 h-4 w-4 animate-spin" />
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" /> // Used imported Loader2
                     ) : (
                       <Send className="mr-2 h-4 w-4" />
                     )}
@@ -165,45 +190,5 @@ const ContactForm = () => {
     </Card>
   );
 };
-
-function CheckCircleIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
-    </svg>
-  );
-}
-
-function Loader2Icon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-    </svg>
-  );
-}
-
 
 export default ContactForm;
