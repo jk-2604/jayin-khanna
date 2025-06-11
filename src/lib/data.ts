@@ -59,6 +59,18 @@ export const educationTimelineData: TimelineItem[] = [
 
 export const achievementTimelineData: TimelineItem[] = [
   {
+    id: 'ach_ias_fellowship',
+    date: '2024',
+    title: 'Summer Research Fellowship',
+    subtitle: 'Indian Academy of Sciences (IASc), INSA, NASI',
+    description: 'Awarded the Summer Research Fellowship by the Indian Academy of Sciences, in collaboration with INSA and NASI.',
+    iconIdentifier: 'Award',
+    details: [
+      { text: 'Acceptance rate: ~10% (national-level selection)', iconName: 'Percent' },
+      { text: 'Received a stipend and a travel grant to support research at a host institution.', iconName: 'TrendingUp' },
+    ],
+  },
+  {
     id: 'ach_rank_1',
     date: '2026 (Expected)',
     title: 'Rank 1 - BSc (Research) in Mathematics',
