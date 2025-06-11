@@ -12,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Send, Loader2, CheckCircle } from 'lucide-react'; // Corrected CheckCircleIcon and Loader2Icon imports
+import { Send, Loader2, CheckCircle } from 'lucide-react';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -26,7 +26,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmittingState] = useState(false); // Renamed to avoid conflict with form.formState.isSubmitting
+  const [isSubmitting, setIsSubmittingState] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -51,6 +51,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
+        await response.json().catch(() => ({})); // Consume JSON body if any, ignore errors
         toast({
           title: "Message Sent!",
           description: "Thank you! I’ll get back to you soon.",
@@ -60,8 +61,22 @@ const ContactForm = () => {
         form.reset();
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        const errorData = await response.json();
-        const errorMessage = errorData.errors?.map((e: any) => e.message).join(', ') || "Something went wrong. Please try again.";
+        let errorMessage = "Submission failed. Please try again.";
+        try {
+          const errorData = await response.json();
+          if (errorData && errorData.errors && Array.isArray(errorData.errors)) {
+            errorMessage = errorData.errors
+              .map((err: any) => err.message || (err.field ? `Error in '${err.field}' field` : 'Validation error'))
+              .join("; ");
+          } else if (errorData && typeof errorData.error === 'string') {
+            errorMessage = errorData.error;
+          } else {
+            errorMessage = `Submission failed with status: ${response.status}. Please try again.`;
+          }
+        } catch (e) {
+          // Failed to parse error JSON, use status text or default
+          errorMessage = `Submission failed with status: ${response.status} ${response.statusText || ''}. Please try again.`;
+        }
         toast({
           title: "Submission Error",
           description: errorMessage,
@@ -70,8 +85,8 @@ const ContactForm = () => {
       }
     } catch (error) {
       toast({
-        title: "Submission Error",
-        description: "An unexpected error occurred. Please check your connection and try again.",
+        title: "Network Error",
+        description: "Could not send message. Please check your internet connection and try again.",
         variant: "destructive",
       });
     } finally {
@@ -97,7 +112,7 @@ const ContactForm = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center py-10"
             >
-              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" /> {/* Used imported CheckCircle */}
+              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
               <p className="text-muted-foreground">Your message has been sent successfully. I'll get back to you soon.</p>
             </motion.div>
@@ -175,7 +190,7 @@ const ContactForm = () => {
                   />
                   <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
                     {isSubmitting ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" /> // Used imported Loader2
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     ) : (
                       <Send className="mr-2 h-4 w-4" />
                     )}
