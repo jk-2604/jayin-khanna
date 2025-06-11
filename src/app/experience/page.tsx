@@ -8,9 +8,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion } from 'framer-motion';
-import { GraduationCap, CalendarDays } from 'lucide-react'; // Added CalendarDays
+import { GraduationCap, CalendarDays } from 'lucide-react';
 
-// Updated experience data based on user input
 const experienceData = [
   {
     id: 'exp_jk_1',
@@ -191,7 +190,7 @@ const ExperiencePageContent = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
         <p className="text-xl text-muted-foreground">A Journey Through Research and Internships</p>
@@ -227,25 +226,25 @@ const ExperiencePageContent = () => {
                 )}
                 <div className="flex-grow">
                   <h2 className="text-2xl font-headline text-primary mb-1">{exp.role}</h2>
-                  <p className="text-lg text-foreground/80 mb-1">{exp.institution}</p>
+                  <p className="text-lg font-medium text-foreground/90 mb-1">{exp.institution}</p>
                 </div>
               </div>
               {exp.supervisor && (
-                <p className="text-sm text-muted-foreground mb-1 flex items-center">
-                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0" />
-                  Supervisor:{" "}
+                <p className="text-sm text-muted-foreground mb-1 flex items-start">
+                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="mr-1">Supervisor:</span>
                   {exp.supervisorLink && exp.supervisorLink !== "#" ? (
-                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline" onClick={(e) => e.stopPropagation()}>
+                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-block" onClick={(e) => e.stopPropagation()}>
                       {exp.supervisor}
                     </Link>
                   ) : (
-                    <span className="ml-1">{exp.supervisor}</span>
+                    <span className="inline-block">{exp.supervisor}</span>
                   )}
                 </p>
               )}
               <p className="text-sm text-muted-foreground mb-2 flex items-center">
                 <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
-                Period: {exp.period}
+                <span className="mr-1">Period:</span> {exp.period}
               </p>
               <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
                 {exp.description[0]} 
@@ -280,27 +279,27 @@ const ExperiencePageContent = () => {
                 )}
                 <div className="flex-grow">
                   <DialogTitle className="text-2xl font-headline text-primary mb-1">{currentExperience.role}</DialogTitle>
-                  <DialogDescription className="text-lg text-foreground/80">
+                  <DialogDescription className="text-lg font-medium text-foreground/90">
                     {currentExperience.institution}
                   </DialogDescription>
                 </div>
               </div>
               {currentExperience.supervisor && (
-                <p className="text-sm text-muted-foreground mt-1 flex items-center">
-                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0" />
-                  Supervisor:{" "}
+                <p className="text-sm text-muted-foreground mt-1 flex items-start">
+                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="mr-1">Supervisor:</span>
                   {currentExperience.supervisorLink && currentExperience.supervisorLink !== "#" ? (
-                    <Link href={currentExperience.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                    <Link href={currentExperience.supervisorLink} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-block">
                       {currentExperience.supervisor}
                     </Link>
                   ) : (
-                    <span className="ml-1">{currentExperience.supervisor}</span>
+                    <span className="inline-block">{currentExperience.supervisor}</span>
                   )}
                 </p>
               )}
               <p className="text-sm text-muted-foreground flex items-center">
                 <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
-                 Period: {currentExperience.period}
+                 <span className="mr-1">Period:</span> {currentExperience.period}
               </p>
             </DialogHeader>
             
@@ -340,4 +339,3 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
-

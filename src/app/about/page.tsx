@@ -20,7 +20,7 @@ const sectionAnimationProps = {
 // The order here reflects a dedicated "About" page, which might be slightly different from the homepage flow.
 const AboutPage = () => {
   return (
-    <div className="container mx-auto py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
         <p className="text-xl text-muted-foreground">A Glimpse into My Journey</p>

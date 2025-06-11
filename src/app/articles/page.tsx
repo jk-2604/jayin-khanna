@@ -54,7 +54,7 @@ const getArticleIcon = (slug: string) => {
 
 const ArticlesPage = () => {
   return (
-    <div className="container mx-auto py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Learning Vault</h1>
         <p className="text-xl text-muted-foreground">A Curated Collection of Knowledge and Insights</p>

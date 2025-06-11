@@ -16,7 +16,7 @@ const sectionAnimationProps = {
 
 const ContactPage = () => {
   return (
-    <div className="container mx-auto py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-12 md:mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Contact Me</h1>
         <p className="text-xl text-muted-foreground">Let's Connect and Create Something Amazing</p>

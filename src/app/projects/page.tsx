@@ -2,14 +2,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import Link from "next/link";
 import type { Project } from "@/lib/types";
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from 'framer-motion';
 import { GraduationCap } from "lucide-react";
+import ProjectCarousel from "@/components/projects/ProjectCarousel"; // Import the carousel
 
 const projectsData: Project[] = [
   {
@@ -59,7 +59,6 @@ cisions.`
     slug: 'filtering-recommendation-model',
     title: 'Filtering-Based Recommendation ML Model',
     year: '2024',
-    // No supervisor
     tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
     shortAbstract: `• Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital
  Connect, a matchmaking platform for investors and startups.
@@ -70,7 +69,6 @@ larity score to each match. This project secured a Top 16 position in the SNU Id
     slug: 'self-directed-learning-advanced-ai',
     title: 'Self-Directed Learning: Advanced AI Implementations',
     year: 'Ongoing',
-    // No supervisor
     tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
     shortAbstract: `Reading Projects:
 • LLMs from Scratch
@@ -100,17 +98,6 @@ const sectionAnimationProps = {
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
-const cardVariants = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
-  transition: {
-    delay: 0.1, 
-    duration: 0.5,
-    ease: "easeInOut",
-  },
-};
-
 const ProjectsPage = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
@@ -121,64 +108,13 @@ const ProjectsPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Research & Projects</h1>
         <p className="text-xl text-muted-foreground">Exploring Innovations at the Forefront of AI and Science</p>
       </motion.header>
       
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        {projectsData.map((project, index) => (
-          <motion.div
-            key={project.slug}
-            custom={index} 
-            variants={cardVariants}
-            initial="initial" 
-            whileInView="whileInView" 
-            viewport={cardVariants.viewport} 
-          >
-            <Card 
-              onClick={() => handleOpenDialog(project)}
-              className="flex flex-col justify-between shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 cursor-pointer h-full"
-            >
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">{project.year}</p>
-                {project.supervisorName && (
-                  <div className="text-xs text-muted-foreground flex items-center mt-1">
-                    <GraduationCap className="mr-1.5 h-4 w-4 text-accent" />
-                    <span>Supervisor: </span>
-                     {project.supervisorLink && project.supervisorLink !== '#' ? (
-                        <Link href={project.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
-                         {project.supervisorName.split('(')[0].trim()}
-                        </Link>
-                      ) : (
-                        <span className="ml-1">{project.supervisorName.split('(')[0].trim()}</span>
-                      )}
-                  </div>
-                )}
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="px-2 py-0.5 text-xs bg-secondary text-secondary-foreground rounded-full">{tag}</span>
-                  ))}
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardDescription className="text-foreground/80 line-clamp-4">
-                  {project.shortAbstract.split('\n')[0]} 
-                  {project.shortAbstract.split('\n')[1] && ` ${project.shortAbstract.split('\n')[1]}`}
-                  {project.shortAbstract.split('\n')[2] && ` ${project.shortAbstract.split('\n')[2]}`}
-                </CardDescription>
-              </CardContent>
-              <CardFooter>
-                <span className="text-sm text-primary">Click to learn more</span>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        ))}
-      </motion.div>
+      <ProjectCarousel projects={projectsData} onProjectClick={handleOpenDialog} />
 
       {currentProject && (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -188,15 +124,15 @@ const ProjectsPage = () => {
               <DialogDescription className="text-sm text-muted-foreground">
                 {currentProject.year}
                 {currentProject.supervisorName && (
-                  <div className="mt-2 text-sm text-muted-foreground flex items-center">
-                    <GraduationCap className="mr-2 h-4 w-4 text-accent" />
-                    <span>Supervisor: </span>
+                  <div className="mt-2 text-sm text-muted-foreground flex items-start">
+                    <GraduationCap className="mr-2 h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="mr-1">Supervisor: </span>
                     {currentProject.supervisorLink && currentProject.supervisorLink !== '#' ? (
-                      <Link href={currentProject.supervisorLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-accent hover:underline">
+                      <Link href={currentProject.supervisorLink} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-block">
                         {currentProject.supervisorName}
                       </Link>
                     ) : (
-                      <span className="ml-1">{currentProject.supervisorName}</span>
+                      <span className="inline-block">{currentProject.supervisorName}</span>
                     )}
                   </div>
                 )}

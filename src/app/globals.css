@@ -63,4 +63,53 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
   }
+
+  /* Embla Carousel Base Styles */
+  .embla {
+    @apply relative;
+  }
+  .embla__viewport {
+    @apply overflow-hidden;
+  }
+  .embla__container {
+    @apply flex -ml-4; /* Negative margin to counteract slide padding */
+    backface-visibility: hidden;
+    touch-action: pan-y;
+  }
+  .embla__slide {
+    @apply min-w-0 pl-4 relative; /* Padding for spacing between slides */
+    /* Default to 1 slide visible */
+    flex: 0 0 100%; 
+  }
+  @screen md {
+    .embla__slide {
+      flex: 0 0 50%; /* 2 slides visible on medium screens */
+    }
+  }
+  @screen lg {
+    .embla__slide {
+      flex: 0 0 33.333333%; /* 3 slides visible on large screens */
+    }
+  }
+  .embla__button {
+    @apply absolute top-1/2 -translate-y-1/2 z-10 rounded-full bg-card/50 hover:bg-card/80 p-2 text-primary cursor-pointer transition-colors;
+  }
+  .embla__button--prev {
+    @apply left-2;
+  }
+  .embla__button--next {
+    @apply right-2;
+  }
+  .embla__button:disabled {
+    @apply opacity-50 cursor-default;
+  }
+  .embla__dots {
+    @apply absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10;
+  }
+  .embla__dot {
+    @apply w-3 h-3 rounded-full bg-primary/30 cursor-pointer transition-colors;
+  }
+  .embla__dot--selected {
+    @apply bg-primary;
+  }
 }
