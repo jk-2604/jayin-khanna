@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { SearchModalProvider } from '@/contexts/SearchModalContext';
 import GlobalSearchModalListener from '@/components/search/GlobalSearchModalListener';
+import CalendlyButton from '@/components/shared/CalendlyButton'; // Import the new button
 import { Inter, Playfair_Display } from 'next/font/google';
 
 const inter = Inter({
@@ -42,7 +43,8 @@ export default function RootLayout({
           <div className="flex-grow">
             {children}
           </div>
-          <Footer />
+          <Footer /> {/* ScrollToTopButton is inside Footer */}
+          <CalendlyButton /> {/* Add Calendly button here */}
           <Toaster />
         </SearchModalProvider>
       </body>
