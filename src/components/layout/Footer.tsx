@@ -3,7 +3,7 @@ import { SOCIAL_LINKS } from '@/lib/constants';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025; // Updated to 2025 as requested
   return (
     <footer className="border-t border-border/40 py-8 bg-background">
       <div className="container max-w-screen-2xl text-center text-sm text-muted-foreground">
@@ -19,7 +19,7 @@ const Footer = () => {
             </a>
         </div>
         <p>&copy; {currentYear} Jayin Khanna. All rights reserved.</p>
-        <p>Built with Next.js and Tailwind CSS. Hosted on Firebase.</p>
+        <p>Built with Next.js and Tailwind CSS.</p>
       </div>
       <ScrollToTopButton />
     </footer>
