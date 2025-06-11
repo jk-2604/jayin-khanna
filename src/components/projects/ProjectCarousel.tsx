@@ -32,7 +32,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects, onPr
       loop: true,
       align: 'start',
     },
-    [Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })]
+    [Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true })] // Updated delay to 2000ms
   );
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
