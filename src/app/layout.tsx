@@ -6,8 +6,11 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { SearchModalProvider } from '@/contexts/SearchModalContext';
 import GlobalSearchModalListener from '@/components/search/GlobalSearchModalListener';
-import CalendlyButton from '@/components/shared/CalendlyButton'; // Import the new button
+import CalendlyButton from '@/components/shared/CalendlyButton';
 import { Inter, Playfair_Display } from 'next/font/google';
+import Script from 'next/script';
+import { GA_TRACKING_ID } from '@/lib/gtag';
+import GoogleAnalyticsEvents from '@/components/analytics/GoogleAnalyticsEvents';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,9 +38,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable} dark`}>
-      {/* The <head> tag is automatically managed by Next.js using the metadata export */}
+      {/* Google Analytics Scripts */}
+      {GA_TRACKING_ID && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+        </>
+      )}
       <body className="font-body antialiased bg-background text-foreground min-h-screen flex flex-col">
         <SearchModalProvider>
+          {GA_TRACKING_ID && <GoogleAnalyticsEvents />}
           <GlobalSearchModalListener />
           <Header />
           <div className="flex-grow">
