@@ -2,20 +2,28 @@
 "use client";
 import Timeline from '@/components/about/Timeline';
 import { educationTimelineData } from '@/lib/data';
-// motion will be applied by the parent page if needed for the whole section
-// import { motion } from 'framer-motion';
-
-// const sectionAnimationProps = {
-//   initial: { opacity: 0, y: 20 },
-//   whileInView: { opacity: 1, y: 0 },
-//   viewport: { once: true, amount: 0.2 },
-//   transition: { duration: 0.6, ease: "easeInOut" },
-// };
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const AboutEducation = () => {
   return (
-    // The motion.div wrapper will be applied in the parent page
-    <Timeline items={educationTimelineData} title="Education" />
+    <div className="w-full max-w-4xl mx-auto">
+        <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+          <AccordionItem value="item-1" className="border-b-0">
+            <AccordionTrigger className="text-3xl font-headline text-primary hover:no-underline justify-center py-4">
+              Education
+            </AccordionTrigger>
+            <AccordionContent>
+              {/* The Timeline component now handles not rendering the title if it's an empty string */}
+              <Timeline items={educationTimelineData} title="" />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+    </div>
   );
 };
 export default AboutEducation;

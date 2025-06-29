@@ -269,7 +269,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Explainable AI: Attribution techniques',
     pageTitle: 'Explainable AI: Attribution techniques',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: undefined,
+    pdfSrc: '/reports/Attribution_techniques.pdf',
     fullWriteUp: `
       <p><em>By Jayin Khanna | Topic Report</em></p>
       
