@@ -1,7 +1,6 @@
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/articles', label: 'Learning Vault' },
   { href: '/thoughts', label: 'Blog' },
   { href: '/contact', label: 'Contact Me' },
 ];
@@ -17,4 +16,3 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/jayin-khanna-95a027212",
   email: "mailto:jayin.research@gmail.com",
 };
-

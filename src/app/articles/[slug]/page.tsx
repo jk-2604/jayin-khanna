@@ -343,7 +343,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       
       <section className="text-center">
         <Button asChild variant="link" className="text-accent text-lg">
-          <Link href="/articles"> &larr; Back to Learning Vault</Link>
+          <Link href="/"> &larr; Back to Home</Link>
         </Button>
       </section>
       <div className="mt-8 text-xs text-muted-foreground text-center">
