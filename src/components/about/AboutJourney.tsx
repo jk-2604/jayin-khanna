@@ -13,7 +13,7 @@ const AboutJourney = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-4xl md:text-5xl font-headline text-center mb-12">My Journey</h2>
-      <Accordion type="multiple" className="w-full space-y-4" defaultValue={['education', 'achievements']}>
+      <Accordion type="multiple" className="w-full space-y-4">
         <AccordionItem value="education" className="border-b-0 rounded-lg shadow-sm bg-card overflow-hidden">
           <AccordionTrigger className="text-3xl font-headline text-primary hover:no-underline justify-center py-4 px-6">
             Education

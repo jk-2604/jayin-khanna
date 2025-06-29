@@ -12,7 +12,7 @@ import {
 const AboutEducation = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
-        <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1" className="border-b-0">
             <AccordionTrigger className="text-3xl font-headline text-primary hover:no-underline justify-center py-4">
               Education
