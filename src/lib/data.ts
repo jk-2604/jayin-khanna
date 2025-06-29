@@ -117,7 +117,7 @@ export const skillsData: Skill[] = [
   // Programming Languages
   { id: 's_python', name: 'Python', category: 'Programming Languages', description: "By this time, It'd probably be a crime to not know it. Use it for most of my projects, research projects, personal tasks and automation of monotonous work.", iconName: 'Code' },
   { id: 's_c', name: 'C', category: 'Programming Languages', description: "Did and still prefer doing all my DSA in C, Even though Python is much more convinient, love the control and freedom C provides.", iconName: 'Terminal' },
-  { id: 's_r', name: 'R', category: 'Programming Languages', description: "My Go-To for most of the statistical analysis, data visualization, and specific research projects requiring advanced statistical modeling. Learnt mainly through couple of Statistics courses but mostly from YouTube.", iconName: 'BarChartBig' },
+  { id: 's_r', name: 'R', category: 'Programming Languages', description: "My Go-To for most of the statistical analysis, data visualization, and specific research projects requiring advanced statistical modeling. Learnt mainly through couple of Statistics courses but YouTube zindabaad!", iconName: 'BarChartBig' },
 
   // Tools & Libraries
   { id: 's_pytorch', name: 'PyTorch', category: 'Tools & Libraries', description: 'Extensive use of PyTorch for building and training deep neural networks, including CNNs, RNNs, and GNNs.', iconName: 'BrainCircuit' },
@@ -129,4 +129,3 @@ export const skillsData: Skill[] = [
   { id: 's_scipy', name: 'SciPy', category: 'Tools & Libraries', description: 'Used for scientific and technical computing, including optimization, signal processing, and statistics.', iconName: 'FunctionSquare' },
   { id: 's_eviews', name: 'EViews', category: 'Tools & Libraries', description: "Did a couple of research projects for econometric analysis, time series modeling, and forecasting. Convenience is crazy.", iconName: 'TrendingUp' },
 ];
-
