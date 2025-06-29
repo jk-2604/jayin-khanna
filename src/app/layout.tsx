@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       {/* Google Analytics Scripts */}
       {GA_TRACKING_ID && (
         <>
