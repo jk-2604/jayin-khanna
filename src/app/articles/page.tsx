@@ -6,46 +6,46 @@ import Link from "next/link";
 import { BookOpen, Brain, Layers, SigmaSquare } from "lucide-react";
 import type { Article } from "@/lib/types";
 import { motion } from 'framer-motion';
-import type { ElementType } from 'react';
+import React from 'react';
 
-const ArticlesPage = () => {
-  const sectionAnimationProps = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.6, ease: "easeInOut" },
-  };
+const ArticlesPage: React.FC = () => {
+    const sectionAnimationProps = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.6, ease: "easeInOut" },
+    };
 
-  const cardVariants = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: {
-      delay: 0.1,
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  };
+    const cardVariants = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: {
+            delay: 0.1,
+            duration: 0.5,
+            ease: "easeInOut",
+        },
+    };
 
-  const articlesData: Article[] = [
-    { slug: 'sequential-models', title: 'Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
-    { slug: 'principal-component-analysis', title: 'Principal Component Analysis', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
-    { slug: 'neural-networks-fundamentals', title: 'Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
-  ];
+    const articlesData: Article[] = [
+        { slug: 'sequential-models', title: 'Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
+        { slug: 'principal-component-analysis', title: 'Principal Component Analysis', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
+        { slug: 'neural-networks-fundamentals', title: 'Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
+    ];
+    
+    const categories = [
+        { name: 'AI/ML', icon: Brain, count: articlesData.filter(a => a.category === 'AI/ML').length },
+    ];
 
-  const categories = [
-    { name: 'AI/ML', icon: Brain, count: articlesData.filter(a => a.category === 'AI/ML').length },
-  ];
-
-  function getArticleIcon(slug: string) {
-    if (slug.includes('sequential-models') || slug.includes('neural-networks')) {
-      return <Layers size={18} className="mr-2 text-accent" />;
+    function getArticleIcon(slug: string) {
+        if (slug.includes('sequential-models') || slug.includes('neural-networks')) {
+            return <Layers size={18} className="mr-2 text-accent" />;
+        }
+        if (slug.includes('principal-component-analysis')) {
+            return <SigmaSquare size={18} className="mr-2 text-accent" />;
+        }
+        return <BookOpen size={18} className="mr-2 text-accent" />;
     }
-    if (slug.includes('principal-component-analysis')) {
-      return <SigmaSquare size={18} className="mr-2 text-accent" />;
-    }
-    return <BookOpen size={18} className="mr-2 text-accent" />;
-  }
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
