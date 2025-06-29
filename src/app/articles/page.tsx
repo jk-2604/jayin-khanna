@@ -1,3 +1,4 @@
+
 "use client";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,8 +13,7 @@ const ArticlesPage = () => {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header 
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">Learning Vault</h1>
@@ -29,8 +29,7 @@ const ArticlesPage = () => {
       <div className="flex flex-col md:flex-row gap-12">
         <motion.aside
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
           className="w-full md:w-1/4 lg:w-1/5"
         >
@@ -77,16 +76,14 @@ const ArticlesPage = () => {
 
         <motion.main
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.4 }}
           className="w-full md:w-3/4 lg:w-4/5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
             >
               <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
@@ -113,8 +110,7 @@ const ArticlesPage = () => {
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
             >
               <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
@@ -141,8 +137,7 @@ const ArticlesPage = () => {
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
             >
               <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
