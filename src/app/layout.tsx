@@ -65,8 +65,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground min-h-screen flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
           disableTransitionOnChange
         >
           <SearchModalProvider>
