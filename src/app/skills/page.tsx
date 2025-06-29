@@ -97,7 +97,7 @@ const SkillsPage = () => {
               {skillsInCategory.map((skill) => {
                 const IconComponent = iconComponents[skill.iconName] || iconComponents.Default;
                 return (
-                  <TooltipProvider key={skill.id}>
+                  <TooltipProvider key={skill.id} delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <motion.div
@@ -108,8 +108,16 @@ const SkillsPage = () => {
                           <span className="font-medium text-card-foreground">{skill.name}</span>
                         </motion.div>
                       </TooltipTrigger>
-                      <TooltipContent className="bg-popover text-popover-foreground border-border max-w-xs">
-                        <p>{skill.description}</p>
+                      <TooltipContent className="bg-transparent border-none shadow-none p-0 max-w-xs w-64">
+                          <Card className="shadow-2xl border-primary/20 bg-card">
+                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
+                              <IconComponent className="h-6 w-6 text-accent flex-shrink-0" />
+                              <CardTitle className="text-lg text-primary">{skill.name}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-4 pt-0">
+                              <p className="text-sm text-card-foreground/80">{skill.description}</p>
+                            </CardContent>
+                          </Card>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
