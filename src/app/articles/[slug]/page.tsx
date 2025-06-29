@@ -264,6 +264,66 @@ const allArticlesContent: ArticleContent[] = [
       </ul>
     `
   },
+  {
+    slug: 'explainable-ai',
+    title: 'Explainable AI: Attribution techniques',
+    pageTitle: 'Explainable AI: Attribution techniques',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: undefined,
+    fullWriteUp: `
+      <p><em>By Jayin Khanna | Topic Report</em></p>
+      
+      <h2>📌 Abstract</h2>
+      <p>As deep learning models become more complex and are deployed in high-stakes domains like healthcare and finance, understanding *why* a model makes a particular decision is crucial. Explainable AI (XAI) provides techniques to interpret and understand the inner workings of these "black box" models. This report focuses on attribution techniques, which aim to assign importance scores to input features based on their contribution to the model's output.</p>
+      
+      <h2 class="mt-8">1. 🧭 Introduction to Explainable AI (XAI)</h2>
+      <p>XAI is a field of artificial intelligence that aims to make AI systems more transparent and understandable to humans. The key motivations for XAI include:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li><strong>Trust:</strong> Building user trust in AI-powered systems.</li>
+        <li><strong>Debugging:</strong> Identifying and correcting errors in model behavior.</li>
+        <li><strong>Fairness:</strong> Ensuring that models are not biased against certain groups.</li>
+        <li><strong>Compliance:</strong> Meeting regulatory requirements for model transparency.</li>
+      </ul>
+      
+      <h2 class="mt-8">2. 🧠 Attribution Techniques</h2>
+      <p>Attribution techniques are a class of XAI methods that explain a model's prediction by assigning a relevance or importance score to each input feature. These methods help answer the question: "Which parts of the input were most important for this specific prediction?"</p>
+
+      <h3 class="mt-6">2.1 Gradient-based Methods</h3>
+      <p>These methods use the gradients of the output with respect to the input features to determine their importance. The intuition is that features with larger gradients have a greater impact on the output.</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li><strong>Saliency Maps:</strong> The simplest method, which visualizes the absolute value of the gradients. It highlights pixels in an image that most affect the output score.</li>
+        <li><strong>Integrated Gradients:</strong> Addresses the saturation problem of simple gradients by integrating gradients along a path from a baseline input (e.g., a black image) to the actual input. It satisfies important axioms like sensitivity and implementation invariance.</li>
+        <li><strong>Grad-CAM (Gradient-weighted Class Activation Mapping):</strong> Produces a coarse localization map highlighting the important regions in the image for predicting the concept. It uses the gradients of the target concept flowing into the final convolutional layer.</li>
+      </ul>
+      <blockquote class="border-l-4 border-primary pl-4 italic my-4 py-2">"Integrated Gradients is a simple, powerful, and widely applicable method for attributing a neural network's predictions to its input features."</blockquote>
+      
+      <h3 class="mt-6">2.2 Perturbation-based Methods</h3>
+      <p>These methods work by systematically perturbing (e.g., removing, masking, or altering) parts of the input and observing the change in the model's output. Features whose perturbation causes a significant drop in the prediction score are considered important.</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li><strong>Occlusion Sensitivity:</strong> A patch of the input (e.g., a gray square) is moved across the input, and the model's output is recorded for each position. This creates a heatmap of importance.</li>
+        <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> A model-agnostic technique that explains individual predictions by learning a simpler, interpretable model (e.g., a linear model) in the local neighborhood of the prediction.</li>
+      </ul>
+
+      <h2 class="mt-8">3. 🖼️ Visualizing Attributions</h2>
+      <p>For image data, attribution scores are often visualized as heatmaps overlaid on the original image. For text data, words can be highlighted based on their importance scores.</p>
+      <p>These visualizations provide an intuitive way to understand what the model is "looking at" when making a decision.</p>
+
+      <h2 class="mt-8">4. ⚠️ Challenges and Limitations</h2>
+      <p>While powerful, attribution techniques have limitations:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li><strong>Faithfulness:</strong> The explanation may not be a faithful representation of what the model is actually doing.</li>
+        <li><strong>Robustness:</strong> Explanations can be sensitive to small, imperceptible changes in the input.</li>
+        <li><strong>Human-level Concepts:</strong> Attribution methods operate on low-level features (e.g., pixels) and may not capture higher-level concepts that humans use for reasoning.</li>
+      </ul>
+      
+      <h2 class="mt-8">📚 References</h2>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li>Sundararajan, Mukund, Ankur Taly, and Qiqi Yan. "Axiomatic attribution for deep networks." <i>ICML 2017</i>.</li>
+        <li>Selvaraju, Ramprasaath R., et al. "Grad-cam: Visual explanations from deep networks via gradient-based localization." <i>ICCV 2017</i>.</li>
+        <li>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. ""Why should I trust you?": Explaining the predictions of any classifier." <i>KDD 2016</i>.</li>
+      </ul>
+    `
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {

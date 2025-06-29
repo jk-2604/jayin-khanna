@@ -1,3 +1,4 @@
+
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -31,7 +32,6 @@ const ArticlesPage = () => {
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Sequential Models: RNNs Overview</h3>
-                <p className="text-sm text-muted-foreground">Beginner | 5 min read</p>
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/sequential-models" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
@@ -41,10 +41,18 @@ const ArticlesPage = () => {
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Neural Networks: Foundations and Architectures</h3>
-                <p className="text-sm text-muted-foreground">Intermediate | 8 min read</p>
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/neural-networks-fundamentals" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+             {/* Card 4 - New */}
+             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Explainable AI: Attribution techniques</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/explainable-ai" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
           </div>
@@ -61,7 +69,6 @@ const ArticlesPage = () => {
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Principal Component Analysis</h3>
-                <p className="text-sm text-muted-foreground">Intermediate | 6 min read</p>
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/principal-component-analysis" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
