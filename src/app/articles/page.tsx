@@ -35,7 +35,7 @@ const articlesData: Article[] = [
 ];
 
 const categories = [
-  { name: 'AI/ML', icon: <Brain size={20}/>, count: articlesData.filter(a => a.category === 'AI/ML').length },
+  { name: 'AI/ML', icon: Brain, count: articlesData.filter(a => a.category === 'AI/ML').length },
   // Other categories removed as per request
 ];
 
@@ -78,28 +78,31 @@ const ArticlesPage = () => {
           <div className="sticky top-20">
             <h2 className="text-2xl font-headline mb-4 text-primary">Categories</h2>
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {categories.map((category, index) => (
-                <AccordionItem value={`item-${index}`} key={category.name}>
-                  <AccordionTrigger className="text-lg hover:text-accent">
-                    <div className="flex items-center space-x-2">
-                      {category.icon}
-                      <span>{category.name} ({category.count})</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="space-y-2 pl-4">
-                      {articlesData.filter(a => a.category === category.name).map(article => (
-                         <li key={article.slug}>
-                           <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
-                             {getArticleIcon(article.slug)}
-                             <span className="truncate w-full">{article.title}</span>
-                           </Link>
-                         </li>
-                       ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+              {categories.map((category, index) => {
+                const Icon = category.icon;
+                return (
+                  <AccordionItem value={`item-${index}`} key={category.name}>
+                    <AccordionTrigger className="text-lg hover:text-accent">
+                      <div className="flex items-center space-x-2">
+                        <Icon size={20}/>
+                        <span>{category.name} ({category.count})</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="space-y-2 pl-4">
+                        {articlesData.filter(a => a.category === category.name).map(article => (
+                           <li key={article.slug}>
+                             <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
+                               {getArticleIcon(article.slug)}
+                               <span className="truncate w-full">{article.title}</span>
+                             </Link>
+                           </li>
+                         ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
             <div className="mt-8">
               <h3 className="text-xl font-headline mb-3 text-primary">Filter</h3>
