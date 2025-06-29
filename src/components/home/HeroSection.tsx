@@ -1,4 +1,3 @@
-
 "use client";
 import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
@@ -14,7 +13,7 @@ const HeroSection = () => {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      <div className="container mx-auto px-4 max-w-4xl text-center"> {/* Added px-4 */}
+      <div className="container mx-auto px-4 max-w-4xl text-center">
         <h1 className="font-headline text-5xl md:text-7xl font-bold mb-6">
           Jayin Khanna
         </h1>
@@ -27,7 +26,7 @@ const HeroSection = () => {
             <Link href="/#projects-section">Explore Projects</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full md:w-auto border-primary text-primary hover:bg-primary/10">
-            <Link href="/thoughts">Read My Blog</Link>
+            <Link href="/articles">Read My Articles</Link>
           </Button>
         </div>
       </div>
