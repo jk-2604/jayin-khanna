@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 // Import newly created sub-components
 import AboutIntro from '@/components/about/AboutIntro';
 import AboutEducation from '@/components/about/AboutEducation';
-import AboutCollaborations from '@/components/about/AboutCollaborations';
 import AboutHobbies from '@/components/about/AboutHobbies';
 import AboutAchievements from '@/components/about/AboutAchievements';
 
@@ -39,10 +38,6 @@ const AboutPage = () => {
       
       <motion.div {...sectionAnimationProps} className="mt-16"> {/* Added margin top for spacing */}
         <AboutEducation />
-      </motion.div>
-
-      <motion.div {...sectionAnimationProps} className="mt-16"> {/* Added margin top for spacing */}
-        <AboutCollaborations />
       </motion.div>
 
       <motion.div {...sectionAnimationProps} className="mt-16"> {/* Added margin top for spacing */}

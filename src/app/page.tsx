@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 
 // Import new "About" sub-components
 import AboutIntro from '@/components/about/AboutIntro';
-import AboutCollaborations from '@/components/about/AboutCollaborations';
 import AboutHobbies from '@/components/about/AboutHobbies';
 import AboutJourney from '@/components/about/AboutJourney'; // Added for combined section
 
@@ -42,11 +41,6 @@ export default function HomePage() {
       <motion.section {...sectionAnimationProps} id="experience-section" className="min-h-screen flex flex-col justify-center">
         {/* ExperiencePageContent itself has a container with px-4, so not needed directly on motion.section if ExperiencePageContent is the sole child filling it */}
         <ExperiencePageContent />
-      </motion.section>
-      <Separator className="my-12 md:my-16 bg-border/40" />
-
-      <motion.section {...sectionAnimationProps} id="collaborations-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
-        <AboutCollaborations />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
