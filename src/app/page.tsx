@@ -1,5 +1,5 @@
 
-"use client"; // <-- Add this directive
+"use client";
 
 import HeroSection from '@/components/home/HeroSection';
 import { Separator } from '@/components/ui/separator';
@@ -7,10 +7,9 @@ import { motion } from 'framer-motion';
 
 // Import new "About" sub-components
 import AboutIntro from '@/components/about/AboutIntro';
-import AboutEducation from '@/components/about/AboutEducation';
 import AboutCollaborations from '@/components/about/AboutCollaborations';
 import AboutHobbies from '@/components/about/AboutHobbies';
-import AboutAchievements from '@/components/about/AboutAchievements';
+import AboutJourney from '@/components/about/AboutJourney'; // Added for combined section
 
 // Import other page components that were previously rendering full pages
 import ExperiencePageContent from '@/app/experience/page';
@@ -25,23 +24,18 @@ const sectionAnimationProps = {
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
-export default function HomePage() { // <-- Remove async
+export default function HomePage() {
   return (
     <div className="flex flex-col">
       <HeroSection />
       <Separator className="my-12 md:my-16 bg-border/40" />
 
       {/* This header is intentionally not 100vh */}
-      <motion.header {...sectionAnimationProps} className="text-center mb-8 container mx-auto px-4"> {/* Added px-4 */}
+      <motion.header {...sectionAnimationProps} className="text-center mb-8 container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
       </motion.header>
-      <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
+      <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
         <AboutIntro />
-      </motion.section>
-      <Separator className="my-12 md:my-16 bg-border/40" />
-
-      <motion.section {...sectionAnimationProps} id="education-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
-        <AboutEducation />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
@@ -51,7 +45,7 @@ export default function HomePage() { // <-- Remove async
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="collaborations-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
+      <motion.section {...sectionAnimationProps} id="collaborations-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
         <AboutCollaborations />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
@@ -68,13 +62,13 @@ export default function HomePage() { // <-- Remove async
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="hobbies-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
+      <motion.section {...sectionAnimationProps} id="hobbies-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
         <AboutHobbies />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="achievements-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
-        <AboutAchievements />
+      <motion.section {...sectionAnimationProps} id="journey-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
+        <AboutJourney />
       </motion.section>
     </div>
   );
