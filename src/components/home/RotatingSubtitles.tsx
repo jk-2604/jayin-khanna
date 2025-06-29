@@ -14,7 +14,7 @@ const RotatingSubtitles = () => {
   }, []);
 
   return (
-    <div className="h-8 md:h-10 relative overflow-hidden">
+    <div className="relative flex min-h-[4.5rem] items-center justify-center overflow-hidden md:h-10">
       <AnimatePresence mode="wait">
         <motion.p
           key={ROTATING_SUBTITLES[index]}
@@ -22,7 +22,7 @@ const RotatingSubtitles = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="text-lg md:text-xl text-muted-foreground text-center" // Changed from text-right to text-center
+          className="text-lg text-muted-foreground text-center md:text-xl"
         >
           {ROTATING_SUBTITLES[index]}
         </motion.p>
