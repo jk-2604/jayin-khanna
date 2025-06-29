@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const { openModal } = useSearchModal();
@@ -51,6 +52,7 @@ const Header = () => {
           <Button variant="ghost" size="icon" onClick={openModal} aria-label="Open search">
             <Search className="h-5 w-5" />
           </Button>
+          <ThemeToggle />
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>

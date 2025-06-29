@@ -11,6 +11,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import { GA_TRACKING_ID } from '@/lib/gtag';
 import GoogleAnalyticsEvents from '@/components/analytics/GoogleAnalyticsEvents';
+import { ThemeProvider } from '@/components/layout/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
       {/* Google Analytics Scripts */}
       {GA_TRACKING_ID && (
         <>
@@ -62,17 +63,24 @@ export default function RootLayout({
         </>
       )}
       <body className="font-body antialiased bg-background text-foreground min-h-screen flex flex-col">
-        <SearchModalProvider>
-          {GA_TRACKING_ID && <GoogleAnalyticsEvents />}
-          <GlobalSearchModalListener />
-          <Header />
-          <div className="flex-grow">
-            {children}
-          </div>
-          <Footer /> {/* ScrollToTopButton is inside Footer */}
-          <CalendlyButton /> {/* Add Calendly button here */}
-          <Toaster />
-        </SearchModalProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SearchModalProvider>
+            {GA_TRACKING_ID && <GoogleAnalyticsEvents />}
+            <GlobalSearchModalListener />
+            <Header />
+            <div className="flex-grow">
+              {children}
+            </div>
+            <Footer /> {/* ScrollToTopButton is inside Footer */}
+            <CalendlyButton /> {/* Add Calendly button here */}
+            <Toaster />
+          </SearchModalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
