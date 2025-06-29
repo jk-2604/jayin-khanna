@@ -3,19 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
-import { BookOpen, Brain, Layers, SigmaSquare } from "lucide-react";
-import type { Article } from "@/lib/types";
+import { Brain, Layers, SigmaSquare } from "lucide-react";
 import { motion } from 'framer-motion';
 import React from 'react';
 
-const ArticlesPage: React.FC = () => {
-    // Hard-coded data to prevent build errors.
-    const articlesData: Article[] = [
-        { slug: 'sequential-models', title: 'Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
-        { slug: 'principal-component-analysis', title: 'Principal Component Analysis', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
-        { slug: 'neural-networks-fundamentals', title: 'Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
-    ];
-    
+const ArticlesPage = () => {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header 
@@ -49,19 +41,29 @@ const ArticlesPage: React.FC = () => {
                 <AccordionTrigger className="text-lg hover:text-accent">
                   <div className="flex items-center space-x-2">
                     <Brain size={20} />
-                    <span>AI/ML ({articlesData.length})</span>
+                    <span>AI/ML (3)</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="space-y-2 pl-4">
-                    {articlesData.map(article => (
-                      <li key={article.slug}>
-                        <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
-                            {article.slug.includes('sequential-models') || article.slug.includes('neural-networks') ? <Layers size={18} className="mr-2 text-accent" /> : <SigmaSquare size={18} className="mr-2 text-accent" />}
-                          <span className="truncate w-full">{article.title}</span>
-                        </Link>
-                      </li>
-                    ))}
+                    <li>
+                      <Link href={`/articles/sequential-models`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
+                          <Layers size={18} className="mr-2 text-accent" />
+                        <span className="truncate w-full">Sequential Models: RNNs Overview</span>
+                      </Link>
+                    </li>
+                     <li>
+                      <Link href={`/articles/principal-component-analysis`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
+                          <SigmaSquare size={18} className="mr-2 text-accent" />
+                        <span className="truncate w-full">Principal Component Analysis</span>
+                      </Link>
+                    </li>
+                     <li>
+                      <Link href={`/articles/neural-networks-fundamentals`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
+                          <Layers size={18} className="mr-2 text-accent" />
+                        <span className="truncate w-full">Neural Networks: Foundations and Architectures</span>
+                      </Link>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -81,48 +83,89 @@ const ArticlesPage: React.FC = () => {
           className="w-full md:w-3/4 lg:w-4/5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {articlesData.map((article, index) => (
-              <motion.div
-                key={article.slug}
-                custom={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                    delay: 0.1,
-                    duration: 0.5,
-                    ease: "easeInOut",
-                }}
-              >
-                <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-primary">{article.title}</CardTitle>
-                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                      <span>{article.category}</span>
-                      <span>{article.readingTime} read</span>
-                      <span>Difficulty: {article.difficulty}</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription className="text-foreground/80 line-clamp-3">
-                      {article.slug === 'sequential-models'
-                        ? "A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges. Full content in PDF."
-                        : article.slug === 'principal-component-analysis'
-                          ? "Dive into Principal Component Analysis, understanding its mathematical foundations and applications. Full content in PDF."
-                          : article.slug === 'neural-networks-fundamentals'
-                            ? "Explore the core concepts and diverse architectures of Neural Networks. Full content in PDF."
-                            : `This is a short placeholder description for the article "${article.title}". Full MDX content with auto-generated ToC and glossary highlights will be available on the article page.`
-                      }
-                    </CardDescription>
-                  </CardContent>
-                  <div className="p-6 pt-0 mt-auto">
-                    <Link href={`/articles/${article.slug}`} className="text-accent font-medium hover:underline">
-                      Read Article &rarr;
-                    </Link>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
+            >
+              <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
+                <CardHeader>
+                  <CardTitle className="text-xl text-primary">Sequential Models: RNNs Overview</CardTitle>
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>AI/ML</span>
+                    <span>25 min read</span>
+                    <span>Difficulty: Advanced</span>
                   </div>
-                </Card>
-              </motion.div>
-            ))}
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-foreground/80 line-clamp-3">
+                    A comprehensive mathematical overview of Recurrent Neural Networks, exploring their history, structure, training, and challenges. Full content in PDF.
+                  </CardDescription>
+                </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Link href={`/articles/sequential-models`} className="text-accent font-medium hover:underline">
+                    Read Article &rarr;
+                  </Link>
+                </div>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
+            >
+              <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
+                <CardHeader>
+                  <CardTitle className="text-xl text-primary">Principal Component Analysis</CardTitle>
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>AI/ML</span>
+                    <span>20 min read</span>
+                    <span>Difficulty: Intermediate</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-foreground/80 line-clamp-3">
+                    Dive into Principal Component Analysis, understanding its mathematical foundations and applications. Full content in PDF.
+                  </CardDescription>
+                </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Link href={`/articles/principal-component-analysis`} className="text-accent font-medium hover:underline">
+                    Read Article &rarr;
+                  </Link>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
+            >
+              <Card className="shadow-lg border-border hover:border-primary transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
+                <CardHeader>
+                  <CardTitle className="text-xl text-primary">Neural Networks: Foundations and Architectures</CardTitle>
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>AI/ML</span>
+                    <span>30 min read</span>
+                    <span>Difficulty: Advanced</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-foreground/80 line-clamp-3">
+                    Explore the core concepts and diverse architectures of Neural Networks. Full content in PDF.
+                  </CardDescription>
+                </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Link href={`/articles/neural-networks-fundamentals`} className="text-accent font-medium hover:underline">
+                    Read Article &rarr;
+                  </Link>
+                </div>
+              </Card>
+            </motion.div>
           </div>
           <p className="mt-12 text-center text-muted-foreground">
             Individual article pages may feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms, or embedded PDFs.
