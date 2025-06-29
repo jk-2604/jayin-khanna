@@ -64,7 +64,6 @@ const SkillsPage = () => {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Skills & Expertise</h1>
-        <p className="text-xl text-muted-foreground">A Detailed Look at My Technical Capabilities</p>
       </motion.header>
 
       {Object.entries(groupedSkills).map(([category, skillsInCategory], categoryIndex) => (

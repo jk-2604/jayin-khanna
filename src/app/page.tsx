@@ -34,7 +34,6 @@ export default function HomePage() { // <-- Remove async
       {/* This header is intentionally not 100vh */}
       <motion.header {...sectionAnimationProps} className="text-center mb-8 container mx-auto px-4"> {/* Added px-4 */}
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
-        <p className="text-xl text-muted-foreground">A Glimpse into My Journey</p>
       </motion.header>
       <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center"> {/* Added px-4 */}
         <AboutIntro />

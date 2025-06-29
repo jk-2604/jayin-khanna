@@ -193,7 +193,6 @@ const ExperiencePageContent = () => {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
-        <p className="text-xl text-muted-foreground">A Journey Through Research and Internships</p>
       </motion.header>
       
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
