@@ -3,6 +3,16 @@ import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Marquee from './Marquee';
+
+const marqueeLinks = [
+  { href: '#about-intro-section', label: 'About Me' },
+  { href: '#experience-section', label: 'My Experience' },
+  { href: '#skills-section', label: 'Skills' },
+  { href: '#projects-section', label: 'Research & Projects' },
+  { href: '#hobbies-section', label: 'Hobbies & Interests' },
+  { href: '#journey-section', label: 'My Journey' },
+];
 
 const HeroSection = () => {
   return (
@@ -28,6 +38,9 @@ const HeroSection = () => {
           <Button asChild variant="outline" size="lg" className="w-full md:w-auto border-primary text-primary hover:bg-primary/10">
             <Link href="/articles">Read My Articles</Link>
           </Button>
+        </div>
+        <div className="mt-12">
+            <Marquee items={marqueeLinks} />
         </div>
       </div>
     </motion.section>
