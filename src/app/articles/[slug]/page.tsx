@@ -19,7 +19,7 @@ const allArticlesContent: ArticleContent[] = [
   {
     slug: 'sequential-models',
     title: 'Recurrent Neural Networks: A Mathematical Overview',
-    pageTitle: '🧠 Recurrent Neural Networks: A Mathematical Overview',
+    pageTitle: 'Recurrent Neural Networks: A Mathematical Overview',
     metadataLine: 'By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University',
     pdfSrc: '/reports/Sequential_Models_new.pdf', // Path to your PDF in the public folder
     fullWriteUp: `
@@ -223,8 +223,8 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'principal-component-analysis',
-    title: 'Principal Component Analysis: A Deep Dive',
-    pageTitle: '📊 Principal Component Analysis: A Deep Dive',
+    title: 'Principal Component Analysis',
+    pageTitle: 'Principal Component Analysis',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/PCA (1).pdf',
     fullWriteUp: `
@@ -245,7 +245,7 @@ const allArticlesContent: ArticleContent[] = [
   {
     slug: 'neural-networks-fundamentals',
     title: 'Neural Networks: Foundations and Architectures',
-    pageTitle: '🧠 Neural Networks: Foundations and Architectures',
+    pageTitle: 'Neural Networks: Foundations and Architectures',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/Neural_Networks (4).pdf',
     fullWriteUp: `

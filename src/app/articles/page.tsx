@@ -29,9 +29,9 @@ const cardVariants = {
 
 // Updated articles data to include only the specified articles
 const articlesData: Article[] = [
-  { slug: 'sequential-models', title: '🧠 Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
-  { slug: 'principal-component-analysis', title: '📊 Principal Component Analysis: A Deep Dive', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
-  { slug: 'neural-networks-fundamentals', title: '🧠 Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
+  { slug: 'sequential-models', title: 'Sequential Models: RNNs Overview', category: 'AI/ML', readingTime: '25 min', difficulty: 'Advanced' },
+  { slug: 'principal-component-analysis', title: 'Principal Component Analysis', category: 'AI/ML', readingTime: '20 min', difficulty: 'Intermediate' },
+  { slug: 'neural-networks-fundamentals', title: 'Neural Networks: Foundations and Architectures', category: 'AI/ML', readingTime: '30 min', difficulty: 'Advanced' },
 ];
 
 const categories = [
@@ -159,7 +159,7 @@ const ArticlesPage = () => {
            <p className="mt-12 text-center text-muted-foreground">
             Individual article pages may feature MDX-powered content, auto-generated Table of Contents, and hover highlights for glossary terms, or embedded PDFs.
           </p>
-        </motion.main>
+        </main>
       </div>
     </div>
   );
