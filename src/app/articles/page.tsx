@@ -40,7 +40,7 @@ const categories = [
 ];
 
 // Helper to get appropriate icon for article title
-const getArticleIcon = (slug: string) => {
+function getArticleIcon(slug: string) {
   if (slug.includes('sequential-models') || slug.includes('neural-networks')) {
     return <Layers size={18} className="mr-2 text-accent" />;
   }
@@ -49,7 +49,7 @@ const getArticleIcon = (slug: string) => {
   }
   // Fallback, though all current articles match above
   return <BookOpen size={18} className="mr-2 text-accent" />;
-};
+}
 
 
 const ArticlesPage = () => {
@@ -92,7 +92,7 @@ const ArticlesPage = () => {
                          <li key={article.slug}>
                            <Link href={`/articles/${article.slug}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center">
                              {getArticleIcon(article.slug)}
-                             <span className="truncate w-full">{article.title.replace(/🧠 |📊 /g, '')}</span>
+                             <span className="truncate w-full">{article.title}</span>
                            </Link>
                          </li>
                        ))}
