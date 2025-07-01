@@ -18,14 +18,14 @@ const HeroSection = () => {
           Jayin Khanna
         </h1>
         <RotatingSubtitles />
-        <div className="mt-10 space-x-0 space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
-          <Button asChild size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
+        <div className="mt-10 max-w-lg mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
             <Link href="/thoughts">Blog</Link>
           </Button>
-          <Button asChild variant="secondary" size="lg" className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+          <Button asChild variant="secondary" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
             <Link href="/#projects-section">Explore Projects</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="w-full md:w-auto border-primary text-primary hover:bg-primary/10">
+          <Button asChild variant="outline" size="lg" className="w-full border-primary text-primary hover:bg-primary/10">
             <Link href="/articles">Read My Articles</Link>
           </Button>
         </div>
