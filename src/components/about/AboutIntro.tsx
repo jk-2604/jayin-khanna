@@ -37,7 +37,7 @@ const AboutIntro = () => {
           </p>
           <p className="text-lg mb-4 text-foreground/90">
  I previously worked as a Machine Learning Research Intern at the Institute of Nuclear Medicine and Allied Sciences (INMAS), DRDO, New Delhi, under Dr. Shilpi Modi (Scientist 'E'), and am currently continuing a new research project under her guidance. I was also selected for the ISRP program at University of California, Santa Cruz. I worked as a Statistics Research intern under Dr. Bruno Sanso in Time series analysis of Environmental variables. 
-To get a taste of what the industry is like, I interned at Syntellect by Right Profile as an R&D Intern in ML and Computer Vision, and also worked briefly with The Habitats Trust on CV-based projects as part of the Tech4Conservation initiative. 
+To get a taste of what the industry is like, I interned at Syntellect by Right Profile as an R&D Intern in ML and Computer Vision, and also worked briefly with The Habitats Trust on CV-based projects as part of the Tech4Conservation initiative. You can see more in <Link href="/#journey-section" className="text-primary hover:underline font-medium">My Journey</Link>.
           </p>
           <p className="text-lg mb-4 text-foreground/90">
             I love doing research!

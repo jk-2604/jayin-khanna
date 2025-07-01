@@ -14,7 +14,7 @@ const ArticlesPage = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-headline mb-4">Learning Vault</h1>
+        <h1 className="text-4xl md:text-5xl font-headline mb-4">Research</h1>
         <p className="text-xl text-muted-foreground">
           A curated collection of my seminar reports and topic explorations.
         </p>

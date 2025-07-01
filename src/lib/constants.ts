@@ -2,8 +2,9 @@
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/thoughts', label: 'Blog' },
-  { href: '/articles', label: 'Learning Vault' },
+  { href: '/articles', label: 'Research' },
   { href: '/contact', label: 'Contact Me' },
+  { href: '/resume', label: 'CV' },
 ];
 
 export const ROTATING_SUBTITLES = [

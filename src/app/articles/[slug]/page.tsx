@@ -336,7 +336,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return { title: 'Article Not Found' };
   }
   return {
-    title: `${article.title} | Learning Vault`,
+    title: `${article.title} | Research`,
     description: `An article titled: ${article.title}. Penned by Jayin Khanna.`,
   };
 }
