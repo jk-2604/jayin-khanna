@@ -14,12 +14,12 @@ const HeroSection = () => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       <div className="container mx-auto px-4 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl font-headline mb-4 tracking-widest text-gradient-dreams">
-          A HEAD FULL OF DREAMS
-        </h2>
-        <h1 className="font-headline text-5xl md:text-7xl font-bold mb-6">
+        <h1 className="font-headline text-5xl md:text-7xl font-bold mb-4">
           Jayin Khanna
         </h1>
+        <h2 className="text-2xl md:text-3xl font-headline mb-6 tracking-wider text-gradient-dreams">
+          A HEAD FULL OF DREAMS
+        </h2>
         <RotatingSubtitles />
         <div className="mt-10 max-w-lg mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
           <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
