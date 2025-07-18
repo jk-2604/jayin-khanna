@@ -162,3 +162,9 @@
     @apply bg-primary;
   }
 }
+
+@layer utilities {
+  .text-gradient-dreams {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-400 via-lime-400 via-sky-400 to-pink-500;
+  }
+}

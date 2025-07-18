@@ -1,4 +1,3 @@
-
 "use client";
 import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
@@ -15,6 +14,9 @@ const HeroSection = () => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       <div className="container mx-auto px-4 max-w-4xl text-center">
+        <h2 className="text-3xl md:text-4xl font-headline mb-4 tracking-widest text-gradient-dreams">
+          A HEAD FULL OF DREAMS
+        </h2>
         <h1 className="font-headline text-5xl md:text-7xl font-bold mb-6">
           Jayin Khanna
         </h1>
