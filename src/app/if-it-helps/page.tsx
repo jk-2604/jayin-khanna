@@ -22,7 +22,10 @@ const IfItHelpsPage = () => {
           Coming Soon!
         </p>
         <p className="text-lg text-muted-foreground mt-4">
-          This section will be filled with helpful resources, materials, and interesting finds.
+          Everything and anything that has ever helped me.
+        </p>
+        <p className="text-lg text-muted-foreground">
+          Hope you get something out of it.
         </p>
       </motion.div>
     </div>
