@@ -1,3 +1,4 @@
+
 "use client";
 import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,7 @@ const HeroSection = () => {
         <h1 className="font-headline text-5xl md:text-7xl font-bold mb-4">
           Jayin Khanna
         </h1>
-        <h2 className="text-2xl md:text-3xl font-headline mb-6 tracking-wider text-gradient-dreams">
+        <h2 className="text-xl md:text-2xl font-headline mb-6 tracking-wider text-gradient-dreams">
           A HEAD FULL OF DREAMS
         </h2>
         <RotatingSubtitles />
