@@ -22,7 +22,7 @@ const ThoughtsPage = () => {
           Coming Soon!
         </p>
         <p className="text-lg text-muted-foreground mt-4">
-          Explore my thoughts and musings. Please check back later for blog posts.
+          Explore my thoughts and add yours too. Please check back later for blog posts.
         </p>
       </motion.div>
     </div>
