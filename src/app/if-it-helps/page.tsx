@@ -19,7 +19,7 @@ const sectionAnimationProps = {
 };
 
 const IfItHelpsPage = () => {
-  const poem = `If you can keep your head when all about you
+  const kiplingPoem = `If you can keep your head when all about you
    Are losing theirs and blaming it on you;
 If you can trust yourself when all men doubt you,
    But make allowance for their doubting too;
@@ -54,6 +54,31 @@ If you can fill the unforgiving minute
 With sixty seconds’ worth of distance run—
    Yours is the Earth and everything that’s in it,
 And—which is more—you’ll be a Man, my son!`;
+
+  const bukowskiPoem = `invent yourself and then reinvent yourself,
+don’t swim in the same slough.
+invent yourself and then reinvent yourself
+and
+stay out of the clutches of mediocrity.
+
+invent yourself and then reinvent yourself,
+change your tone and shape so often that they can
+never
+categorize you.
+
+reinvigorate yourself and
+accept what is
+but only on the terms that you have invented
+and reinvented.
+
+be self-taught.
+
+and reinvent your life because you must;
+it is your life and
+its history
+and the present
+belong only to
+you.`;
 
   return (
     <div className="container mx-auto py-12 md:py-20">
@@ -103,7 +128,18 @@ And—which is more—you’ll be a Man, my son!`;
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6">
               <pre className="whitespace-pre-wrap font-serif text-lg leading-relaxed text-foreground/90">
-                {poem}
+                {kiplingPoem}
+              </pre>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3" className="border rounded-lg shadow-lg bg-card overflow-hidden">
+            <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
+              No Leaders Please — by Charles Bukowski
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <pre className="whitespace-pre-wrap font-serif text-lg leading-relaxed text-foreground/90">
+                {bukowskiPoem}
               </pre>
             </AccordionContent>
           </AccordionItem>
