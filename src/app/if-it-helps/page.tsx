@@ -3,7 +3,13 @@
 import { motion } from 'framer-motion';
 import { Bookmark } from 'lucide-react';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Card, CardContent } from '@/components/ui/card';
 
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
@@ -67,43 +73,42 @@ And—which is more—you’ll be a Man, my son!`;
         </p>
       </motion.header>
 
-      <div className="max-w-4xl mx-auto space-y-12">
-        <motion.div 
-          {...sectionAnimationProps}
-          transition={{...sectionAnimationProps.transition, delay: 0.2}}
-        >
-          <Card className="shadow-lg overflow-hidden">
-            <CardContent className="p-4 md:p-6">
-              <Image
-                src="/images/squirrels-comic.jpeg"
-                alt="A comic about purpose and finding squirrels"
-                width={1076}
-                height={441}
-                layout="responsive"
-                className="rounded-md"
-                data-ai-hint="philosophy comic"
-              />
-            </CardContent>
-          </Card>
-        </motion.div>
+      <motion.div 
+        {...sectionAnimationProps}
+        transition={{...sectionAnimationProps.transition, delay: 0.2}}
+        className="max-w-4xl mx-auto"
+      >
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          <AccordionItem value="item-1" className="border rounded-lg shadow-lg bg-card overflow-hidden">
+            <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
+              A comic about finding purpose
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+               <div className="rounded-md overflow-hidden border">
+                  <Image
+                    src="/images/squirrels-comic.jpeg"
+                    alt="A comic about purpose and finding squirrels"
+                    width={1076}
+                    height={441}
+                    layout="responsive"
+                    data-ai-hint="philosophy comic"
+                  />
+                </div>
+            </AccordionContent>
+          </AccordionItem>
 
-        <motion.div
-          {...sectionAnimationProps}
-          transition={{...sectionAnimationProps.transition, delay: 0.4}}
-        >
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-3xl font-headline text-primary">IF—</CardTitle>
-              <CardDescription>By Rudyard Kipling</CardDescription>
-            </CardHeader>
-            <CardContent>
+          <AccordionItem value="item-2" className="border rounded-lg shadow-lg bg-card overflow-hidden">
+            <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
+              IF— by Rudyard Kipling
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
               <pre className="whitespace-pre-wrap font-serif text-lg leading-relaxed text-foreground/90">
                 {poem}
               </pre>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </motion.div>
     </div>
   );
 };
