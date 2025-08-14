@@ -12,6 +12,44 @@ import { GraduationCap, CalendarDays } from 'lucide-react';
 
 const experienceData = [
   {
+    id: 'exp_iisc_1',
+    role: 'Machine Learning Research Fellow',
+    institution: 'SPIRE Lab, Indian Institute of Science (IISc) Bangalore',
+    logoSrc: '/images/iisc-logo.png',
+    logoAlt: 'IISc Bangalore Logo',
+    dataAiHint: 'university campus science',
+    supervisor: 'Prof. Prasanta Kumar Ghosh',
+    supervisorLink: '#', // Add actual link if available
+    period: 'Jul 2025 – Present',
+    description: [
+      'Time-Scale Modification (TSM) of speech using Generative Adversarial Networks (GANs).',
+      'Developing ScalerGAN: an unsupervised GAN-based model to modify speech rate while preserving speaker identity, pitch, and naturalness.',
+      'Extracted and engineered audio features including STFTs, Mel spectrograms, and MFCCs for input to GAN-based architectures.',
+      'Applying on lab acquired audio data for personalized speech playback, podcast speed control, and assistive tools for language learning.'
+    ],
+    links: [{ label: 'Project Report', url: '#' }],
+    badges: ['Speech Processing', 'GANs', 'Time-Scale Modification', 'Deep Learning', 'Audio Features']
+  },
+  {
+    id: 'exp_iitkgp_1',
+    role: 'Deep Learning Research Intern',
+    institution: 'Indian Institute of Technology (IIT) Kharagpur',
+    logoSrc: '/images/iit-kgp-logo.png',
+    logoAlt: 'IIT Kharagpur Logo',
+    dataAiHint: 'university building india',
+    supervisor: 'Dr. Niloy Ganguly',
+    supervisorLink: '#', // Add actual link if available
+    period: '2025',
+    description: [
+      'Worked on developing attribution techniques using Integrated gradients, Manifold IG, Guided IG towards neural network interpretability.',
+      'Currently extending these methods to sequential models and large language models (LLMs) using Granger causality and Randomized Path Integrals.',
+      'Reproduced the results of Integrated gradients and Manifold Integrated gradients and tested a new methodology on MIG to improve performance.',
+      'Future work involves computer vision applications.'
+    ],
+    links: [],
+    badges: ['Explainable AI', 'Attribution Methods', 'Integrated Gradients', 'LLMs', 'Deep Learning']
+  },
+  {
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
