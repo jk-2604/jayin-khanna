@@ -329,7 +329,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Generative Models: A Mathematical Overview',
     pageTitle: 'Generative Models: A Mathematical Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '',
+    pdfSrc: '/reports/GANs-2.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>
       <p>The PDF for this report will be added soon.</p>
@@ -340,7 +340,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Statistics for Generative models',
     pageTitle: 'Statistics for Generative models',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '',
+    pdfSrc: '/reports/Transformation_of_RVs-2.pdf',
     fullWriteUp: `
       <p>This document explores the statistical foundations essential for understanding and developing generative models.</p>
       <p>The PDF for this report will be added soon.</p>
@@ -351,7 +351,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Speech Time Scale Modification with GANs',
     pageTitle: 'Speech Time Scale Modification with GANs',
     metadataLine: 'By Jayin Khanna | Research Project',
-    pdfSrc: '',
+    pdfSrc: '/reports/tsm.pdf',
     fullWriteUp: `
       <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
       <p>The PDF for this report will be added soon.</p>

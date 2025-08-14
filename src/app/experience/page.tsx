@@ -15,7 +15,7 @@ const experienceData = [
     id: 'exp_iisc_1',
     role: 'Machine Learning Research Fellow',
     institution: 'SPIRE Lab, Indian Institute of Science (IISc) Bangalore',
-    logoSrc: '/images/iisc-logo.png',
+    logoSrc: '/images/spire-lab-logo.jpg',
     logoAlt: 'IISc Bangalore Logo',
     dataAiHint: 'university campus science',
     supervisor: 'Prof. Prasanta Kumar Ghosh',
