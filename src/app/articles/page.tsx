@@ -55,6 +55,24 @@ const ArticlesPage = () => {
                 <Link href="/articles/explainable-ai" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
+             {/* New Card 5 */}
+             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Generative Models: A Mathematical overview</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/generative-models-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+             {/* New Card 6 */}
+             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Speech Time Scale Modification with GANs</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/speech-tsm-gans" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -72,6 +90,15 @@ const ArticlesPage = () => {
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/principal-component-analysis" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* New Card 7 */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Statistics for Generative models</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/statistics-generative-models" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
           </div>
