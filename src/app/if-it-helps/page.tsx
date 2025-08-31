@@ -43,7 +43,7 @@ And lose, and start again at your beginnings
    And never breathe a word about your loss;
 If you can force your heart and nerve and sinew
    To serve your turn long after they are gone,
-And so hold on when there is nothing in you
+And so hold on when there is a nothing in you
    Except the Will which says to them: “Hold on”;
 
 If you can talk with crowds and keep your virtue,
@@ -141,6 +141,22 @@ you.`;
               <pre className="whitespace-pre-wrap font-serif text-lg leading-relaxed text-foreground/90">
                 {bukowskiPoem}
               </pre>
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-4" className="border rounded-lg shadow-lg bg-card overflow-hidden">
+            <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
+              A Quote by Nietzsche
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <blockquote className="border-l-4 border-primary pl-4 italic my-4 py-2">
+                <p className="text-xl font-serif leading-relaxed text-foreground/90">
+                  “I know of no better life purpose than to perish in attempting the great and the impossible.”
+                </p>
+                <footer className="text-right mt-4 text-md font-serif text-muted-foreground">
+                  — Friedrich Wilhelm Nietzsche
+                </footer>
+              </blockquote>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
