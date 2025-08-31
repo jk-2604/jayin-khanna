@@ -146,7 +146,7 @@ you.`;
           
           <AccordionItem value="item-4" className="border rounded-lg shadow-lg bg-card overflow-hidden">
             <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
-              A Quote by Nietzsche
+              Insatiables
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6">
               <blockquote className="border-l-4 border-primary pl-4 italic my-4 py-2">
