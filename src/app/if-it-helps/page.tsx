@@ -159,6 +159,24 @@ you.`;
               </blockquote>
             </AccordionContent>
           </AccordionItem>
+
+          <AccordionItem value="item-5" className="border rounded-lg shadow-lg bg-card overflow-hidden">
+            <AccordionTrigger className="text-xl font-headline text-primary hover:no-underline px-6 py-4">
+              The perfect Lap- Can you see it?
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <div className="aspect-w-16 aspect-h-9 rounded-md overflow-hidden border">
+                <iframe 
+                  src="https://www.youtube.com/embed/pLHmFnim1Ws" 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </motion.div>
     </div>
