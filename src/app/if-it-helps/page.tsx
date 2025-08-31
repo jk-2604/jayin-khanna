@@ -91,10 +91,10 @@ you.`;
           If It Helps
         </h1>
         <p className="text-lg text-muted-foreground">
-          Everything and anything that has ever helped me.
+          What I wish I had known and understood sooner. What I would give to my younger self.
         </p>
         <p className="text-lg text-muted-foreground">
-          Hope you get something out of it.
+          Hope you get something out of it ;)
         </p>
       </motion.header>
 
