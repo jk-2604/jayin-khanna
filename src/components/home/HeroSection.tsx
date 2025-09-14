@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       {/* Background Image */}
       <Image
-        src="/images/hero-background.jpg"
+        src="/images/Lib.jpeg"
         alt="Architectural background"
         layout="fill"
         objectFit="cover"
@@ -39,7 +39,10 @@ const HeroSection = () => {
           <h1 className="font-headline text-5xl md:text-7xl font-bold mb-4 text-foreground">
             Jayin Khanna
           </h1>
-          <h2 className="text-xl md:text-2xl font-headline mb-6 tracking-wider text-gradient-dreams">
+          <h2 
+            className="text-xl md:text-2xl font-headline mb-6 tracking-wider text-gradient-dreams"
+            style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }} // Added text-shadow for better contrast
+          >
             A HEAD FULL OF DREAMS
           </h2>
           <RotatingSubtitles />
