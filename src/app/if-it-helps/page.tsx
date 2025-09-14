@@ -165,7 +165,7 @@ you.`;
               The perfect Lap- Can you see it?
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6">
-              <div className="aspect-w-16 aspect-h-9 rounded-md overflow-hidden border">
+              <div className="aspect-video rounded-md overflow-hidden border">
                 <iframe 
                   src="https://www.youtube.com/embed/pLHmFnim1Ws" 
                   title="YouTube video player" 
