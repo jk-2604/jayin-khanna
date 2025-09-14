@@ -39,7 +39,7 @@ const HeroSection = () => {
             Jayin Khanna
           </h1>
           <h2 
-            className="text-xl md:text-2xl font-headline mb-6 tracking-wider text-gradient-dreams"
+            className="text-xl md:text-2xl font-headline font-bold mb-6 tracking-wider text-gradient-dreams"
           >
             A HEAD FULL OF DREAMS
           </h2>
