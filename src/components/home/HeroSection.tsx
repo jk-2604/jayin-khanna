@@ -1,4 +1,3 @@
-
 "use client";
 import RotatingSubtitles from './RotatingSubtitles';
 import { Button } from '@/components/ui/button';
@@ -41,7 +40,6 @@ const HeroSection = () => {
           </h1>
           <h2 
             className="text-xl md:text-2xl font-headline mb-6 tracking-wider text-gradient-dreams"
-            style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }} // Added text-shadow for better contrast
           >
             A HEAD FULL OF DREAMS
           </h2>
