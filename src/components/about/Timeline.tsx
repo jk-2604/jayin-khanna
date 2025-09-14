@@ -37,7 +37,7 @@ const Timeline = ({ items, title }: TimelineProps) => {
       {title && <h2 className="text-3xl font-headline text-center mb-10 text-primary">{title}</h2>}
       <div className="relative container mx-auto max-w-3xl"> {/* Added mx-auto here */}
         {/* Vertical line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-border/50 transform -translate-x-1/2 hidden md:block" aria-hidden="true"></div>
+        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-border/50 transform -translate-x-1/2 md:block" aria-hidden="true"></div>
         
         {items.map((item, index) => {
           const MainIconComponent = item.iconIdentifier ? mainIconComponents[item.iconIdentifier] || mainIconComponents.Default : null;
@@ -106,4 +106,3 @@ const Timeline = ({ items, title }: TimelineProps) => {
 };
 
 export default Timeline;
-
