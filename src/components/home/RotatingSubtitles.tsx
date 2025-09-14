@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -26,7 +25,7 @@ const RotatingSubtitles = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className={`text-lg text-muted-foreground text-center md:text-xl ${isSpecialBold ? 'font-bold' : 'font-medium'}`}
+          className={`text-lg text-muted-foreground text-center md:text-xl font-medium`}
         >
           {currentSubtitle}
         </motion.p>
