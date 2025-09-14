@@ -23,7 +23,7 @@ const AboutIntro = () => {
       <div className="flex flex-col items-center"> {/* Changed to flex-col for vertical stacking */}
         <div className="relative w-full max-w-xs aspect-[3/4] mx-auto mb-6 overflow-hidden rounded-lg shadow-lg"> {/* Adjusted container for image */}
           <Image
-            src="/images/photo .jpg"
+            src="/images/my-photo.jpeg"
             alt="Your Photo" // Alt text is important for accessibility
             layout="fill" // Use layout fill to cover the container
             objectFit="cover" // Ensure aspect ratio is maintained and covers the area
