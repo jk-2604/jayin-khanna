@@ -27,7 +27,7 @@ const HeroSection = () => {
         priority // Helps with LCP (Largest Contentful Paint)
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-background/50 z-10"></div>
+      <div className="absolute inset-0 bg-background/60 z-10"></div>
 
       {/* Content */}
       <div className="container relative z-20 mx-auto px-4 max-w-4xl text-center">
