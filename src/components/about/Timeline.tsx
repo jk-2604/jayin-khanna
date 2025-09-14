@@ -106,3 +106,4 @@ const Timeline = ({ items, title }: TimelineProps) => {
 };
 
 export default Timeline;
+
