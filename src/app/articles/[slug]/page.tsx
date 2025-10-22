@@ -22,11 +22,11 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    presentationSrc: 'https://docs.google.com/presentation/d/e/2PACX-1vR_s-r2Y8Z-C4Z-3X_1bZ-5jX-uY7Y_1N_3oQ_5bI_9A_1cI_1aA9Fv-tB_8B_6vD_1sL_2k/embed?start=false&loop=false&delayms=3000', // Placeholder embed link
+    pdfSrc: '/reports/contrastive-learning.pdf',
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
-      <h2>📌 Abstract</h2>
+      <h2> Abstract</h2>
       <p>This presentation provides an in-depth exploration of two significant advancements in self-supervised learning: SimCLR and I-JEPA. We delve into the core concepts of contrastive learning, which enables models to learn meaningful representations from unlabeled data by maximizing agreement between different views of the same data point.</p>
       
       <h3 class="mt-6">SimCLR (A Simple Framework for Contrastive Learning of Visual Representations)</h3>
@@ -58,7 +58,7 @@ const allArticlesContent: ArticleContent[] = [
     fullWriteUp: `
       <p><em>By Jayin Khanna | MAT399: UG Seminar Presentation Report | Shiv Nadar University</em></p>
       
-      <h2>📌 Abstract</h2>
+      <h2> Abstract</h2>
       <p>After the advent of neural networks, multiple architectures were developed for different deep learning tasks. Recurrent Neural Networks (RNNs) are specifically designed to handle sequential data, making them essential for applications like time-series analysis, speech recognition, language models, and image/text processing.</p>
       <p>This post provides a comprehensive mathematical overview of RNNs, exploring their history, structure, training methodology, gradient dynamics, and challenges like the vanishing gradient problem.</p>
       
@@ -74,7 +74,7 @@ const allArticlesContent: ArticleContent[] = [
         <li>Transition to Temporal Point Processes (TPPs)</li>
       </ul>
       
-      <h2 class="mt-8">2. 🕰️ History of RNNs</h2>
+      <h2 class="mt-8">2.  History of RNNs</h2>
       <p>Emerged in the 1980s to address temporal dependencies.</p>
       <p>Introduced hidden state memory, allowing sequence learning.</p>
       <p>Faced challenges like:</p>
@@ -93,7 +93,7 @@ const allArticlesContent: ArticleContent[] = [
         <li>Improve stability in training</li>
       </ul>
       
-      <h2 class="mt-8">3. 📈 Motivation for RNNs</h2>
+      <h2 class="mt-8">3.  Motivation for RNNs</h2>
       <p>RNNs shine in tasks involving sequential context:</p>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li>NLP</li>
@@ -108,7 +108,7 @@ const allArticlesContent: ArticleContent[] = [
       </ul>
       <blockquote class="border-l-4 border-primary pl-4 italic my-4 py-2">“RNNs evolve a hidden state over time based on current input and previous memory.”</blockquote>
       
-      <h2 class="mt-8">4. 📖 Preliminaries: Sequence & Language Modeling</h2>
+      <h2 class="mt-8">4.  Preliminaries: Sequence & Language Modeling</h2>
       <h3 class="mt-6">4.1 Sequence Modeling</h3>
       <p>Given sequence x = (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>T</sub>), we want:</p>
       <p class="my-2">P(x) = P(x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>T</sub>) = P(x<sub>1</sub>) &prod;<sup>T</sup><sub>t=2</sub> P(x<sub>t</sub> | x<sub>1</sub>, ..., x<sub>t-1</sub>)</p>
@@ -155,7 +155,7 @@ const allArticlesContent: ArticleContent[] = [
       <p class="my-2">L = &sum;<sup>T</sup><sub>t=1</sub> -log y<sub>c(t)</sub><sup>(t)</sup></p>
       <p>Graphical intuition: As predicted probability drops, loss increases sharply—encouraging confidence and accuracy.</p>
       
-      <h2 class="mt-8">6. 🔁 Backpropagation Through Time (BPTT)</h2>
+      <h2 class="mt-8">6.  Backpropagation Through Time (BPTT)</h2>
       <p>Gradient descent is used for training. For that, gradients are needed:</p>
       <h3 class="mt-6">6.1 Local Gradients</h3>
       <p class="my-2">&delta;<sup>(t)</sup> = &part;L / &part;a<sup>(t)</sup> = (&part;L / &part;h<sup>(t)</sup>) &SmallCircle; (1 - tanh<sup>2</sup>(a<sup>(t)</sup>))</p>
@@ -166,19 +166,19 @@ const allArticlesContent: ArticleContent[] = [
       <h3 class="mt-6">6.3 Recursive Gradient Flow</h3>
       <p class="my-2">&part;L / &part;h<sup>(t-1)</sup> = (W<sub>hh</sub><sup>T</sup>&delta;<sup>(t)</sup>) &SmallCircle; (1 - tanh<sup>2</sup>(a<sup>(t-1)</sup>))</p>
       
-      <h2 class="mt-8">7. ⏳ Gradient Accumulation</h2>
+      <h2 class="mt-8">7.  Gradient Accumulation</h2>
       <h3 class="mt-6">7.1 Gradient Unrolling</h3>
       <p class="my-2">&part;L / &part;W<sub>hh</sub> = &sum;<sup>T</sup><sub>t=1</sub> &sum;<sup>t</sup><sub>k=1</sub> ( &prod;<sup>t</sup><sub>j=k+1</sub> (&part;h<sup>(j)</sup> / &part;h<sup>(j-1)</sup>) &sdot; (&part;h<sup>(k)</sup> / &part;W<sub>hh</sub>) )</p>
       <h3 class="mt-6">7.2 General Gradient Form</h3>
       <p class="my-2">&part;L<sup>(t)</sup> / &part;W = (&part;L<sup>(t)</sup> / &part;h<sup>(t)</sup>) &sum;<sup>t</sup><sub>k=1</sub> ( (&part;h<sup>(t)</sup> / &part;h<sup>(k)</sup>) &sdot; (&part;h<sup>(k)</sup> / &part;W) )</p>
       
-      <h2 class="mt-8">8. 🧮 Training with Gradient Descent</h2>
+      <h2 class="mt-8">8.  Training with Gradient Descent</h2>
       <p>With learning rate &eta;:</p>
       <p class="my-1">W<sub>hx</sub> &larr; W<sub>hx</sub> - &eta; (&part;L / &part;W<sub>hx</sub>)</p>
       <p class="my-1">W<sub>hh</sub> &larr; W<sub>hh</sub> - &eta; (&part;L / &part;W<sub>hh</sub>)</p>
       <p class="my-1">W<sub>yh</sub> &larr; W<sub>yh</sub> - &eta; (&part;L / &part;W<sub>yh</sub>)</p>
       
-      <h2 class="mt-8">9. ⚠️ Challenges: Vanishing/Exploding Gradients</h2>
+      <h2 class="mt-8">9.  Challenges: Vanishing/Exploding Gradients</h2>
       <h3 class="mt-6">9.1 Vanishing Gradient Problem</h3>
       <p>Gradients vanish when: || &part;h<sub>t</sub> / &part;h<sub>i</sub> || &rarr; 0 as t-i &rarr; &infin;</p>
       <p class="mt-2">Causes:</p>
@@ -211,33 +211,33 @@ const allArticlesContent: ArticleContent[] = [
           <tbody class="bg-card">
             <tr>
               <td class="border border-border p-2">MLP</td>
-              <td class="border border-border p-2">❌</td>
-              <td class="border border-border p-2">❌</td>
-              <td class="border border-border p-2">❌</td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
             </tr>
             <tr>
               <td class="border border-border p-2">RNN</td>
-              <td class="border border-border p-2">✅</td>
-              <td class="border border-border p-2">✅</td>
-              <td class="border border-border p-2">✅</td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
             </tr>
             <tr>
               <td class="border border-border p-2">LSTM</td>
-              <td class="border border-border p-2">✅</td>
-              <td class="border border-border p-2">✅</td>
-              <td class="border border-border p-2">❌</td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
             </tr>
             <tr>
               <td class="border border-border p-2">N-gram</td>
-              <td class="border border-border p-2">✅ (fixed)</td>
-              <td class="border border-border p-2">✅</td>
-              <td class="border border-border p-2">❌</td>
+              <td class="border border-border p-2"> (fixed)</td>
+              <td class="border border-border p-2"></td>
+              <td class="border border-border p-2"></td>
             </tr>
           </tbody>
         </table>
       </div>
       
-      <h2 class="mt-8">10. ⏱️ Toward Neural Temporal Point Processes (TPPs)</h2>
+      <h2 class="mt-8">10.  Toward Neural Temporal Point Processes (TPPs)</h2>
       <p>RNNs are limited to discrete-time modeling.</p>
       <p>Real-world events (e.g. transactions, medical events) often occur irregularly. TPPs model this using neural networks + temporal point process theory.</p>
       <p class="mt-2">Why This Shift Matters:</p>
@@ -306,10 +306,10 @@ const allArticlesContent: ArticleContent[] = [
     fullWriteUp: `
       <p><em>By Jayin Khanna | Topic Report</em></p>
       
-      <h2>📌 Abstract</h2>
+      <h2> Abstract</h2>
       <p>As deep learning models become more complex and are deployed in high-stakes domains like healthcare and finance, understanding *why* a model makes a particular decision is crucial. Explainable AI (XAI) provides techniques to interpret and understand the inner workings of these "black box" models. This report focuses on attribution techniques, which aim to assign importance scores to input features based on their contribution to the model's output.</p>
       
-      <h2 class="mt-8">1. 🧭 Introduction to Explainable AI (XAI)</h2>
+      <h2 class="mt-8">1.  Introduction to Explainable AI (XAI)</h2>
       <p>XAI is a field of artificial intelligence that aims to make AI systems more transparent and understandable to humans. The key motivations for XAI include:</p>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li><strong>Trust:</strong> Building user trust in AI-powered systems.</li>
@@ -318,7 +318,7 @@ const allArticlesContent: ArticleContent[] = [
         <li><strong>Compliance:</strong> Meeting regulatory requirements for model transparency.</li>
       </ul>
       
-      <h2 class="mt-8">2. 🧠 Attribution Techniques</h2>
+      <h2 class="mt-8">2.  Attribution Techniques</h2>
       <p>Attribution techniques are a class of XAI methods that explain a model's prediction by assigning a relevance or importance score to each input feature. These methods help answer the question: "Which parts of the input were most important for this specific prediction?"</p>
 
       <h3 class="mt-6">2.1 Gradient-based Methods</h3>
@@ -337,11 +337,11 @@ const allArticlesContent: ArticleContent[] = [
         <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> A model-agnostic technique that explains individual predictions by learning a simpler, interpretable model (e.g., a linear model) in the local neighborhood of the prediction.</li>
       </ul>
 
-      <h2 class="mt-8">3. 🖼️ Visualizing Attributions</h2>
+      <h2 class="mt-8">3.  Visualizing Attributions</h2>
       <p>For image data, attribution scores are often visualized as heatmaps overlaid on the original image. For text data, words can be highlighted based on their importance scores.</p>
       <p>These visualizations provide an intuitive way to understand what the model is "looking at" when making a decision.</p>
 
-      <h2 class="mt-8">4. ⚠️ Challenges and Limitations</h2>
+      <h2 class="mt-8">4.  Challenges and Limitations</h2>
       <p>While powerful, attribution techniques have limitations:</p>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li><strong>Faithfulness:</strong> The explanation may not be a faithful representation of what the model is actually doing.</li>
@@ -349,7 +349,7 @@ const allArticlesContent: ArticleContent[] = [
         <li><strong>Human-level Concepts:</strong> Attribution methods operate on low-level features (e.g., pixels) and may not capture higher-level concepts that humans use for reasoning.</li>
       </ul>
       
-      <h2 class="mt-8">📚 References</h2>
+      <h2 class="mt-8"> References</h2>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li>Sundararajan, Mukund, Ankur Taly, and Qiqi Yan. "Axiomatic attribution for deep networks." <i>ICML 2017</i>.</li>
         <li>Selvaraju, Ramprasaath R., et al. "Grad-cam: Visual explanations from deep networks via gradient-based localization." <i>ICCV 2017</i>.</li>
@@ -516,4 +516,5 @@ export async function generateStaticParams() {
   return slugs;
 }
 
+    
     

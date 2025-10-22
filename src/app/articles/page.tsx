@@ -34,7 +34,7 @@ const ArticlesPage = () => {
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Contrastive Learning: SimCLR & I-JEPA</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary underline-offset-4 hover:underline text-sm font-medium">View Presentation &rarr;</Link>
+                <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
             {/* Card 1 */}
@@ -128,4 +128,5 @@ const ArticlesPage = () => {
 
 export default ArticlesPage;
 
+    
     
