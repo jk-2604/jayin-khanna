@@ -10,7 +10,7 @@ interface ArticleContent {
   pageTitle: string; // The title to display on the page, possibly with emojis
   metadataLine?: string; // e.g., "By Author | Date | Source"
   fullWriteUp: string; // HTML content
-  pdfSrc?: string | null; // Optional path to an embeddable PDF
+  pdfSrc?: string; // Optional path to an embeddable PDF
   presentationSrc?: string; // Optional path to an embeddable presentation
 }
 
@@ -22,7 +22,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: null,
+    pdfSrc: '/reports/SimCLR_I-JEPA.pdf',
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -401,6 +401,18 @@ const allArticlesContent: ArticleContent[] = [
       <p>The PDF for this report will be added soon.</p>
     `
   },
+  {
+    slug: 'speech-tsm-gans-presentation',
+    title: 'Speech time-scale modification using GANs- Presentation',
+    pageTitle: 'Speech time-scale modification using GANs- Presentation',
+    metadataLine: 'Lab Talk | SPIRE Lab, IISc Bangalore | Summer Research Fellow, IAS',
+    pdfSrc: '/reports/tsm_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
+      <p>This presentation was delivered as a lab talk at the SPIRE Lab, IISc Bangalore, during my tenure as a Summer Research Fellow, a fellowship awarded by the Indian Academy of Sciences (IASc).</p>
+      <p>Please refer to the embedded PDF below for the full presentation.</p>
+    `
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {
@@ -515,7 +527,3 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
-
-    
-    
-    
