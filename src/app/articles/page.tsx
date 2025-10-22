@@ -82,6 +82,15 @@ const ArticlesPage = () => {
                 <Link href="/articles/speech-tsm-gans" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
+            {/* New Card for VAEs */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Variational Autoencoders (VAEs)</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/variational-autoencoders" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -118,3 +127,5 @@ const ArticlesPage = () => {
 };
 
 export default ArticlesPage;
+
+    

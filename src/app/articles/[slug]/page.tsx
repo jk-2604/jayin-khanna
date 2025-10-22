@@ -381,12 +381,23 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'speech-tsm-gans',
-    title: 'Speech Time Scale Modification with GANs',
-    pageTitle: 'Speech Time Scale Modification with GANs',
+    title: 'Speech Time-Scale Modification with GANs',
+    pageTitle: 'Speech Time-Scale Modification with GANs',
     metadataLine: 'By Jayin Khanna | Research Project',
     pdfSrc: '/reports/tsm.pdf',
     fullWriteUp: `
       <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
+      <p>The PDF for this report will be added soon.</p>
+    `
+  },
+  {
+    slug: 'variational-autoencoders',
+    title: 'Variational Autoencoders (VAEs)',
+    pageTitle: 'Variational Autoencoders (VAEs)',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/vae.pdf',
+    fullWriteUp: `
+      <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
       <p>The PDF for this report will be added soon.</p>
     `
   },
@@ -504,3 +515,5 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
+
+    
