@@ -11,11 +11,44 @@ interface ArticleContent {
   metadataLine?: string; // e.g., "By Author | Date | Source"
   fullWriteUp: string; // HTML content
   pdfSrc?: string; // Optional path to an embeddable PDF
+  presentationSrc?: string; // Optional path to an embeddable presentation
 }
 
 // This is where the full content of articles will be stored.
 // Updated to include only the three specified articles
 const allArticlesContent: ArticleContent[] = [
+  {
+    slug: 'contrastive-learning-simclr-ijepa',
+    title: 'Contrastive Learning: SimCLR & I-JEPA',
+    pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
+    metadataLine: 'CSD 662: Advanced Deep Learning',
+    presentationSrc: 'https://docs.google.com/presentation/d/e/2PACX-1vR_s-r2Y8Z-C4Z-3X_1bZ-5jX-uY7Y_1N_3oQ_5bI_9A_1cI_1aA9Fv-tB_8B_6vD_1sL_2k/embed?start=false&loop=false&delayms=3000', // Placeholder embed link
+    fullWriteUp: `
+      <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
+      
+      <h2>📌 Abstract</h2>
+      <p>This presentation provides an in-depth exploration of two significant advancements in self-supervised learning: SimCLR and I-JEPA. We delve into the core concepts of contrastive learning, which enables models to learn meaningful representations from unlabeled data by maximizing agreement between different views of the same data point.</p>
+      
+      <h3 class="mt-6">SimCLR (A Simple Framework for Contrastive Learning of Visual Representations)</h3>
+      <p>We analyze the key components of the SimCLR framework, including:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li>The role of data augmentations in creating positive pairs.</li>
+        <li>The importance of a projection head (MLP) for defining the contrastive loss.</li>
+        <li>The effectiveness of the NT-Xent (Normalized Temperature-scaled Cross-Entropy) loss function.</li>
+        <li>The impact of larger batch sizes and longer training on representation quality.</li>
+      </ul>
+      
+      <h3 class="mt-6">I-JEPA (Image-based Joint-Embedding Predictive Architecture)</h3>
+      <p>Next, we shift focus to I-JEPA, a non-contrastive, generative approach that learns by predicting representations of masked-out image blocks in an abstract space. Key aspects covered include:</p>
+      <ul class="list-disc pl-6 space-y-1 mt-2">
+        <li>The concept of predicting in representation space rather than pixel space to encourage semantic feature learning.</li>
+        <li>The architecture, comprising a context encoder, a predictor, and a target encoder.</li>
+        <li>The multi-block masking strategy and its benefits for learning scalable and efficient representations.</li>
+        <li>How I-JEPA avoids the "collapse" problem common in self-supervised methods without needing negative pairs or momentum encoders.</li>
+      </ul>
+      <blockquote class="border-l-4 border-primary pl-4 italic my-4 py-2">"By comparing and contrasting these two powerful methods, the presentation illuminates the evolving landscape of self-supervised learning and its potential to reduce reliance on large labeled datasets."</blockquote>
+    `
+  },
   {
     slug: 'sequential-models',
     title: 'Recurrent Neural Networks: A Mathematical Overview',
@@ -412,6 +445,25 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
         </article>
       )}
       
+      {article.presentationSrc && (
+        <section className={`my-12 ${article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
+          <h2 className="text-3xl font-headline mb-6 text-primary text-center">
+            Presentation
+          </h2>
+          <div className="aspect-video w-full">
+            <iframe
+              src={article.presentationSrc}
+              frameBorder="0"
+              allowFullScreen={true}
+              className="w-full h-full border rounded-lg shadow-md"
+              title={article.title + " - Presentation"}
+              aria-label={article.title + " - Presentation"}
+            >
+              <p className="p-4 text-muted-foreground">Your browser does not support embedded presentations. You might need to use a different browser, check your settings, or view it directly.</p>
+            </iframe>
+          </div>
+        </section>
+      )}
 
       {article.pdfSrc && (
         <section className={`my-12 ${article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
