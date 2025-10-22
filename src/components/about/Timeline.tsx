@@ -44,17 +44,23 @@ const Timeline = ({ items, title }: TimelineProps) => {
           return (
             <motion.div
               key={item.id}
-              className={`mb-8 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+              className={`mb-8 flex items-start w-full md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
               initial={{ opacity: 0, y: 50 }} // Added y-offset
               whileInView={{ opacity: 1, y: 0 }} // Animate to y: 0
               viewport={{ once: true, amount: 0.3 }} // Key change: once: true
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="hidden md:flex w-1/2"></div> {/* Spacer for desktop layout */}
+              {/* This is the dot on the timeline for mobile */}
+              <div className="md:hidden w-12 flex-shrink-0 flex justify-center">
+                 <div className="absolute left-1/2 w-4 h-4 bg-primary rounded-full border-2 border-background transform -translate-x-1/2 mt-1"></div>
+              </div>
+              
+              <div className="hidden md:flex md:w-1/2"></div> {/* Spacer for desktop layout */}
+
               <div className="w-full md:w-1/2 md:px-4">
-                <Card className="shadow-lg border-border hover:border-primary transition-colors duration-300 text-center">
-                  <CardHeader className="items-center">
-                    <div className="flex flex-col items-center mb-2">
+                <Card className="shadow-lg border-border hover:border-primary transition-colors duration-300 text-left md:text-center">
+                  <CardHeader className="items-start md:items-center">
+                    <div className="flex flex-col items-start md:items-center mb-2">
                       {MainIconComponent && (
                         <span className="text-accent mb-2">
                           <MainIconComponent size={24} />
@@ -65,9 +71,9 @@ const Timeline = ({ items, title }: TimelineProps) => {
                     <p className="text-sm text-muted-foreground">{item.date}</p>
                     {item.subtitle && <CardDescription className="mt-1">{item.subtitle}</CardDescription>}
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="text-left">
                     {item.details && item.details.length > 0 ? (
-                      <ul className="space-y-2 text-left">
+                      <ul className="space-y-2">
                         {item.details.map((detail, detailIndex) => {
                           const DetailIcon = detail.iconName ? detailIconComponents[detail.iconName] || detailIconComponents.Default : detailIconComponents.Default;
                           return (
