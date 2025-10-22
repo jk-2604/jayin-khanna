@@ -22,7 +22,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: '/reports/contrastive-learning.pdf',
+    pdfSrc: '/reports/simCLR_I-JEPA.pdf',
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -62,7 +62,7 @@ const allArticlesContent: ArticleContent[] = [
       <p>After the advent of neural networks, multiple architectures were developed for different deep learning tasks. Recurrent Neural Networks (RNNs) are specifically designed to handle sequential data, making them essential for applications like time-series analysis, speech recognition, language models, and image/text processing.</p>
       <p>This post provides a comprehensive mathematical overview of RNNs, exploring their history, structure, training methodology, gradient dynamics, and challenges like the vanishing gradient problem.</p>
       
-      <h2 class="mt-8">1. 🧭 Introduction</h2>
+      <h2 class="mt-8">1.  Introduction</h2>
       <p>Sequential or time-series data require architectures beyond traditional neural networks. This report introduces sequential models, particularly RNNs, and discusses:</p>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li>History of RNNs</li>
@@ -140,7 +140,7 @@ const allArticlesContent: ArticleContent[] = [
           <li>Handle arbitrary sequence length</li>
       </ul>
       
-      <h2 class="mt-8">5. 🧩 RNN Architecture</h2>
+      <h2 class="mt-8">5.  RNN Architecture</h2>
       <h3 class="mt-6">5.1 Model Structure</h3>
       <p>At time step t:</p>
       <p class="my-1">a<sup>(t)</sup> = W<sub>hx</sub>x<sup>(t)</sup> + W<sub>hh</sub>h<sup>(t-1)</sup> + b<sub>h</sub></p>
@@ -247,7 +247,7 @@ const allArticlesContent: ArticleContent[] = [
         <li>Builds on your understanding of RNN gradients</li>
       </ul>
       
-      <h2 class="mt-8">📚 References</h2>
+      <h2 class="mt-8"> References</h2>
       <ul class="list-disc pl-6 space-y-1 mt-2">
         <li>Oleksandr Shchur et al. Neural Temporal Point Processes: A Review. arXiv:2104.03528</li>
         <li>A. Zhang et al. Dive into Deep Learning. <a href="https://d2l.ai/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">https://d2l.ai/</a></li>
@@ -395,7 +395,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Variational Autoencoders (VAEs)',
     pageTitle: 'Variational Autoencoders (VAEs)',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/vae.pdf',
+    pdfSrc: '/reports/VAE.pdf',
     fullWriteUp: `
       <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
       <p>The PDF for this report will be added soon.</p>

@@ -2,7 +2,6 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Brain, Sigma } from 'lucide-react';
 
 // This page is now static and won't cause build errors.
 const ArticlesPage = () => {
@@ -24,7 +23,6 @@ const ArticlesPage = () => {
         {/* Category: Deep Learning */}
         <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <div className="flex items-center space-x-3 mb-6">
-            <Brain size={28} className="text-primary" />
             <h2 className="text-3xl font-headline text-primary">Deep Learning</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -97,7 +95,6 @@ const ArticlesPage = () => {
         {/* Category: Statistics & ML */}
         <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
           <div className="flex items-center space-x-3 mb-6">
-            <Sigma size={28} className="text-primary" />
             <h2 className="text-3xl font-headline text-primary">Statistics &amp; ML</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -127,6 +124,3 @@ const ArticlesPage = () => {
 };
 
 export default ArticlesPage;
-
-    
-    
