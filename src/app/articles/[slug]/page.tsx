@@ -10,7 +10,7 @@ interface ArticleContent {
   pageTitle: string; // The title to display on the page, possibly with emojis
   metadataLine?: string; // e.g., "By Author | Date | Source"
   fullWriteUp: string; // HTML content
-  pdfSrc?: string; // Optional path to an embeddable PDF
+  pdfSrc?: string | null; // Optional path to an embeddable PDF
   presentationSrc?: string; // Optional path to an embeddable presentation
 }
 
@@ -22,7 +22,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: '/reports/simCLR_I-JEPA.pdf',
+    pdfSrc: null,
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -516,5 +516,6 @@ export async function generateStaticParams() {
   return slugs;
 }
 
+    
     
     
