@@ -1,4 +1,3 @@
-
 "use client";
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
@@ -16,7 +15,7 @@ const ResumePage = () => {
       <motion.div {...sectionAnimationProps}>
         <FileText className="h-24 w-24 text-primary mb-8" />
         <h1 className="text-4xl md:text-5xl font-headline mb-6 text-primary">
-          Resume
+          CV
         </h1>
         <p className="text-2xl md:text-3xl text-muted-foreground">
           Coming Soon!
