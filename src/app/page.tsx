@@ -1,3 +1,4 @@
+
 "use client";
 
 import HeroSection from '@/components/home/HeroSection';
@@ -32,35 +33,35 @@ export default function HomePage() {
       <motion.header {...sectionAnimationProps} className="text-center mb-8 container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">About Me</h1>
       </motion.header>
-      <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
+      <motion.section {...sectionAnimationProps} id="about-intro-section" className="container mx-auto px-4 py-8 md:py-16">
         <AboutIntro />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="experience-section" className="min-h-screen flex flex-col justify-center">
-        {/* ExperiencePageContent itself has a container with px-4, so not needed directly on motion.section if ExperiencePageContent is the sole child filling it */}
+      <motion.section {...sectionAnimationProps} id="experience-section">
+        {/* ExperiencePageContent itself has a container, so we don't need one here. */}
         <ExperiencePageContent />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="skills-section" className="min-h-screen flex flex-col justify-center">
-        {/* SkillsPageContent itself has a container with px-4 */}
+      <motion.section {...sectionAnimationProps} id="skills-section">
+        {/* SkillsPageContent itself has a container. */}
         <SkillsPageContent />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="projects-section" className="min-h-screen flex flex-col justify-center">
-        {/* ProjectsPageContent itself has a container with px-4 */}
+      <motion.section {...sectionAnimationProps} id="projects-section">
+        {/* ProjectsPageContent itself has a container. */}
         <ProjectsPageContent />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="hobbies-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
+      <motion.section {...sectionAnimationProps} id="hobbies-section" className="container mx-auto px-4 py-8 md:py-16">
         <AboutHobbies />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
-      <motion.section {...sectionAnimationProps} id="journey-section" className="container mx-auto px-4 min-h-screen flex flex-col justify-center">
+      <motion.section {...sectionAnimationProps} id="journey-section" className="container mx-auto px-4 py-8 md:py-16">
         <AboutJourney />
       </motion.section>
     </div>
