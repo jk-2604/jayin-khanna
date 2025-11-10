@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -167,4 +166,26 @@
   .text-gradient-dreams {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-400 via-lime-400 via-sky-400 to-pink-500;
   }
+}
+
+/* === Permanent Experience theme fix ===
+   Targets only the Experience section to ensure it uses theme variables on all viewports */
+#experience-section,
+#experience-section .container,
+#experience-section .p-6,
+#experience-section .experience-card,
+#experience-section .rounded-lg,
+#experience-section [class*="bg-"] {
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--card-foreground)) !important;
+  border-color: rgba(255,255,255,0.04) !important;
+}
+
+#experience-section a,
+#experience-section p,
+#experience-section span,
+#experience-section h1,
+#experience-section h2,
+#experience-section h3 {
+  color: inherit !important;
 }

@@ -228,7 +228,8 @@ const ExperiencePageContent = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20">
+    // <div className="container mx-auto px-4 py-12 md:py-20">
+    <div id="experience-section" className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
       </motion.header>
