@@ -22,7 +22,7 @@ const ResumePage = () => {
           Coming Soon!
         </p>
         <p className="text-lg text-muted-foreground mt-4">
-          My resume is currently being updated. Please check back later.
+          For a copy of my formal CV, please email me.
         </p>
       </motion.div>
     </div>

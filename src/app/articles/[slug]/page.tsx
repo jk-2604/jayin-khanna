@@ -406,7 +406,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Speech time-scale modification using GANs- Presentation',
     pageTitle: 'Speech time-scale modification using GANs- Presentation',
     metadataLine: 'Lab Talk | SPIRE Lab, IISc Bangalore | Summer Research Fellow, IAS',
-    pdfSrc: '/reports/tsm_presentation.pdf',
+    pdfSrc: '/reports/speech-tsm-presentation.pdf',
     fullWriteUp: `
       <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
       <p>This presentation was delivered as a lab talk at the SPIRE Lab, IISc Bangalore, during my tenure as a Summer Research Fellow, a fellowship awarded by the Indian Academy of Sciences (IASc).</p>
