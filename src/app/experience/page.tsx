@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion } from 'framer-motion';
 import { GraduationCap, CalendarDays } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import ExperienceCarousel from '@/components/experience/ExperienceCarousel';
 
 const experienceData = [
   {
@@ -197,7 +199,7 @@ const experienceData = [
   }
 ];
 
-type ExperienceItem = typeof experienceData[0];
+export type ExperienceItem = typeof experienceData[0];
 
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
@@ -221,82 +223,98 @@ const cardVariants = {
 const ExperiencePageContent = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [currentExperience, setCurrentExperience] = useState<ExperienceItem | null>(null);
+  const isMobile = useIsMobile();
 
   const handleOpenDialog = (exp: ExperienceItem) => {
     setCurrentExperience(exp);
     setDialogOpen(true);
   };
+  
+  const renderGrid = () => (
+    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {experienceData.map((exp, index) => (
+        <motion.div
+          key={exp.id}
+          custom={index} 
+          variants={cardVariants}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, amount: 0.2 }}
+          className="h-full flex flex-col" 
+        >
+          {renderCard(exp)}
+        </motion.div>
+      ))}
+    </div>
+  );
+
+  const renderCard = (exp: ExperienceItem) => (
+      <div 
+        className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col h-full"
+        onClick={() => handleOpenDialog(exp)}
+      >
+        <div className="flex items-start space-x-4 mb-3">
+          {exp.logoSrc && (
+            <div className="flex-shrink-0 pt-1">
+              <Image 
+                src={exp.logoSrc} 
+                alt={exp.logoAlt || `${exp.institution} logo`} 
+                width={80} 
+                height={40} 
+                className="rounded object-contain"
+                data-ai-hint={exp.dataAiHint}
+              />
+            </div>
+          )}
+          <div className="flex-grow">
+            <h2 className="text-xl font-headline text-primary mb-1">{exp.role}</h2>
+            <p className="text-md font-medium text-foreground/90 mb-1">{exp.institution}</p>
+          </div>
+        </div>
+        {exp.supervisor && (
+          <p className="text-sm text-muted-foreground mb-1 flex items-start">
+            <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0 mt-0.5" />
+            <span className="mr-1">Supervisor:</span>
+            {exp.supervisorLink && exp.supervisorLink !== "#" ? (
+              <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-block" onClick={(e) => e.stopPropagation()}>
+                {exp.supervisor}
+              </Link>
+            ) : (
+              <span className="inline-block">{exp.supervisor}</span>
+            )}
+          </p>
+        )}
+        <p className="text-sm text-muted-foreground mb-2 flex items-center">
+          <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
+          <span className="mr-1">Period:</span> {exp.period}
+        </p>
+        <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
+          {exp.description[0]} 
+        </p>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {exp.badges.slice(0, 3).map(badge => (
+            <span key={badge} className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{badge}</span>
+          ))}
+          {exp.badges.length > 3 && <span className="px-2 py-1 text-xs bg-secondary/70 text-secondary-foreground rounded-full">...</span>}
+        </div>
+      </div>
+  );
+
 
   return (
-    // <div className="container mx-auto px-4 py-12 md:py-20">
     <div id="experience-section" className="container mx-auto px-4 py-12 md:py-20">
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
       </motion.header>
       
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {experienceData.map((exp, index) => (
-          <motion.div
-            key={exp.id}
-            custom={index} 
-            variants={cardVariants}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, amount: 0.2 }}
-            className="h-full flex flex-col" 
-          >
-            <div 
-              className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col"
-              onClick={() => handleOpenDialog(exp)}
-            >
-              <div className="flex items-start space-x-4 mb-3">
-                {exp.logoSrc && (
-                  <div className="flex-shrink-0 pt-1">
-                    <Image 
-                      src={exp.logoSrc} 
-                      alt={exp.logoAlt || `${exp.institution} logo`} 
-                      width={80} 
-                      height={40} 
-                      className="rounded object-contain"
-                      data-ai-hint={exp.dataAiHint}
-                    />
-                  </div>
-                )}
-                <div className="flex-grow">
-                  <h2 className="text-2xl font-headline text-primary mb-1">{exp.role}</h2>
-                  <p className="text-lg font-medium text-foreground/90 mb-1">{exp.institution}</p>
-                </div>
-              </div>
-              {exp.supervisor && (
-                <p className="text-sm text-muted-foreground mb-1 flex items-start">
-                  <GraduationCap size={16} className="mr-1.5 text-accent flex-shrink-0 mt-0.5" />
-                  <span className="mr-1">Supervisor:</span>
-                  {exp.supervisorLink && exp.supervisorLink !== "#" ? (
-                    <Link href={exp.supervisorLink} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-block" onClick={(e) => e.stopPropagation()}>
-                      {exp.supervisor}
-                    </Link>
-                  ) : (
-                    <span className="inline-block">{exp.supervisor}</span>
-                  )}
-                </p>
-              )}
-              <p className="text-sm text-muted-foreground mb-2 flex items-center">
-                <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
-                <span className="mr-1">Period:</span> {exp.period}
-              </p>
-              <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
-                {exp.description[0]} 
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {exp.badges.slice(0, 3).map(badge => (
-                  <span key={badge} className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-full">{badge}</span>
-                ))}
-                {exp.badges.length > 3 && <span className="px-2 py-1 text-xs bg-secondary/70 text-secondary-foreground rounded-full">...</span>}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      {isMobile === undefined ? (
+        <div className="text-center py-10">Loading...</div> // Or a skeleton loader
+      ) : isMobile ? (
+        <ExperienceCarousel experiences={experienceData} onCardClick={handleOpenDialog} renderCardContent={renderCard} />
+      ) : (
+        renderGrid()
+      )}
+
 
       {currentExperience && (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -377,3 +395,5 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
+
+    

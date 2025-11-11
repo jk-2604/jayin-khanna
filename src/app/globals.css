@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -126,19 +127,22 @@
   }
   .embla__slide {
     @apply min-w-0 pl-4 relative; /* Padding for spacing between slides */
-    /* Default to 1 slide visible */
-    flex: 0 0 100%; 
+    /* Default to 1 slide visible on mobile */
+    flex: 0 0 100%;
   }
+  
+  /* On screens md and larger, use grid instead of carousel for projects */
   @screen md {
-    .embla__slide {
+    .embla__slide--project {
       flex: 0 0 50%; /* 2 slides visible on medium screens */
     }
   }
   @screen lg {
-    .embla__slide {
+    .embla__slide--project {
       flex: 0 0 33.333333%; /* 3 slides visible on large screens */
     }
   }
+
   .embla__button {
     @apply absolute top-1/2 -translate-y-1/2 z-10 rounded-full bg-card/50 hover:bg-card/80 p-2 text-primary cursor-pointer transition-colors;
   }
@@ -168,17 +172,20 @@
   }
 }
 
-/* === Permanent Experience theme fix ===
-   Targets only the Experience section to ensure it uses theme variables on all viewports */
 #experience-section,
 #experience-section .container,
 #experience-section .p-6,
 #experience-section .experience-card,
 #experience-section .rounded-lg,
 #experience-section [class*="bg-"] {
-  background-color: hsl(var(--card)) !important;
-  color: hsl(var(--card-foreground)) !important;
-  border-color: rgba(255,255,255,0.04) !important;
+  background-color: transparent !important;
+  color: inherit !important;
+  border-color: inherit !important;
+}
+
+#experience-section .shadow-lg,
+#experience-section .hover\:shadow-primary\/20 {
+  box-shadow: none !important;
 }
 
 #experience-section a,
@@ -189,3 +196,5 @@
 #experience-section h3 {
   color: inherit !important;
 }
+
+    
