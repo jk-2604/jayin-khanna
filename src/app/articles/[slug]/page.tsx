@@ -214,7 +214,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Sequential Models: RNNs Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
     fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients. The report provides a foundational understanding necessary for tackling more advanced sequential models.</p>`,
-    pdfSrc: "/reports/RNNs_report.pdf"
+    pdfSrc: "/reports/Sequential_Models_new.pdf"
   },
 ];
 
