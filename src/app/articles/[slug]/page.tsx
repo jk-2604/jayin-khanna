@@ -208,6 +208,14 @@ const allArticlesContent: ArticleContent[] = [
       <p>Please refer to the embedded PDF below for the full presentation.</p>
     `
   },
+  {
+    slug: 'sequential-models-rnns-overview',
+    title: 'Sequential Models: RNNs Overview',
+    pageTitle: 'Sequential Models: RNNs Overview',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    fullWriteUp: '',
+    pdfSrc: null
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {
