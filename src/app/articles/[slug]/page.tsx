@@ -10,19 +10,19 @@ interface ArticleContent {
   pageTitle: string; // The title to display on the page, possibly with emojis
   metadataLine?: string; // e.g., "By Author | Date | Source"
   fullWriteUp: string; // HTML content
-  pdfSrc?: string; // Optional path to an embeddable PDF
+  pdfSrc?: string | null; // Optional path to an embeddable PDF
   presentationSrc?: string; // Optional path to an embeddable presentation
 }
 
 // This is where the full content of articles will be stored.
-// Updated to include only the three specified articles
+// Updated to include all articles and correct PDF paths.
 const allArticlesContent: ArticleContent[] = [
   {
     slug: 'contrastive-learning-simclr-ijepa',
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: null,
+    pdfSrc: "/reports/simCLR_I-JEPA.pdf", // Re-added PDF source
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -213,7 +213,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Sequential Models: RNNs Overview',
     pageTitle: 'Sequential Models: RNNs Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    fullWriteUp: '',
+    fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients. The report provides a foundational understanding necessary for tackling more advanced sequential models.</p>`,
     pdfSrc: null
   },
 ];
@@ -272,7 +272,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       )}
       
       {article.presentationSrc && (
-        <section className={`my-12 ${article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
+        <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
             Presentation
           </h2>
@@ -292,9 +292,9 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       )}
 
       {article.pdfSrc && (
-        <section className={`my-12 ${article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
+        <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
-            {article.fullWriteUp.length > 200 ? "Full Report (PDF)" : "Document (PDF)"}
+            {article.fullWriteUp && article.fullWriteUp.length > 200 ? "Full Report (PDF)" : "Document (PDF)"}
           </h2>
           <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
             <iframe
