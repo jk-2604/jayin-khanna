@@ -53,7 +53,7 @@ const HeroSection = () => {
               <Link href="/#projects-section">Explore Projects</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full border-primary text-primary hover:bg-primary/10">
-              <Link href="/articles">Read My Articles</Link>
+              <Link href="/articles">Read My Research</Link>
             </Button>
           </div>
         </motion.div>
