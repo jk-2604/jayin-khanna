@@ -330,3 +330,5 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
+
+    
