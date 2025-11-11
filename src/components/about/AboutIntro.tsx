@@ -44,11 +44,15 @@ To get a taste of what the industry is like, I interned at Syntellect by Right P
           </p>
           <h3 className="text-2xl font-headline mt-6 mb-3 text-primary/90">My Research Interests</h3>
           <ul className="list-disc list-inside space-y-1 text-lg mb-4 text-foreground/90">
-            <li>Geometric Deep Learning</li>
-            <li>Graph Machine Learning</li>
+            <li>Representation learning and Generative Models</li>
+            <li>Speech processing using DL</li>
             <li>Domain Adaptation and Transfer Learning</li>
             <li>Deep Learning Applications in Time Series</li>
-            <li>RL also seems interesting, but still exploring</li>
+          </ul>
+          <h3 className="text-2xl font-headline mt-6 mb-3 text-primary/90">Very Enthusiastic about</h3>
+          <ul className="list-disc list-inside space-y-1 text-lg mb-4 text-foreground/90">
+            <li>Geometric Deep Learning</li>
+            <li>Graph Machine Learning</li>
           </ul>
           <p className="text-lg mb-4 text-foreground/90">
             Beyond academics, I love playing football and running. I also love reading- mainly psychology and philosophy but I explore other genres as well.
