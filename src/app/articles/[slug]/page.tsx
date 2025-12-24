@@ -214,7 +214,29 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Sequential Models: RNNs Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
     fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients. The report provides a foundational understanding necessary for tackling more advanced sequential models.</p>`,
-    pdfSrc: "/reports/Sequential_Models_new.pdf"
+    pdfSrc: "/reports/RNNs_report.pdf"
+  },
+  {
+    slug: 'ddpm-notes',
+    title: 'Denoising Diffusion Probabilistic Models Notes',
+    pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/ddpm_notes.pdf',
+    fullWriteUp: `
+      <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+    `
+  },
+  {
+    slug: 'cross-validation-techniques',
+    title: 'Cross Validation Techniques',
+    pageTitle: 'Cross Validation Techniques',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/cross_validation.pdf',
+    fullWriteUp: `
+      <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+    `
   },
 ];
 
@@ -330,5 +352,7 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
+
+    
 
     
