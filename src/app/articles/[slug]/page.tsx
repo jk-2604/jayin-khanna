@@ -22,7 +22,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: "/reports/simCLR_I_JEPA.pdf", // Corrected PDF source
+    pdfSrc: "/reports/SimCLR_I-JEPA.pdf", 
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -243,7 +243,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Vision Transformer (ViT)',
     pageTitle: 'Vision Transformer (ViT)',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/ViT.pdf',
+    pdfSrc: '/reports/Vision-Transformer.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture, a model that applies the Transformer architecture, originally designed for natural language processing, to computer vision tasks.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
