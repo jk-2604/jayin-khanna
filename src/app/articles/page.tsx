@@ -26,58 +26,13 @@ const ArticlesPage = () => {
             <h2 className="text-3xl font-headline text-primary">Deep Learning</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* New Card */}
+            {/* New Card 6 */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
-              <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Contrastive Learning: SimCLR & I-JEPA</h3>
-              </div>
-              <div className="p-6 pt-0">
-                <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
-              </div>
-            </div>
-            {/* Card 2 */}
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
-              <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Neural Networks: Foundations and Architectures</h3>
-              </div>
-              <div className="p-6 pt-0">
-                <Link href="/articles/neural-networks-fundamentals" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
-              </div>
-            </div>
-             {/* Card 4 - New */}
-             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
-              <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Explainable AI: Attribution techniques</h3>
-              </div>
-              <div className="p-6 pt-0">
-                <Link href="/articles/explainable-ai" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
-              </div>
-            </div>
-             {/* New Card 5 */}
-             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
-              <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Generative Models: A Mathematical overview</h3>
-              </div>
-              <div className="p-6 pt-0">
-                <Link href="/articles/generative-models-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
-              </div>
-            </div>
-             {/* New Card 6 */}
-             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Speech Time Scale Modification with GANs</h3>
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/speech-tsm-gans" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
-              </div>
-            </div>
-            {/* New Card for VAEs */}
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
-              <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Variational Autoencoders (VAEs)</h3>
-              </div>
-              <div className="p-6 pt-0">
-                <Link href="/articles/variational-autoencoders" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
             {/* New Card for Speech TSM GANs Presentation */}
@@ -89,13 +44,13 @@ const ArticlesPage = () => {
                 <Link href="/articles/speech-tsm-gans-presentation" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
-             {/* Card for RNNs */}
-             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+            {/* New Card */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Sequential Models: RNNs Overview</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Contrastive Learning: SimCLR & I-JEPA</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/sequential-models-rnns-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
             {/* DDPM Card */}
@@ -105,6 +60,51 @@ const ArticlesPage = () => {
               </div>
               <div className="p-6 pt-0">
                 <Link href="/articles/ddpm-notes" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* New Card for VAEs */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Variational Autoencoders (VAEs)</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/variational-autoencoders" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* New Card 5 */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Generative Models: A Mathematical overview</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/generative-models-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* Card 4 - New */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Explainable AI: Attribution techniques</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/explainable-ai" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* Card for RNNs */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Sequential Models: RNNs Overview</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/sequential-models-rnns-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+              </div>
+            </div>
+            {/* Card 2 */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">Neural Networks: Foundations and Architectures</h3>
+              </div>
+              <div className="p-6 pt-0">
+                <Link href="/articles/neural-networks-fundamentals" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
               </div>
             </div>
           </div>
@@ -151,5 +151,4 @@ const ArticlesPage = () => {
 };
 
 export default ArticlesPage;
-
     
