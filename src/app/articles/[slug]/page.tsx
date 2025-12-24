@@ -221,7 +221,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Denoising Diffusion Probabilistic Models Notes',
     pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/ddpm_notes.pdf',
+    pdfSrc: '/reports/DDPM_Notes_new.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
@@ -232,7 +232,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Cross Validation Techniques',
     pageTitle: 'Cross Validation Techniques',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/cross_validation.pdf',
+    pdfSrc: '/reports/Cross Validation Techniques.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
