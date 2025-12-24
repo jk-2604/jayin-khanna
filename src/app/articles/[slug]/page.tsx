@@ -22,7 +22,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: "/reports/simCLR_I-JEPA.pdf", // Re-added PDF source
+    pdfSrc: "/reports/simCLR_I_JEPA.pdf", // Corrected PDF source
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
@@ -352,6 +352,8 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
+
+    
 
     
 
