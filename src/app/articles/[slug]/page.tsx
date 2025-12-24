@@ -238,6 +238,17 @@ const allArticlesContent: ArticleContent[] = [
       <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
+  {
+    slug: 'vision-transformer-vit',
+    title: 'Vision Transformer (ViT)',
+    pageTitle: 'Vision Transformer (ViT)',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/ViT.pdf',
+    fullWriteUp: `
+      <p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture, a model that applies the Transformer architecture, originally designed for natural language processing, to computer vision tasks.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+    `
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {
@@ -352,9 +363,3 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
-
-    
-
-    
-
-    
