@@ -172,14 +172,34 @@ const allArticlesContent: ArticleContent[] = [
     `
   },
   {
-    slug: 'trce-presentation',
-    title: 'TRCE Presentation',
-    pageTitle: 'TRCE Presentation',
+    slug: 'trce-paper-presentation',
+    title: 'TRCE Paper Presentation',
+    pageTitle: 'TRCE Paper Presentation',
     metadataLine: 'By Jayin Khanna | Presentation',
     pdfSrc: '/reports/TRCE_presentation.pdf',
     fullWriteUp: `
-      <p>This document is the TRCE presentation.</p>
+      <p>This document is the TRCE paper presentation.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
+    `
+  },
+  {
+    slug: 'latent-diffusion-presentation',
+    title: 'Latent Diffusion Model Paper Presentation',
+    pageTitle: 'Latent Diffusion Model Paper Presentation',
+    metadataLine: 'By Jayin Khanna | Presentation',
+    pdfSrc: '/reports/LDM_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the Latent Diffusion Model paper presentation.</p>
+    `
+  },
+  {
+    slug: 'csd722-depth-video-gen',
+    title: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
+    pageTitle: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
+    metadataLine: 'By Jayin Khanna | Project Presentation',
+    pdfSrc: '/reports/depth_video_gen_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>
     `
   },
 ];
