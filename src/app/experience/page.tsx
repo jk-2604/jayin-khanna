@@ -11,15 +11,16 @@ import { motion } from 'framer-motion';
 import { GraduationCap, CalendarDays } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import ExperienceCarousel from '@/components/experience/ExperienceCarousel';
+import placeholderImages from '@/app/lib/placeholder-images.json';
 
 const experienceData = [
   {
     id: 'exp_aiisc_1',
     role: 'Research Intern',
     institution: 'IRT group @ AI Institute of South Carolina',
-    logoSrc: 'https://picsum.photos/seed/aiisc/200/100',
+    logoSrc: placeholderImages.experience.aiisc.url,
     logoAlt: 'AIISC Logo',
-    dataAiHint: 'university research lab',
+    dataAiHint: placeholderImages.experience.aiisc.hint,
     supervisor: 'Dr. Amit Sheth and Renjith Prasad',
     supervisorLink: 'https://aiisc.ai/', 
     period: 'Mar 2026 – Present',
@@ -38,7 +39,7 @@ const experienceData = [
     logoAlt: 'IISc Bangalore Logo',
     dataAiHint: 'university campus science',
     supervisor: 'Prof. Prasanta Kumar Ghosh',
-    supervisorLink: '#', // Add actual link if available
+    supervisorLink: '#', 
     period: 'Jul 2025 – Present',
     description: [
       'Time-Scale Modification (TSM) of speech using Generative Adversarial Networks (GANs).',
@@ -57,7 +58,7 @@ const experienceData = [
     logoAlt: 'IIT Kharagpur Logo',
     dataAiHint: 'university building india',
     supervisor: 'Dr. Niloy Ganguly',
-    supervisorLink: '#', // Add actual link if available
+    supervisorLink: '#', 
     period: '2025',
     description: [
       'Worked on developing attribution techniques using Integrated gradients, Manifold IG, Guided IG towards neural network interpretability.',
@@ -325,7 +326,7 @@ const ExperiencePageContent = () => {
       </motion.header>
       
       {isMobile === undefined ? (
-        <div className="text-center py-10">Loading...</div> // Or a skeleton loader
+        <div className="text-center py-10">Loading...</div>
       ) : isMobile ? (
         <ExperienceCarousel experiences={experienceData} onCardClick={handleOpenDialog} renderCardContent={renderCard} />
       ) : (

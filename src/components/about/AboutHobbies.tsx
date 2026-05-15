@@ -1,17 +1,11 @@
 
-"use client"; // <-- Add this directive
+"use client";
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { BookOpen, Brain, Lightbulb, Music, Footprints, Sigma, GraduationCap, ChevronRight } from 'lucide-react'; // Added GraduationCap and ChevronRight
+import { BookOpen, Music, Footprints, Sigma, GraduationCap, ChevronRight } from 'lucide-react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import Link from 'next/link'; // Import Link for external links
-
-// const sectionAnimationProps = {
-//   initial: { opacity: 0, y: 20 },
-//   whileInView: { opacity: 1, y: 0 },
-//   viewport: { once: true, amount: 0.2 },
-//   transition: { duration: 0.6, ease: "easeInOut" },
-// };
+import Link from 'next/link'; 
+import placeholderImages from '@/app/lib/placeholder-images.json';
 
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
@@ -27,7 +21,7 @@ const cardVariants = {
 interface HobbyDetailLink {
   text: string;
   url: string;
-  iconName?: string; // e.g., 'ChevronRight'
+  iconName?: string; 
 }
 
 interface Hobby {
@@ -44,11 +38,7 @@ const hobbiesData: Hobby[] = [
       name: "Football & Running",
       icon: <Footprints size={24} />,
       description: "If you love running till you can't think anymore, let's run together!",
-      imageUrls: [
-        "https://placehold.co/400x300.png",
-        "https://placehold.co/400x300.png",
-        "https://placehold.co/400x300.png",
-      ],
+      imageUrls: placeholderImages.hobbies.running,
       dataAiHints: ["trail running", "football stadium", "marathon finish"]
     },
     { name: "Reading", icon: <BookOpen size={24} />, description: "I can't seem to put a label on the genre but it's broadly Philosophy, Psychology, self-help, Auto-Biographies and some niche topics. Reader? I'd love to know what you read. Thank you for this habit, Ma (Reema Khanna)" },
@@ -115,7 +105,6 @@ const AboutHobbies = () => {
   };
 
   return (
-    // The motion.section wrapper will be applied in the parent page
     <>
       <h2 className="text-3xl font-headline text-center mb-10 text-primary">Hobbies &amp; Interests</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -194,4 +183,3 @@ const AboutHobbies = () => {
   );
 };
 export default AboutHobbies;
-
