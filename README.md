@@ -1,5 +1,33 @@
-# Firebase Studio
+# Jayin Khanna - Portfolio
 
-This is a NextJS starter in Firebase Studio.
+This is a NextJS-based portfolio for Jayin Khanna, featuring research, projects, and personal insights.
 
-To get started, take a look at src/app/page.tsx.
+## Adding Research PDFs
+
+To display research reports or posters, you need to add the files to your project's public folder:
+1. Locate or create the `public/reports/` directory.
+2. Upload your PDF files there.
+3. Ensure the filenames match the references in the code exactly.
+
+### Expected PDF Filenames:
+- `SimCLR_I-JEPA.pdf`
+- `PCA (1).pdf`
+- `Neural_Networks (4).pdf`
+- `Attribution_techniques.pdf`
+- `GANs-2.pdf`
+- `Transformation_of_RVs-2.pdf`
+- `tsm.pdf`
+- `VAE.pdf`
+- `speech-tsm-presentation.pdf`
+- `RNNs_report.pdf`
+- `ddpm_notes.pdf`
+- `cross_validation.pdf`
+- `ViT.pdf`
+- `TRCE_presentation.pdf`
+- `LDM_presentation.pdf`
+- `depth_video_gen_presentation.pdf`
+- `thesis_poster.pdf`
+
+## Applying Changes
+
+In this environment, code changes proposed by the AI are applied automatically to the workspace. There is no separate "commit" button; the files are updated as soon as the change plan is processed.
