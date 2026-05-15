@@ -202,6 +202,16 @@ const allArticlesContent: ArticleContent[] = [
       <p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>
     `
   },
+  {
+    slug: 'thesis-poster',
+    title: 'Thesis Poster',
+    pageTitle: 'Thesis Poster',
+    metadataLine: 'By Jayin Khanna | Poster Presentation',
+    pdfSrc: '/reports/thesis_poster.pdf',
+    fullWriteUp: `
+      <p>This is the poster presentation for my thesis research.</p>
+    `
+  },
 ];
 
 async function getArticleData(slug: string): Promise<ArticleContent | null> {
