@@ -15,7 +15,6 @@ interface ArticleContent {
 }
 
 // This is where the full content of articles will be stored.
-// Updated to include all articles and correct PDF paths.
 const allArticlesContent: ArticleContent[] = [
   {
     slug: 'contrastive-learning-simclr-ijepa',
@@ -58,16 +57,6 @@ const allArticlesContent: ArticleContent[] = [
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
-      <p>Key topics typically covered in such a report would include:</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li>Introduction to Dimensionality Reduction</li>
-        <li>Mathematical Foundations: Variance, Covariance, Eigenvectors, Eigenvalues</li>
-        <li>The PCA Algorithm: Step-by-Step</li>
-        <li>Interpreting Principal Components</li>
-        <li>Applications of PCA (e.g., image compression, feature extraction in ML)</li>
-        <li>Limitations and Considerations</li>
-        <li>Examples and Case Studies</li>
-      </ul>
     `
   },
   {
@@ -79,17 +68,6 @@ const allArticlesContent: ArticleContent[] = [
     fullWriteUp: `
       <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
-      <p>Key topics typically covered in such a report would include:</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li>Introduction to Neural Networks: Inspiration from the Brain</li>
-        <li>The Perceptron and Multi-Layer Perceptrons (MLPs)</li>
-        <li>Activation Functions (Sigmoid, Tanh, ReLU, etc.)</li>
-        <li>Loss Functions and Optimization (Gradient Descent, Backpropagation)</li>
-        <li>Common Neural Network Architectures (CNNs, RNNs, LSTMs, Transformers - overview)</li>
-        <li>Training, Validation, and Testing</li>
-        <li>Regularization Techniques (Dropout, L1/L2)</li>
-        <li>Applications across various domains</li>
-      </ul>
     `
   },
   {
@@ -103,53 +81,6 @@ const allArticlesContent: ArticleContent[] = [
       
       <h2> Abstract</h2>
       <p>As deep learning models become more complex and are deployed in high-stakes domains like healthcare and finance, understanding *why* a model makes a particular decision is crucial. Explainable AI (XAI) provides techniques to interpret and understand the inner workings of these "black box" models. This report focuses on attribution techniques, which aim to assign importance scores to input features based on their contribution to the model's output.</p>
-      
-      <h2 class="mt-8">1.  Introduction to Explainable AI (XAI)</h2>
-      <p>XAI is a field of artificial intelligence that aims to make AI systems more transparent and understandable to humans. The key motivations for XAI include:</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li><strong>Trust:</strong> Building user trust in AI-powered systems.</li>
-        <li><strong>Debugging:</strong> Identifying and correcting errors in model behavior.</li>
-        <li><strong>Fairness:</strong> Ensuring that models are not biased against certain groups.</li>
-        <li><strong>Compliance:</strong> Meeting regulatory requirements for model transparency.</li>
-      </ul>
-      
-      <h2 class="mt-8">2.  Attribution Techniques</h2>
-      <p>Attribution techniques are a class of XAI methods that explain a model's prediction by assigning a relevance or importance score to each input feature. These methods help answer the question: "Which parts of the input were most important for this specific prediction?"</p>
-
-      <h3 class="mt-6">2.1 Gradient-based Methods</h3>
-      <p>These methods use the gradients of the output with respect to the input features to determine their importance. The intuition is that features with larger gradients have a greater impact on the output.</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li><strong>Saliency Maps:</strong> The simplest method, which visualizes the absolute value of the gradients. It highlights pixels in an image that most affect the output score.</li>
-        <li><strong>Integrated Gradients:</strong> Addresses the saturation problem of simple gradients by integrating gradients along a path from a baseline input (e.g., a black image) to the actual input. It satisfies important axioms like sensitivity and implementation invariance.</li>
-        <li><strong>Grad-CAM (Gradient-weighted Class Activation Mapping):</strong> Produces a coarse localization map highlighting the important regions in the image for predicting the concept. It uses the gradients of the target concept flowing into the final convolutional layer.</li>
-      </ul>
-      <blockquote class="border-l-4 border-primary pl-4 italic my-4 py-2">"Integrated Gradients is a simple, powerful, and widely applicable method for attributing a neural network's predictions to its input features."</blockquote>
-      
-      <h3 class="mt-6">2.2 Perturbation-based Methods</h3>
-      <p>These methods work by systematically perturbing (e.g., removing, masking, or altering) parts of the input and observing the change in the model's output. Features whose perturbation causes a significant drop in the prediction score are considered important.</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li><strong>Occlusion Sensitivity:</strong> A patch of the input (e.g., a gray square) is moved across the input, and the model's output is recorded for each position. This creates a heatmap of importance.</li>
-        <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> A model-agnostic technique that explains individual predictions by learning a simpler, interpretable model (e.g., a linear model) in the local neighborhood of the prediction.</li>
-      </ul>
-
-      <h2 class="mt-8">3.  Visualizing Attributions</h2>
-      <p>For image data, attribution scores are often visualized as heatmaps overlaid on the original image. For text data, words can be highlighted based on their importance scores.</p>
-      <p>These visualizations provide an intuitive way to understand what the model is "looking at" when making a decision.</p>
-
-      <h2 class="mt-8">4.  Challenges and Limitations</h2>
-      <p>While powerful, attribution techniques have limitations:</p>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li><strong>Faithfulness:</strong> The explanation may not be a faithful representation of what the model is actually doing.</li>
-        <li><strong>Robustness:</strong> Explanations can be sensitive to small, imperceptible changes in the input.</li>
-        <li><strong>Human-level Concepts:</strong> Attribution methods operate on low-level features (e.g., pixels) and may not capture higher-level concepts that humans use for reasoning.</li>
-      </ul>
-      
-      <h2 class="mt-8"> References</h2>
-      <ul class="list-disc pl-6 space-y-1 mt-2">
-        <li>Sundararajan, Mukund, Ankur Taly, and Qiqi Yan. "Axiomatic attribution for deep networks." <i>ICML 2017</i>.</li>
-        <li>Selvaraju, Ramprasaath R., et al. "Grad-cam: Visual explanations from deep networks via gradient-based localization." <i>ICCV 2017</i>.</li>
-        <li>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. ""Why should I trust you?": Explaining the predictions of any classifier." <i>KDD 2016</i>.</li>
-      </ul>
     `
   },
   {
@@ -160,7 +91,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/GANs-2.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>
-      <p>The PDF for this report will be added soon.</p>
     `
   },
   {
@@ -171,7 +101,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/Transformation_of_RVs-2.pdf',
     fullWriteUp: `
       <p>This document explores the statistical foundations essential for understanding and developing generative models.</p>
-      <p>The PDF for this report will be added soon.</p>
     `
   },
   {
@@ -182,7 +111,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/tsm.pdf',
     fullWriteUp: `
       <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
-      <p>The PDF for this report will be added soon.</p>
     `
   },
   {
@@ -193,7 +121,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/VAE.pdf',
     fullWriteUp: `
       <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
-      <p>The PDF for this report will be added soon.</p>
     `
   },
   {
@@ -204,8 +131,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/speech-tsm-presentation.pdf',
     fullWriteUp: `
       <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
-      <p>This presentation was delivered as a lab talk at the SPIRE Lab, IISc Bangalore, during my tenure as a Summer Research Fellow, a fellowship awarded by the Indian Academy of Sciences (IASc).</p>
-      <p>Please refer to the embedded PDF below for the full presentation.</p>
     `
   },
   {
@@ -213,7 +138,7 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Sequential Models: RNNs Overview',
     pageTitle: 'Sequential Models: RNNs Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients. The report provides a foundational understanding necessary for tackling more advanced sequential models.</p>`,
+    fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients.</p>`,
     pdfSrc: "/reports/RNNs_report.pdf"
   },
   {
@@ -221,10 +146,9 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Denoising Diffusion Probabilistic Models Notes',
     pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/DDPM_Notes_new.pdf',
+    pdfSrc: '/reports/ddpm_notes.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
@@ -232,10 +156,9 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Cross Validation Techniques',
     pageTitle: 'Cross Validation Techniques',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/Cross Validation Techniques.pdf',
+    pdfSrc: '/reports/cross_validation.pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
@@ -243,9 +166,19 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Vision Transformer (ViT)',
     pageTitle: 'Vision Transformer (ViT)',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/Vision-Transformer.pdf',
+    pdfSrc: '/reports/ViT.pdf',
     fullWriteUp: `
-      <p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture, a model that applies the Transformer architecture, originally designed for natural language processing, to computer vision tasks.</p>
+      <p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture.</p>
+    `
+  },
+  {
+    slug: 'trce-presentation',
+    title: 'TRCE Presentation',
+    pageTitle: 'TRCE Presentation',
+    metadataLine: 'By Jayin Khanna | Presentation',
+    pdfSrc: '/reports/TRCE_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the TRCE presentation.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
@@ -304,26 +237,6 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
         </article>
       )}
       
-      {article.presentationSrc && (
-        <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
-          <h2 className="text-3xl font-headline mb-6 text-primary text-center">
-            Presentation
-          </h2>
-          <div className="aspect-video w-full">
-            <iframe
-              src={article.presentationSrc}
-              frameBorder="0"
-              allowFullScreen={true}
-              className="w-full h-full border rounded-lg shadow-md"
-              title={article.title + " - Presentation"}
-              aria-label={article.title + " - Presentation"}
-            >
-              <p className="p-4 text-muted-foreground">Your browser does not support embedded presentations. You might need to use a different browser, check your settings, or view it directly.</p>
-            </iframe>
-          </div>
-        </section>
-      )}
-
       {article.pdfSrc && (
         <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
@@ -350,9 +263,6 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
           <Link href="/"> &larr; Back to Home</Link>
         </Button>
       </section>
-      <div className="mt-8 text-xs text-muted-foreground text-center">
-          Note: Mathematical formulas are rendered using basic HTML and Unicode characters. For complex expressions, LaTeX rendering (not currently implemented) may be required for optimal display.
-      </div>
     </div>
   );
 }
