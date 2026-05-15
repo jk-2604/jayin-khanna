@@ -14,6 +14,23 @@ import ExperienceCarousel from '@/components/experience/ExperienceCarousel';
 
 const experienceData = [
   {
+    id: 'exp_aiisc_1',
+    role: 'Research Intern',
+    institution: 'IRT group @ AI Institute of South Carolina',
+    logoSrc: 'https://picsum.photos/seed/aiisc/200/100',
+    logoAlt: 'AIISC Logo',
+    dataAiHint: 'university research lab',
+    supervisor: 'Dr. Amit Sheth and Renjith Prasad',
+    supervisorLink: 'https://aiisc.ai/', 
+    period: 'Mar 2026 – Present',
+    description: [
+      'Working on T2I (Text-to-Image) generative models.',
+      'Reproduced TRCE and ran inference using the DETONATE dataset of the group.'
+    ],
+    links: [],
+    badges: ['T2I Generative Models', 'TRCE', 'DETONATE Dataset', 'Deep Learning']
+  },
+  {
     id: 'exp_iisc_1',
     role: 'Machine Learning Research Fellow',
     institution: 'SPIRE Lab, Indian Institute of Science (IISc) Bangalore',
@@ -395,5 +412,3 @@ const ExperiencePageContent = () => {
 };
 
 export default ExperiencePageContent;
-
-    
