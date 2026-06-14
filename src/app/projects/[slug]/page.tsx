@@ -140,8 +140,9 @@ async function getProjectData(slug: string): Promise<Project | null> {
 }
 
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = await getProjectData(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = await getProjectData(slug);
   if (!project) {
     return { title: 'Project Not Found' }
   }
@@ -152,8 +153,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 
-export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = await getProjectData(params.slug);
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = await getProjectData(slug);
 
   if (!project) {
     return <div className="container py-20 text-center text-muted-foreground">Project not found.</div>;

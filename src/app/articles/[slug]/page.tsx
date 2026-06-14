@@ -17,6 +17,67 @@ interface ArticleContent {
 // This is where the full content of articles will be stored.
 const allArticlesContent: ArticleContent[] = [
   {
+    slug: 'thesis-poster',
+    title: 'Thesis Poster',
+    pageTitle: 'Thesis Poster',
+    metadataLine: 'By Jayin Khanna | Poster Presentation',
+    pdfSrc: '/reports/thesis_poster.pdf',
+    fullWriteUp: `
+      <p>This is the poster presentation for my thesis research.</p>
+    `
+  },
+  {
+    slug: 'csd722-depth-video-gen',
+    title: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
+    pageTitle: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
+    metadataLine: 'By Jayin Khanna | Project Presentation',
+    pdfSrc: '/reports/depth_video_gen_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>
+    `
+  },
+  {
+    slug: 'latent-diffusion-presentation',
+    title: 'Latent Diffusion Model Paper Presentation',
+    pageTitle: 'Latent Diffusion Model Paper Presentation',
+    metadataLine: 'By Jayin Khanna | Presentation',
+    pdfSrc: '/reports/LDM_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the Latent Diffusion Model paper presentation.</p>
+    `
+  },
+  {
+    slug: 'trce-paper-presentation',
+    title: 'TRCE Paper Presentation',
+    pageTitle: 'TRCE Paper Presentation',
+    metadataLine: 'By Jayin Khanna | Presentation',
+    pdfSrc: '/reports/TRCE_presentation.pdf',
+    fullWriteUp: `
+      <p>This document is the TRCE paper presentation.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
+    `
+  },
+  {
+    slug: 'speech-tsm-gans',
+    title: 'Speech Time-Scale Modification with GANs',
+    pageTitle: 'Speech Time-Scale Modification with GANs',
+    metadataLine: 'By Jayin Khanna | Research Project',
+    pdfSrc: '/reports/tsm.pdf',
+    fullWriteUp: `
+      <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
+    `
+  },
+  {
+    slug: 'speech-tsm-gans-presentation',
+    title: 'Speech time-scale modification using GANs- Presentation',
+    pageTitle: 'Speech time-scale modification using GANs- Presentation',
+    metadataLine: 'Lab Talk | SPIRE Lab, IISc Bangalore | Summer Research Fellow, IAS',
+    pdfSrc: '/reports/speech-tsm-presentation.pdf',
+    fullWriteUp: `
+      <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
+    `
+  },
+  {
     slug: 'contrastive-learning-simclr-ijepa',
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
@@ -49,25 +110,33 @@ const allArticlesContent: ArticleContent[] = [
     `
   },
   {
-    slug: 'principal-component-analysis',
-    title: 'Principal Component Analysis',
-    pageTitle: 'Principal Component Analysis',
+    slug: 'ddpm-notes',
+    title: 'Denoising Diffusion Probabilistic Models Notes',
+    pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/PCA (1).pdf',
+    pdfSrc: '/reports/ddpm_notes.pdf',
     fullWriteUp: `
-      <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
+      <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
     `
   },
   {
-    slug: 'neural-networks-fundamentals',
-    title: 'Neural Networks: Foundations and Architectures',
-    pageTitle: 'Neural Networks: Foundations and Architectures',
+    slug: 'variational-autoencoders',
+    title: 'Variational Autoencoders (VAEs)',
+    pageTitle: 'Variational Autoencoders (VAEs)',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/Neural_Networks (4).pdf',
+    pdfSrc: '/reports/VAE.pdf',
     fullWriteUp: `
-      <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
+      <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
+    `
+  },
+  {
+    slug: 'generative-models-overview',
+    title: 'Generative Models: A Mathematical Overview',
+    pageTitle: 'Generative Models: A Mathematical Overview',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/GANs-2.pdf',
+    fullWriteUp: `
+      <p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>
     `
   },
   {
@@ -84,56 +153,6 @@ const allArticlesContent: ArticleContent[] = [
     `
   },
   {
-    slug: 'generative-models-overview',
-    title: 'Generative Models: A Mathematical Overview',
-    pageTitle: 'Generative Models: A Mathematical Overview',
-    metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/GANs-2.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>
-    `
-  },
-  {
-    slug: 'statistics-generative-models',
-    title: 'Statistics for Generative models',
-    pageTitle: 'Statistics for Generative models',
-    metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/Transformation_of_RVs-2.pdf',
-    fullWriteUp: `
-      <p>This document explores the statistical foundations essential for understanding and developing generative models.</p>
-    `
-  },
-  {
-    slug: 'speech-tsm-gans',
-    title: 'Speech Time-Scale Modification with GANs',
-    pageTitle: 'Speech Time-Scale Modification with GANs',
-    metadataLine: 'By Jayin Khanna | Research Project',
-    pdfSrc: '/reports/tsm.pdf',
-    fullWriteUp: `
-      <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
-    `
-  },
-  {
-    slug: 'variational-autoencoders',
-    title: 'Variational Autoencoders (VAEs)',
-    pageTitle: 'Variational Autoencoders (VAEs)',
-    metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/VAE.pdf',
-    fullWriteUp: `
-      <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
-    `
-  },
-  {
-    slug: 'speech-tsm-gans-presentation',
-    title: 'Speech time-scale modification using GANs- Presentation',
-    pageTitle: 'Speech time-scale modification using GANs- Presentation',
-    metadataLine: 'Lab Talk | SPIRE Lab, IISc Bangalore | Summer Research Fellow, IAS',
-    pdfSrc: '/reports/speech-tsm-presentation.pdf',
-    fullWriteUp: `
-      <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
-    `
-  },
-  {
     slug: 'sequential-models-rnns-overview',
     title: 'Sequential Models: RNNs Overview',
     pageTitle: 'Sequential Models: RNNs Overview',
@@ -142,23 +161,14 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: "/reports/RNNs_report.pdf"
   },
   {
-    slug: 'ddpm-notes',
-    title: 'Denoising Diffusion Probabilistic Models Notes',
-    pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
+    slug: 'neural-networks-fundamentals',
+    title: 'Neural Networks: Foundations and Architectures',
+    pageTitle: 'Neural Networks: Foundations and Architectures',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/ddpm_notes.pdf',
+    pdfSrc: '/reports/Neural_Networks (4).pdf',
     fullWriteUp: `
-      <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
-    `
-  },
-  {
-    slug: 'cross-validation-techniques',
-    title: 'Cross Validation Techniques',
-    pageTitle: 'Cross Validation Techniques',
-    metadataLine: 'By Jayin Khanna | Topic Report',
-    pdfSrc: '/reports/cross_validation.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
+      <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
+      <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
@@ -172,44 +182,34 @@ const allArticlesContent: ArticleContent[] = [
     `
   },
   {
-    slug: 'trce-paper-presentation',
-    title: 'TRCE Paper Presentation',
-    pageTitle: 'TRCE Paper Presentation',
-    metadataLine: 'By Jayin Khanna | Presentation',
-    pdfSrc: '/reports/TRCE_presentation.pdf',
+    slug: 'principal-component-analysis',
+    title: 'Principal Component Analysis',
+    pageTitle: 'Principal Component Analysis',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/PCA (1).pdf',
     fullWriteUp: `
-      <p>This document is the TRCE paper presentation.</p>
+      <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
       <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
-    slug: 'latent-diffusion-presentation',
-    title: 'Latent Diffusion Model Paper Presentation',
-    pageTitle: 'Latent Diffusion Model Paper Presentation',
-    metadataLine: 'By Jayin Khanna | Presentation',
-    pdfSrc: '/reports/LDM_presentation.pdf',
+    slug: 'statistics-generative-models',
+    title: 'Statistics for Generative models',
+    pageTitle: 'Statistics for Generative models',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/Transformation_of_RVs-2.pdf',
     fullWriteUp: `
-      <p>This document is the Latent Diffusion Model paper presentation.</p>
+      <p>This document explores the statistical foundations essential for understanding and developing generative models.</p>
     `
   },
   {
-    slug: 'csd722-depth-video-gen',
-    title: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
-    pageTitle: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
-    metadataLine: 'By Jayin Khanna | Project Presentation',
-    pdfSrc: '/reports/depth_video_gen_presentation.pdf',
+    slug: 'cross-validation-techniques',
+    title: 'Cross Validation Techniques',
+    pageTitle: 'Cross Validation Techniques',
+    metadataLine: 'By Jayin Khanna | Topic Report',
+    pdfSrc: '/reports/cross_validation.pdf',
     fullWriteUp: `
-      <p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>
-    `
-  },
-  {
-    slug: 'thesis-poster',
-    title: 'Thesis Poster',
-    pageTitle: 'Thesis Poster',
-    metadataLine: 'By Jayin Khanna | Poster Presentation',
-    pdfSrc: '/reports/thesis_poster.pdf',
-    fullWriteUp: `
-      <p>This is the poster presentation for my thesis research.</p>
+      <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
     `
   },
 ];
@@ -218,8 +218,9 @@ async function getArticleData(slug: string): Promise<ArticleContent | null> {
   return allArticlesContent.find(article => article.slug === slug) || null;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const article = await getArticleData(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getArticleData(slug);
   if (!article) {
     return { title: 'Article Not Found' };
   }
@@ -229,8 +230,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ArticleDetailPage({ params }: { params: { slug: string } }) {
-  const article = await getArticleData(params.slug);
+export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getArticleData(slug);
 
   if (!article) {
     return <div className="container mx-auto py-20 text-center text-muted-foreground">Article not found.</div>;
