@@ -219,7 +219,8 @@ async function getArticleData(slug: string): Promise<ArticleContent | null> {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   const article = await getArticleData(slug);
   if (!article) {
     return { title: 'Article Not Found' };
@@ -231,7 +232,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   const article = await getArticleData(slug);
 
   if (!article) {
@@ -305,3 +307,5 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
+
+export const dynamicParams = true;
