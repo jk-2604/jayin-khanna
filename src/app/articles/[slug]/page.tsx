@@ -279,7 +279,6 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
             <iframe
               src={article.pdfSrc}
-              type="application/pdf"
               className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
               title={article.title + " - PDF Document"}
               aria-label={article.title + " - PDF Document"}
