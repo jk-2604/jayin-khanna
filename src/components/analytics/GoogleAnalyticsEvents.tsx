@@ -1,5 +1,6 @@
 // src/components/analytics/GoogleAnalyticsEvents.tsx
 'use client';
+declare global { interface Window { gtag: (...args: unknown[]) => void } }
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
