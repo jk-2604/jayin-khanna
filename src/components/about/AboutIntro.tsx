@@ -20,7 +20,7 @@ const AboutIntro = () => {
             data-ai-hint="professional portrait"
           />
         </div>
-        <div className="p-8 md:p-12 text-center md:text-left">
+        <div className="p-8 md:p-12 text-center md:text-left w-full">
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">Jayin Khanna</h2>
           
           <div className="space-y-4 text-lg text-foreground/90">
@@ -46,7 +46,29 @@ const AboutIntro = () => {
             </p>
           </div>
 
-          <div className="mt-8 flex justify-center md:justify-start">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border/40 pt-8">
+            <div>
+              <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
+              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
+                <li>Core & applications of Generative Models (DDPMs, Flow matching); T2I and T2V models</li>
+                <li>Unsupervised and self-supervised learning</li>
+                <li>Representation learning</li>
+                <li>Speech processing using DL</li>
+                <li>Deep Learning Applications in Time Series</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-headline text-primary mb-4">Very Enthusiastic about</h3>
+              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
+                <li>Mechanistic Interpretability</li>
+                <li>Geometric Deep Learning</li>
+                <li>Graph Machine Learning</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 flex justify-center md:justify-start">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/contact">
                 Let's Connect! <ArrowRight className="ml-2 h-5 w-5" />
