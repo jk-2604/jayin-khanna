@@ -59,7 +59,7 @@ const AboutIntro = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-headline text-primary mb-4">Very Enthusiastic about</h3>
+              <h3 className="text-xl font-headline text-primary mb-4">exploring</h3>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
                 <li>Mechanistic Interpretability</li>
                 <li>Geometric Deep Learning</li>
