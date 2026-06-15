@@ -68,6 +68,20 @@ const AboutIntro = () => {
             </div>
           </div>
 
+          <div className="mt-10 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
+            <p>
+              I love doing research! You can see more in <Link href="/#journey-section" className="text-primary font-medium hover:underline">My Journey</Link>.
+            </p>
+
+            <p>
+              Beyond academics, I love playing football and running. I also love reading- mainly psychology and philosophy but I explore other genres as well.
+            </p>
+
+            <p>
+              If you have cool project ideas, or want to discuss thought experiments or ideologies - regardless of the domain, and want to collaborate, <Link href="/contact" className="text-primary font-medium hover:underline">ping me</Link>! I am always looking forward to interesting stuff!
+            </p>
+          </div>
+
           <div className="mt-10 flex justify-center md:justify-start">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/contact">
