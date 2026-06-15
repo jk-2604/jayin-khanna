@@ -38,7 +38,7 @@ const AboutIntro = () => {
             </p>
 
             <p>
-              I regularly document everything I learn — through detailed LaTeX notes & Notion write-ups which I post on <Link href="https://jayin-khanna.vercel.app/articles" className="text-purple-600 font-medium hover:underline">My Research Page</Link>.
+              I regularly document everything I learn — through detailed LaTeX notes & Notion write-ups which I post on <Link href="https://jayin-khanna.vercel.app/articles" className="text-primary font-medium hover:underline">My Research Page</Link>.
             </p>
 
             <p>
