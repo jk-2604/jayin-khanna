@@ -28,9 +28,9 @@ const ContactForm = () => {
       });
       setReasonValue(''); // Reset select value
       // The form itself will be replaced by the success message, so fields are effectively "reset"
-    } else if (state.errors && state.errors.length > 0 && !state.submitting) {
+    } else if (state.errors && (state.errors as unknown[]).length > 0 && !state.submitting) {
       // Check for general form errors (not field-specific, as ValidationError handles those)
-      const generalError = state.errors.find(err => !err.field);
+      const generalError = (state.errors as {field?: string, message?: string}[]).find(err => !err.field);
       if (generalError) {
          toast({
           title: "Submission Error",
