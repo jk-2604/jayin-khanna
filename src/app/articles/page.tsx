@@ -24,7 +24,7 @@ const ArticlesPage = () => {
           <div className="flex items-center space-x-3 mb-6">
             <h2 className="text-3xl font-headline text-primary">Deep Learning</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Newest Items on top */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
@@ -148,7 +148,7 @@ const ArticlesPage = () => {
           <div className="flex items-center space-x-3 mb-6">
             <h2 className="text-3xl font-headline text-primary">Statistics &amp; ML</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Principal Component Analysis</h3>
