@@ -307,4 +307,3 @@ export async function generateStaticParams() {
   return slugs;
 }
 
-export const dynamicParams = true;
