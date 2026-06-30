@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
@@ -6,37 +5,37 @@ import Link from "next/link";
 // Define a type for our article content
 interface ArticleContent {
   slug: string;
-  title: string; // The main title for the <title> tag
-  pageTitle: string; // The title to display on the page, possibly with emojis
-  metadataLine?: string; // e.g., "By Author | Date | Source"
-  fullWriteUp: string; // HTML content
-  pdfSrc?: string | null; // Optional path to an embeddable PDF
-  presentationSrc?: string; // Optional path to an embeddable presentation
+  title: string;
+  pageTitle?: string;
+  metadataLine?: string;
+  fullWriteUp?: string;
+  pdfSrc?: string | null;
+  videoSrc?: string | null;
+  presentationSrc?: string;
+  author?: string;
+  category?: string;
+  shortDescription?: string;
 }
 
-// This is where the full content of articles will be stored.
 const allArticlesContent: ArticleContent[] = [
   {
-  slug: 'flow-matching-lecture',
-  title: 'Lecture on Flow Matching',
-  author: 'Jayin Khanna',
-  category: 'Deep Learning',
-  pdfSrc: null,
-  videoSrc: 'https://www.youtube.com/embed/s2kADOhVYWQ',
-  shortDescription: 'A lecture covering the mathematical foundations and applications of Flow Matching in generative models.',
+    slug: 'flow-matching-lecture',
+    title: 'Lecture on Flow Matching',
+    pageTitle: 'Lecture on Flow Matching',
+    author: 'Jayin Khanna',
+    category: 'Deep Learning',
+    pdfSrc: null,
+    videoSrc: 'https://www.youtube.com/embed/s2kADOhVYWQ',
+    metadataLine: 'By Jayin Khanna | Lecture',
+    fullWriteUp: `<p>A lecture covering the mathematical foundations and applications of Flow Matching in generative models.</p>`,
   },
-
-
-  
   {
     slug: 'thesis-poster',
     title: 'Thesis Poster',
     pageTitle: 'Thesis Poster',
     metadataLine: 'By Jayin Khanna | Poster Presentation',
     pdfSrc: '/reports/thesis_poster.pdf',
-    fullWriteUp: `
-      <p>This is the poster presentation for my thesis research.</p>
-    `
+    fullWriteUp: `<p>This is the poster presentation for my thesis research.</p>`
   },
   {
     slug: 'csd722-depth-video-gen',
@@ -44,9 +43,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'CSD 722 Project presentation: Depth Conditioned Video Generation',
     metadataLine: 'By Jayin Khanna | Project Presentation',
     pdfSrc: '/reports/depth_video_gen_presentation.pdf',
-    fullWriteUp: `
-      <p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>
-    `
+    fullWriteUp: `<p>This document is the CSD 722 project presentation on Depth Conditioned Video Generation.</p>`
   },
   {
     slug: 'latent-diffusion-presentation',
@@ -54,9 +51,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Latent Diffusion Model Paper Presentation',
     metadataLine: 'By Jayin Khanna | Presentation',
     pdfSrc: '/reports/LDM_presentation.pdf',
-    fullWriteUp: `
-      <p>This document is the Latent Diffusion Model paper presentation.</p>
-    `
+    fullWriteUp: `<p>This document is the Latent Diffusion Model paper presentation.</p>`
   },
   {
     slug: 'trce-paper-presentation',
@@ -75,9 +70,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Speech Time-Scale Modification with GANs',
     metadataLine: 'By Jayin Khanna | Research Project',
     pdfSrc: '/reports/tsm.pdf',
-    fullWriteUp: `
-      <p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>
-    `
+    fullWriteUp: `<p>This report details a research project on using Generative Adversarial Networks (GANs) for Time-Scale Modification (TSM) of speech signals.</p>`
   },
   {
     slug: 'speech-tsm-gans-presentation',
@@ -85,20 +78,18 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Speech time-scale modification using GANs- Presentation',
     metadataLine: 'Lab Talk | SPIRE Lab, IISc Bangalore | Summer Research Fellow, IAS',
     pdfSrc: '/reports/speech-tsm-presentation.pdf',
-    fullWriteUp: `
-      <p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>
-    `
+    fullWriteUp: `<p>This document is a PDF of a presentation on "Speech time-scale modification using GANs".</p>`
   },
   {
     slug: 'contrastive-learning-simclr-ijepa',
     title: 'Contrastive Learning: SimCLR & I-JEPA',
     pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
-    pdfSrc: "/reports/SimCLR_I-JEPA.pdf", 
+    pdfSrc: "/reports/SimCLR_I-JEPA.pdf",
     fullWriteUp: `
       <p><em>Presentation for the graduate course CSD 662: Advanced Deep Learning.</em></p>
       
-      <h2> Abstract</h2>
+      <h2>Abstract</h2>
       <p>This presentation provides an in-depth exploration of two significant advancements in self-supervised learning: SimCLR and I-JEPA. We delve into the core concepts of contrastive learning, which enables models to learn meaningful representations from unlabeled data by maximizing agreement between different views of the same data point.</p>
       
       <h3 class="mt-6">SimCLR (A Simple Framework for Contrastive Learning of Visual Representations)</h3>
@@ -116,7 +107,7 @@ const allArticlesContent: ArticleContent[] = [
         <li>The concept of predicting in representation space rather than pixel space to encourage semantic feature learning.</li>
         <li>The architecture, comprising a context encoder, a predictor, and a target encoder.</li>
         <li>The multi-block masking strategy and its benefits for learning scalable and efficient representations.</li>
-        <li>How I-JEPA avoids the "collapse" problem common in self-supervised methods without needing negative pairs or momentum encoders.</li>
+        <li>How I-JEPA avoids the collapse problem common in self-supervised methods without needing negative pairs or momentum encoders.</li>
       </ul>
       <blockquote class="border-l-4 border-primary pl-4 italic my-4 py-2">"By comparing and contrasting these two powerful methods, the presentation illuminates the evolving landscape of self-supervised learning and its potential to reduce reliance on large labeled datasets."</blockquote>
     `
@@ -127,9 +118,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/ddpm_notes.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>
-    `
+    fullWriteUp: `<p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>`
   },
   {
     slug: 'variational-autoencoders',
@@ -137,9 +126,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Variational Autoencoders (VAEs)',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/VAE.pdf',
-    fullWriteUp: `
-      <p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>
-    `
+    fullWriteUp: `<p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>`
   },
   {
     slug: 'generative-models-overview',
@@ -147,9 +134,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Generative Models: A Mathematical Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/GANs-2.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>
-    `
+    fullWriteUp: `<p>This document provides a comprehensive overview of Generative Models, including the mathematical underpinnings of VAEs, GANs, and Diffusion Models.</p>`
   },
   {
     slug: 'explainable-ai',
@@ -160,8 +145,8 @@ const allArticlesContent: ArticleContent[] = [
     fullWriteUp: `
       <p><em>By Jayin Khanna | Topic Report</em></p>
       
-      <h2> Abstract</h2>
-      <p>As deep learning models become more complex and are deployed in high-stakes domains like healthcare and finance, understanding *why* a model makes a particular decision is crucial. Explainable AI (XAI) provides techniques to interpret and understand the inner workings of these "black box" models. This report focuses on attribution techniques, which aim to assign importance scores to input features based on their contribution to the model's output.</p>
+      <h2>Abstract</h2>
+      <p>As deep learning models become more complex and are deployed in high-stakes domains like healthcare and finance, understanding why a model makes a particular decision is crucial. Explainable AI (XAI) provides techniques to interpret and understand the inner workings of these black box models. This report focuses on attribution techniques, which aim to assign importance scores to input features based on their contribution to the model's output.</p>
     `
   },
   {
@@ -169,8 +154,8 @@ const allArticlesContent: ArticleContent[] = [
     title: 'Sequential Models: RNNs Overview',
     pageTitle: 'Sequential Models: RNNs Overview',
     metadataLine: 'By Jayin Khanna | Topic Report',
-    fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients.</p>`,
-    pdfSrc: "/reports/RNNs_report.pdf"
+    pdfSrc: "/reports/RNNs_report.pdf",
+    fullWriteUp: `<p>A comprehensive report on Recurrent Neural Networks, covering everything from their history and architecture to the mathematical details of backpropagation through time and the challenges of vanishing/exploding gradients.</p>`
   },
   {
     slug: 'neural-networks-fundamentals',
@@ -189,9 +174,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Vision Transformer (ViT)',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/ViT.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture.</p>
-    `
+    fullWriteUp: `<p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture.</p>`
   },
   {
     slug: 'principal-component-analysis',
@@ -210,9 +193,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Statistics for Generative models',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/Transformation_of_RVs-2.pdf',
-    fullWriteUp: `
-      <p>This document explores the statistical foundations essential for understanding and developing generative models.</p>
-    `
+    fullWriteUp: `<p>This document explores the statistical foundations essential for understanding and developing generative models.</p>`
   },
   {
     slug: 'cross-validation-techniques',
@@ -220,9 +201,7 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'Cross Validation Techniques',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/cross_validation.pdf',
-    fullWriteUp: `
-      <p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>
-    `
+    fullWriteUp: `<p>This document provides a comprehensive overview of Cross Validation techniques in machine learning.</p>`
   },
 ];
 
@@ -255,9 +234,11 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="container mx-auto py-12 md:py-20 max-w-4xl">
       <header className="mb-10">
-        <h1 className="text-4xl md:text-5xl font-headline mb-3 text-primary">{article.pageTitle}</h1>
-        {article.metadataLine && !article.fullWriteUp.includes(article.metadataLine) && (
-            <p className="text-muted-foreground italic mb-6">{article.metadataLine}</p>
+        <h1 className="text-4xl md:text-5xl font-headline mb-3 text-primary">
+          {article.pageTitle || article.title}
+        </h1>
+        {article.metadataLine && article.fullWriteUp && !article.fullWriteUp.includes(article.metadataLine) && (
+          <p className="text-muted-foreground italic mb-6">{article.metadataLine}</p>
         )}
       </header>
 
@@ -277,32 +258,53 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                           prose-th:border prose-th:border-border prose-th:p-2 prose-th:font-medium prose-th:text-left prose-th:bg-muted/30
                           prose-td:border prose-td:border-border prose-td:p-2
                           prose-ul:list-disc prose-ul:pl-5 prose-ul:space-y-1 prose-ul:my-2
-                          prose-li:my-1
-                          ">
+                          prose-li:my-1">
           <div dangerouslySetInnerHTML={{ __html: article.fullWriteUp }} />
         </article>
       )}
-      
+
+      {article.videoSrc && (
+        <section className="my-12">
+          <h2 className="text-3xl font-headline mb-6 text-primary text-center">
+            Lecture Video
+          </h2>
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+            <iframe
+              src={article.videoSrc}
+              className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
+              title={article.title + " - Video"}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      )}
+
       {article.pdfSrc && (
         <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
             {article.fullWriteUp && article.fullWriteUp.length > 200 ? "Full Report (PDF)" : "Document (PDF)"}
           </h2>
-          <div className="relative w-full" style={{ paddingTop: '141.42%' /* Aspect ratio for A4 paper (297/210) */ }}>
+          <div className="relative w-full" style={{ paddingTop: '141.42%' }}>
             <iframe
               src={article.pdfSrc}
               className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
               title={article.title + " - PDF Document"}
               aria-label={article.title + " - PDF Document"}
             >
-              <p className="p-4 text-muted-foreground">Your browser does not support embedded PDFs. You might need to use a different browser, check your settings, or <a href={article.pdfSrc} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">download the PDF directly</a>.</p>
+              <p className="p-4 text-muted-foreground">
+                Your browser does not support embedded PDFs. You might need to use a different browser, check your settings, or{' '}
+                <a href={article.pdfSrc} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                  download the PDF directly
+                </a>.
+              </p>
             </iframe>
           </div>
         </section>
       )}
 
       <Separator className="my-12 bg-border/40" />
-      
+
       <section className="text-center">
         <Button asChild variant="link" className="text-accent text-lg">
           <Link href="/"> &larr; Back to Home</Link>
@@ -318,4 +320,3 @@ export async function generateStaticParams() {
   }));
   return slugs;
 }
-
