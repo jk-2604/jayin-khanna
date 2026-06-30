@@ -17,6 +17,18 @@ interface ArticleContent {
 // This is where the full content of articles will be stored.
 const allArticlesContent: ArticleContent[] = [
   {
+  slug: 'flow-matching-lecture',
+  title: 'Lecture on Flow Matching',
+  author: 'Jayin Khanna',
+  category: 'Deep Learning',
+  pdfSrc: null,
+  videoSrc: 'https://www.youtube.com/embed/s2kADOhVYWQ',
+  shortDescription: 'A lecture covering the mathematical foundations and applications of Flow Matching in generative models.',
+  },
+
+
+  
+  {
     slug: 'thesis-poster',
     title: 'Thesis Poster',
     pageTitle: 'Thesis Poster',
