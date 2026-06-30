@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -6,7 +5,7 @@ import { motion } from "framer-motion";
 const ArticlesPage = () => {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -19,162 +18,268 @@ const ArticlesPage = () => {
       </motion.header>
 
       <div className="space-y-12">
+
         {/* Category: Deep Learning */}
-        <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
           <div className="flex items-center space-x-3 mb-6">
             <h2 className="text-3xl font-headline text-primary">Deep Learning</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Newest Items on top */}
+
+            {/* NEW: Flow Matching Lecture */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Lecture on Flow Matching
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Mathematical foundations and applications of Flow Matching in generative models.
+                </p>
+              </div>
+              <div className="p-6 pt-0">
+                <Link
+                  href="/articles/flow-matching-lecture/"
+                  className="text-primary underline-offset-4 hover:underline text-sm font-medium"
+                >
+                  Watch Lecture &rarr;
+                </Link>
+              </div>
+            </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Thesis Poster</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/thesis-poster" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/thesis-poster/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">CSD 722 Project presentation: Depth Conditioned Video Generation</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  CSD 722 Project presentation: Depth Conditioned Video Generation
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/csd722-depth-video-gen" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/csd722-depth-video-gen/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Latent Diffusion Model Paper Presentation</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Latent Diffusion Model Paper Presentation
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/latent-diffusion-presentation" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/latent-diffusion-presentation/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">TRCE Paper Presentation</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/trce-paper-presentation" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/trce-paper-presentation/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
 
-            {/* Previous Items */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Speech Time Scale Modification with GANs</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Speech Time Scale Modification with GANs
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/speech-tsm-gans" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/speech-tsm-gans/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Speech time-scale modification using GANs- Presentation</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Speech time-scale modification using GANs- Presentation
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/speech-tsm-gans-presentation" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/speech-tsm-gans-presentation/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Contrastive Learning: SimCLR & I-JEPA</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Contrastive Learning: SimCLR &amp; I-JEPA
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/contrastive-learning-simclr-ijepa/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Denoising Diffusion Probabilistic Models Notes</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Denoising Diffusion Probabilistic Models Notes
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/ddpm-notes" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/ddpm-notes/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Variational Autoencoders (VAEs)</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Variational Autoencoders (VAEs)
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/variational-autoencoders" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/variational-autoencoders/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Generative Models: A Mathematical overview</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Generative Models: A Mathematical overview
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/generative-models-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/generative-models-overview/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Explainable AI: Attribution techniques</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Explainable AI: Attribution techniques
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/explainable-ai" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/explainable-ai/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Sequential Models: RNNs Overview</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Sequential Models: RNNs Overview
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/sequential-models-rnns-overview" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/sequential-models-rnns-overview/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Neural Networks: Foundations and Architectures</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Neural Networks: Foundations and Architectures
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/neural-networks-fundamentals" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/neural-networks-fundamentals/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Vision Transformer (ViT)</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/vision-transformer-vit" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/vision-transformer-vit/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
           </div>
         </motion.section>
 
         {/* Category: Statistics & ML */}
-        <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
           <div className="flex items-center space-x-3 mb-6">
             <h2 className="text-3xl font-headline text-primary">Statistics &amp; ML</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Principal Component Analysis</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Principal Component Analysis
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/principal-component-analysis" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/principal-component-analysis/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">Statistics for Generative models</h3>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Statistics for Generative models
+                </h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/statistics-generative-models" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/statistics-generative-models/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300">
               <div className="flex flex-col space-y-1.5 p-6">
                 <h3 className="text-2xl font-semibold leading-none tracking-tight">Cross Validation Techniques</h3>
               </div>
               <div className="p-6 pt-0">
-                <Link href="/articles/cross-validation-techniques" className="text-primary underline-offset-4 hover:underline text-sm font-medium">Read Article &rarr;</Link>
+                <Link href="/articles/cross-validation-techniques/" className="text-primary underline-offset-4 hover:underline text-sm font-medium">
+                  Read Article &rarr;
+                </Link>
               </div>
             </div>
+
           </div>
         </motion.section>
+
       </div>
     </div>
   );
