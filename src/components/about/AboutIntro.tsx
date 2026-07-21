@@ -31,9 +31,9 @@ const AboutIntro = () => {
             </p>
 
             <p>
-              During my undergraduate years, I was awarded the Program Batch Topper distinction and
+              During my undergraduate years, I was awarded the <strong>Program Batch Topper distinction</strong> and
               the <strong>2nd Prize for Best Thesis</strong> at SNIoE. I completed 176 credits from
-              SNIoE and 52 from IIT Madras — totalling <strong>238 credits across 4 years</strong>{' '}
+              SNIoE and 52 from IIT Madras — totalling <strong>228 credits across 4 years</strong>{' '}
               (
               <a
                 href="https://drive.google.com/file/d/1FCkHxOlw0dFiy0MQkJ5pmZrJQER-XM9r/view?usp=sharing"
