@@ -47,7 +47,7 @@ const HeroSection = () => {
           <RotatingSubtitles />
           <div className="mt-10 max-w-lg mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
             <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="/about">About Me</Link>
+              <Link href="/#about-intro-section">About Me</Link>
             </Button>
             <Button asChild variant="secondary" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
               <Link href="/#projects-section">Explore Projects</Link>
