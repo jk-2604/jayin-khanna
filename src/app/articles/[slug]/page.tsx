@@ -61,7 +61,7 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/TRCE_presentation.pdf',
     fullWriteUp: `
       <p>This document is the TRCE paper presentation.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
+      <p>Please refer to the document below for the full content.</p>
     `
   },
   {
@@ -165,7 +165,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/Neural_Networks (4).pdf',
     fullWriteUp: `
       <p>This document explores the fundamental concepts and various architectures of Neural Networks, serving as a foundational guide to understanding deep learning.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
@@ -184,7 +183,6 @@ const allArticlesContent: ArticleContent[] = [
     pdfSrc: '/reports/PCA (1).pdf',
     fullWriteUp: `
       <p>This document provides a comprehensive overview of Principal Component Analysis, including its mathematical underpinnings, applications, and practical considerations.</p>
-      <p>Please refer to the embedded PDF below for the full content.</p>
     `
   },
   {
@@ -281,25 +279,18 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       )}
 
       {article.pdfSrc && (
-        <section className={`my-12 ${article.fullWriteUp && article.fullWriteUp.length > 200 ? 'pt-8 border-t border-border/40' : ''}`}>
+        <section className="my-12 pt-8 border-t border-border/40 text-center">
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
             {article.fullWriteUp && article.fullWriteUp.length > 200 ? "Full Report (PDF)" : "Document (PDF)"}
           </h2>
-          <div className="relative w-full" style={{ paddingTop: '141.42%' }}>
-            <iframe
-              src={article.pdfSrc}
-              className="absolute top-0 left-0 w-full h-full border rounded-lg shadow-md"
-              title={article.title + " - PDF Document"}
-              aria-label={article.title + " - PDF Document"}
-            >
-              <p className="p-4 text-muted-foreground">
-                Your browser does not support embedded PDFs. You might need to use a different browser, check your settings, or{' '}
-                <a href={article.pdfSrc} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                  download the PDF directly
-                </a>.
-              </p>
-            </iframe>
-          </div>
+          <a
+            href={article.pdfSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 font-medium"
+          >
+            View Full Document (PDF) ↗
+          </a>
         </section>
       )}
 
