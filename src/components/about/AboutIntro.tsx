@@ -1,4 +1,3 @@
-
 "use client";
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
@@ -25,24 +24,57 @@ const AboutIntro = () => {
           
           <div className="space-y-4 text-lg text-foreground/90">
             <p>
-              I am a graduate of Shiv Nadar Institution of Eminence, where I was the recipient of the Program Batch Topper award for the Bachelor of Science (Research) in Mathematics in May 2026, with a minor in CSE and double specialisations in AI & ML and Mathematical Finance. I am concurrently pursuing an online BS in Data Science and Applications from the Indian Institute of Technology, Madras.
+              I am a graduate of Shiv Nadar Institution of Eminence, where I was the recipient of the 
+              Program Batch Topper award and the <strong>2nd Prize for Best Thesis</strong> for the Bachelor of 
+              Science (Research) in Mathematics in May 2026, with a minor in CSE and double specialisations 
+              in AI &amp; ML and Mathematical Finance. During my undergrad, I completed 176 credits from SNIoE 
+              and 52 from IIT Madras — totalling <strong>238 credits across 4 years</strong>{' '}
+              (<a
+                href="https://drive.google.com/file/d/1FCkHxOlw0dFiy0MQkJ5pmZrJQER-XM9r/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-medium hover:underline"
+              >
+                view full course list
+              </a>).
+              I am concurrently pursuing an online BS in Data Science and Applications from the Indian 
+              Institute of Technology, Madras.
             </p>
 
             <p>
-              I have been working as an active researcher in AI and DL for the past 4 years, with a particular 
-              interest in Generative Models- Applications or Core formulations of Diffusion, Flow Matching; Self-Supervised Learning, Interpretability and LLMs with applications in Computer Vision, NLP and Speech processing. 
+              I have been working as an active researcher in AI and DL for the past 4 years, with a 
+              particular interest in Generative Models — applications and core formulations of Diffusion 
+              and Flow Matching; Self-Supervised Learning, Interpretability, and LLMs, with applications 
+              in Computer Vision, NLP, and Speech Processing.
             </p>
 
             <p>
-              I am looking to work on a long-term project and aiming for a potential publication in one of the top conferences, such as ICLR, ICML, NeurIPS and TMLR. 
+              I am looking to work on a long-term project and aiming for a potential publication at one 
+              of the top venues — ICLR, ICML, NeurIPS, or TMLR.
             </p>
 
             <p>
-              I regularly document everything I learn — through detailed LaTeX notes & Notion write-ups which I post on <Link href="https://jayin-khanna.vercel.app/articles" className="text-primary font-medium hover:underline">My Research Page</Link>.
+              I regularly document everything I learn — through detailed LaTeX notes and Notion write-ups, 
+              which I post on{' '}
+              <Link href="/articles" className="text-primary font-medium hover:underline">
+                My Research Page
+              </Link>.
             </p>
 
             <p>
-              Check out my <Link href="/articles/thesis-poster" className="text-primary font-medium hover:underline">Thesis Poster</Link> and latest notes on <Link href="/articles/ddpm-notes" className="text-primary font-medium hover:underline">DDPMs</Link>, <Link href="/articles/variational-autoencoders" className="text-primary font-medium hover:underline">VAEs</Link>, <Link href="/articles/generative-models-overview" className="text-primary font-medium hover:underline">GANs</Link>, and <Link href="/articles/contrastive-learning-simclr-ijepa" className="text-primary font-medium hover:underline">Contrastive Learning</Link> in the Research section!
+              Check out my{' '}
+              <Link href="/articles/thesis-poster/" className="text-primary font-medium hover:underline">
+                Thesis Poster
+              </Link>{' '}
+              and latest notes on{' '}
+              <Link href="/articles/ddpm-notes/" className="text-primary font-medium hover:underline">DDPMs</Link>,{' '}
+              <Link href="/articles/variational-autoencoders/" className="text-primary font-medium hover:underline">VAEs</Link>,{' '}
+              <Link href="/articles/generative-models-overview/" className="text-primary font-medium hover:underline">GANs</Link>,{' '}
+              and{' '}
+              <Link href="/articles/contrastive-learning-simclr-ijepa/" className="text-primary font-medium hover:underline">
+                Contrastive Learning
+              </Link>{' '}
+              in the Research section!
             </p>
           </div>
 
@@ -50,7 +82,7 @@ const AboutIntro = () => {
             <div>
               <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
-                <li>Core & applications of Generative Models (DDPMs, Flow matching); T2I and T2V models</li>
+                <li>Core &amp; applications of Generative Models (DDPMs, Flow Matching); T2I and T2V models</li>
                 <li>Unsupervised and self-supervised learning</li>
                 <li>Representation learning</li>
                 <li>Speech processing using DL</li>
@@ -70,22 +102,29 @@ const AboutIntro = () => {
 
           <div className="mt-10 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
             <p>
-              I love doing research! You can see more in <Link href="/#journey-section" className="text-primary font-medium hover:underline">My Journey</Link>.
+              I love doing research! You can see more in{' '}
+              <Link href="/#journey-section" className="text-primary font-medium hover:underline">
+                My Journey
+              </Link>.
             </p>
 
             <p>
-              Beyond academics, I love playing football and running. I also love reading- mainly psychology and philosophy but I explore other genres as well.
+              Beyond academics, I love playing football and running. I also love reading — mainly 
+              psychology and philosophy, but I explore other genres as well.
             </p>
 
             <p>
-              If you have cool project ideas, or want to discuss thought experiments or ideologies - regardless of the domain, and want to collaborate, <Link href="/contact" className="text-primary font-medium hover:underline">ping me</Link>! I am always looking forward to interesting stuff!
+              If you have cool project ideas, or want to discuss thought experiments or ideologies — 
+              regardless of the domain — and want to collaborate,{' '}
+              <Link href="/contact" className="text-primary font-medium hover:underline">ping me</Link>!{' '}
+              I am always looking forward to interesting stuff!
             </p>
           </div>
 
           <div className="mt-10 flex justify-center md:justify-start">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/contact">
-                Let's Connect! <ArrowRight className="ml-2 h-5 w-5" />
+                Let&apos;s Connect! <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
