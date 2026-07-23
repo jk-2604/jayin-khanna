@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
-// Define a type for our article content
 interface ArticleContent {
   slug: string;
   title: string;
@@ -11,6 +10,7 @@ interface ArticleContent {
   fullWriteUp?: string;
   pdfSrc?: string | null;
   videoSrc?: string | null;
+  notionSrc?: string | null;
   presentationSrc?: string;
   author?: string;
   category?: string;
@@ -59,10 +59,8 @@ const allArticlesContent: ArticleContent[] = [
     pageTitle: 'TRCE Paper Presentation',
     metadataLine: 'By Jayin Khanna | Presentation',
     pdfSrc: '/reports/TRCE_presentation.pdf',
-    fullWriteUp: `
-      <p>This document is the TRCE paper presentation.</p>
-      <p>Please refer to the document below for the full content.</p>
-    `
+    notionSrc: 'https://ink-vulture-5ec.notion.site/embed/346974e4c5cf80adab9cd677ef7a8d69',
+    fullWriteUp: `<p>This document is the TRCE paper presentation.</p>`
   },
   {
     slug: 'speech-tsm-gans',
@@ -275,6 +273,21 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
               allowFullScreen
             />
           </div>
+        </section>
+      )}
+
+      {article.notionSrc && (
+        <section className="my-12 pt-8 border-t border-border/40">
+          <h2 className="text-3xl font-headline mb-6 text-primary text-center">
+            Notes
+          </h2>
+          <iframe
+            src={article.notionSrc}
+            className="w-full border rounded-xl shadow-md"
+            style={{ height: '800px' }}
+            title={article.title + " - Notion Notes"}
+            allowFullScreen
+          />
         </section>
       )}
 
