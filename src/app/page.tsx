@@ -9,6 +9,7 @@ import AboutHobbies from '@/components/about/AboutHobbies';
 import AboutJourney from '@/components/about/AboutJourney';
 
 import ExperiencePageContent from '@/app/experience/page';
+import AcademicDevelopmentPage from '@/app/academic-development/page';
 import SkillsPageContent from '@/app/skills/page';
 
 const sectionAnimationProps = {
@@ -34,6 +35,11 @@ export default function HomePage() {
 
       <motion.section {...sectionAnimationProps} id="experience-section">
         <ExperiencePageContent />
+      </motion.section>
+      <Separator className="my-12 md:my-16 bg-border/40" />
+
+      <motion.section {...sectionAnimationProps} id="academic-development-section">
+        <AcademicDevelopmentPage />
       </motion.section>
       <Separator className="my-12 md:my-16 bg-border/40" />
 
