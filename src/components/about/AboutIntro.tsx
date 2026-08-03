@@ -24,16 +24,16 @@ const AboutIntro = () => {
 
           <div className="space-y-6 text-lg text-foreground/90">
 
-            {/* Education & Honours block */}
-            <div className="space-y-4">
+            {/* Education & Honours cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-2">Education</p>
-                <ul className="space-y-2 text-base text-foreground/85">
+              <div className="border border-primary/40 rounded-xl p-5">
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-3">Education</p>
+                <ul className="space-y-3 text-base text-foreground/85">
                   <li>
                     <span className="font-medium">BSc (Research) in Mathematics</span> — SNIoE, May 2026
                     <br />
-                    <span className="text-sm text-muted-foreground pl-4">Minor in CSE · Specialisations: AI &amp; ML · Mathematical Finance</span>
+                    <span className="text-sm text-muted-foreground">Minor in CSE · Specialisations: AI &amp; ML · Mathematical Finance</span>
                   </li>
                   <li>
                     <span className="font-medium">BS in Data Science &amp; Applications</span> — IIT Madras (ongoing)
@@ -41,9 +41,9 @@ const AboutIntro = () => {
                 </ul>
               </div>
 
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-2">Honours &amp; Credits</p>
-                <ul className="space-y-1.5 text-base text-foreground/85">
+              <div className="border border-primary/40 rounded-xl p-5">
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-3">Honours &amp; Credits</p>
+                <ul className="space-y-2 text-base text-foreground/85">
                   <li>Program Batch Topper — SNIoE</li>
                   <li>2nd Prize, Best Thesis — SNIoE</li>
                   <li>
@@ -116,7 +116,7 @@ const AboutIntro = () => {
                 <li>Unsupervised and self-supervised learning</li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-headline text-primary mb-4">Exploring</h3>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
