@@ -111,19 +111,18 @@ const AboutIntro = () => {
               <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
                 <li>Core &amp; applications of Generative Models (DDPMs, Flow Matching); T2I and T2V models</li>
-                <li>Unsupervised and self-supervised learning</li>
+                <li>AI Interpretability and Alignment</li>
                 <li>Representation learning</li>
-                <li>Speech processing using DL</li>
-                <li>Deep Learning Applications in Time Series</li>
+                <li>Unsupervised and self-supervised learning</li>
               </ul>
             </div>
-
+            
             <div>
               <h3 className="text-xl font-headline text-primary mb-4">Exploring</h3>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
+                <li>Theory of Deep Learning <span className="text-muted-foreground text-sm">(slow steady reading)</span></li>
                 <li>Mechanistic Interpretability</li>
                 <li>Geometric Deep Learning</li>
-                <li>Graph Machine Learning</li>
               </ul>
             </div>
           </div>
