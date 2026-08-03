@@ -6,22 +6,28 @@ import { GraduationCap } from "lucide-react";
 
 const projectsData = [
   {
-    slug: 'domain-adaptation-medical-imaging',
-    title: 'OUR: Domain Adaptation Techniques in Medical Imaging',
-    year: '2024–2025',
-    supervisorName: 'Dr. Saurabh Janardan Shigwan',
-    supervisorLink: '#',
-    tags: ['#UDA', '#MedicalImaging', '#CT', '#MRI', '#DeepLearning', '#Research'],
-    abstract: `Conducting research on Unsupervised Domain Adaptation (UDA) techniques for medical imaging applications in CT and MRI. Implemented the Geodesic Flow Kernel on Grassmann manifolds to extract domain-invariant features, enabling effective cross-modality image analysis. Using Correlation Alignment (CORAL) and Maximum Mean Discrepancy (MMD) with geometric transformations to reduce domain shift. Previously worked on deep learning models to correct MRI motion artifacts in real-time using k-space data.`,
+    slug: 'fwi-seismic-velocity-prediction',
+    title: 'Full-Waveform Inversion for Seismic Velocity Prediction',
+    year: 'Ongoing',
+    supervisorName: 'Naveen Gupta & Divakar Vashisth',
+    supervisorLink: null,
+    bullets: [
+      'Extending advisor\u2019s ICLR 2025 latent-space-translation framework for subsurface forward/inverse problem to using Diffusion priors and flow matching',
+      'Working on optimal-transport-based misfit functions (Wasserstein distance, unbalanced OT) as an alternative for L2 loss to mitigate cycle-skipping on Marmousi/Overthrust benchmarks',
+      'Literature survey on diffusion- and flow-matching-based generative priors as regularizers for Bayesian FWI',
+    ],
   },
   {
-    slug: 'investor-behavior-analysis-dl',
-    title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
-    year: '2024–2025',
-    supervisorName: 'Dr. Ashish Vazirani',
-    supervisorLink: '#',
-    tags: ['#DeepLearning', '#OpenCV', '#NLP', '#EmotionRecognition', '#SentimentAnalysis', '#Research'],
-    abstract: `Developed a Deep Learning and OpenCV-based framework to analyze investor emotions, stance, and decision-making patterns in Shark Tank videos. Utilized EmotioNet for facial expression recognition and NLP models for sentiment and intent analysis from textual transcripts. Integrated multimodal data (visual and textual) to predict key factors influencing investment decisions.`,
+    slug: 'csd722-depth-video-gen',
+    title: 'CSD722 Project: Depth-Conditioned Video Generation using ControlNet & AnimateDiff',
+    year: 'Jan – May 2026',
+    supervisorName: 'Dr. Sumit Shekhar & Dr. Saurabh Shigwan (CSE Dept, SNU)',
+    supervisorLink: null,
+    bullets: [
+      'Extended ControlNet to text-to-video diffusion models using AnimateDiff and Motion LoRA',
+      'Modified model architecture to prevent training collapse where generated videos ignored depth-map conditioning; stabilized training by adding auxiliary supervision losses',
+      'Conducted ablation experiments on prompts, depth conditioning, and text guidance',
+    ],
   },
   {
     slug: 'financial-markets-time-series-sentiment',
@@ -29,35 +35,37 @@ const projectsData = [
     year: '2024–2025',
     supervisorName: 'Dr. Charu Sharma (Mathematics Dept, SNU)',
     supervisorLink: 'https://snu.edu.in/faculty/charu-sharma/',
-    tags: ['#TimeSeries', '#SentimentAnalysis', '#FinancialMarkets', '#DeepLearning', '#ML', '#Research'],
-    abstract: `Analyzing time series patterns and sentiment in US financial markets. Implemented sequential deep learning and ML models to understand market sentiment and its impact on financial trends. Working with 5–7 years of daily data across 31 financial indicators, applying Dimensionality Reduction, Statistical Time-Series Analysis, and DL Sequential Models.`,
+    bullets: [
+      'Conducted time series pattern recognition and sentiment analysis in US financial markets using 7 years of daily data across 31 financial indicators to model 2, 5, and 10-year bond yields',
+      'Applied PCA and Mutual Information (MI), identifying 10 key indicators explaining 95% of variance; optimised cluster timelines using rolling windows to identify dates with maximum regime separation',
+      'Best Silhouette Score: 0.45; ANOVA p-value: 1.21 \u00d7 10\u207b\u00b9\u2075\u2074, Kruskal-Wallis p-value: 1.25 \u00d7 10\u207b\u00b2\u00b9\u00b9, confirming significant differences across clusters',
+    ],
   },
   {
-    slug: 'filtering-recommendation-model',
-    title: 'Filtering-Based Recommendation ML Model',
-    year: '2024',
-    supervisorName: null,
+    slug: 'investor-behavior-analysis-dl',
+    title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
+    year: '2024–2025',
+    supervisorName: 'Dr. Ashish Vazirani',
     supervisorLink: null,
-    tags: ['#RecommendationSystem', '#ML', '#CosineSimilarity', '#Ideathon'],
-    abstract: `Developed a recommendation system using Cosine Similarity and Pearson correlation for Capital Connect, a matchmaking platform for investors and startups. Built an algorithm that analyzes investor criteria and recommends startups with a similarity score. Secured Top 16 position in the SNU Ideathon competition.`,
+    bullets: [
+      'Developed an unsupervised multimodal model to analyze investor emotions and decision-making patterns in Shark Tank videos',
+      'Combined facial expression recognition, RoBERTa-based transcript analysis, and tabular neural networks for financial characteristics, with cross-modal attention to model investor behavior',
+      'Fine-tuned EmotioNet for facial expression recognition and RoBERTa for transcript analysis',
+      'Generated time-series investment likelihood scores (\u20131 to 1) for each second, validated through accuracy of final decision',
+    ],
   },
   {
-    slug: 'self-directed-learning-advanced-ai',
-    title: 'Self-Directed Learning: Advanced AI Implementations',
-    year: 'Ongoing',
-    supervisorName: null,
+    slug: 'mri-motion-correction-dl',
+    title: 'OUR: MRI Motion Correction using Deep Learning Models',
+    year: '2024–2025',
+    supervisorName: 'Dr. Saurabh Janardan Shigwan',
     supervisorLink: null,
-    tags: ['#LLMs', '#NeuralTemporalPointProcesses', '#Dehazing', '#ComputerVision', '#GameAI'],
-    abstract: `Reading projects include LLMs from Scratch, Neural Temporal Point Processes, and Image/Video Dehazing models. Implementation projects include an AI Othello game built from scratch, Computer Vision Dehazing models, and LLMs hard-coded from scratch.`,
-  },
-  {
-    slug: 'nidar-drone-challenge',
-    title: 'NIDAR Drone Innovation Challenge: Perception and Autonomy',
-    year: 'Ongoing',
-    supervisorName: 'Prof. Jyoti Sinha',
-    supervisorLink: 'https://rocketreach.co/jyoti-sinha-email_38111920',
-    tags: ['#DroneChallenge', '#ComputerVision', '#RL', '#Autonomy', '#DisasterManagement'],
-    abstract: `Part of the Perception and Autonomy team representing SNU in the NIDAR Drone Innovation Challenge. Working to build Computer Vision and Reinforcement Learning models for the Disaster Management challenge track.`,
+    bullets: [
+      'Developing deep learning models to correct MRI motion artifacts in real-time using k-space data',
+      'Using image processing and computer vision techniques alongside deep learning for motion artifact correction',
+      'Exploring regression techniques and CNNs to improve motion estimation and reduce re-scanning',
+      'Aiming to enhance image quality and diagnostic accuracy without requiring image reconstruction',
+    ],
   },
 ];
 
@@ -70,7 +78,7 @@ const sectionAnimationProps = {
 
 const ProjectsPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
+    <div className="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -83,67 +91,59 @@ const ProjectsPage = () => {
         </p>
       </motion.header>
 
-      <div className="space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {projectsData.map((project, index) => (
           <motion.div
             key={project.slug}
             {...sectionAnimationProps}
             transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="border border-border/60 rounded-xl p-6 md:p-8 hover:border-primary/60 transition-all duration-300 bg-card"
+            className="border border-primary/40 rounded-xl p-6 hover:border-primary transition-all duration-300 bg-card flex flex-col"
           >
             {/* Header row */}
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-              <h2 className="text-xl font-semibold text-foreground leading-snug">
+            <div className="flex flex-col gap-1 mb-3">
+              <h2 className="text-lg font-semibold text-foreground leading-snug">
                 {project.title}
               </h2>
-              <span className="text-sm text-muted-foreground whitespace-nowrap md:ml-4 mt-1 md:mt-0">
+              <span className="text-sm text-muted-foreground">
                 {project.year}
               </span>
             </div>
 
             {/* Supervisor */}
             {project.supervisorName && (
-              <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
-                <GraduationCap className="h-4 w-4 text-accent flex-shrink-0" />
-                <span>Supervisor: </span>
-                {project.supervisorLink && project.supervisorLink !== '#' ? (
-                  <a
-                    href={project.supervisorLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline"
-                  >
-                    {project.supervisorName}
-                  </a>
-                ) : (
-                  <span>{project.supervisorName}</span>
-                )}
+              <div className="flex items-start gap-2 mb-3 text-sm text-muted-foreground">
+                <GraduationCap className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                <span>
+                  Research Supervisor{project.supervisorName.includes('&') ? 's' : ''}:{' '}
+                  {project.supervisorLink ? (
+                    <a
+                      href={project.supervisorLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline"
+                    >
+                      {project.supervisorName}
+                    </a>
+                  ) : (
+                    <span>{project.supervisorName}</span>
+                  )}
+                </span>
               </div>
             )}
 
-            {/* Abstract */}
-            <p className="text-foreground/80 text-sm leading-relaxed mb-4">
-              {project.abstract}
-            </p>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-5">
-              {project.tags.map(tag => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground rounded-full"
-                >
-                  {tag}
-                </span>
+            {/* Bullets */}
+            <ul className="list-disc pl-5 space-y-1.5 text-sm text-foreground/80 leading-relaxed mb-4 flex-1">
+              {project.bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
               ))}
-            </div>
+            </ul>
 
             {/* Link */}
             <Link
               href={`/projects/${project.slug}/`}
-              className="text-primary text-sm font-medium hover:underline underline-offset-4"
+              className="text-primary text-sm font-medium hover:underline underline-offset-4 mt-auto"
             >
-              View Full Project →
+              View Full Project &rarr;
             </Link>
           </motion.div>
         ))}
