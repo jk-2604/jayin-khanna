@@ -62,18 +62,31 @@ const AboutIntro = () => {
 
             </div>
 
-            <p>
-              I have been working as an active researcher in AI and deep learning for the past 4
-              years. My primary interest lies in Generative Models — both core formulations
-              (Diffusion, Flow Matching) and applications in T2I and T2V systems — alongside
-              Self-Supervised Learning, Mechanistic Interpretability, and LLMs, with applications
-              spanning Computer Vision, NLP, and Speech Processing.
-            </p>
+          </div>
 
-            <p>
-              I am actively looking to work on a long-term research project with the aim of
-              publishing at a top venue — ICLR, ICML, NeurIPS, or TMLR.
-            </p>
+          {/* Research Interests & Exploring */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border/40 pt-8">
+            <div>
+              <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
+              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
+                <li>Core &amp; applications of Generative Models (DDPMs, Flow Matching); T2I and T2V models</li>
+                <li>AI Interpretability and Alignment</li>
+                <li>Representation learning</li>
+                <li>Unsupervised and self-supervised learning</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-headline text-primary mb-4">Exploring</h3>
+              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
+                <li>Theory of Deep Learning <span className="text-muted-foreground text-sm">(slow steady reading)</span></li>
+                <li>Mechanistic Interpretability</li>
+                <li>Geometric Deep Learning</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
 
             <p>
               I regularly document everything I learn through detailed LaTeX notes and Notion
@@ -104,34 +117,23 @@ const AboutIntro = () => {
               .
             </p>
 
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border/40 pt-8">
-            <div>
-              <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
-              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
-                <li>Core &amp; applications of Generative Models (DDPMs, Flow Matching); T2I and T2V models</li>
-                <li>AI Interpretability and Alignment</li>
-                <li>Representation learning</li>
-                <li>Unsupervised and self-supervised learning</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-headline text-primary mb-4">Exploring</h3>
-              <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
-                <li>Theory of Deep Learning <span className="text-muted-foreground text-sm">(slow steady reading)</span></li>
-                <li>Mechanistic Interpretability</li>
-                <li>Geometric Deep Learning</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-10 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
             <p>
-              I love doing research! You can see more in{' '}
+              I am actively looking to work on a long-term research project with the aim of
+              publishing at a top venue — ICLR, ICML, NeurIPS, or TMLR.
+            </p>
+
+            <p>
+              I love doing research! Check out{' '}
               <Link href="/#journey-section" className="text-primary font-medium hover:underline">
                 My Journey
+              </Link>
+              ,{' '}
+              <Link href="/#academic-development-section" className="text-primary font-medium hover:underline">
+                Academic Development
+              </Link>
+              {' '}&amp;{' '}
+              <Link href="/projects" className="text-primary font-medium hover:underline">
+                Projects
               </Link>
               .
             </p>
