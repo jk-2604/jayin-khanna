@@ -64,10 +64,11 @@ const AboutIntro = () => {
 
           </div>
 
-          {/* Research Interests & Exploring */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border/40 pt-8">
-            <div>
-              <h3 className="text-xl font-headline text-primary mb-4">My Research Interests</h3>
+          {/* Research Interests & Exploring cards */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-border/40 pt-8">
+
+            <div className="border border-primary/40 rounded-xl p-5">
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-3">My Research Interests</p>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
                 <li>Core &amp; applications of Generative Models (DDPMs, Flow Matching); T2I and T2V models</li>
                 <li>AI Interpretability and Alignment</li>
@@ -76,14 +77,15 @@ const AboutIntro = () => {
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-xl font-headline text-primary mb-4">Exploring</h3>
+            <div className="border border-primary/40 rounded-xl p-5">
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-3">Exploring</p>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/80 text-base">
                 <li>Theory of Deep Learning <span className="text-muted-foreground text-sm">(slow steady reading)</span></li>
                 <li>Mechanistic Interpretability</li>
                 <li>Geometric Deep Learning</li>
               </ul>
             </div>
+
           </div>
 
           <div className="mt-8 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
