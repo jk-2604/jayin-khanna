@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from 'next/image';
@@ -15,40 +14,60 @@ import placeholderImages from '@/app/lib/placeholder-images.json';
 
 const experienceData = [
   {
+    id: 'exp_iisc_drl_1',
+    role: 'Research Assistant',
+    institution: 'Deep Representation Learning Lab, Indian Institute of Science (IISc), Bangalore',
+    logoSrc: '/images/iisc-drl-logo.png',
+    logoAlt: 'IISc Deep Representation Learning Lab Logo',
+    dataAiHint: 'university research lab',
+    supervisor: 'Dr. Prathosh A. P.',
+    supervisorLink: '#',
+    period: 'Jun 2026 – Present',
+    description: [
+      'Working on enhancing trustworthiness in fine-tuned LLMs by implementing the EK-FAC preconditioned gradient ascent pipeline for post-hoc bias repair in Qwen2 and Pythia LLMs using Dolly for curvature estimation and CrowS-Pairs for targeted repair gradients.',
+      'Evaluating the repair pipeline across multiple model families, integrating submodular subset selection to reduce redundancy in gradient signals without downstream performance degradation.',
+      'Evaluating effectiveness of repair across stereotype, machine ethics, and toxicity dimensions, tracking agreeability index, ethics accuracy, and toxicity log-probability before and after repair.'
+    ],
+    links: [],
+    badges: ['LLM Trustworthiness', 'EK-FAC', 'Bias Repair', 'Interpretability', 'Deep Learning']
+  },
+  {
     id: 'exp_aiisc_1',
     role: 'Research Intern',
-    institution: 'IRT group @ AI Institute of South Carolina',
+    institution: 'IRT Group, AI Institute of South Carolina | DETONATE Group',
     logoSrc: '/images/aiisc_logo.png',
     logoAlt: 'AIISC Logo',
     dataAiHint: 'university research lab',
-    supervisor: 'Dr. Amit Sheth and Renjith Prasad',
-    supervisorLink: 'https://aiisc.ai/', 
-    period: 'Mar 2026 – Present',
+    supervisor: 'Dr. Amit Sheth & Dr. Amitava Das',
+    supervisorLink: 'https://aiisc.ai/',
+    period: 'Feb 2026 – Present',
     description: [
-      'Working on T2I (Text-to-Image) generative models.',
-      'Reproduced TRCE and ran inference using the DETONATE dataset of the group.'
+      'Working on safety alignment of Text-to-Image & T2V diffusion and flow matching models using a neurosymbolic approach called scene graphs.',
+      'Developing a novel methodology to reduce hate content in T2I Diffusion models using a safety potential-guided rectified flow matching in the CLIP embedding space.',
+      'Benchmarked debiasing and safety methodologies — TRCE, CURE, SAEUron, and DoCo — on lab\u2019s DETONATE dataset.'
     ],
     links: [],
-    badges: ['T2I Generative Models', 'TRCE', 'DETONATE Dataset', 'Deep Learning']
+    badges: ['T2I/T2V Diffusion', 'Safety Alignment', 'Flow Matching', 'DETONATE Dataset', 'Deep Learning']
   },
   {
     id: 'exp_iisc_1',
     role: 'Machine Learning Research Fellow',
     institution: 'SPIRE Lab, Indian Institute of Science (IISc) Bangalore',
     logoSrc: '/images/spire-lab-logo.jpg',
-    logoAlt: 'IISc Bangalore Logo',
+    logoAlt: 'SPIRE Lab Logo',
     dataAiHint: 'university campus science',
     supervisor: 'Prof. Prasanta Kumar Ghosh',
-    supervisorLink: '#', 
-    period: 'Jul 2025 – Present',
+    supervisorLink: '#',
+    period: 'Jul 2025 – Present (Summer Research Fellowship 2025)',
     description: [
-      'Time-Scale Modification (TSM) of speech using Generative Adversarial Networks (GANs).',
-      'Developing ScalerGAN: an unsupervised GAN-based model to modify speech rate while preserving speaker identity, pitch, and naturalness.',
-      'Extracted and engineered audio features including STFTs, Mel spectrograms, and MFCCs for input to GAN-based architectures.',
-      'Applying on lab acquired audio data for personalized speech playback, podcast speed control, and assistive tools for language learning.'
+      'Research on unsupervised speech TSM using Generative Models. Working with VAEs, GANs, Diffusion, and Flow Matching based speech TSM models to preserve speaker identity, naturalness and intelligibility.',
+      'Implemented and trained DiffATSM, ScalerGAN, TSM-Net and Neural ATSM from scratch in PyTorch, improving upon previous ScalerGAN results through better alignment and denoising processes.',
+      'Tested and analyzed ScalerGAN duration accuracy (MSE = 0.00957, correlation = 0.638) against MFA ground truth, revealing phoneme-level misalignments.',
+      'Conducted a comprehensive study of 10 models across 3 methodology classes on 19 experiments, evaluating Pitch Error, MCD, STOI, and LSD across diverse acoustic conditions.',
+      'Currently implementing Rectified Flow Matching and Diffusion to reduce inference time and further improve model accuracy.'
     ],
     links: [{ label: 'Project Report', url: '#' }],
-    badges: ['Speech Processing', 'GANs', 'Time-Scale Modification', 'Deep Learning', 'Audio Features']
+    badges: ['Speech Processing', 'GANs', 'Diffusion', 'Flow Matching', 'Time-Scale Modification']
   },
   {
     id: 'exp_iitkgp_1',
@@ -58,7 +77,7 @@ const experienceData = [
     logoAlt: 'IIT Kharagpur Logo',
     dataAiHint: 'university building india',
     supervisor: 'Dr. Niloy Ganguly',
-    supervisorLink: '#', 
+    supervisorLink: '#',
     period: '2025',
     description: [
       'Worked on developing attribution techniques using Integrated gradients, Manifold IG, Guided IG towards neural network interpretability.',
@@ -73,7 +92,7 @@ const experienceData = [
     id: 'exp_jk_1',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', 
+    logoSrc: '/images/drdo-inmas-logo.png',
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi',
@@ -98,7 +117,7 @@ const experienceData = [
     id: 'exp_jk_2',
     role: 'Machine Learning Research Intern',
     institution: 'Institute of Nuclear Medicine and Allied Sciences-DRDO, Ministry of Defence',
-    logoSrc: '/images/drdo-inmas-logo.png', 
+    logoSrc: '/images/drdo-inmas-logo.png',
     logoAlt: 'DRDO INMAS Logo',
     dataAiHint: 'government research',
     supervisor: 'Dr. Shilpi Modi',
@@ -116,14 +135,14 @@ const experienceData = [
     id: 'exp_jk_3',
     role: 'Statistics Research Intern',
     institution: 'University of California Santa Cruz, CA (ISRP)',
-    logoSrc: '/images/UCSC.png', 
+    logoSrc: '/images/UCSC.png',
     logoAlt: 'UCSC Logo',
     dataAiHint: 'university campus',
-    supervisor: 'Prof. Bruno Sansó',
+    supervisor: 'Prof. Bruno Sans\u00f3',
     supervisorLink: 'https://users.soe.ucsc.edu/~bruno/',
     period: '2024',
     description: [
-      'Conducted advanced research in Analysis of Time-Varying Quantiles for Environmental Variables, under the mentorship of Professor Dr. Bruno Sansó.',
+      'Conducted advanced research in Analysis of Time-Varying Quantiles for Environmental Variables, under the mentorship of Professor Dr. Bruno Sans\u00f3.',
       'Focused on developing and applying statistical methodologies to environmental data, specifically in the context of Atmospheric Rivers along the California coast.',
       'Gained expertise in data analysis, statistical modelling, and interpretation of time-varying quantiles.',
       'Performed data pre-processing and statistical analysis of time series data of NetCDF files using Python libraries: statsmodels, NumPy, Pandas, Matplotlib.'
@@ -138,7 +157,7 @@ const experienceData = [
     logoSrc: '/images/sytellect.jpg',
     logoAlt: 'RightProfile Logo',
     dataAiHint: 'tech company',
-    supervisor: undefined, 
+    supervisor: undefined,
     period: 'Dec 2024 – Present',
     description: [
       'Part of the Research and Development team to develop Computer Vision and Deep Learning models to automate the annotation of 10,000+ raw images.',
@@ -154,7 +173,7 @@ const experienceData = [
     logoSrc: '/images/THT.jpg',
     logoAlt: 'The Habitats Trust Logo',
     dataAiHint: 'conservation organization',
-    supervisor: undefined, 
+    supervisor: undefined,
     period: 'Dec 2024 – Present',
     description: [
       'Conducting research and development on modern Computer Vision and object detection models such as MegaDetector, Zamba, and Timelapse to classify and analyze wildlife in camera trap images.',
@@ -162,58 +181,6 @@ const experienceData = [
     ],
     links: [{ label: 'Certificate', url: '#' }],
     badges: ['Wildlife AI', 'Computer Vision', 'Conservation Tech', 'Object Detection', 'MegaDetector']
-  },
-  {
-    id: 'exp_jk_6',
-    role: 'Summer Research Intern',
-    institution: 'Polymath Jr.',
-    logoSrc: '/images/Polymath jr.jpeg',
-    logoAlt: 'Polymath Jr. Logo',
-    dataAiHint: 'education program',
-    supervisor: 'Prof. Petronela Radu & Prof. Mikil Foss (University of Nebraska Lincoln)',
-    supervisorLink: undefined,
-    period: 'June 2024 – Aug 2024',
-    description: [
-      'Engaged in research on Non-Local Models.',
-      'Collaborated with Professors Petronela Radu and Mikil Foss from the University of Nebraska Lincoln.',
-      'Focused on developing and analyzing mathematical models that incorporate non-local interactions.'
-    ],
-    links: [],
-    badges: ['Mathematical Modeling', 'Non-Local Models', 'Research Collaboration']
-  },
-  {
-    id: 'exp_jk_7',
-    role: 'Selected Participant',
-    institution: 'Mathematics Training and Talent Search Program (MTTS 24)',
-    logoSrc: '/images/MTTS.png',
-    logoAlt: 'MTTS Program Logo',
-    dataAiHint: 'math program',
-    supervisor: 'Mentors: Prof. Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), Dr. Ajit Kumar (ICT Mumbai)',
-    supervisorLink: undefined,
-    period: '2024',
-    description: [
-      'Selected from over 3,000 applicants all over India for one of 180 seats.',
-      'Mentored by Professor Arusha C (IIT Bombay), Dr. A. Satyanarayana Reddy (IIT Kanpur), and Dr. Ajit Kumar (ICT Mumbai).',
-      'Completed rigorous coursework and led discussions in Linear Algebra, Real Analysis, Proof writing and Number Theory.'
-    ],
-    links: [{ label: 'Certificate', url: '#' }],
-    badges: ['Mathematics', 'Proof Writing', 'Linear Algebra', 'Real Analysis', 'Number Theory']
-  },
-  {
-    id: 'exp_jk_8',
-    role: 'Teaching Assistant for MAT161: Applied Linear Algebra',
-    institution: 'Shiv Nadar University', 
-    logoSrc: '/images/SNU.png',
-    logoAlt: 'Shiv Nadar University Logo',
-    dataAiHint: 'university building',
-    supervisor: undefined, 
-    period: '2025',
-    description: [
-      'I provide video solutions to undergraduate students for important problems and quizzes, breaking down concepts intuitively.',
-      'I help students understand not just the solutions but also how to approach problems and develop mathematical intuition.'
-    ],
-    links: [],
-    badges: ['Teaching Assistant', 'Linear Algebra', 'Mathematics Education', 'Intuitive Learning']
   }
 ];
 
@@ -231,7 +198,7 @@ const cardVariants = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: {
-    delay: 0.1, 
+    delay: 0.1,
     duration: 0.5,
     ease: "easeInOut",
   },
@@ -247,18 +214,18 @@ const ExperiencePageContent = () => {
     setCurrentExperience(exp);
     setDialogOpen(true);
   };
-  
+
   const renderGrid = () => (
     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {experienceData.map((exp, index) => (
         <motion.div
           key={exp.id}
-          custom={index} 
+          custom={index}
           variants={cardVariants}
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true, amount: 0.2 }}
-          className="h-full flex flex-col" 
+          className="h-full flex flex-col"
         >
           {renderCard(exp)}
         </motion.div>
@@ -267,18 +234,18 @@ const ExperiencePageContent = () => {
   );
 
   const renderCard = (exp: ExperienceItem) => (
-      <div 
+      <div
         className="p-6 rounded-lg border border-border bg-card shadow-lg hover:shadow-primary/20 hover:border-primary transition-all duration-300 cursor-pointer flex-grow flex flex-col h-full"
         onClick={() => handleOpenDialog(exp)}
       >
         <div className="flex items-start space-x-4 mb-3">
           {exp.logoSrc && (
             <div className="flex-shrink-0 pt-1">
-              <Image 
-                src={exp.logoSrc} 
-                alt={exp.logoAlt || `${exp.institution} logo`} 
-                width={80} 
-                height={40} 
+              <Image
+                src={exp.logoSrc}
+                alt={exp.logoAlt || `${exp.institution} logo`}
+                width={80}
+                height={40}
                 className="rounded object-contain"
                 data-ai-hint={exp.dataAiHint}
               />
@@ -306,8 +273,8 @@ const ExperiencePageContent = () => {
           <CalendarDays size={15} className="mr-1.5 text-accent flex-shrink-0" />
           <span className="mr-1">Period:</span> {exp.period}
         </p>
-        <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow"> 
-          {exp.description[0]} 
+        <p className="text-sm text-foreground/90 line-clamp-3 mt-2 flex-grow">
+          {exp.description[0]}
         </p>
         <div className="flex flex-wrap gap-2 mt-3">
           {exp.badges.slice(0, 3).map(badge => (
@@ -324,7 +291,7 @@ const ExperiencePageContent = () => {
       <motion.header {...sectionAnimationProps} className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-headline mb-4">My Experience</h1>
       </motion.header>
-      
+
       {isMobile === undefined ? (
         <div className="text-center py-10">Loading...</div>
       ) : isMobile ? (
@@ -341,11 +308,11 @@ const ExperiencePageContent = () => {
               <div className="flex items-start space-x-4 mb-2">
                 {currentExperience.logoSrc && (
                   <div className="flex-shrink-0 pt-1">
-                    <Image 
-                      src={currentExperience.logoSrc} 
-                      alt={currentExperience.logoAlt || `${currentExperience.institution} logo`} 
-                      width={100} 
-                      height={50} 
+                    <Image
+                      src={currentExperience.logoSrc}
+                      alt={currentExperience.logoAlt || `${currentExperience.institution} logo`}
+                      width={100}
+                      height={50}
                       className="rounded object-contain"
                       data-ai-hint={currentExperience.dataAiHint}
                     />
@@ -376,7 +343,7 @@ const ExperiencePageContent = () => {
                  <span className="mr-1">Period:</span> {currentExperience.period}
               </p>
             </DialogHeader>
-            
+
             <ScrollArea className="max-h-[50vh] pr-4 my-4 text-sm">
               <ul className="list-disc list-outside pl-5 space-y-1.5 text-foreground/90">
                 {currentExperience.description.map((point, i) => <li key={i}>{point}</li>)}
