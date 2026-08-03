@@ -22,29 +22,45 @@ const AboutIntro = () => {
         <div className="p-8 md:p-12 text-center md:text-left w-full">
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">Jayin Khanna</h2>
 
-          <div className="space-y-4 text-lg text-foreground/90">
-            <p>
-              I am a graduate of Shiv Nadar Institution of Eminence (SNIoE), where I completed a
-              Bachelor of Science (Research) in Mathematics in May 2026, with a minor in CSE and
-              double specialisations in AI &amp; ML and Mathematical Finance. I am concurrently
-              pursuing an online BS in Data Science and Applications from IIT Madras.
-            </p>
+          <div className="space-y-6 text-lg text-foreground/90">
 
-            <p>
-              During my undergraduate years, I was awarded the <strong>Program Batch Topper distinction</strong> and
-              the <strong>2nd Prize for Best Thesis</strong> at SNIoE. I completed 176 credits from
-              SNIoE and 52 from IIT Madras — totalling <strong>228 credits across 4 years</strong>{' '}
-              (
-              <a
-                href="https://drive.google.com/file/d/1FCkHxOlw0dFiy0MQkJ5pmZrJQER-XM9r/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary font-medium hover:underline"
-              >
-                view full course list
-              </a>
-              ).
-            </p>
+            {/* Education & Honours block */}
+            <div className="space-y-4">
+
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-2">Education</p>
+                <ul className="space-y-2 text-base text-foreground/85">
+                  <li>
+                    <span className="font-medium">BSc (Research) in Mathematics</span> — SNIoE, May 2026
+                    <br />
+                    <span className="text-sm text-muted-foreground pl-4">Minor in CSE · Specialisations: AI &amp; ML · Mathematical Finance</span>
+                  </li>
+                  <li>
+                    <span className="font-medium">BS in Data Science &amp; Applications</span> — IIT Madras (ongoing)
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-2">Honours &amp; Credits</p>
+                <ul className="space-y-1.5 text-base text-foreground/85">
+                  <li>Program Batch Topper — SNIoE</li>
+                  <li>2nd Prize, Best Thesis — SNIoE</li>
+                  <li>
+                    238 credits across 4 years (176 SNIoE + 52 IIT Madras) —{' '}
+                    <a
+                      href="https://drive.google.com/file/d/1FCkHxOlw0dFiy0MQkJ5pmZrJQER-XM9r/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary font-medium hover:underline"
+                    >
+                      view course list
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
 
             <p>
               I have been working as an active researcher in AI and deep learning for the past 4
@@ -87,6 +103,7 @@ const AboutIntro = () => {
               </Link>
               .
             </p>
+
           </div>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border/40 pt-8">
@@ -142,6 +159,7 @@ const AboutIntro = () => {
               </Link>
             </Button>
           </div>
+
         </div>
       </div>
     </Card>
