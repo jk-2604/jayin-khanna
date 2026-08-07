@@ -103,10 +103,8 @@ const AboutIntro = () => {
             </p>
 
             <p>
-              I hold a BSc (Research) in Mathematics from Shiv Nadar Institution of Eminence
-              (Batch Topper, 2026), and I&apos;m concurrently completing an online BS in Data
-              Science from IIT Madras. I&apos;m looking for a long-term research project aimed
-              at publication at ICLR, ICML, NeurIPS, or TMLR.
+              I&apos;m looking for a long-term research project aimed at publication at ICLR,
+              ICML, NeurIPS, or TMLR.
             </p>
 
             <div>
@@ -210,6 +208,8 @@ const AboutIntro = () => {
             <div>
               <p className="mb-2">My prior research spans:</p>
               <ul className="list-disc pl-5 space-y-1.5 text-foreground/85">
+                <li>Generative models for Unsupervised TSM</li>
+                <li>Depth-Conditioned Video Generation using ControlNet &amp; AnimateDiff</li>
                 <li>Attribution/interpretability methods (IIT Kharagpur, Prof. Niloy Ganguly)</li>
                 <li>Developing ML models for sEMG at DRDO-INMAS</li>
                 <li>Statistical time-series modeling (UC Santa Cruz ISRP, Prof. Bruno Sansó)</li>
