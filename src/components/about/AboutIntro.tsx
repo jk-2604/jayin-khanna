@@ -107,7 +107,7 @@ const AboutIntro = () => {
               ICML, NeurIPS, or TMLR.
             </p>
 
-            <div>
+            <div className="border-t border-b border-border/40 py-6">
               <h3 className="text-xl font-headline text-primary mb-4">Current Research</h3>
               <div className="space-y-4">
                 <p>
