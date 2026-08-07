@@ -91,9 +91,14 @@ const AboutIntro = () => {
           <div className="mt-8 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
 
             <p>
-              I work on interpretability, alignment, and safety in generative models and LLMs —
-              with a mathematical bias toward understanding why methods work before scaling them.
-              My current focus is safety alignment in text-to-image/video diffusion and
+              I work on{' '}
+              <span className="text-primary font-medium">interpretability, alignment, and safety</span>{' '}
+              in{' '}
+              <span className="text-primary font-medium">generative models</span>{' '}
+              and{' '}
+              <span className="text-primary font-medium">LLMs</span>{' '}
+              — with a mathematical bias toward understanding why methods work before scaling
+              them. My current focus is safety alignment in text-to-image/video diffusion and
               trustworthiness repair in fine-tuned LLMs.
             </p>
 
@@ -111,30 +116,75 @@ const AboutIntro = () => {
                   <span className="font-medium text-foreground">
                     Safety-guided flow matching for T2I/T2V diffusion
                   </span>{' '}
-                  — AI Institute of South Carolina (Dr. Amit Sheth, Dr. Amitava Das). Developing
-                  a safety-potential-guided rectified flow-matching formulation in CLIP embedding
-                  space to reduce harmful generations, benchmarked on the DETONATE dataset against
-                  TRCE, CURE, SAEUron, and DoCo.
+                  —{' '}
+                  <a
+                    href="https://amit.aiisc.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    AI Institute of South Carolina
+                  </a>{' '}
+                  (
+                  <a
+                    href="https://amit.aiisc.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Dr. Amit Sheth
+                  </a>
+                  ,{' '}
+                  <a
+                    href="https://www.bits-pilani.ac.in/goa/amitava-das/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Dr. Amitava Das
+                  </a>
+                  ). Developing a safety-potential-guided rectified flow-matching formulation in
+                  CLIP embedding space to reduce harmful generations, benchmarked on the DETONATE
+                  dataset against TRCE, CURE, SAEUron, and DoCo.
                 </p>
                 <p>
                   <span className="font-medium text-foreground">
                     Post-hoc trustworthiness repair in LLMs
                   </span>{' '}
-                  — Deep Representation Learning Lab, IISc (Dr. Prathosh A. P.). Combining EK-FAC
-                  curvature estimation with targeted gradient ascent to mitigate bias, unethical
-                  outputs, and toxicity in fine-tuned models — a compute-efficient alternative to
-                  retraining or RLHF, evaluated across Qwen2 and Pythia with submodular subset
-                  selection for non-redundant repair signals.
+                  —{' '}
+                  <a
+                    href="https://prathosh.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Deep Representation Learning Lab, IISc
+                  </a>{' '}
+                  (
+                  <a
+                    href="https://prathosh.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Dr. Prathosh A. P.
+                  </a>
+                  ). Combining EK-FAC curvature estimation with targeted gradient ascent to
+                  mitigate bias, unethical outputs, and toxicity in fine-tuned models — a
+                  compute-efficient alternative to retraining or RLHF, evaluated across Qwen2 and
+                  Pythia with submodular subset selection for non-redundant repair signals.
                 </p>
               </div>
             </div>
 
             <p>
-              My undergraduate thesis on generative models for unsupervised speech time-scale
-              modification, under the joint supervision of Prof. Prasanta Kumar Ghosh (SPIRE Lab,
-              IISc) and Prof. Niteesh Sahni (SNIoE), won 2nd Prize for Best UG Thesis. I document
-              this work as detailed technical notes rather than leaving it in notebooks, posted on
-              my{' '}
+              My undergraduate thesis on{' '}
+              <Link href="/articles/thesis-poster/" className="text-primary font-medium hover:underline">
+                generative models for unsupervised speech time-scale modification
+              </Link>
+              , under the joint supervision of Prof. Prasanta Kumar Ghosh (SPIRE Lab, IISc) and
+              Prof. Niteesh Sahni (SNIoE), won 2nd Prize for Best UG Thesis. I document this work
+              as detailed technical notes rather than leaving it in notebooks, posted on my{' '}
               <Link href="/articles" className="text-primary font-medium hover:underline">
                 Research page
               </Link>{' '}
@@ -157,12 +207,15 @@ const AboutIntro = () => {
               ).
             </p>
 
-            <p>
-              My prior research spans attribution/interpretability methods (IIT Kharagpur, Prof.
-              Niloy Ganguly), developing ML models for sEMG at DRDO-INMAS, and statistical
-              time-series modeling (UC Santa Cruz ISRP, Prof. Bruno Sansó). I also keep attending
-              summer research programs: MTTS 2024 and Polymath Jr. 2024, 2025.
-            </p>
+            <div>
+              <p className="mb-2">My prior research spans:</p>
+              <ul className="list-disc pl-5 space-y-1.5 text-foreground/85">
+                <li>Attribution/interpretability methods (IIT Kharagpur, Prof. Niloy Ganguly)</li>
+                <li>Developing ML models for sEMG at DRDO-INMAS</li>
+                <li>Statistical time-series modeling (UC Santa Cruz ISRP, Prof. Bruno Sansó)</li>
+                <li>Summer research programs: MTTS 2024 and Polymath Jr. 2024, 2025</li>
+              </ul>
+            </div>
 
             <p>
               I love doing research! Check out{' '}
