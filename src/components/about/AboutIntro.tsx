@@ -91,16 +91,54 @@ const AboutIntro = () => {
           <div className="mt-8 space-y-6 text-lg text-foreground/90 border-t border-border/40 pt-8">
 
             <p>
-              I regularly document everything I learn through detailed LaTeX notes and Notion
-              write-ups, posted on{' '}
+              I work on interpretability, alignment, and safety in generative models and LLMs —
+              with a mathematical bias toward understanding why methods work before scaling them.
+              My current focus is safety alignment in text-to-image/video diffusion and
+              trustworthiness repair in fine-tuned LLMs.
+            </p>
+
+            <p>
+              I hold a BSc (Research) in Mathematics from Shiv Nadar Institution of Eminence
+              (Batch Topper, 2026), and I&apos;m concurrently completing an online BS in Data
+              Science from IIT Madras. I&apos;m looking for a long-term research project aimed
+              at publication at ICLR, ICML, NeurIPS, or TMLR.
+            </p>
+
+            <div>
+              <h3 className="text-xl font-headline text-primary mb-4">Current Research</h3>
+              <div className="space-y-4">
+                <p>
+                  <span className="font-medium text-foreground">
+                    Safety-guided flow matching for T2I/T2V diffusion
+                  </span>{' '}
+                  — AI Institute of South Carolina (Dr. Amit Sheth, Dr. Amitava Das). Developing
+                  a safety-potential-guided rectified flow-matching formulation in CLIP embedding
+                  space to reduce harmful generations, benchmarked on the DETONATE dataset against
+                  TRCE, CURE, SAEUron, and DoCo.
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">
+                    Post-hoc trustworthiness repair in LLMs
+                  </span>{' '}
+                  — Deep Representation Learning Lab, IISc (Dr. Prathosh A. P.). Combining EK-FAC
+                  curvature estimation with targeted gradient ascent to mitigate bias, unethical
+                  outputs, and toxicity in fine-tuned models — a compute-efficient alternative to
+                  retraining or RLHF, evaluated across Qwen2 and Pythia with submodular subset
+                  selection for non-redundant repair signals.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              My undergraduate thesis on generative models for unsupervised speech time-scale
+              modification, under the joint supervision of Prof. Prasanta Kumar Ghosh (SPIRE Lab,
+              IISc) and Prof. Niteesh Sahni (SNIoE), won 2nd Prize for Best UG Thesis. I document
+              this work as detailed technical notes rather than leaving it in notebooks, posted on
+              my{' '}
               <Link href="/articles" className="text-primary font-medium hover:underline">
-                My Research Page
-              </Link>
-              . Check out my{' '}
-              <Link href="/articles/thesis-poster/" className="text-primary font-medium hover:underline">
-                Thesis Poster
+                Research page
               </Link>{' '}
-              and latest notes on{' '}
+              (
               <Link href="/articles/ddpm-notes/" className="text-primary font-medium hover:underline">
                 DDPMs
               </Link>
@@ -112,16 +150,18 @@ const AboutIntro = () => {
               <Link href="/articles/generative-models-overview/" className="text-primary font-medium hover:underline">
                 GANs
               </Link>
-              , and{' '}
+              ,{' '}
               <Link href="/articles/contrastive-learning-simclr-ijepa/" className="text-primary font-medium hover:underline">
-                Contrastive Learning
+                contrastive learning
               </Link>
-              .
+              ).
             </p>
 
             <p>
-              I am actively looking to work on a long-term research project with the aim of
-              publishing at a top venue — ICLR, ICML, NeurIPS, or TMLR.
+              My prior research spans attribution/interpretability methods (IIT Kharagpur, Prof.
+              Niloy Ganguly), developing ML models for sEMG at DRDO-INMAS, and statistical
+              time-series modeling (UC Santa Cruz ISRP, Prof. Bruno Sansó). I also keep attending
+              summer research programs: MTTS 2024 and Polymath Jr. 2024, 2025.
             </p>
 
             <p>
