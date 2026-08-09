@@ -109,69 +109,73 @@ const AboutIntro = () => {
 
             <div className="border-t border-b border-border/40 py-6">
               <h3 className="text-xl font-headline text-primary mb-4">Current Research</h3>
-              <div className="space-y-4">
-                <p>
-                  <span className="font-medium text-foreground">
-                    Safety-guided flow matching for T2I/T2V diffusion
-                  </span>{' '}
-                  —{' '}
-                  <a
-                    href="https://amit.aiisc.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    AI Institute of South Carolina
-                  </a>{' '}
-                  (
-                  <a
-                    href="https://amit.aiisc.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Dr. Amit Sheth
-                  </a>
-                  ,{' '}
-                  <a
-                    href="https://www.bits-pilani.ac.in/goa/amitava-das/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Dr. Amitava Das
-                  </a>
-                  ). Developing a safety-potential-guided rectified flow-matching formulation in
-                  CLIP embedding space to reduce harmful generations, benchmarked on the DETONATE
-                  dataset against TRCE, CURE, SAEUron, and DoCo.
-                </p>
-                <p>
-                  <span className="font-medium text-foreground">
-                    Post-hoc trustworthiness repair in LLMs
-                  </span>{' '}
-                  —{' '}
-                  <a
-                    href="https://prathosh.in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Deep Representation Learning Lab, IISc
-                  </a>{' '}
-                  (
-                  <a
-                    href="https://prathosh.in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Dr. Prathosh A. P.
-                  </a>
-                  ). Combining EK-FAC curvature estimation with targeted gradient ascent to
-                  mitigate bias, unethical outputs, and toxicity in fine-tuned models — a
-                  compute-efficient alternative to retraining or RLHF, evaluated across Qwen2 and
-                  Pythia with submodular subset selection for non-redundant repair signals.
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="border border-primary/40 rounded-xl p-5">
+                  <p className="text-sm text-foreground/85">
+                    <span className="font-medium text-foreground">
+                      Safety-guided flow matching for T2I/T2V diffusion
+                    </span>{' '}
+                    —{' '}
+                    <a
+                      href="https://amit.aiisc.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      AI Institute of South Carolina
+                    </a>{' '}
+                    (
+                    <a
+                      href="https://amit.aiisc.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Dr. Amit Sheth
+                    </a>
+                    ,{' '}
+                    <a
+                      href="https://www.bits-pilani.ac.in/goa/amitava-das/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Dr. Amitava Das
+                    </a>
+                    ). Developing a safety-potential-guided rectified flow-matching formulation in
+                    CLIP embedding space to reduce harmful generations, benchmarked on the DETONATE
+                    dataset against TRCE, CURE, SAEUron, and DoCo.
+                  </p>
+                </div>
+                <div className="border border-primary/40 rounded-xl p-5">
+                  <p className="text-sm text-foreground/85">
+                    <span className="font-medium text-foreground">
+                      Post-hoc trustworthiness repair in LLMs
+                    </span>{' '}
+                    —{' '}
+                    <a
+                      href="https://prathosh.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Deep Representation Learning Lab, IISc
+                    </a>{' '}
+                    (
+                    <a
+                      href="https://prathosh.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Dr. Prathosh A. P.
+                    </a>
+                    ). Combining EK-FAC curvature estimation with targeted gradient ascent to
+                    mitigate bias, unethical outputs, and toxicity in fine-tuned models — a
+                    compute-efficient alternative to retraining or RLHF, evaluated across Qwen2 and
+                    Pythia with submodular subset selection for non-redundant repair signals.
+                  </p>
+                </div>
               </div>
             </div>
 
