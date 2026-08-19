@@ -19,6 +19,14 @@ interface ArticleContent {
 
 const allArticlesContent: ArticleContent[] = [
   {
+    slug: 'theory-of-llms-notes',
+    title: 'Theory of LLMs — Notion Notes',
+    pageTitle: 'Theory of LLMs — Notion Notes',
+    metadataLine: 'By Jayin Khanna | Research Notes',
+    pdfSrc: '/reports/theory-of-llms-notes.pdf',
+    fullWriteUp: `<p>Detailed notes on the paper <em>Efficient and Minimax Optimal In-context Nonparametric Regression with Transformers</em> — covering the problem statement, pretraining setup, transformer architecture, the main theorem (Theorem 3.2), and the full proof decomposition through Lemmas B.2–B.10.</p>`,
+  },
+  {
     slug: 'flow-matching-lecture',
     title: 'Lecture on Flow Matching',
     pageTitle: 'Lecture on Flow Matching',
