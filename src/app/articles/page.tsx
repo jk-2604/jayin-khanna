@@ -21,6 +21,7 @@ const resourceTitles: Record<string, string> = {
   'sequential-models-rnns-overview': 'Sequential Models: RNNs Overview',
   'neural-networks-fundamentals': 'Neural Networks: Foundations and Architectures',
   'explainable-ai': 'Explainable AI: Attribution Techniques',
+  'theory-of-llms-notes': 'Theory of LLMs — Notion Notes',
 };
 
 const tracks = [
@@ -85,6 +86,7 @@ const tracks = [
     description: 'Developing attribution techniques (Integrated Gradients, Manifold IG, Guided IG) towards neural network interpretability, extending to sequential models and LLMs.',
     resources: [
       'explainable-ai',
+      'theory-of-llms-notes',
     ],
   },
 ];
