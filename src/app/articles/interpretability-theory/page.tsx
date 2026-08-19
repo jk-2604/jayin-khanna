@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 const resources = [
   { slug: 'explainable-ai', title: 'Explainable AI: Attribution Techniques' },
+  { slug: 'theory-of-llms-notes', title: 'Theory of LLMs — Notion Notes' },
 ];
 
 const sectionAnimationProps = {
